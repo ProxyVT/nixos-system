@@ -12,35 +12,37 @@
    
 
   # Use the systemd-boot EFI boot loader.
-  boot.kernelPackages = pkgs.linuxPackages_5_15;
+  boot.kernelPackages = pkgs.linuxPackages_5_17;
   boot.supportedFilesystems = [ "ntfs" ];
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
+  boot.loader.efi.efiSysMountPoint = "/boot";
   boot.loader.timeout = 10;
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2; 
   boot.loader.grub.device = "nodev";
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.useOSProber = true;
-  boot.loader.grub.default = 2;
-  boot.loader.grub.configurationLimit = 100;
-  boot.loader.grub.splashImage = "/boot/efi/cat.png";
+  boot.loader.grub.default = 0;
+  boot.loader.grub.configurationLimit = 50;
+  boot.loader.grub.splashImage = "/boot/sky1.png";
   
   
 
-  networking.hostName = "ulad"; # Define your hostname.
-  networking.wireless.enable = false;  # Enables wireless support via wpa_supplicant.
+  networking.hostName = "powehi"; # Define your hostname.
+#	networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   
 
   # Set your time zone.
-  time.timeZone = "Europe/Istanbul";
-  time.hardwareClockInLocalTime = true;
+  time = {
+	timeZone = "Europe/Istanbul";
+	hardwareClockInLocalTime = true;
+  };
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   networking.useDHCP = false;
-  networking.interfaces.enp2s0.useDHCP = true;
+  networking.interfaces.enp5s0.useDHCP = true;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -56,18 +58,15 @@
   # Enable the X11 windowing system and Pantheon Desktop Environment.
   services.xserver.enable = true;
   services.xserver.desktopManager.pantheon.enable = true;
-  services.xserver.videoDrivers = [ "nvidia" ];
-  hardware = {
-	nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_470;
-	steam-hardware.enable = true;
-  };
+  services.xserver.exportConfiguration = true;
+ 
 
   # Configure keymap in X11
   services.xserver.layout = "us";
-  # services.xserver.xkbOptions = "eurosign:e";
+# services.xserver.xkbOptions = "eurosign:e";
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+#  services.printing.enable = true;
 
   # Enable sound.
   sound.enable = true;
@@ -79,10 +78,10 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   
-  users.users.amerigo = {
+  users.users.alvaro = {
 	isNormalUser  = true;
-	home  = "/home/amerigo";
-	description  = "Amerigo";
+	home  = "/home/alvaro";
+	description  = "Alvaro";
 	extraGroups  = [ "wheel" "networkmanager" "adbusers" ];
   };
 
@@ -90,13 +89,11 @@
   # $ nix search wget
   
   programs = {
-    adb.enable = true;
-    gnome-disks.enable = true;
-    pantheon-tweaks.enable = true;
-    partition-manager.enable = true;
-    steam.enable = true;
-    java.enable = true;
-    git.enable = true;
+   gnome-disks.enable = true;
+	pantheon-tweaks.enable = true;
+	partition-manager.enable = true;
+	steam.enable = true;
+	java.enable = true;
   };
   
   nixpkgs.config = {
@@ -108,39 +105,44 @@
 	};
   };
   
-   
   environment.systemPackages = with pkgs; [
-  
+
 	appimage-run
 	baobab
 	clamav
 	deluge
 	eclipses.eclipse-java
 	far2l
+	geany
 	github-desktop
+	gammy
 	gcolor2
 	goverlay
 	gpick
 	guake
 	hddtemp
 	htop
-#	index-fm
+	hwinfo
+	jdk8
 	keeweb
 	libreoffice-fresh
-	lite-xl
 	lm_sensors
+	mangohud
+	minecraft
 	monitor
+	mousetweaks
 	mullvad-vpn
 	neofetch
-	nnn
 	pavucontrol
 	pantheon.elementary-files
 	pantheon.elementary-screenshot
+	python39Packages.secretstorage
 	qdirstat
 	qimgv
 	qrcp
 	s-tui
 	testdisk-qt
+	tilix
 	ventoy-bin
 	vlc
 	wget
@@ -153,11 +155,9 @@
 	unstable.vivaldi
 	unstable.handbrake
 	unstable.tdesktop
-	unstable.mpv-unwrapped
-	unstable.wine-staging
-	unstable.vscodium-fhs
-	
-    
+	unstable.mpv
+	unstable.olive-editor
+	unstable.cudatext-gtk
   ];
   
   fonts.fonts = with pkgs; [
@@ -168,13 +168,19 @@
   
   services = {
 	deluge.enable = true;
-	pantheon.apps.enable = false;
 	mullvad-vpn.enable = true;
+	pantheon.apps.enable = false;
 	aria2.enable = true;
-	clamav = {
+    clamav = {
       daemon.enable = true;
       updater.enable = true;
     };
+  };
+  
+  hardware = {
+	opengl.enable = true;
+	opengl.driSupport = true;
+	opengl.driSupport32Bit= true;	
   }; 
   
   
@@ -185,12 +191,6 @@
     enable = true;
     enableSSHSupport = true;
   };
-  
-  hardware = {
-	opengl.enable = true;
-	opengl.driSupport = true;
-	opengl.driSupport32Bit = true;
-  }; 
 
   # List services that you want to enable:
 
