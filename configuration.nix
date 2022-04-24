@@ -12,7 +12,7 @@
    
 
   # Use the systemd-boot EFI boot loader.
-  boot.kernelPackages = pkgs.linuxPackages_5_17;
+  boot.kernelPackages = pkgs.linuxPackages_5_15;
   boot.supportedFilesystems = [ "ntfs" ];
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot";
@@ -22,14 +22,12 @@
   boot.loader.grub.device = "nodev";
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.useOSProber = true;
-  boot.loader.grub.default = 0;
+  boot.loader.grub.default = 2;
   boot.loader.grub.configurationLimit = 50;
-  boot.loader.grub.splashImage = "/boot/sky1.png";
-  
-  
+  boot.tmpOnTmpfs = true;
 
   networking.hostName = "powehi"; # Define your hostname.
-#	networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   
 
   # Set your time zone.
@@ -62,7 +60,7 @@
  
 
   # Configure keymap in X11
-  services.xserver.layout = "us";
+  services.xserver.layout = "us, ru";
 # services.xserver.xkbOptions = "eurosign:e";
 
   # Enable CUPS to print documents.
@@ -89,11 +87,13 @@
   # $ nix search wget
   
   programs = {
-   gnome-disks.enable = true;
-	pantheon-tweaks.enable = true;
-	partition-manager.enable = true;
-	steam.enable = true;
-	java.enable = true;
+  	adb.enable = true;
+    	gnome-disks.enable = true;
+    	pantheon-tweaks.enable = true;
+    	partition-manager.enable = true;
+    	steam.enable = true;
+    	java.enable = true;
+    	git.enable = true;
   };
   
   nixpkgs.config = {
@@ -210,6 +210,81 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "21.11"; # Did you read the comment?
+  
+  # -----Windows 7 Specific Settings-----
 
+ boot.loader.grub.splashImage = "/boot/efi/cat.png";
+ 
+ users.users.amerigo = {
+	isNormalUser  = true;
+	home  = "/home/amerigo";
+	description  = "Amerigo";
+	extraGroups  = [ "wheel" "networkmanager" "adbusers" ];
+  };
+  
+    environment.systemPackages = with pkgs; [
+  
+	appimage-run
+	baobab
+	clamav
+	deluge
+	eclipses.eclipse-java
+	far2l
+	github-desktop
+	goverlay
+	gpick
+	guake
+	hddtemp
+	htop
+	keeweb
+	libreoffice-fresh
+	lm_sensors
+	monitor
+	mullvad-vpn
+	neofetch
+	pavucontrol
+	pantheon.elementary-screenshot
+	pantheon.epiphany
+	qdirstat
+	qimgv
+	qrcp
+	s-tui
+	spaceFM
+	testdisk-qt
+	vlc
+	xclip
+	wget
+    
+	unstable.scrcpy
+	unstable.yt-dlp
+	unstable.pinta
+	unstable.krita
+	unstable.mkvtoolnix
+	unstable.vivaldi
+	unstable.handbrake
+	unstable.tdesktop
+	unstable.mpv-unwrapped
+	unstable.wine-staging
+	unstable.cudatext-gtk
+	unstable.ventoy-bin
+  ];
+  
+  fonts.fonts = with pkgs; [
+	comic-relief
+	ibm-plex
+	jost
+  ];
+  
+  services = {
+	deluge.enable = true;
+	pantheon.apps.enable = false;
+	mullvad-vpn.enable = true;
+	aria2.enable = true;
+	clamav = {
+      daemon.enable = true;
+      updater.enable = true;
+    };
+  }; 
+ 
 }
 
