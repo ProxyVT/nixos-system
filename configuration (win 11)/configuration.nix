@@ -9,28 +9,40 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
+   
 
   # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.systemd-boot.configurationLimit = 10;
-  boot.loader.timeout = 10;
-  boot.plymouth.enable = true;
+  boot.kernelPackages = pkgs.linuxPackages_5_15;
+  boot.supportedFilesystems = [ "ntfs" ];
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.supportedFilesystems = [ "btrfs" "ntfs" "ext4" "exfat" ];
+  boot.loader.efi.efiSysMountPoint = "/boot";
+  boot.loader.timeout = 10;
+  boot.loader.grub.enable = true;
+  boot.loader.grub.version = 2; 
+  boot.loader.grub.device = "nodev";
+  boot.loader.grub.efiSupport = true;
+  boot.loader.grub.useOSProber = true;
+  boot.loader.grub.default = 0;
+  boot.loader.grub.configurationLimit = 50;
+  boot.loader.grub.splashImage = "/home/alvaro/Pictures/wallhaven-9mgj7w.jpg";
+  boot.tmpOnTmpfs = true;
+
+  
   
 
   networking.hostName = "powehi"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+#	networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   
 
   # Set your time zone.
-  time.timeZone = "Europe/Minsk";
-  time.hardwareClockInLocalTime = true;
+  time = {
+	timeZone = "Europe/Istanbul";
+	hardwareClockInLocalTime = true;
+  };
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
-  networking.useDHCP = false;
   networking.interfaces.enp5s0.useDHCP = true;
 
   # Configure network proxy if necessary
@@ -47,102 +59,142 @@
   # Enable the X11 windowing system and Pantheon Desktop Environment.
   services.xserver.enable = true;
   services.xserver.desktopManager.pantheon.enable = true;
-  services.xserver.windowManager.i3.enable = false;
-  services.xserver.displayManager.defaultSession = "pantheon";
+  services.xserver.exportConfiguration = true;
+ 
 
   # Configure keymap in X11
-  services.xserver.layout = "us";
-  # services.xserver.xkbOptions = "eurosign:e";
+  services.xserver.layout = "us,ru";
+# services.xserver.xkbOptions = "eurosign:e";
 
   # Enable CUPS to print documents.
-  services.printing.enable = false;
+#  services.printing.enable = true;
 
   # Enable sound.
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
+  #sound.enable = true;
+   services.pipewire = {
+    enable = true;
+    alsa = {
+      enable = true;
+      support32Bit = true;
+    };
+    pulse.enable = true;
+  };
+  hardware.pulseaudio.enable = false;
+  security.rtkit.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.powehi = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+  
+  users.users.alvaro = {
+	isNormalUser  = true;
+	home  = "/home/alvaro";
+	description  = "Alvaro";
+	extraGroups  = [ "wheel" "networkmanager" "adbusers" ];
   };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
+  
+  programs = {
+  	dconf.enable = true;
+   	gnome-disks.enable = true;
+	pantheon-tweaks.enable = true;
+	partition-manager.enable = true;
+	steam.enable = true;
+	java.enable = true;
+  };
+  
+  nixpkgs.config = {
+	allowUnfree = true;
+	#pulseaudio = true;
+	packageOverrides = pkgs: {
+    unstable = import <nixpkgs-unstable> {
+	  config = config.nixpkgs.config;
+	  };
+	};
+  };
+  
   environment.systemPackages = with pkgs; [
 
-	# System apps
-    vim
-    wget
-    neofetch
-    monitor
-    geany
-    nnn
-    far2l
-    appimage-run
-    gparted
-    pantheon.sideload
-    papirus-icon-theme
-    lite-xl
-    testdisk
-    baobab
-    hwinfo
+	appimage-run
+	baobab
+	clamav
+	deluge
+	easyeffects
+	eclipses.eclipse-java
+	far2l
+	geany
+	github-desktop
+	gammy
+	gcolor2
+	gimp
+	goverlay
+	gpick
+	guake
+	gzip
+	hddtemp
+	htop
+	hwinfo
+	keeweb
+	libreoffice-fresh
+	lm_sensors
+	lxappearance
+	lxqt.pcmanfm-qt 
+	mangohud
+	minecraft
+	monitor
+	mousetweaks
+	mucommander
+	mullvad-vpn
+	neofetch
+	ntfs3g
+	olive-editor
+	pavucontrol
+	pantheon.elementary-files
+	pantheon.elementary-screenshot
+	pantheon.epiphany
+	pantheon.file-roller
+	python39Packages.secretstorage
+	#redshift
+	qdirstat
+	qimgv
+	qrcp
+	s-tui
+	testdisk-qt
+	ventoy-bin
+	vlc
+	wget
+	xclip
     
-    # Security
-    tor
-    keeweb
-    clamav
-    
-    # Work   
-    eclipses.eclipse-java
-    libreoffice-fresh
-    github-desktop
-    
-    # Games
-    razergenie
-    
-    # Internet
-    vivaldi
-    tdesktop
-    # tor-browser-bundle-bin
-    transmission-gtk
-    
-    # Media
-    mpv-unwrapped
-    yt-dlp
-    krita
-    pinta
-    qimgv
-    mkvtoolnix
-    handbrake
-    scrcpy
-    
+	unstable.scrcpy
+	unstable.yt-dlp
+	unstable.pinta
+	unstable.krita
+	unstable.mkvtoolnix
+	unstable.vivaldi
+	unstable.handbrake
+	unstable.tdesktop
+	unstable.mpv
+	unstable.cudatext-gtk
+	unstable.wireshark
   ];
   
-  nixpkgs.config.allowUnfree = true;
-  programs.steam.enable = true;
-  programs.pantheon-tweaks.enable = true;
-  programs.partition-manager.enable = true;
-  programs.gnome-disks.enable = true;
-  hardware.opengl.driSupport32Bit = true;
-  hardware.openrazer.enable = true;
-  hardware.openrazer.users = [ "wheel" ];
+  fonts.fonts = with pkgs; [
+	comic-relief
+	ibm-plex
+	jost
+  ];
   
-  qt5 = {
-    enable = true;
-    platformTheme = "gnome";
-  };
+  hardware = {
+	opengl.enable = true;
+	opengl.driSupport = true;
+	opengl.driSupport32Bit= true;
+	acpilight.enable = true;	
+  }; 
   
-  services = {
-    clamav = {
-      daemon.enable = true;
-      updater.enable = true;
-    };
-  };
-
+  
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   programs.mtr.enable = true;
@@ -152,6 +204,33 @@
   };
 
   # List services that you want to enable:
+  location.provider = "geoclue2";
+  
+   services = {
+   	deluge.enable = true;
+	mullvad-vpn.enable = true;
+	pantheon.apps.enable = false;
+	aria2.enable = true;
+	
+	#redshift = {
+		#enable = true;
+    	#brightness = {
+      	#day = "0.9";
+      	#night = "0.9";
+    	#};
+    	#
+    	#temperature = {
+     	#day = 5500;
+      	#night = 3700;
+    	#};
+  	#};
+
+  };
+  
+  
+  # GTK Style 
+  gtk.iconCache.enable = true;
+  
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
