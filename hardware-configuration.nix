@@ -12,19 +12,25 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
-
-  fileSystems."/" =
-    { device = "/dev/disk/by-label/nixos";
+  
+ fileSystems."/" =
+    { device = "/dev/disk/by-uuid/";
       fsType = "btrfs";
+      options = [ "noatime" "compress-force=zstd" ];
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-label/BOOT";
+    { device = "/dev/disk/by-uuid/";
       fsType = "vfat";
     };
 
- swapDevices =
-    [ { device = "/dev/disk/by-label/swap"; }
+  fileSystems."/home" =
+    { device = "/dev/disk/by-uuid/";
+      fsType = "ext4";
+    };
+
+  swapDevices =
+    [ { device = "/dev/disk/by-uuid/"; }
     ];
 
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
