@@ -49,17 +49,12 @@
 
   	time = {
   		timeZone = "Europe/Istanbul";
-  		hardwareClockInLocalTime = true;
+  		#hardwareClockInLocalTime = true;
   	};
 
 # Select internationalisation properties.
   
-	i18n = {
-		defaultLocale = "en_AT.UTF-8";
-		extraLocaleSettings = {
-			LC_TIME = "en_AT.UTF-8";	
-		}; 
-	};
+	i18n.defaultLocale = "en_AT.UTF-8"; 
 	console = {
 		font = "Lat2-Terminus16";
 		keyMap = "us";
