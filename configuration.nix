@@ -5,9 +5,11 @@
 	{ config, pkgs, ... }:
 	
 	let
-  		unstableTarball =
-    		fetchTarball
-    			https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz;
+  		unstable = import <unstable> { config =
+  		 	{ 
+  		 		allowUnfree = true; 
+  		 	}; 
+  		};
 	in
 
 	{
@@ -16,44 +18,31 @@
 		./hardware-configuration.nix
 	];
    
-
 # System boot section
   
 	boot = {
 	
 		# Linux kernel version
 		kernelPackages = pkgs.linuxPackages_5_15;
+		#kernelPackages.extend = pkgs.linuxKernel.kernels.linux_xanmod;
 		 
 		# Supported file systems
 	  	supportedFilesystems = [ "ntfs" ];
 	  	
-	  	# Tmp path
-	  	tmpOnTmpfs = true;
-	  	
+	  	# Systemd-boot loader config
   		loader = {
+	  		timeout = 5;
+	  		systemd-boot.enable = true;
 	  		efi.canTouchEfiVariables = true;
-	  		efi.efiSysMountPoint = "/boot/efi";
-	  		timeout = 10;
-  		 
-	  		grub = {
-	  			enable = true;
-	  			version = 2; 
-	  			device = "nodev";
-	  			efiSupport = true;
-	  			useOSProber = true;
-	  			default = 2;
-	  			configurationLimit = 50;
-	  			splashImage = "/boot/efi/cat.png";
-	  		};	
 	  	};
 	};
 
 # Define your hostname.
 
 	networking = {
-		hostName = "ulad";
+		hostName = "nixos";
 		interfaces.enp2s0.useDHCP = true;
-		#wireless.enable = true; 
+		wireless.enable = false; 
 	};
 
 # Set your time zone.
@@ -65,7 +54,12 @@
 
 # Select internationalisation properties.
   
-	i18n.defaultLocale = "en_US.UTF-8";
+	i18n = {
+		defaultLocale = "en_AT.UTF-8";
+		extraLocaleSettings = {
+			LC_TIME = "en_AT.UTF-8";	
+		}; 
+	};
 	console = {
 		font = "Lat2-Terminus16";
 		keyMap = "us";
@@ -77,10 +71,20 @@
 		# Environment configuration	  
 		xserver = {
 	  		enable = true;
-	  		desktopManager.pantheon.enable = true;
+	  		desktopManager.plasma5 = {
+	  			enable = true;
+	  			supportDDC = true;
+	  		};
+	  		displayManager.sddm = {
+        		enable = true;
+        		autoNumlock = true;
+      		};
 	  		videoDrivers = [ "nvidia" ];
 	  		layout = "us,ru";
-	  		libinput.enable = true; # Touchpad support
+	  		xkbOptions = "grp:win_space_toggle";
+	  		
+	  		# Touchpad support
+	  		libinput.enable = true;
 	  	};
 	  	
 	  	# Sound services configuration
@@ -98,15 +102,18 @@
 	  	
 	  	# Programms services
 		deluge.enable = true;
-		pantheon.apps.enable = false;
 		mullvad-vpn.enable = true;
 		aria2.enable = true;
+		
+		# Flatpak support
+		flatpak.enable = false;
 		
 		# Enable the OpenSSH daemon.
 		openssh.enable = true;
 		
 		#BTRFS autoScrub
-		btrfs.autoScrub.enable = true;  	
+		btrfs.autoScrub.enable = true;
+			
 	};
 	
 # Global hardware configuration
@@ -115,13 +122,14 @@
 		# Nvidia package
 		nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_470;
 		
-		# Steam + Opengl
-		steam-hardware.enable = true;
-		opengl.enable = true;
-		opengl.driSupport = true;
-		opengl.driSupport32Bit = true;
+		# Opengl & Vulkan support
+		opengl = {
+			enable = true;
+			driSupport = true;
+			driSupport32Bit = true;	
+		};
 		
-		# Pulseaudio hardware acces
+		# Pulseaudio hardware access
 		pulseaudio.enable = false;	
 	};
 
@@ -131,12 +139,20 @@
 
 # Define a user account. Don't forget to set a password with ‘passwd’.
   
-	users.users.amerigo = {
+	users = {
+		# Declarative configuration for users
+		mutableUsers = false;
+		
+		# Current user
+		users.ulad = {
 		isNormalUser  = true;
-		home  = "/home/amerigo";
-		description  = "Amerigo";
-		extraGroups  = [ "wheel" "adbusers" ];
-  	};
+		home  = "/home";
+		description  = "Ulad";
+		extraGroups  = [ "wheel" "adbusers" "networkmanager" "video" "audio"];
+		password = " ";
+  		};	
+	};
+		
 
 # List packages installed in system profile. To search, run:
 # $ nix search wget
@@ -144,92 +160,102 @@
 	programs = {
     	adb.enable = true;
     	gnome-disks.enable = true;
-    	pantheon-tweaks.enable = true;
-    	partition-manager.enable = true;
-    	steam.enable = true;
     	git.enable = true;
+    	java.enable = true;
+    	steam.enable = true;
   	};
   
 	nixpkgs.config = {
 		allowUnfree = true;
 		packageOverrides = pkgs: {
-			unstable = import unstableTarball {
+			unstable = import unstable {
 			config = config.nixpkgs.config;
 			};
 		};  
 	};
 	
 	nix.autoOptimiseStore = true;
-	nix.readOnlyStore = false;
   
    
-  environment.systemPackages = with pkgs; [
+  	environment.systemPackages = with pkgs; [
   
-  # Stable apps
+  		# Stable apps
   
-	appimage-run
-	baobab
-	compsize
-	deluge
-	easyeffects
-	eclipses.eclipse-java
-	far2l
-	github-desktop
-	goverlay
-	gpick
-	guake
-	hddtemp
-	hdparm
-	htop
-	keeweb
-	krita
-	libreoffice-fresh
-	lm_sensors
-	lxqt.pcmanfm-qt
-	monitor
-	mullvad-vpn
-	neofetch
-	pavucontrol
-	pantheon.elementary-files
-	pantheon.elementary-screenshot
-	pantheon.epiphany
-	pantheon.file-roller
-	qimgv
-	qrcp
-	s-tui
-	testdisk-qt
-	xclip
-	wget
+		appimage-run
+		audacity
+		baobab
+		bastet
+		bpytop
+		compsize
+		deluge
+		easyeffects
+		eclipses.eclipse-java
+		far2l
+		github-desktop
+		goverlay
+		glances
+		gparted
+		gpick
+		handbrake
+		htop
+		keeweb
+		kitty
+		libreoffice-fresh
+		lm_sensors
+		mpv-unwrapped
+		mullvad-vpn
+		neofetch
+		pavucontrol
+		pinta
+		playonlinux
+		psensor
+		pulsemixer
+		qimgv
+		qrcp
+		s-tui
+		tdesktop
+		testdisk-qt
+		xclip
+		xournalpp
+		xsensors
+		wine-staging
+		wget2
     
-    # Unstable apps
+    	# Unstable apps
     
-	unstable.scrcpy
-	unstable.yt-dlp
-	unstable.pinta
-	unstable.mkvtoolnix
-	unstable.vivaldi
-	unstable.handbrake
-	unstable.tdesktop
-	unstable.mpv-unwrapped
-	unstable.wine-staging
-	unstable.cudatext-gtk
-	unstable.ventoy-bin
-  ];
+		unstable.scrcpy
+		unstable.yt-dlp
+		unstable.mkvtoolnix
+		unstable.vivaldi
+		unstable.cudatext-gtk
+		unstable.ventoy-bin
+		unstable.krita
+		unstable.libsForQt5.kdenlive
+		
+		# Plasma tilling
+		libsForQt5.krohnkite
+		libsForQt5.bismuth
+		
+		#Kernel xanmod patch
+		linuxKernel.kernels.linux_xanmod
+  	];
   
-  fonts.fonts = with pkgs; [
-	comic-relief
-	ibm-plex
-	jost
-  ];
+  	fonts.fonts = with pkgs; [
+		inter
+		open-sans
+		roboto
+		roboto-mono
+		roboto-slab
+  	];
   
   
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
-  programs.mtr.enable = true;
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-  };
+  	programs.mtr.enable = true;
+  	programs.gnupg.agent = {
+    	enable = true;
+    	enableSSHSupport = true;
+  	};
   
 
   # This value determines the NixOS release from which the default
