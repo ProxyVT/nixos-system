@@ -41,15 +41,13 @@
 
 	networking = {
 		hostName = "nixos";
-		interfaces.enp2s0.useDHCP = true;
-		wireless.enable = false; 
+		networkmanager.enable = true;
 	};
 
 # Set your time zone.
 
   	time = {
   		timeZone = "Europe/Istanbul";
-  		#hardwareClockInLocalTime = true;
   	};
 
 # Select internationalisation properties.
@@ -74,7 +72,6 @@
         		enable = true;
         		autoNumlock = true;
       		};
-	  		videoDrivers = [ "nvidia" ];
 	  		layout = "us,ru";
 	  		xkbOptions = "grp:win_space_toggle";
 	  		
@@ -100,9 +97,6 @@
 		mullvad-vpn.enable = true;
 		aria2.enable = true;
 		
-		# Flatpak support
-		flatpak.enable = false;
-		
 		# Enable the OpenSSH daemon.
 		openssh.enable = true;
 		
@@ -114,9 +108,6 @@
 # Global hardware configuration
 
 	hardware = {
-		# Nvidia package
-		nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_470;
-		
 		# Opengl & Vulkan support
 		opengl = {
 			enable = true;
@@ -145,7 +136,14 @@
 		description  = "Ulad";
 		extraGroups  = [ "wheel" "adbusers" "networkmanager" "video" "audio"];
 		password = " ";
-  		};	
+  		};
+		
+		# Past user
+		users.users.alvaro = {
+		isNormalUser  = false;
+		description  = "Alvaro";
+		extraGroups  = [ "networkmanager" "adbusers" ];
+  		};
 	};
 		
 
@@ -154,10 +152,11 @@
   
 	programs = {
     	adb.enable = true;
-    	gnome-disks.enable = true;
     	git.enable = true;
     	java.enable = true;
     	steam.enable = true;
+	dconf.enable = true;
+	partition-manager.enable = true;
   	};
   
 	nixpkgs.config = {
@@ -178,7 +177,6 @@
   
 		appimage-run
 		audacity
-		baobab
 		bastet
 		bpytop
 		compsize
@@ -189,12 +187,12 @@
 		github-desktop
 		goverlay
 		glances
-		gparted
 		gpick
 		handbrake
 		htop
 		keeweb
 		kitty
+		krusader
 		libreoffice-fresh
 		lm_sensors
 		mpv-unwrapped
@@ -204,7 +202,8 @@
 		pinta
 		playonlinux
 		psensor
-		pulsemixer
+		python39Packages.secretstorage
+		qdirstat
 		qimgv
 		qrcp
 		s-tui
@@ -230,9 +229,6 @@
 		# Plasma tilling
 		libsForQt5.krohnkite
 		libsForQt5.bismuth
-		
-		#Kernel xanmod patch
-		linuxKernel.kernels.linux_xanmod
   	];
   
   	fonts.fonts = with pkgs; [
