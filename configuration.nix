@@ -132,7 +132,7 @@
 		# Current user
 		users.ulad = {
 		isNormalUser  = true;
-		home  = "/home";
+		home  = "/home/ulad";
 		description  = "Ulad";
 		extraGroups  = [ "wheel" "adbusers" "networkmanager" "video" "audio"];
 		password = " ";
@@ -141,6 +141,7 @@
 		# Past user
 		users.users.alvaro = {
 		isNormalUser  = false;
+		home  = "/home/alvaro";
 		description  = "Alvaro";
 		extraGroups  = [ "networkmanager" "adbusers" ];
   		};
