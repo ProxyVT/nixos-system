@@ -23,8 +23,8 @@
 	boot = {
 	
 		# Linux kernel version
-		kernelPackages = pkgs.linuxPackages_5_15;
-		#kernelPackages.extend = pkgs.linuxKernel.kernels.linux_xanmod;
+		kernelPackages = pkgs.linuxPackages_xanmod_latest
+		#kernelPackages = pkgs.linuxPackages_5_15;
 		 
 		# Supported file systems
 	  	supportedFilesystems = [ "ntfs" ];
