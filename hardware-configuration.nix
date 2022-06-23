@@ -12,25 +12,30 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
-  
- fileSystems."/" =
-    { device = "/dev/disk/by-uuid/";
+  boot.initrd.luks.devices = {
+    luksroot = {
+      device = "/dev/disk/by-uuid/88a9f6c6-8dc8-418e-ae1a-fc4b7e3ba930";
+      preLVM = true;
+    };
+  };
+
+  fileSystems."/" =
+    { device = "/dev/disk/by-uuid/2de875a2-9a51-4fda-b892-5dac0fe91e0b";
       fsType = "btrfs";
-      options = [ "noatime" "compress-force=zstd" ];
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/";
+    { device = "/dev/disk/by-uuid/4F79-A93F";
       fsType = "vfat";
     };
-
+    
   fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/";
-      fsType = "ext4";
+    { device = "/dev/disk/by-uuid/eac02146-d002-47ce-9b12-47fc76ffa7a8";
+	fsType = "ext4";
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/"; }
+    [ { device = "/dev/disk/by-uuid/5eb6bc39-6043-4a25-84fa-c051309b6acd"; }
     ];
 
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
