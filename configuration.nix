@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-	{ config, pkgs, ... }:
+	{ config, pkgs, lib, ... }:
 	
 	let
   		unstable = import <unstable> { config =
@@ -23,8 +23,8 @@
 	boot = {
 	
 		# Linux kernel version
-		kernelPackages = pkgs.linuxPackages_xanmod_latest
 		#kernelPackages = pkgs.linuxPackages_5_15;
+		kernelPackages = pkgs.linuxPackages_xanmod_latest;
 		 
 		# Supported file systems
 	  	supportedFilesystems = [ "ntfs" ];
@@ -52,7 +52,7 @@
 
 # Select internationalisation properties.
   
-	i18n.defaultLocale = "en_AT.UTF-8"; 
+	i18n.defaultLocale = "C"; 
 	console = {
 		font = "Lat2-Terminus16";
 		keyMap = "us";
@@ -132,18 +132,10 @@
 		# Current user
 		users.ulad = {
 		isNormalUser  = true;
-		home  = "/home/ulad";
+		home  = "/home";
 		description  = "Ulad";
 		extraGroups  = [ "wheel" "adbusers" "networkmanager" "video" "audio"];
 		password = " ";
-  		};
-		
-		# Past user
-		users.users.alvaro = {
-		isNormalUser  = false;
-		home  = "/home/alvaro";
-		description  = "Alvaro";
-		extraGroups  = [ "networkmanager" "adbusers" ];
   		};
 	};
 		
@@ -152,12 +144,11 @@
 # $ nix search wget
   
 	programs = {
-    	adb.enable = true;
     	git.enable = true;
     	java.enable = true;
     	steam.enable = true;
-	dconf.enable = true;
-	partition-manager.enable = true;
+		dconf.enable = true;
+		partition-manager.enable = true;
   	};
   
 	nixpkgs.config = {
@@ -175,7 +166,8 @@
   	environment.systemPackages = with pkgs; [
   
   		# Stable apps
-  
+		
+		android-tools  
 		appimage-run
 		audacity
 		bastet
@@ -186,7 +178,6 @@
 		eclipses.eclipse-java
 		far2l
 		github-desktop
-		goverlay
 		glances
 		gpick
 		handbrake
@@ -195,13 +186,14 @@
 		kitty
 		krusader
 		libreoffice-fresh
-		lm_sensors
+		libsForQt5.ark
+		lm_sensors	
 		mpv-unwrapped
 		mullvad-vpn
 		neofetch
-		pavucontrol
+		openvpn
+		onlyoffice-bin
 		pinta
-		playonlinux
 		psensor
 		python39Packages.secretstorage
 		qdirstat
@@ -215,6 +207,13 @@
 		xsensors
 		wine-staging
 		wget2
+		
+		# Games
+		playonlinux
+		unstable.mangohud
+		unstable.goverlay
+		unstable.vkBasalt
+		unstable.replay-sorcery
     
     	# Unstable apps
     
