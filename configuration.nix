@@ -165,9 +165,7 @@
    
   	environment.systemPackages = with pkgs; [
   
-  		# Stable apps
-		
-		android-tools  
+  		# Stable apps 
 		appimage-run
 		audacity
 		bastet
