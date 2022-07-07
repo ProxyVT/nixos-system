@@ -165,7 +165,9 @@
    
   	environment.systemPackages = with pkgs; [
   
-  		# Stable apps 
+  		# Stable apps
+		
+		android-tools  
 		appimage-run
 		audacity
 		bastet
@@ -181,15 +183,17 @@
 		handbrake
 		htop
 		keeweb
-		kitty
 		krusader
 		libreoffice-fresh
 		libsForQt5.ark
-		lm_sensors	
-		mpv-unwrapped
+		libsForQt5.yakuake
+		lm_sensors
+		lutris	
+		mpv
 		mullvad-vpn
 		neofetch
 		openvpn
+		openssl
 		onlyoffice-bin
 		pinta
 		psensor
@@ -203,7 +207,6 @@
 		xclip
 		xournalpp
 		xsensors
-		wine-staging
 		wget2
 		
 		# Games
@@ -219,6 +222,7 @@
 		unstable.yt-dlp
 		unstable.mkvtoolnix
 		unstable.vivaldi
+		unstable.vivaldi-ffmpeg-codecs
 		unstable.cudatext-gtk
 		unstable.ventoy-bin
 		unstable.krita
