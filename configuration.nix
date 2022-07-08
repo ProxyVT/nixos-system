@@ -23,7 +23,6 @@
 	boot = {
 	
 		# Linux kernel version
-		#kernelPackages = pkgs.linuxPackages_5_15;
 		kernelPackages = pkgs.linuxPackages_xanmod_latest;
 		 
 		# Supported file systems
@@ -147,8 +146,8 @@
     	git.enable = true;
     	java.enable = true;
     	steam.enable = true;
-		dconf.enable = true;
-		partition-manager.enable = true;
+	dconf.enable = true;
+	partition-manager.enable = true;
   	};
   
 	nixpkgs.config = {
