@@ -23,7 +23,7 @@
 	boot = {
 	
 		# Linux kernel version
-		kernelPackages = pkgs.linuxPackages_xanmod_latest;
+		kernelPackages = pkgs.linuxPackages_zen;
 		 
 		# Supported file systems
 	  	supportedFilesystems = [ "ntfs" ];
@@ -143,6 +143,7 @@
 # $ nix search wget
   
 	programs = {
+	adb.enable = true;
     	git.enable = true;
     	java.enable = true;
     	steam.enable = true;
@@ -164,14 +165,15 @@
    
   	environment.systemPackages = with pkgs; [
   
-  		# Stable apps
-		
+		# Stable apps
+  		alacritty
 		android-tools  
 		appimage-run
 		audacity
 		bastet
 		bpytop
 		compsize
+		cudatext-gtk
 		deluge
 		easyeffects
 		eclipses.eclipse-java
@@ -185,7 +187,6 @@
 		krusader
 		libreoffice-fresh
 		libsForQt5.ark
-		libsForQt5.yakuake
 		lm_sensors
 		lutris	
 		mpv
@@ -222,13 +223,11 @@
 		unstable.mkvtoolnix
 		unstable.vivaldi
 		unstable.vivaldi-ffmpeg-codecs
-		unstable.cudatext-gtk
 		unstable.ventoy-bin
 		unstable.krita
 		unstable.libsForQt5.kdenlive
 		
 		# Plasma tilling
-		libsForQt5.krohnkite
 		libsForQt5.bismuth
   	];
   
