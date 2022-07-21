@@ -21,7 +21,6 @@
 # System boot section
   
 	boot = {
-	
 		# Linux kernel version
 		kernelPackages = pkgs.linuxPackages_zen;
 		 
@@ -37,20 +36,17 @@
 	};
 
 # Define your hostname.
-
 	networking = {
 		hostName = "nixos";
 		networkmanager.enable = true;
 	};
 
 # Set your time zone.
-
   	time = {
   		timeZone = "Europe/Istanbul";
   	};
 
 # Select internationalisation properties.
-  
 	i18n.defaultLocale = "C"; 
 	console = {
 		font = "Lat2-Terminus16";
@@ -58,8 +54,8 @@
 	};
 
 # Global services configuration
-  
-	services = {  
+	services = {
+	
 		# Environment configuration	  
 		xserver = {
 	  		enable = true;
@@ -67,10 +63,12 @@
 	  			enable = true;
 	  			supportDDC = true;
 	  		};
+	  		
 	  		displayManager.sddm = {
         		enable = true;
         		autoNumlock = true;
       		};
+      		
 	  		layout = "us,ru";
 	  		xkbOptions = "grp:win_space_toggle";
 	  		
@@ -95,6 +93,7 @@
 		deluge.enable = true;
 		mullvad-vpn.enable = true;
 		aria2.enable = true;
+		rtorrent.enable = true;
 		
 		# Enable the OpenSSH daemon.
 		openssh.enable = true;
@@ -143,12 +142,12 @@
 # $ nix search wget
   
 	programs = {
-	adb.enable = true;
+		adb.enable = true;
     	git.enable = true;
     	java.enable = true;
     	steam.enable = true;
-	dconf.enable = true;
-	partition-manager.enable = true;
+		dconf.enable = true;
+		partition-manager.enable = true;
   	};
   
 	nixpkgs.config = {
@@ -165,13 +164,13 @@
    
   	environment.systemPackages = with pkgs; [
   
-		# Stable apps
+  		# Stable apps
   		alacritty
-		android-tools  
 		appimage-run
 		audacity
 		bastet
 		bpytop
+		cloudflare-warp
 		compsize
 		cudatext-gtk
 		deluge
@@ -204,6 +203,7 @@
 		s-tui
 		tdesktop
 		testdisk-qt
+		transmission-qt
 		xclip
 		xournalpp
 		xsensors
@@ -217,12 +217,10 @@
 		unstable.replay-sorcery
     
     	# Unstable apps
-    
 		unstable.scrcpy
 		unstable.yt-dlp
 		unstable.mkvtoolnix
 		unstable.vivaldi
-		unstable.vivaldi-ffmpeg-codecs
 		unstable.ventoy-bin
 		unstable.krita
 		unstable.libsForQt5.kdenlive
