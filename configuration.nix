@@ -72,8 +72,11 @@
 	  		layout = "us,ru";
 	  		xkbOptions = "grp:win_space_toggle";
 	  		
-	  		# Touchpad support
-	  		libinput.enable = true;
+	  		# Touchpad  & mouse config
+	  		libinput = {
+	  			enable = true;
+	  		};
+	  		
 	  	};
 	  	
 	  	# Sound services configuration
@@ -90,16 +93,17 @@
 	  	printing.enable = true;
 	  	
 	  	# Programms services
-		deluge.enable = true;
 		mullvad-vpn.enable = true;
 		aria2.enable = true;
-		rtorrent.enable = true;
 		
 		# Enable the OpenSSH daemon.
 		openssh.enable = true;
 		
 		#BTRFS autoScrub
 		btrfs.autoScrub.enable = true;
+		
+		# Synchronization service
+		syncthing.enable = true;
 			
 	};
 	
@@ -114,14 +118,15 @@
 		};
 		
 		# Pulseaudio hardware access
-		pulseaudio.enable = false;	
+		pulseaudio.enable = false;
+		
+		# Razer mouse notification
+		openrazer.enable = true;	
 	};
 
 # Enable sound.
 	sound.enable = true;
 	security.rtkit.enable = true;
-
-# Define a user account. Don't forget to set a password with ‘passwd’.
   
 	users = {
 		# Declarative configuration for users
@@ -163,67 +168,76 @@
   
    
   	environment.systemPackages = with pkgs; [
-  
-  		# Stable apps
-  		alacritty
-		appimage-run
-		audacity
-		bastet
-		bpytop
-		cloudflare-warp
-		compsize
-		cudatext-gtk
-		deluge
-		easyeffects
-		eclipses.eclipse-java
-		far2l
-		github-desktop
-		glances
-		gpick
-		handbrake
-		htop
-		keeweb
-		krusader
-		libreoffice-fresh
-		libsForQt5.ark
-		lm_sensors
-		lutris	
-		mpv
-		mullvad-vpn
-		neofetch
-		openvpn
-		openssl
-		onlyoffice-bin
-		pinta
-		psensor
-		python39Packages.secretstorage
-		qdirstat
-		qimgv
-		qrcp
-		s-tui
-		tdesktop
-		testdisk-qt
-		transmission-qt
-		xclip
-		xournalpp
-		xsensors
-		wget2
-		
-		# Games
-		playonlinux
+  	
+  		# Development
+  		cudatext-gtk
+  		eclipses.eclipse-java
+  		github-desktop
+		python3Full
+  		
+  		# Games
+		unstable.playonlinux
 		unstable.mangohud
 		unstable.goverlay
 		unstable.vkBasalt
 		unstable.replay-sorcery
-    
-    	# Unstable apps
-		unstable.scrcpy
-		unstable.yt-dlp
-		unstable.mkvtoolnix
-		unstable.vivaldi
-		unstable.ventoy-bin
+		
+		# Graphics
+		gpick
 		unstable.krita
+		unstable.pinta
+		unstable.qimgv
+		
+		# Internet
+		unstable.vivaldi
+		unstable.yt-dlp
+		mullvad-vpn
+		keeweb
+		browsh
+		cloudflare-warp
+		firefox
+		tdesktop
+		
+		# Server & security
+		#syncthingtray
+		
+		# Multimedia
+		audacity
+		easyeffects
+		handbrake
 		unstable.libsForQt5.kdenlive
+		unstable.mkvtoolnix
+		mpv-unwrapped
+
+		# Office
+		libreoffice-qt
+		onlyoffice-bin
+		
+		# System
+		appimage-run
+		bastet
+		bpytop
+		compsize
+		far2l
+		htop
+		krusader
+		libsForQt5.ark
+		lm_sensors	
+		neofetch
+		psensor
+		python39Packages.secretstorage
+		qdirstat
+		qrcp
+		s-tui
+		testdisk-qt
+		xclip
+		xournalpp
+		xsensors
+		yarn
+		wget2
+		unstable.scrcpy
+		unstable.ventoy-bin
+		unstable.wezterm
 		
 		# Plasma tilling
 		libsForQt5.bismuth
@@ -235,6 +249,7 @@
 		roboto
 		roboto-mono
 		roboto-slab
+		jetbrains-mono
   	];
   
   
