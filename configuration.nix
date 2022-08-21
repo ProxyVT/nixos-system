@@ -121,7 +121,10 @@
 		pulseaudio.enable = false;
 		
 		# Razer mouse notification
-		openrazer.enable = true;	
+		openrazer.enable = true;
+		
+		# Bluetooth support
+		bluetooth.enable = true;
 	};
 
 # Enable sound.
@@ -148,9 +151,9 @@
   
 	programs = {
 		adb.enable = true;
-    	git.enable = true;
-    	java.enable = true;
-    	steam.enable = true;
+    		git.enable = true;
+    		java.enable = true;
+    		steam.enable = true;
 		dconf.enable = true;
 		partition-manager.enable = true;
   	};
@@ -196,7 +199,7 @@
 		browsh
 		cloudflare-warp
 		firefox
-		tdesktop
+		unstable.tdesktop
 		
 		# Server & security
 		#syncthingtray
