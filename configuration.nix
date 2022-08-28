@@ -22,7 +22,7 @@
   
 	boot = {
 		# Linux kernel version
-		kernelPackages = pkgs.linuxPackages_zen;
+		kernelPackages = pkgs.linuxPackages_lqx;
 		 
 		# Supported file systems
 	  	supportedFilesystems = [ "ntfs" ];
@@ -59,11 +59,11 @@
 		# Environment configuration	  
 		xserver = {
 	  		enable = true;
-	  		desktopManager.plasma5 = {
-	  			enable = true;
-	  			supportDDC = true;
-	  		};
 	  		
+	  		# KDE Plasma Dekstop
+	  		desktopManager.plasma5.enable = true;
+	  		
+	  		# SDDM Display Manager
 	  		displayManager.sddm = {
         		enable = true;
         		autoNumlock = true;
@@ -124,7 +124,7 @@
 		openrazer.enable = true;
 		
 		# Bluetooth support
-		bluetooth.enable = true;
+		bluetooth.enable = true;	
 	};
 
 # Enable sound.
@@ -151,11 +151,12 @@
   
 	programs = {
 		adb.enable = true;
-    		git.enable = true;
-    		java.enable = true;
-    		steam.enable = true;
+    	git.enable = true;
+    	java.enable = true;
+    	steam.enable = true;
 		dconf.enable = true;
 		partition-manager.enable = true;
+		ssh.askPassword = pkgs.lib.mkForce "${pkgs.ksshaskpass.out}/bin/ksshaskpass";
   	};
   
 	nixpkgs.config = {
@@ -240,7 +241,7 @@
 		wget2
 		unstable.scrcpy
 		unstable.ventoy-bin
-		unstable.wezterm
+		bluetooth_battery
 		
 		# Plasma tilling
 		libsForQt5.bismuth
