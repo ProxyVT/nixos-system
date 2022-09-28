@@ -3,14 +3,6 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 	{ config, pkgs, lib, ... }:
-	
-	let
-  		unstable = import <unstable> { config =
-  		 	{ 
-  		 		allowUnfree = true; 
-  		 	}; 
-  		};
-	in
 
 	{
 	imports =
@@ -18,8 +10,7 @@
 		./hardware-configuration.nix
 	];
    
-# System boot section
-  
+	# System boot section
 	boot = {
 		# Linux kernel version
 		kernelPackages = pkgs.linuxPackages_lqx;
@@ -35,25 +26,25 @@
 	  	};
 	};
 
-# Define your hostname.
+	# Define your hostname.
 	networking = {
 		hostName = "nixos";
 		networkmanager.enable = true;
 	};
 
-# Set your time zone.
+	# Set your time zone.
   	time = {
   		timeZone = "Europe/Istanbul";
   	};
 
-# Select internationalisation properties.
+	# Select internationalisation properties.
 	i18n.defaultLocale = "C"; 
 	console = {
 		font = "Lat2-Terminus16";
 		keyMap = "us";
 	};
 
-# Global services configuration
+	# Global services configuration
 	services = {
 	
 		# Environment configuration	  
@@ -76,7 +67,6 @@
 	  		libinput = {
 	  			enable = true;
 	  		};
-	  		
 	  	};
 	  	
 	  	# Sound services configuration
@@ -94,7 +84,11 @@
 	  	
 	  	# Programms services
 		mullvad-vpn.enable = true;
-		aria2.enable = true;
+		aria2 = {
+			enable = true;
+			openPorts = true;
+			extraArguments = "--rpc-listen-all --remote-time=true";
+		};
 		
 		# Enable the OpenSSH daemon.
 		openssh.enable = true;
@@ -104,12 +98,14 @@
 		
 		# Synchronization service
 		syncthing.enable = true;
-			
+		
+		# Flatpak support
+		flatpak.enable = true;	
 	};
 	
-# Global hardware configuration
-
+	# Global hardware configuration
 	hardware = {
+	
 		# Opengl & Vulkan support
 		opengl = {
 			enable = true;
@@ -127,11 +123,11 @@
 		bluetooth.enable = true;	
 	};
 
-# Enable sound.
+	# Enable sound.
 	sound.enable = true;
 	security.rtkit.enable = true;
-  
 	users = {
+	
 		# Declarative configuration for users
 		mutableUsers = false;
 		
@@ -146,14 +142,14 @@
 	};
 		
 
-# List packages installed in system profile. To search, run:
-# $ nix search wget
+	# List packages installed in system profile. To search, run:
+	# $ nix search wget
   
 	programs = {
 		adb.enable = true;
-    	git.enable = true;
-    	java.enable = true;
-    	steam.enable = true;
+    		git.enable = true;
+    		java.enable = true;
+    		steam.enable = true;
 		dconf.enable = true;
 		partition-manager.enable = true;
 		ssh.askPassword = pkgs.lib.mkForce "${pkgs.ksshaskpass.out}/bin/ksshaskpass";
@@ -161,14 +157,17 @@
   
 	nixpkgs.config = {
 		allowUnfree = true;
-		packageOverrides = pkgs: {
-			unstable = import unstable {
-			config = config.nixpkgs.config;
-			};
-		};  
 	};
 	
-	nix.autoOptimiseStore = true;
+	# Nix configuration
+	nix = {
+	
+		# Store optimization	
+		autoOptimiseStore = true;
+		
+		# Enable flakes
+		settings.experimental-features = [ "nix-command" "flakes" ];
+	};
   
    
   	environment.systemPackages = with pkgs; [
@@ -178,44 +177,51 @@
   		eclipses.eclipse-java
   		github-desktop
 		python3Full
+		glxinfo
+		vulkan-tools
+		wayland-utils
+		xorg.xdpyinfo
   		
   		# Games
-		unstable.playonlinux
-		unstable.mangohud
-		unstable.goverlay
-		unstable.vkBasalt
-		unstable.replay-sorcery
+		playonlinux
+		mangohud
+		goverlay
+		vkBasalt
+		replay-sorcery
 		
 		# Graphics
 		gpick
-		unstable.krita
-		unstable.pinta
-		unstable.qimgv
+		krita
+		pinta
+		qimgv
+		blanket
 		
 		# Internet
-		unstable.vivaldi
-		unstable.yt-dlp
+		vivaldi
+		yt-dlp
 		mullvad-vpn
-		keeweb
 		browsh
 		cloudflare-warp
 		firefox
-		unstable.tdesktop
+		tdesktop
+		libsForQt5.ktorrent
+		#motrix - appimage
 		
 		# Server & security
-		#syncthingtray
+		syncthingtray
+		keepassxc
 		
 		# Multimedia
 		audacity
 		easyeffects
 		handbrake
-		unstable.libsForQt5.kdenlive
-		unstable.mkvtoolnix
+		libsForQt5.kdenlive
+		mkvtoolnix
 		mpv-unwrapped
 
 		# Office
 		libreoffice-qt
-		onlyoffice-bin
+		#onlyofficebin - flatpak
 		
 		# System
 		appimage-run
@@ -226,7 +232,9 @@
 		htop
 		krusader
 		libsForQt5.ark
-		lm_sensors	
+		lm_sensors
+		libsForQt5.powerdevil
+		libsForQt5.kscreen
 		neofetch
 		psensor
 		python39Packages.secretstorage
@@ -239,12 +247,12 @@
 		xsensors
 		yarn
 		wget2
-		unstable.scrcpy
-		unstable.ventoy-bin
+		scrcpy
+		ventoy-bin
 		bluetooth_battery
 		
 		# Plasma tilling
-		libsForQt5.bismuth
+		libsForQt5.bismuth		
   	];
   
   	fonts.fonts = with pkgs; [
@@ -254,6 +262,7 @@
 		roboto-mono
 		roboto-slab
 		jetbrains-mono
+		paratype-pt-serif
   	];
   
   
@@ -272,5 +281,5 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "21.11"; # Did you read the comment?
+  system.stateVersion = "22.05"; # Did you read the comment?
 }
