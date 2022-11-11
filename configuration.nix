@@ -14,13 +14,14 @@
 	boot = {
 		# Linux kernel version
 		kernelPackages = pkgs.linuxPackages_lqx;
+		kernelModules = ["zfs"];
 		 
 		# Supported file systems
 	  	supportedFilesystems = [ "ntfs" ];
 	  	
 	  	# Systemd-boot loader config
   		loader = {
-	  		timeout = 5;
+			timeout = 5;
 	  		systemd-boot.enable = true;
 	  		efi.canTouchEfiVariables = true;
 	  	};
@@ -35,12 +36,13 @@
 	# Set your time zone.
   	time = {
   		timeZone = "Europe/Istanbul";
+  		hardwareClockInLocalTime = true;
   	};
 
 	# Select internationalisation properties.
 	i18n.defaultLocale = "C"; 
 	console = {
-		font = "Lat2-Terminus16";
+		font = "JetBrains Mono";
 		keyMap = "us";
 	};
 
@@ -49,45 +51,49 @@
 	
 		# Environment configuration	  
 		xserver = {
-	  		enable = true;
+			enable = true;
 	  		
-	  		# KDE Plasma Dekstop
-	  		desktopManager.plasma5.enable = true;
-	  		
-	  		# SDDM Display Manager
-	  		displayManager.sddm = {
-        		enable = true;
-        		autoNumlock = true;
-      		};
-      		
-	  		layout = "us,ru";
-	  		xkbOptions = "grp:win_space_toggle";
-	  		
-	  		# Touchpad  & mouse config
-	  		libinput = {
-	  			enable = true;
-	  		};
+	  	# KDE Plasma Dekstop
+	  	desktopManager = {
+				plasma5.enable = true;
 	  	};
+	  		
+	  	# SDDM Display Manager
+	  	displayManager.sddm = {
+			enable = true;
+			autoNumlock = true;
+		};
+
+	  	layout = "us,ru";
+	  	xkbOptions = "grp:win_space_toggle";
+	  		
+	  	# Touchpad  & mouse config
+	  	libinput = {
+	  		enable = true;
+	  	};
+	  };
 	  	
-	  	# Sound services configuration
+			# Sound services configuration
 	  	pipewire = {
+    	enable = true;
+    	alsa = {
     		enable = true;
-    		alsa = {
-    			enable = true;
-    			support32Bit = true;
-    		};
-    	pulse.enable = true;
-  		};
+    		support32Bit = true;
+    	};
+		pulse.enable = true;
+		};
   		
-  		# Printing services
-	  	printing.enable = true;
-	  	
-	  	# Programms services
+		# Printing services
+		printing.enable = true;
+
+		# Programms services
 		mullvad-vpn.enable = true;
+		syncthing.enable = true;
 		aria2 = {
 			enable = true;
-			openPorts = true;
-			extraArguments = "--rpc-listen-all --remote-time=true";
+			rpcSecret = "september";
+			extraArguments = "--enable-rpc=true --rpc-listen-all=true --rpc-allow-origin-all=true --input-file=/var/lib/aria2/aria2.session --force-save=true --allow-overwrite=true --file-allocation=none --bt-enable-lpd=true --conditional-get=true --check-integrity=true --max-concurrent-downloads=10 --max-connection-per-server=3 --seed-ratio=0 --bt-max-peers=0 --bt-request-peer-speed-limit=1000K --follow-torrent=mem --min-split-size=5M --split=10";
+			downloadDir = "/run/media/ulad/aria2/Downloads";
 		};
 		
 		# Enable the OpenSSH daemon.
@@ -96,11 +102,9 @@
 		#BTRFS autoScrub
 		btrfs.autoScrub.enable = true;
 		
-		# Synchronization service
-		syncthing.enable = true;
-		
 		# Flatpak support
-		flatpak.enable = true;	
+		flatpak.enable = true;
+		
 	};
 	
 	# Global hardware configuration
@@ -120,12 +124,20 @@
 		openrazer.enable = true;
 		
 		# Bluetooth support
-		bluetooth.enable = true;	
+		bluetooth = {
+			enable = true;
+			package = pkgs.bluezFull;
+		};	
 	};
 
 	# Enable sound.
 	sound.enable = true;
-	security.rtkit.enable = true;
+	security = {
+		rtkit.enable = true;
+		polkit.enable = true;
+	};
+	
+	# Users configuration
 	users = {
 	
 		# Declarative configuration for users
@@ -133,12 +145,22 @@
 		
 		# Current user
 		users.ulad = {
-		isNormalUser  = true;
-		home  = "/home";
-		description  = "Ulad";
-		extraGroups  = [ "wheel" "adbusers" "networkmanager" "video" "audio"];
+		isNormalUser = true;
+		home = "/home";
+		description = "Ulad";
+		extraGroups = [ 
+			"wheel"
+			"users" 
+			"adbusers"
+			"networkmanager"
+			"video"
+			"audio"
+			"aria2"
+			"openrazer"
+			"transmission"
+			];
 		password = " ";
-  		};
+  	};
 	};
 		
 
@@ -147,11 +169,13 @@
   
 	programs = {
 		adb.enable = true;
-    		git.enable = true;
-    		java.enable = true;
-    		steam.enable = true;
+		git.enable = true;
+		java.enable = true;
+		steam.enable = true;
 		dconf.enable = true;
 		partition-manager.enable = true;
+		npm.enable = true;
+		gamemode.enable = true;
 		ssh.askPassword = pkgs.lib.mkForce "${pkgs.ksshaskpass.out}/bin/ksshaskpass";
   	};
   
@@ -172,22 +196,21 @@
    
   	environment.systemPackages = with pkgs; [
   	
-  		# Development
-  		cudatext-gtk
-  		eclipses.eclipse-java
-  		github-desktop
-		python3Full
-		glxinfo
-		vulkan-tools
-		wayland-utils
-		xorg.xdpyinfo
+		# Development
+		libsForQt5.kate
+		lite-xl
+		eclipses.eclipse-java
+		github-desktop
+		nodejs
+		nodePackages.gulp
   		
-  		# Games
+		# Games
 		playonlinux
 		mangohud
 		goverlay
 		vkBasalt
 		replay-sorcery
+		lutris
 		
 		# Graphics
 		gpick
@@ -204,11 +227,11 @@
 		cloudflare-warp
 		firefox
 		tdesktop
-		libsForQt5.ktorrent
+		flood
+		deluge
 		#motrix - appimage
 		
 		# Server & security
-		syncthingtray
 		keepassxc
 		
 		# Multimedia
@@ -217,52 +240,73 @@
 		handbrake
 		libsForQt5.kdenlive
 		mkvtoolnix
+		mediainfo-gui
 		mpv-unwrapped
 
 		# Office
 		libreoffice-qt
-		#onlyofficebin - flatpak
 		
-		# System
+		# CLI
+		#syncthing
 		appimage-run
 		bastet
 		bpytop
 		compsize
-		far2l
-		htop
-		krusader
-		libsForQt5.ark
+		psmisc
 		lm_sensors
 		libsForQt5.powerdevil
 		libsForQt5.kscreen
 		neofetch
-		psensor
 		python39Packages.secretstorage
-		qdirstat
-		qrcp
 		s-tui
-		testdisk-qt
-		xclip
-		xournalpp
 		xsensors
-		yarn
 		wget2
-		scrcpy
 		ventoy-bin
 		bluetooth_battery
+		scrcpy
+		rtorrent
 		
-		# Plasma tilling
-		libsForQt5.bismuth		
+		# System apps
+		far2l
+		htop
+		krusader
+		libsForQt5.ark
+		libsForQt5.kcalc
+		gparted
+		psensor
+		qdirstat
+		qrcp
+		testdisk-qt
+		lxqt.pcmanfm-qt
+		lxqt.libfm-qt
+		xclip
+		xournalpp
+		yarn
+		wezterm
+		
+		# System components
+		pacman
+		kde-cli-tools
+		libplacebo
+		libsForQt5.bismuth
+		python3Full
+		glxinfo
+		vulkan-tools
+		wayland-utils
+		xorg.xdpyinfo
+		xorg.xinit
+		rar
+		
   	];
   
   	fonts.fonts = with pkgs; [
-		inter
+		liberation_ttf
 		open-sans
 		roboto
-		roboto-mono
-		roboto-slab
 		jetbrains-mono
 		paratype-pt-serif
+		libertine
+		ibm-plex
   	];
   
   
