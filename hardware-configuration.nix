@@ -8,35 +8,49 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "ohci_pci" "ehci_pci" "usb_storage" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
+  
   boot.initrd.luks.devices = {
-    luksroot = {
-      device = "/dev/disk/by-uuid/88a9f6c6-8dc8-418e-ae1a-fc4b7e3ba930";
-      preLVM = true;
-    };
+  	luksroot = {
+  		device = "/dev/disk/by-uuid/9956daa0-5ff3-4f6e-91ca-ba517de46f35";
+  		preLVM = true;
+  	};
   };
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/2de875a2-9a51-4fda-b892-5dac0fe91e0b";
+    { device = "/dev/disk/by-label/nixos";
       fsType = "btrfs";
+      options = [
+      "noatime"
+      "autodefrag"
+      "compress=zstd"
+      ];
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/4F79-A93F";
+    { device = "/dev/disk/by-label/BOOT";
       fsType = "vfat";
     };
-    
+
   fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/eac02146-d002-47ce-9b12-47fc76ffa7a8";
-	fsType = "ext4";
+    { device = "/dev/disk/by-label/home";
+      fsType = "ext4";
+    };
+    
+  fileSystems."/media" =
+    { device = "/dev/disk/by-label/medias";
+      fsType = "ntfs";
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/5eb6bc39-6043-4a25-84fa-c051309b6acd"; }
+    [ { device = "/dev/disk/by-label/swap"; }
     ];
 
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-}
+  hardware.cpu.amd.updateMicrocode = true;
+  #lib.mkDefault 	config.hardware.enableRedistributableFirmware;
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.nvidia.package = pkgs.linuxKernel.packages.linux_lqx.nvidia_x11_legacy470;
+  }
