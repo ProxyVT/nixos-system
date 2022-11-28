@@ -21,9 +21,12 @@
 	  	
 	  	# Systemd-boot loader config
   		loader = {
+			systemd-boot.enable = true;
 			timeout = 5;
-	  		systemd-boot.enable = true;
-	  		efi.canTouchEfiVariables = true;
+	  		efi = {
+				canTouchEfiVariables = true;
+				efiSysMountPoint = "/boot/efi";
+			};
 	  	};
 	};
 
@@ -40,7 +43,7 @@
   	};
 
 	# Select internationalisation properties.
-	i18n.defaultLocale = "C"; 
+	i18n.defaultLocale = "en_US.utf8"; 
 	console = {
 		font = "JetBrains Mono";
 		keyMap = "us";
@@ -73,14 +76,14 @@
 	  	};
 	  };
 	  	
-			# Sound services configuration
+		# Sound services configuration
 	  	pipewire = {
-    	enable = true;
-    	alsa = {
-    		enable = true;
-    		support32Bit = true;
-    	};
-		pulse.enable = true;
+    			enable = true;
+    			alsa = {
+    				enable = true;
+    				support32Bit = true;
+    			};
+			pulse.enable = true;
 		};
   		
 		# Printing services
@@ -146,7 +149,6 @@
 		# Current user
 		users.ulad = {
 		isNormalUser = true;
-		home = "/home";
 		description = "Ulad";
 		extraGroups = [ 
 			"wheel"
@@ -325,5 +327,5 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "22.05"; # Did you read the comment?
+  system.stateVersion = "unstable"; # Did you read the comment?
 }
