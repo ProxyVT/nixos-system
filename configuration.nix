@@ -162,42 +162,8 @@
 			"transmission"
 			];
 		password = " ";
-  	};
-	};
-		
-
-	# List packages installed in system profile. To search, run:
-	# $ nix search wget
-  
-	programs = {
-		adb.enable = true;
-		git.enable = true;
-		java.enable = true;
-		steam.enable = true;
-		dconf.enable = true;
-		partition-manager.enable = true;
-		npm.enable = true;
-		gamemode.enable = true;
-		ssh.askPassword = pkgs.lib.mkForce "${pkgs.ksshaskpass.out}/bin/ksshaskpass";
-  	};
-  
-	nixpkgs.config = {
-		allowUnfree = true;
-	};
-	
-	# Nix configuration
-	nix = {
-	
-		# Store optimization	
-		autoOptimiseStore = true;
-		
-		# Enable flakes
-		settings.experimental-features = [ "nix-command" "flakes" ];
-	};
-  
-   
-  	environment.systemPackages = with pkgs; [
-  	
+		packages = with pkgs; [
+		  	
 		# Development
 		libsForQt5.kate
 		lite-xl
@@ -230,7 +196,7 @@
 		firefox
 		tdesktop
 		flood
-		deluge
+		qbittorrent
 		#motrix - appimage
 		
 		# Server & security
@@ -298,7 +264,41 @@
 		xorg.xdpyinfo
 		xorg.xinit
 		rar
+		];
+  		};
+	};
 		
+
+	# List packages installed in system profile. To search, run:
+	# $ nix search wget
+  
+	programs = {
+		adb.enable = true;
+		git.enable = true;
+		java.enable = true;
+		steam.enable = true;
+		dconf.enable = true;
+		partition-manager.enable = true;
+		npm.enable = true;
+		gamemode.enable = true;
+		ssh.askPassword = pkgs.lib.mkForce "${pkgs.ksshaskpass.out}/bin/ksshaskpass";
+  	};
+  
+	nixpkgs.config = {
+		allowUnfree = true;
+	};
+	
+	# Nix configuration
+	nix = {
+	
+		# Store optimization	
+		autoOptimiseStore = true;
+		
+		# Enable flakes
+		settings.experimental-features = [ "nix-command" "flakes" ];
+	};
+  
+  	environment.systemPackages = with pkgs; [	
   	];
   
   	fonts.fonts = with pkgs; [
