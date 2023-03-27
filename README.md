@@ -1,1 +1,1 @@
-# my_nixos_configurations
+# my-nixos-configurations
