@@ -1,66 +1,106 @@
-  	environment.systemPackages = with pkgs; [
+{ inputs, outputs, lib, config, pkgs, ... }:
+{
+environment.systemPackages = with pkgs; [
+  # Development
+  super-productivity
+  android-studio
+  cudatext
+  lite-xl
+  lapce
+  kate
+  eclipses.eclipse-java
+  github-desktop
+  nodejs
+  nodePackages.gulp
   
-  	# Stable apps
-  	alacritty
-		appimage-run
-		audacity
-		bastet
-		bpytop
-		cloudflare-warp
-		compsize
-		cudatext-gtk
-		deluge
-		easyeffects
-		eclipses.eclipse-java
-		far2l
-		github-desktop
-		glances
-		gpick
-		handbrake
-		htop
-		keeweb
-		krusader
-		libreoffice-fresh
-		libsForQt5.ark
-		lm_sensors
-		lutris	
-		mpv
-		mullvad-vpn
-		neofetch
-		openvpn
-		openssl
-		onlyoffice-bin
-		pinta
-		psensor
-		python39Packages.secretstorage
-		qdirstat
-		qimgv
-		qrcp
-		s-tui
-		tdesktop
-		testdisk-qt
-		transmission-qt
-		xclip
-		xournalpp
-		xsensors
-		wget2
-		
-		# Games
-		playonlinux
-		unstable.mangohud
-		unstable.goverlay
-		unstable.vkBasalt
-		unstable.replay-sorcery
-    
-    	# Unstable apps
-		unstable.scrcpy
-		unstable.yt-dlp
-		unstable.mkvtoolnix
-		unstable.vivaldi
-		unstable.ventoy-bin
-		unstable.krita
-		unstable.libsForQt5.kdenlive
-		
-		# Plasma tilling
-		libsForQt5.bismuth
-  	];
+  # Graphics
+  gpick
+  krita
+  pinta
+  qimgv
+  blanket
+  
+  # Internet
+  aria2
+  vivaldi
+  vivaldi-ffmpeg-codecs
+  you-get
+  browsh
+  cloudflare-warp
+  firefox
+  tdesktop
+  motrix
+  streamlink
+  deluge
+  ktorrent
+  
+  # Server & security
+  keepassxc
+  john
+  putty
+  
+  # Multimedia
+  audacity
+  handbrake
+  libsForQt5.kdenlive
+  mkvtoolnix
+  mediainfo-gui
+  qmplay2
+  ffmpeg-normalize
+  
+  # Office
+  libreoffice-qt
+  
+  # CLI
+  appimage-run
+  bastet
+  bottom
+  broot
+  compsize
+  psmisc
+  lm_sensors
+  ffmpeg_6-full
+  fastfetch
+  python39Packages.secretstorage
+  s-tui
+  xsensors
+  ventoy-bin
+  bluetooth_battery
+  scrcpy
+  
+  # System apps
+  libsForQt5.ark
+  far2l
+  krusader
+  psensor
+  qdirstat
+  qrcp
+  testdisk-qt
+  lxqt.libfm-qt
+  xclip
+  xournalpp
+  yarn
+  
+  # System components
+  papirus-icon-theme
+  polkit
+  plasma-hud
+  libsForQt5.bismuth
+  rar
+  unixtools.quota
+  polkit
+  papirus-maia-icon-theme
+  luna-icons
+  material-icons
+  libplacebo
+  python3Full
+  glxinfo
+  vulkan-tools
+  wayland-utils
+  xorg.xdpyinfo
+  xorg.xinit
+];
+];
+}
+
+
