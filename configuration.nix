@@ -8,18 +8,13 @@ imports =
 ];
 
 # System boot sections
-boot = {	
-	kernelPackages = pkgs.linuxPackages_latest;			# Linux kernel version
-	kernelModules = ["zfs"];												# Linux kernel modules
-	supportedFilesystems = ["ntfs"];								# Supported file systems
+boot = {
+	supportedFilesystems = [ "ntfs" "bcachefs" ];								# Supported file systems
 	kernel.sysctl."net.ipv4.ip_default_ttl" = 65;		# Sync TTL to mobile
 	loader = {																				
 		systemd-boot.enable = true;										# Systemd-boot loader config
 	  timeout = 5;																	# Linux boot section timeout
-	  efi = {
-	  	canTouchEfiVariables = true;
-	    efiSysMountPoint = "/boot/efi";
-	  };
+	  efi.canTouchEfiVariables = true;
 	};
 };
 
