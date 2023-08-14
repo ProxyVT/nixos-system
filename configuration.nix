@@ -9,7 +9,7 @@ imports =
 
 # System boot sections
 boot = {	
-	kernelPackages = pkgs.linuxPackages_latest;			# Linux kernel version
+  kernelPackages = pkgs.linuxPackages_latest;			# Linux kernel version
 	kernelModules = ["zfs"];												# Linux kernel modules
 	supportedFilesystems = ["ntfs"];								# Supported file systems
 	kernel.sysctl."net.ipv4.ip_default_ttl" = 65;		# Sync TTL to mobile
