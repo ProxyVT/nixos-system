@@ -1,6 +1,25 @@
 { inputs, outputs, lib, config, pkgs, ... }:
+
 {
+
+nixpkgs = {
+  # Configure your nixpkgs instance
+  config = {
+    # Disable if you don't want unfree packages
+    allowUnfree = true;
+  };
+};
+
+fonts.packages = with pkgs; [
+	liberation_ttf
+	open-sans
+	roboto
+	jetbrains-mono
+	ibm-plex
+];
+
 environment.systemPackages = with pkgs; [
+
   # Development
   super-productivity
   android-studio
@@ -100,7 +119,27 @@ environment.systemPackages = with pkgs; [
   xorg.xdpyinfo
   xorg.xinit
 ];
-];
+
+programs = {
+	adb.enable = true;
+	steam.enable = true;
+	partition-manager.enable = true;
+	npm.enable = true;
+	dconf.enable = true;
+	gamemode.enable = true;
+	gnome-disks.enable = true;
+	xwayland.enable = true;
+	mtr.enable = true;
+	gnupg.agent = {
+	enable = true;
+	enableSSHSupport = true;
+	};
+	ssh = {
+		askPassword = pkgs.lib.mkForce "${pkgs.ksshaskpass.out}/bin/ksshaskpass";
+		setXAuthLocation = false;
+	};
+};
+
 }
 
 
