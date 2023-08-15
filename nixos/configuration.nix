@@ -3,40 +3,40 @@
   {
   imports =
   [ # Include the results of the hardware scan.							
-  	./hardware-configuration.nix
+    ./hardware-configuration.nix
   ];
   
   # System boot sections
   boot = {
-  	supportedFilesystems = [ "ntfs" "bcachefs" ];		# Supported file systems
-  	kernel.sysctl."net.ipv4.ip_default_ttl" = 65;		# Sync TTL to mobile
-  	loader = {																				
-  		systemd-boot.enable = true;										# Systemd-boot loader config
+    supportedFilesystems = [ "ntfs" "bcachefs" ];		# Supported file systems
+    kernel.sysctl."net.ipv4.ip_default_ttl" = 65;		# Sync TTL to mobile
+    loader = {																				
+  	  systemd-boot.enable = true;										# Systemd-boot loader config
   	  timeout = 10;																	# Linux boot section timeout
   	  efi.canTouchEfiVariables = true;
-  	};
+    };
   };
   
   # Nix configuration
   nix.settings = {
   	auto-optimise-store = true;   																															# Store optimization	
   	experimental-features = [ "nix-command" "flakes" ]; 																				# Enable flakes
-  	#registry = lib.mapAttrs (_: value: { flake = value; }) inputs;															#	To make nix3 commands consistent with your flake
-  	#nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;		# This will additionally add your inputs to the system's legacy channels
+  	#registry = lib.mapAttrs (_: value: { flake = value; }) inputs;                             # To make nix3 commands consistent with your flake
+  	#nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;  # This will additionally add your inputs to the system's legacy channels
   };
   
   
   # Define your hostname.
   networking = {
-  	hostName = "nixos-ulad";
-  	networkmanager.enable = true;
-  	dhcpcd.wait = "background";
-  	dhcpcd.extraConfig = "noarp";
+    hostName = "nixos-ulad";
+    networkmanager.enable = true;
+    dhcpcd.wait = "background";
+    dhcpcd.extraConfig = "noarp";
   };
   
   # Set your time zone.
   time = {
-  	timeZone = "Europe/Istanbul";
+    timeZone = "Europe/Istanbul";
   };
   
   # Select internationalisation properties.
