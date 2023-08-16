@@ -121,23 +121,29 @@ environment.systemPackages = with pkgs; [
 ];
 
 programs = {
-	adb.enable = true;
-	steam.enable = true;
-	partition-manager.enable = true;
-	npm.enable = true;
-	dconf.enable = true;
-	gamemode.enable = true;
-	gnome-disks.enable = true;
-	xwayland.enable = true;
-	mtr.enable = true;
-	gnupg.agent = {
-	enable = true;
-	enableSSHSupport = true;
-	};
-	ssh = {
-		askPassword = pkgs.lib.mkForce "${pkgs.ksshaskpass.out}/bin/ksshaskpass";
-		setXAuthLocation = false;
-	};
+  adb.enable = true;
+  steam.enable = true;
+  npm.enable = true;
+  dconf.enable = true;
+  firefox = {
+    enable = true;
+    preferences = {
+      "toolkit.tabbox.switchByScrolling" = true;
+      "browser.tabs.closeWindowWithLastTab" = false;
+    };
+  };
+  gamemode.enable = true;
+  gnome-disks.enable = true;
+  xwayland.enable = true;
+  mtr.enable = true;
+  gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
+  ssh = {
+  	askPassword = pkgs.lib.mkForce "${pkgs.ksshaskpass.out}/bin/ksshaskpass";
+  	setXAuthLocation = false;
+  };
 };
 
 }
