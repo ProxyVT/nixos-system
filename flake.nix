@@ -12,9 +12,9 @@
       ulad = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [
-					./nixos/configuration.nix
-					./applications/environment.nix
-					 home-manager.nixosModules.home-manager
+	       ./nixos/configuration.nix
+	       ./applications/environment.nix
+	       home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
@@ -23,8 +23,8 @@
             # Optionally, use home-manager.extraSpecialArgs to pass
             # arguments to home.nix
           }
-				];
-			};
+	      ];
+      };
     };
   };
 }
