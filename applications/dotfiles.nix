@@ -42,7 +42,6 @@
     yt-dlp.enable = true;
     alacritty.enable = true;
     wezterm.enable = true;
-    git.enable = true;
     java.enable = true;
     zsh.enable = true;
     mpv.enable = true;
