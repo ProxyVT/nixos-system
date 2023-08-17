@@ -125,6 +125,10 @@ programs = {
   steam.enable = true;
   npm.enable = true;
   dconf.enable = true;
+  git = {
+  	enable = true;
+  	package = pkgs.gitFull;
+  };
   firefox = {
     enable = true;
     preferences = {
