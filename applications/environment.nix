@@ -128,8 +128,8 @@ programs = {
   firefox = {
     enable = true;
     preferences = {
-      "toolkit.tabbox.switchByScrolling" = true;
       "browser.tabs.closeWindowWithLastTab" = false;
+      "toolkit.tabbox.switchByScrolling" = true;
     };
   };
   gamemode.enable = true;
