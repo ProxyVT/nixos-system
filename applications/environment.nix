@@ -11,11 +11,11 @@ nixpkgs = {
 };
 
 fonts.packages = with pkgs; [
-	liberation_ttf
-	open-sans
-	roboto
-	jetbrains-mono
-	ibm-plex
+  liberation_ttf
+  open-sans
+  roboto
+  jetbrains-mono
+  ibm-plex
 ];
 
 environment.systemPackages = with pkgs; [
@@ -57,6 +57,8 @@ environment.systemPackages = with pkgs; [
   keepassxc
   john
   putty
+  protonvpn-gui
+  
   
   # Multimedia
   audacity
@@ -86,11 +88,12 @@ environment.systemPackages = with pkgs; [
   ventoy-bin
   bluetooth_battery
   scrcpy
+  wl-clipboard
+  wl-clipboard-x11
   
   # System apps
   libsForQt5.ark
   far2l
-  krusader
   psensor
   qdirstat
   qrcp
