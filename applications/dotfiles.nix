@@ -32,7 +32,7 @@
   
   services = {
     syncthing.enable = true;
-	  easyeffects.enable = true;
+    easyeffects.enable = true;
   };
   
   programs = {
@@ -40,10 +40,23 @@
     btop.enable = true;
     bash.enable = true;
     yt-dlp.enable = true;
-    alacritty.enable = true;
-    wezterm.enable = true;
+    wezterm = {
+      enable = true;
+      extraConfig = ''
+        local wezterm = require 'wezterm'
+        return {
+          font = wezterm.font("JetBrains Mono"),
+          font_size = 24.0,
+          color_scheme = "Tomorrow Night",
+          hide_tab_bar_if_only_one_tab = true,
+          enable_scroll_bar = true,
+          keys = {
+            {key="n", mods="SHIFT|CTRL", action="ToggleFullScreen"},
+          }
+        }
+      '';
+    };
     java.enable = true;
-    zsh.enable = true;
     mpv.enable = true;
     nnn.enable = true;
     aria2 = {
