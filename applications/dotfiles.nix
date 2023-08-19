@@ -49,9 +49,6 @@
           font_size = 18.0,
           color_scheme = "Tomorrow Night",
           enable_scroll_bar = true,
-          keys = {
-            {key="n", mods="SHIFT|CTRL", action="ToggleFullScreen"},
-          }
         }
       '';
     };
