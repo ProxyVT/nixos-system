@@ -46,7 +46,7 @@
         local wezterm = require 'wezterm'
         return {
           font = wezterm.font("JetBrains Mono"),
-          font_size = 18.0,
+          font_size = 16.0,
           color_scheme = "Tomorrow Night",
           enable_scroll_bar = true,
         }
