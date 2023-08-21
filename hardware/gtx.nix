@@ -2,6 +2,6 @@
 
 {
 
-services.xserver.videoDrivers = [ "nvidiaLegacy490" ];
+ services.xserver.videoDrivers = [ "nvidiaLegacy490" ];
 
 }
