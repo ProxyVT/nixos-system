@@ -27,12 +27,12 @@
 	      ];
       };
 
-      ulad-rtx = nixpkgs.lib.nixosSystem {
+      ulad-gtx = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [
 	       ./nixos/configuration.nix
 	       ./applications/environment.nix
-         ./hardware/rtx.nix
+         ./hardware/gtx.nix
 	       home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
