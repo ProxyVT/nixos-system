@@ -1,7 +1,7 @@
 { inputs, outputs, lib, config, pkgs, ... }:
 
 {
-  services.xserver.videoDrivers = [ "nvidiaLegacy470" ];
+  services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia = {
     modesetting.enable = true;
     nvidiaSettings = true;
