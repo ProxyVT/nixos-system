@@ -89,7 +89,7 @@ environment.systemPackages = with pkgs; [
   bluetooth_battery
   scrcpy
   wl-clipboard
-  wl-clipboard-x11
+  #wl-clipboard-x11
   
   # System apps
   libsForQt5.ark
