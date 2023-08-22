@@ -82,6 +82,7 @@ environment.systemPackages = with pkgs; [
   lm_sensors
   ffmpeg_6-full
   fastfetch
+  tuifimanager
   python39Packages.secretstorage
   s-tui
   xsensors
@@ -89,7 +90,6 @@ environment.systemPackages = with pkgs; [
   bluetooth_battery
   scrcpy
   wl-clipboard
-  #wl-clipboard-x11
   
   # System apps
   libsForQt5.ark
@@ -131,13 +131,6 @@ programs = {
   git = {
   	enable = true;
   	package = pkgs.gitFull;
-  };
-  firefox = {
-    enable = true;
-    preferences = {
-      "browser.tabs.closeWindowWithLastTab" = false;
-      "toolkit.tabbox.switchByScrolling" = true;
-    };
   };
   gamemode.enable = true;
   gnome-disks.enable = true;

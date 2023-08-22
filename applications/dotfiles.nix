@@ -39,6 +39,18 @@
     home-manager.enable = true;
     btop.enable = true;
     bash.enable = true;
+    firefox = {
+      enable = true;
+      profiles.default = {
+        id = 0;
+        name = "Default";
+        settings = {
+          "browser.startup.homepage" = "https://nixos.org";
+          "browser.tabs.closeWindowWithLastTab" = false;
+          "toolkit.tabbox.switchByScrolling" = true;          
+        };
+      };
+    };
     yt-dlp.enable = true;
     wezterm = {
       enable = true;
