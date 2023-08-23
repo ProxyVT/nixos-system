@@ -40,7 +40,6 @@ environment.systemPackages = with pkgs; [
   blanket
   
   # Internet
-  aria2
   vivaldi
   vivaldi-ffmpeg-codecs
   you-get
@@ -52,6 +51,7 @@ environment.systemPackages = with pkgs; [
   streamlink
   deluge
   ktorrent
+  ariang
   
   # Server & security
   keepassxc

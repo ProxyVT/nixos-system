@@ -65,25 +65,32 @@
       '';
     };
     java.enable = true;
-    mpv.enable = true;
+    mpv = {
+      enable = true;
+      scripts = with pkgs; [
+        mpvScripts.uosc
+        mpvScripts.thumbfast
+      ];
+    };
     nnn.enable = true;
     aria2 = {
-      enable = false;
+      enable = true;
       settings =  {
         enable-rpc = true;
         rpc-listen-all = true;
         rpc-allow-origin-all = true;
         rpc-secret = "september";
-        disk-cache = "32M"; 
+        disk-cache = "64M"; 
         force-save = true;
-        save-session = "$HOME/.config/aria2/aria2.session";
+        continue = true;
+        save-session = "/home/ulad/.config/aria2/aria2.session";
+        input-file = "/home/ulad/.config/aria2/aria2.session";
         auto-save-interval = 10;
         save-session-interval = 10;
         allow-overwrite = true; 
         file-allocation = "none";
         bt-enable-lpd = true;
-        conditional-get = true; 
-        check-integrity = true;
+        conditional-get = true;
         max-concurrent-downloads = 10; 
         max-connection-per-server = 3; 
         seed-ratio = 0;
