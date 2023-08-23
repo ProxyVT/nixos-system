@@ -89,6 +89,7 @@ environment.systemPackages = with pkgs; [
   ventoy-bin
   bluetooth_battery
   scrcpy
+  speedtest-cli
   wl-clipboard
   
   # System apps
