@@ -74,6 +74,7 @@ environment.systemPackages = with pkgs; [
   
   # CLI
   appimage-run
+  glances
   bastet
   bottom
   broot
