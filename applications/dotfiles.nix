@@ -67,6 +67,7 @@
     java.enable = true;
     mpv = {
       enable = true;
+      package = pkgs.mpv;
       scripts = with pkgs; [
         mpvScripts.uosc
         mpvScripts.thumbfast
@@ -90,6 +91,8 @@
         allow-overwrite = true; 
         file-allocation = "none";
         bt-enable-lpd = true;
+        bt-save-metadata = true;
+        bt-load-saved-metadata = true;
         conditional-get = true;
         max-concurrent-downloads = 10; 
         max-connection-per-server = 3; 
@@ -97,8 +100,8 @@
         enable-dht6 = true;
         bt-max-peers = 255;
         follow-torrent = "mem";
-        min-split-size = "1M";
-        split = 10;
+        min-split-size = "8M";
+        split = 32;
       };
     };
   };

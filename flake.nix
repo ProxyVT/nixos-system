@@ -8,6 +8,7 @@
   };
   
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {
+    overlays = import ./overlays { inherit inputs; };
     nixosConfigurations = {
       ulad-intel = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
