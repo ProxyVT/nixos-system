@@ -66,8 +66,7 @@
     };
     java.enable = true;
     mpv = {
-      enable = true;
-      package = pkgs.mpv;
+      enable = false;
       scripts = with pkgs; [
         mpvScripts.uosc
         mpvScripts.thumbfast
