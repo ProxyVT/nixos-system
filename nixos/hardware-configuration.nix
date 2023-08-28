@@ -15,6 +15,7 @@
 
   fileSystems."/" =
     { device = "/dev/disk/by-partuuid/da3dfc02-e59e-324c-abef-480f74afeca0";
+      options = [ "compression=zstd" ];
       fsType = "bcachefs";
     };
 
