@@ -92,6 +92,7 @@
         bt-enable-lpd = true;
         bt-save-metadata = true;
         bt-load-saved-metadata = true;
+        bt-remove-unselected-file = true;
         conditional-get = true;
         max-concurrent-downloads = 10; 
         max-connection-per-server = 3; 

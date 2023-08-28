@@ -40,18 +40,7 @@
   };
   
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.utf8";
-  i18n.extraLocaleSettings = {
-  	LC_ADDRESS = "eo";
-  	LC_IDENTIFICATION = "eo";
-  	LC_MEASUREMENT = "eo";
-  	LC_MONETARY = "eo";
-  	LC_NAME = "eo";
-  	LC_NUMERIC = "eo";
-  	LC_PAPER = "eo";
-  	LC_TELEPHONE = "eo";
-  	LC_TIME = "eo";
-  };
+  i18n.defaultLocale = "en_US.UTF-8";
   console = {
   	font = "JetBrains Mono";
   	keyMap = "us";
