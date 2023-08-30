@@ -14,8 +14,7 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-partuuid/da3dfc02-e59e-324c-abef-480f74afeca0";
-      options = [ "compression=zstd" ];
+    { device = "/dev/disk/by-uuid/6ec495f4-5b90-4c9c-9111-fdc0d92255b2";
       fsType = "bcachefs";
     };
 
