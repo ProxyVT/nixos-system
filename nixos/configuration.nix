@@ -36,7 +36,8 @@
   
   # Set your time zone.
   time = {
-    timeZone = "Europe/Istanbul";
+    timeZone = "Europe/Minsk";
+    hardwareClockInLocalTime = true;
   };
   
   # Select internationalisation properties.
