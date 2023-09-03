@@ -45,7 +45,6 @@
     # Development
     super-productivity
     android-studio
-    cudatext
     lite-xl
     lapce
     kate
@@ -123,6 +122,7 @@
     testdisk-qt
     lxqt.libfm-qt
     xclip
+    wl-clipboard-x11
     xournalpp
     yarn
     
@@ -139,6 +139,7 @@
     material-icons
     libplacebo
     python3Full
+    python-qt
     glxinfo
     vulkan-tools
     wayland-utils

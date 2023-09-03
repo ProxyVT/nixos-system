@@ -39,6 +39,13 @@
     home-manager.enable = true;
     btop.enable = true;
     bash.enable = true;
+    gnome-terminal = {
+      enable = false;
+      profile.myConfig = {
+        default = true;
+        visibleName = "my-config";
+      };
+    };
     firefox = {
       enable = true;
       profiles.default = {

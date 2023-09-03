@@ -12,7 +12,7 @@
     kernel.sysctl."net.ipv4.ip_default_ttl" = 65;		# Sync TTL to mobile
     loader = {																				
   	  systemd-boot.enable = true;										# Systemd-boot loader config
-  	  timeout = 10;																	# Linux boot section timeout
+  	  timeout = 5;																	# Linux boot section timeout
   	  efi.canTouchEfiVariables = true;
     };
   };
