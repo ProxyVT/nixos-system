@@ -57,17 +57,22 @@
   		# Dekstop Manager
   		desktopManager = {
   			plasma5 = {
-  				enable = true;
+  		      enable = false;
+  			};
+  			pantheon = {
+  			  enable = true;
   			};
   		};
   				
   		# Display Manager
   		displayManager = {
   			sddm = {
-  				enable = true;
+  				enable = false;
   				autoNumlock = true;
   			};
-  			defaultSession = "plasmawayland";
+  			lightdm = {
+              enable = true; 
+  			};  			
   		};
   	
   		# Language sesttings

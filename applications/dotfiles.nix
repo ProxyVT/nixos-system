@@ -54,7 +54,9 @@
         settings = {
           "browser.startup.homepage" = "https://nixos.org";
           "browser.tabs.closeWindowWithLastTab" = false;
-          "toolkit.tabbox.switchByScrolling" = true;          
+          "toolkit.tabbox.switchByScrolling" = true;
+          "media.ffmpeg.vaapi.enabled" = true;
+          "gfx.webrender.all" = true;
         };
       };
     };
