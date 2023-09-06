@@ -166,7 +166,6 @@
   
   qt = {
   	enable = true;
-  	platformTheme = "kde";
   };
   
   system.stateVersion = "23.05";

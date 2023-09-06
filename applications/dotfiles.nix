@@ -37,7 +37,13 @@
   
   programs = {
     home-manager.enable = true;
-    btop.enable = true;
+    btop = {
+      enable = true;
+      settings = {
+        update_ms = 1000;
+        proc_sorting = "memory";
+      };  
+    };
     bash.enable = true;
     gnome-terminal = {
       enable = false;
@@ -61,18 +67,6 @@
       };
     };
     yt-dlp.enable = true;
-    wezterm = {
-      enable = true;
-      extraConfig = ''
-        local wezterm = require 'wezterm'
-        return {
-          font = wezterm.font("JetBrains Mono"),
-          font_size = 16.0,
-          color_scheme = "Tomorrow Night",
-          enable_scroll_bar = true,
-        }
-      '';
-    };
     java.enable = true;
     mpv = {
       enable = false;

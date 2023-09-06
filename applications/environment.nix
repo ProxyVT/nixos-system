@@ -115,6 +115,7 @@
     
     # System apps
     libsForQt5.ark
+    pantheon.appcenter
     far2l
     psensor
     qdirstat
@@ -158,6 +159,7 @@
     };
     gamemode.enable = true;
     gnome-disks.enable = true;
+    pantheon-tweaks.enable = true;
     xwayland.enable = true;
     mtr.enable = true;
     gnupg.agent = {
