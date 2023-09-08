@@ -47,7 +47,6 @@
     android-studio
     lite-xl
     lapce
-    kate
     eclipses.eclipse-java
     github-desktop
     nodejs
@@ -111,7 +110,7 @@
     bluetooth_battery
     scrcpy
     speedtest-cli
-    wl-clipboard
+    ttop
     
     # System apps
     libsForQt5.ark
@@ -123,7 +122,6 @@
     testdisk-qt
     lxqt.libfm-qt
     xclip
-    wl-clipboard-x11
     xournalpp
     yarn
     
@@ -131,14 +129,12 @@
     papirus-icon-theme
     polkit
     plasma-hud
-    libsForQt5.bismuth
     rar
     unixtools.quota
     polkit
     papirus-maia-icon-theme
     luna-icons
     material-icons
-    libplacebo
     python3Full
     python-qt
     glxinfo
@@ -160,15 +156,10 @@
     gamemode.enable = true;
     gnome-disks.enable = true;
     pantheon-tweaks.enable = true;
-    xwayland.enable = true;
     mtr.enable = true;
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
-    };
-    ssh = {
-    	askPassword = pkgs.lib.mkForce "${pkgs.ksshaskpass.out}/bin/ksshaskpass";
-    	setXAuthLocation = false;
     };
   };
 }

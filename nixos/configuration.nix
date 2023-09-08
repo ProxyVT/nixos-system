@@ -53,26 +53,28 @@
   	# Environment configuration	  
   	xserver = {
   		enable = true;
-  
   		# Dekstop Manager
   		desktopManager = {
-  			plasma5 = {
-  		      enable = false;
-  			};
-  			pantheon = {
-  			  enable = true;
-  			};
-  		};
-  				
+  		  plasma5 = {
+  		    enable = true;
+  		  };
+  		  pantheon = {
+  		    enable = true;
+  		  };
+  		};	
   		# Display Manager
   		displayManager = {
-  			sddm = {
-  				enable = false;
-  				autoNumlock = true;
-  			};
-  			lightdm = {
-              enable = true; 
-  			};  			
+  		  sddm = {
+  		    enable = false;
+  		    autoNumlock = true;
+  		  };
+  		  lightdm = {
+            enable = true;
+            extraConfig = ''
+            display-setup-script=xrandr --output HDMI1 --primary
+            ''; 
+  		  };
+  		  defaultSession = "pantheon";  			
   		};
   	
   		# Language sesttings
@@ -81,24 +83,23 @@
   						
   		# Touchpad  & mouse config
   		libinput = {
-  			enable = true;
+  		  enable = true;
   		};
     };
           
   	# Sound services configuration
   	pipewire = {
-  		enable = true;							# Pipewire support
-  		alsa = {										# Alsa support
-  			enable = true;
-  			support32Bit = true;
+  		enable = true;				# Pipewire support
+  		alsa = {					# Alsa support
+  		  enable = true;
+  		  support32Bit = true;
   		};
-  		pulse.enable = true;				# PulseAudio support
+  		pulse.enable = true;		# PulseAudio support
   	};
   	
-  	printing.enable = true; 			# Printing services
+  	printing.enable = true; 		# Printing services
   	mullvad-vpn.enable = true; 		# MullvadVPN support
-  	openssh.enable = true; 				# Enable the OpenSSH daemon.
-  	flatpak.enable = false; 			# Flatpak support
+  	flatpak.enable = false; 		# Flatpak support
   };
   
   # Global hardware configuration
@@ -129,12 +130,12 @@
   	polkit.enable = true;
   	sudo.enable = true;
   	doas = {
-  		enable = false;
-  		extraRules = [{
+  	  enable = false;
+  	  extraRules = [{
         users = [ "ulad" ];
         keepEnv = true;
         persist = true;  
-  		}];
+      }];
   	};
   };
   
@@ -159,13 +160,13 @@
           "openrazer"
           "plugdev"
           "transmission"
-          ];
+        ];
       password = " ";
     };
   };      
   
   qt = {
-  	enable = true;
+  	enable = false;
   };
   
   system.stateVersion = "23.05";

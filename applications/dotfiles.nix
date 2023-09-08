@@ -30,6 +30,8 @@
     homeDirectory = "/home/ulad";
   };
   
+  #accounts.email.ulad.thunderbird.enable = true;
+  
   services = {
     syncthing.enable = true;
     easyeffects.enable = true;
@@ -37,6 +39,13 @@
   
   programs = {
     home-manager.enable = true;
+    thunderbird = {
+      enable = true;
+      profiles.ulad = {
+        isDefault = true;
+      };
+    };
+    
     btop = {
       enable = true;
       settings = {
@@ -66,7 +75,12 @@
         };
       };
     };
-    yt-dlp.enable = true;
+    yt-dlp = {
+      enable = true;
+      extraConfig = ''
+        -S "res:1440"
+      '';
+    };
     java.enable = true;
     mpv = {
       enable = false;
@@ -106,6 +120,9 @@
         min-split-size = "8M";
         split = 32;
       };
+    };
+    ssh = {
+      enable = false;
     };
   };
 
