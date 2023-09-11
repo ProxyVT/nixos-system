@@ -10,6 +10,7 @@
   boot = {
     supportedFilesystems = [ "ntfs" "bcachefs" ];		# Supported file systems
     kernel.sysctl."net.ipv4.ip_default_ttl" = 65;		# Sync TTL to mobile
+    kernel.sysctl."vm.swappiness" = 10;
     loader = {																				
   	  systemd-boot.enable = true;										# Systemd-boot loader config
   	  timeout = 5;																	# Linux boot section timeout
@@ -58,23 +59,13 @@
   		  plasma5 = {
   		    enable = true;
   		  };
-  		  pantheon = {
-  		    enable = true;
-  		  };
   		};	
   		# Display Manager
   		displayManager = {
   		  sddm = {
-  		    enable = false;
+  		    enable = true;
   		    autoNumlock = true;
-  		  };
-  		  lightdm = {
-            enable = true;
-            extraConfig = ''
-            display-setup-script=xrandr --output HDMI1 --primary
-            ''; 
-  		  };
-  		  defaultSession = "pantheon";  			
+  		  };		
   		};
   	
   		# Language sesttings
@@ -116,12 +107,18 @@
   	pulseaudio.enable = false;
   	
   	# Razer mouse notification
-  	openrazer.enable = true;
+  	openrazer.enable = false;
   	
   	# Bluetooth support
   	bluetooth = {
   	  enable = true;
-  	};	
+  	};
+  	
+  	# Brightness control
+  	acpilight.enable = true;
+  	
+    # i2c devices support
+    i2c.enable = true;	
   };
   
   sound.enable = true;					# Enable sound.

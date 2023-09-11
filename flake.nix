@@ -10,12 +10,12 @@
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {
     #overlays = import ./overlays { inherit inputs; };
     nixosConfigurations = {
-      ulad-intel = nixpkgs.lib.nixosSystem {
+      ulad-acer = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [
 	        ./nixos/configuration.nix
 	        ./applications/environment.nix
-            ./hardware/intel.nix
+          ./hardware/acer.nix
 	       home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;

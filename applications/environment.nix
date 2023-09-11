@@ -57,6 +57,7 @@
     krita
     pinta
     blanket
+    libsForQt5.spectacle
     
     # Internet
     vivaldi
@@ -111,6 +112,8 @@
     scrcpy
     speedtest-cli
     ttop
+    ddcutil
+    brightnessctl
     
     # System apps
     libsForQt5.ark
@@ -150,12 +153,12 @@
     npm.enable = true;
     dconf.enable = true;
     git = {
-    	enable = true;
-    	package = pkgs.gitFull;
+      enable = true;
+      package = pkgs.gitFull;
     };
     gamemode.enable = true;
     gnome-disks.enable = true;
-    pantheon-tweaks.enable = true;
+    pantheon-tweaks.enable = false;
     mtr.enable = true;
     gnupg.agent = {
       enable = true;
