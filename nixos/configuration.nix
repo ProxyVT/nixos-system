@@ -10,7 +10,7 @@
   boot = {
     supportedFilesystems = [ "ntfs" "bcachefs" ];		# Supported file systems
     kernel.sysctl."net.ipv4.ip_default_ttl" = 65;		# Sync TTL to mobile
-    kernel.sysctl."vm.swappiness" = 10;
+    kernel.sysctl."vm.swappiness" = 5;
     loader = {																				
   	  systemd-boot.enable = true;										# Systemd-boot loader config
   	  timeout = 5;																	# Linux boot section timeout

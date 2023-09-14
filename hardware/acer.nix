@@ -2,7 +2,7 @@
 
 {
 
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = [ "intel" ];
   nixpkgs.config.packageOverrides = pkgs: {
     vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
   };
@@ -11,12 +11,13 @@
       open = false;
       modesetting.enable = true;
       nvidiaSettings = true;
+      powerManagement.enable = true;
       package = config.boot.kernelPackages.nvidiaPackages.latest; 
       prime = {
         sync.enable = false;
         offload = {
-          enable = true;
-			    enableOffloadCmd = true;
+          enable = false;
+			    enableOffloadCmd = false;
 		    };
         nvidiaBusId = "PCI:4:0:0";
         intelBusId = "PCI:0:2:0";
@@ -29,6 +30,7 @@
         vaapiVdpau
         libvdpau-va-gl
       ];
+      extraPackages32 = with pkgs.pkgsi686Linux; [ vaapiIntel ];
     }; 
   };
 

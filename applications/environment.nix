@@ -137,6 +137,7 @@
     polkit
     papirus-maia-icon-theme
     luna-icons
+    libva-utils
     material-icons
     python3Full
     python-qt
@@ -157,6 +158,7 @@
       package = pkgs.gitFull;
     };
     gamemode.enable = true;
+    chromium.enable = true;
     gnome-disks.enable = true;
     pantheon-tweaks.enable = false;
     mtr.enable = true;
