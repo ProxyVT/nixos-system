@@ -17,12 +17,12 @@
             };
           });
         };
-        mpv = prev.wrapMpv final.mpv-unwrapped {
-          scripts = [ 
-            final.mpvScripts.uosc
-            final.mpvScripts.thumbfast
-          ];
-        };
+         mpv = prev.wrapMpv final.mpv-unwrapped {
+           scripts = [ 
+             final.mpvScripts.uosc
+             final.mpvScripts.thumbfast
+           ];
+         };
       })
     ];
     # Configure your nixpkgs instance
@@ -38,6 +38,7 @@
     roboto
     jetbrains-mono
     ibm-plex
+    inter
   ];
   
   environment.systemPackages = with pkgs; [
@@ -89,6 +90,7 @@
     qmplay2
     ffmpeg-normalize
     mpv
+    mousai
     
     # Office
     libreoffice-qt
@@ -127,6 +129,8 @@
     xclip
     xournalpp
     yarn
+    pavucontrol
+    darkman
     
     # System components
     papirus-icon-theme
@@ -146,6 +150,28 @@
     wayland-utils
     xorg.xdpyinfo
     xorg.xinit
+    
+    # Xfce applets
+    xfce.catfish
+    xfce.gigolo
+    xfce.orage
+    xfce.xfburn
+    xfce.xfce4-appfinder
+    xfce.xfce4-clipman-plugin
+    xfce.xfce4-cpugraph-plugin
+    xfce.xfce4-dict
+    xfce.xfce4-fsguard-plugin
+    xfce.xfce4-genmon-plugin
+    xfce.xfce4-netload-plugin
+    xfce.xfce4-panel
+    xfce.xfce4-pulseaudio-plugin
+    xfce.xfce4-systemload-plugin
+    xfce.xfce4-weather-plugin
+    xfce.xfce4-whiskermenu-plugin
+    xfce.xfce4-xkb-plugin
+    xfce.xfdashboard
+    xfce.xfwm4
+    xfce.xfwm4-themes
   ];
 
   programs = {
@@ -153,12 +179,20 @@
     steam.enable = true;
     npm.enable = true;
     dconf.enable = true;
+    seahorse.enable = true;
     git = {
       enable = true;
       package = pkgs.gitFull;
     };
+    file-roller.enable = true;
     gamemode.enable = true;
-    chromium.enable = true;
+    thunar = {
+      plugins = with pkgs.xfce; [
+        thunar-archive-plugin
+        thunar-volman
+        thunar-media-tags-plugin
+      ];
+    };
     gnome-disks.enable = true;
     pantheon-tweaks.enable = false;
     mtr.enable = true;

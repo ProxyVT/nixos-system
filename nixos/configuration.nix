@@ -50,47 +50,54 @@
   
   # Global services configuration
   services = {
-  
-  	# Environment configuration	  
-  	xserver = {
-  		enable = true;
-  		# Dekstop Manager
-  		desktopManager = {
+    # Environment configuration	  
+    xserver = {
+    enable = true;
+    # Dekstop Manager
+    desktopManager = {
   		  plasma5 = {
-  		    enable = true;
+  		    enable = false;
   		  };
-  		};	
-  		# Display Manager
-  		displayManager = {
+  		  xfce.enable = true;
+    };	
+    # Display Manager
+    displayManager = {
   		  sddm = {
-  		    enable = true;
+  		    enable = false;
   		    autoNumlock = true;
+  		  };
+  		  lightdm = {
+  		    enable = true;
+  		    greeters.slick = {
+  		      enable = false;
+  		    };
   		  };		
-  		};
-  	
-  		# Language sesttings
-  		layout = "us,ru";
-  		xkbOptions = "grp:win_space_toggle";
-  						
-  		# Touchpad  & mouse config
-  		libinput = {
-  		  enable = true;
-  		};
     };
+    
+    # Language sesttings
+    layout = "us,ru";
+    xkbOptions = "grp:alt_shift_toggle";
+  				  
+    # Touchpad  & mouse config
+    libinput = {
+      enable = true;
+    };
+  };
           
-  	# Sound services configuration
-  	pipewire = {
-  		enable = true;				# Pipewire support
-  		alsa = {					# Alsa support
-  		  enable = true;
-  		  support32Bit = true;
-  		};
-  		pulse.enable = true;		# PulseAudio support
-  	};
-  	
-  	printing.enable = true; 		# Printing services
-  	mullvad-vpn.enable = true; 		# MullvadVPN support
-  	flatpak.enable = false; 		# Flatpak support
+    # Sound services configuration
+    pipewire = {
+    enable = true;                        # Pipewire support
+    alsa = {                              # Alsa support
+  		enable = true;
+  		support32Bit = true;
+    };
+    pulse.enable = true;		              # PulseAudio support
+    };
+    
+    printing.enable = true; 		          # Printing services
+    mullvad-vpn.enable = true; 	          # MullvadVPN support
+    flatpak.enable = false; 		          # Flatpak support
+    gnome.gnome-keyring.enable = true;    # Gnome keyring support
   };
   
   # Global hardware configuration
@@ -121,7 +128,10 @@
     i2c.enable = true;	
   };
   
-  sound.enable = true;					# Enable sound.
+  sound = {
+    enable = true;                # Enable sound.
+    mediaKeys.enable = true;      # Enable keyboard mediakeys
+  };
   security = {
   	rtkit.enable = true;
   	polkit.enable = true;
@@ -163,7 +173,9 @@
   };      
   
   qt = {
-  	enable = false;
+  	enable = true;
+  	platformTheme = "gnome";
+  	style = "adwaita";
   };
   
   system.stateVersion = "23.05";

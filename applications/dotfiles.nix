@@ -35,6 +35,7 @@
   services = {
     syncthing.enable = true;
     easyeffects.enable = true;
+    gpg-agent.enable = true;
   };
   
   programs = {
@@ -160,6 +161,12 @@
         async-dns = false;
       };
     };
+    
+    chromium = {
+      enable = true;
+    };
+    
+    gpg.enable = true;
     
     # SSH config
     ssh = {
