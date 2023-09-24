@@ -1,11 +1,6 @@
 { inputs, outputs, lib, config, pkgs, ... }:
 
-{
-  imports =
-  [ # Include the results of the hardware scan.							
-    ../pkgs/default.nix
-  ];
-  
+{ 
   nixpkgs = {
     # Configure your nixpkgs instance
     config = {
@@ -71,7 +66,8 @@
     qmplay2
     ffmpeg-normalize
     #mpv
-    #mpv-git
+    (callPackage ../pkgs/mpv-git/default.nix {})
+    (callPackage ../pkgs/libplacebo-master/default.nix {})
     mousai
     
     # Office
