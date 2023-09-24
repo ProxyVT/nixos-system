@@ -2,6 +2,6 @@ let
   pkgs = import <nixpkgs> {};
 in
 { pkgs }:
-pkgs.callPackage ./mpv-git.nix {}
+pkgs.callPackage ./mpv.nix {}
 
 

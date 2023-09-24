@@ -16,8 +16,8 @@
 }:
 
 stdenv.mkDerivation rec {
-  pname = "libplacebo-master";
-  version = "6.337.0-rc1";
+  pname = "libplacebo";
+  version = "6.337.0";
 
   src = fetchFromGitLab {
     domain = "code.videolan.org";

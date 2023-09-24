@@ -96,7 +96,7 @@ let
     })
     else stdenv;
 in stdenv'.mkDerivation (finalAttrs: {
-  pname = "mpv-git";
+  pname = "mpv";
   version = "unstable-2023-09-24";
 
   outputs = [ "out" "dev" "man" ];
