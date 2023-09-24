@@ -26,7 +26,6 @@
   	#nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;  # This will additionally add your inputs to the system's legacy channels
   };
   
-  
   # Define your hostname.
   networking = {
     hostName = "nixos-ulad";
@@ -175,7 +174,7 @@
   qt = {
   	enable = true;
   	platformTheme = "gnome";
-  	style = "adwaita";
+  	style = "adwaita-dark";
   };
   
   system.stateVersion = "23.05";

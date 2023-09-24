@@ -147,18 +147,15 @@
         bt-save-metadata = true;
         bt-load-saved-metadata = true;
         bt-remove-unselected-file = true;
-        bt-max-peers = 0;
         bt-detach-seed-only = true;
         conditional-get = true;
         max-concurrent-downloads = 100; 
-        max-connection-per-server = 16;
+        max-connection-per-server = 4;
         dht-listen-port = "50101-50109"; 
         seed-ratio = 0;
-        enable-dht6 = true;
+        disable-ipv6 = true;
         follow-torrent = "mem";
-        min-split-size = "8M";
-        split = 32;
-        async-dns = false;
+        min-split-size = "1M";
       };
     };
     

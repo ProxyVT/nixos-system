@@ -1,33 +1,14 @@
 { inputs, outputs, lib, config, pkgs, ... }:
+
 {
+  imports =
+  [ # Include the results of the hardware scan.							
+    ../pkgs/default.nix
+  ];
+  
   nixpkgs = {
-    overlays = [
-      (final: prev: {
-        mpv-unwrapped = prev.mpv-unwrapped.override {
-          ffmpeg_5 = pkgs.ffmpeg_6-full;
-          libplacebo = prev.libplacebo.overrideAttrs (oldAttrs: rec {
-            pname = "libplacebo";
-            version = "6.292.1";
-            src = pkgs.fetchFromGitLab {
-              domain = "code.videolan.org";
-              owner = "videolan";
-              repo = pname;
-              rev = "v${version}";
-              hash = "sha256-/GIN9ROaF5aR79qkBwj5BCzKYUjQn+5jRnSlHUeSLHQ=";
-            };
-          });
-        };
-         mpv = prev.wrapMpv final.mpv-unwrapped {
-           scripts = [ 
-             final.mpvScripts.uosc
-             final.mpvScripts.thumbfast
-           ];
-         };
-      })
-    ];
     # Configure your nixpkgs instance
     config = {
-      # Disable if you don't want unfree packages
       allowUnfree = true;
     };
   };
@@ -59,6 +40,7 @@
     pinta
     blanket
     libsForQt5.spectacle
+    qimgv
     
     # Internet
     vivaldi
@@ -80,7 +62,6 @@
     putty
     protonvpn-gui
     
-    
     # Multimedia
     audacity
     handbrake
@@ -89,7 +70,8 @@
     mediainfo-gui
     qmplay2
     ffmpeg-normalize
-    mpv
+    #mpv
+    #mpv-git
     mousai
     
     # Office
@@ -97,6 +79,7 @@
     
     # CLI
     appimage-run
+    vrrtest
     bastet
     bottom
     broot
