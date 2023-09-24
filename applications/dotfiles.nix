@@ -113,15 +113,6 @@
     # Java config
     java.enable = true;
     
-    # mpv player config
-    mpv = {
-      enable = false;
-      scripts = with pkgs; [
-        mpvScripts.uosc
-        mpvScripts.thumbfast
-      ];
-    };
-    
     # nnn config
     nnn.enable = true;
     

@@ -13,18 +13,20 @@
 , xorg
 , libunwind
 , libdovi
+, cmake
+, xxHash
 }:
 
 stdenv.mkDerivation rec {
   pname = "libplacebo";
-  version = "6.337.0";
+  version = "6.337.0-rc1";
 
   src = fetchFromGitLab {
     domain = "code.videolan.org";
     owner = "videolan";
     repo = pname;
     rev = "v${version}";
-    hash = "";
+    hash = "sha256-LaQvmRzyCkQOZlKnd0domZjDCVXdERUWzJ6U39Yl1MA=";
   };
 
   nativeBuildInputs = [
@@ -44,6 +46,7 @@ stdenv.mkDerivation rec {
     xorg.libX11
     libunwind
     libdovi
+    xxHash
   ];
 
   mesonFlags = [

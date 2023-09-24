@@ -1,7 +1,41 @@
-{ inputs, outputs, lib, config, pkgs, ... }:
+{ inputs, outputs, lib, config, pkgs, fetchFromGitHub, fetchFromGitLab,... }:
 
 { 
   nixpkgs = {
+    overlays = [
+      (final: prev: {
+        mpv-unwrapped = (prev.mpv-unwrapped.override {
+          ffmpeg_5 = pkgs.ffmpeg_6-full;
+          libplacebo = prev.libplacebo.overrideAttrs (oldAttrs: rec {
+            pname = "libplacebo";
+            version = "6.337.0-rc1";
+            src = prev.fetchFromGitLab {
+              domain = "code.videolan.org";
+              owner = "videolan";
+              repo = pname;
+              rev = "v${version}";
+              hash = "sha256-LaQvmRzyCkQOZlKnd0domZjDCVXdERUWzJ6U39Yl1MA=";
+            };
+            buildInputs = oldAttrs.buildInputs ++ [ pkgs.xxHash ];
+          });  
+        }).overrideAttrs ( oldAttrs: rec {
+          pname = "mpv";
+          version = "git";
+          src = prev.fetchFromGitHub {
+            owner = "mpv-player";
+            repo = "mpv";
+            rev = "652a1dd";
+            hash = "sha256-yn0eO9X+qfaxkNPVlRLRopiiXKobqOHiHub6tAQ721I=";
+          };
+        });
+        mpv-git = pkgs.wrapMpv final.mpv-unwrapped {
+          scripts = with pkgs; [ 
+            mpvScripts.uosc
+            mpvScripts.thumbfast
+          ];
+        };      
+      })
+    ];
     # Configure your nixpkgs instance
     config = {
       allowUnfree = true;
@@ -65,9 +99,7 @@
     mediainfo-gui
     qmplay2
     ffmpeg-normalize
-    #mpv
-    (callPackage ../pkgs/mpv-git/default.nix {})
-    (callPackage ../pkgs/libplacebo-master/default.nix {})
+    mpv-git
     mousai
     
     # Office
