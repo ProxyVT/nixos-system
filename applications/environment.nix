@@ -24,8 +24,8 @@
           src = prev.fetchFromGitHub {
             owner = "mpv-player";
             repo = "mpv";
-            rev = "652a1dd";
-            hash = "sha256-yn0eO9X+qfaxkNPVlRLRopiiXKobqOHiHub6tAQ721I=";
+            rev = "90e0828";
+            hash = "sha256-RSSuCXn0iXqrzAXenlnC1fzO2yadr0GAhUR/yj2aIP8=";
           };
         });
         mpv-git = pkgs.wrapMpv final.mpv-unwrapped {
