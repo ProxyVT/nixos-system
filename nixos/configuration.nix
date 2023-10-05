@@ -95,8 +95,13 @@
     
     printing.enable = true; 		          # Printing services
     mullvad-vpn.enable = true; 	          # MullvadVPN support
-    flatpak.enable = false; 		          # Flatpak support
+    flatpak.enable = true; 		            # Flatpak support
     gnome.gnome-keyring.enable = true;    # Gnome keyring support
+  };
+  
+  # XDG desktop integration
+  xdg.portal = {
+    enable = true;
   };
   
   # Global hardware configuration
@@ -145,9 +150,7 @@
   	};
   };
   
-  
   users = {
-  
     # Declarative configuration for users
     mutableUsers = false;
           
@@ -173,8 +176,7 @@
   
   qt = {
   	enable = true;
-  	platformTheme = "gnome";
-  	style = "adwaita-dark";
+  	platformTheme = "kde";
   };
   
   system.stateVersion = "23.05";

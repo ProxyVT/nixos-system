@@ -1,4 +1,4 @@
-{ inputs, outputs, lib, config, pkgs, fetchFromGitHub, fetchFromGitLab,... }:
+{ inputs, outputs, lib, config, pkgs, fetchFromGitHub,... }:
 
 { 
   nixpkgs = {
@@ -8,13 +8,13 @@
           ffmpeg_5 = pkgs.ffmpeg_6-full;
           libplacebo = prev.libplacebo.overrideAttrs (oldAttrs: rec {
             pname = "libplacebo";
-            version = "6.337.0-rc1";
-            src = prev.fetchFromGitLab {
-              domain = "code.videolan.org";
-              owner = "videolan";
+            version = "git";
+            src = prev.fetchFromGitHub {
+              owner = "haasn";
               repo = pname;
-              rev = "v${version}";
-              hash = "sha256-LaQvmRzyCkQOZlKnd0domZjDCVXdERUWzJ6U39Yl1MA=";
+              rev = "f25dfeb";
+              hash = "sha256-igs8xq+aRdqAmhjV6L/hqorls5SaPvkRqAzX6W80gsg=";
+              fetchSubmodules = true;
             };
             buildInputs = oldAttrs.buildInputs ++ [ pkgs.xxHash ];
           });  
@@ -23,9 +23,9 @@
           version = "git";
           src = prev.fetchFromGitHub {
             owner = "mpv-player";
-            repo = "mpv";
-            rev = "90e0828";
-            hash = "sha256-RSSuCXn0iXqrzAXenlnC1fzO2yadr0GAhUR/yj2aIP8=";
+            repo = pname;
+            rev = "ec80981";
+            hash = "sha256-6TNPgpiSr6jCtx3JDs4hkyMMG9GDgwVVtkztydKvehg=";
           };
         });
         mpv-git = pkgs.wrapMpv final.mpv-unwrapped {
@@ -62,6 +62,7 @@
     github-desktop
     nodejs
     nodePackages.gulp
+    wineWowPackages.unstableFull
     
     # Graphics
     gpick
@@ -130,6 +131,7 @@
     
     # System apps
     libsForQt5.ark
+    libsForQt5.dolphin
     pantheon.appcenter
     far2l
     psensor
@@ -187,7 +189,6 @@
 
   programs = {
     adb.enable = true;
-    steam.enable = true;
     npm.enable = true;
     dconf.enable = true;
     seahorse.enable = true;

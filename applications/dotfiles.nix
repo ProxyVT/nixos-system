@@ -130,8 +130,8 @@
         pause-metadata = true;
         save-session = "/home/ulad/.config/aria2/aria2.session";
         input-file = "/home/ulad/.config/aria2/aria2.session";
-        auto-save-interval = 60;
-        save-session-interval = 60;
+        auto-save-interval = 10;
+        save-session-interval = 10;
         allow-overwrite = true; 
         file-allocation = "none";
         bt-enable-lpd = true;
@@ -139,12 +139,12 @@
         bt-load-saved-metadata = true;
         bt-remove-unselected-file = true;
         bt-detach-seed-only = true;
+        bt-max-peers = 128;
         conditional-get = true;
-        max-concurrent-downloads = 100; 
-        max-connection-per-server = 4;
+        max-concurrent-downloads = 10; 
+        enable-dht6 = true;
         dht-listen-port = "50101-50109"; 
         seed-ratio = 0;
-        disable-ipv6 = true;
         follow-torrent = "mem";
         min-split-size = "1M";
       };
