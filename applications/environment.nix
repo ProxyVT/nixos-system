@@ -12,9 +12,8 @@
             src = prev.fetchFromGitHub {
               owner = "haasn";
               repo = pname;
-              rev = "f25dfeb";
-              hash = "sha256-igs8xq+aRdqAmhjV6L/hqorls5SaPvkRqAzX6W80gsg=";
-              fetchSubmodules = true;
+              rev = "7ca8418";
+              hash = "sha256-RBDO2Bk46tXIGBBP0eGiM6cDr3zg5GESaLYQqnQD4BY=";
             };
             buildInputs = oldAttrs.buildInputs ++ [ pkgs.xxHash ];
           });  
@@ -24,8 +23,8 @@
           src = prev.fetchFromGitHub {
             owner = "mpv-player";
             repo = pname;
-            rev = "ec80981";
-            hash = "sha256-6TNPgpiSr6jCtx3JDs4hkyMMG9GDgwVVtkztydKvehg=";
+            rev = "81dea90";
+            hash = "sha256-ToEM35MyexXlv6vwF0VSZs5LJ4uoOgUn/one0IamVcY=";
           };
         });
         mpv-git = pkgs.wrapMpv final.mpv-unwrapped {
@@ -192,6 +191,11 @@
     npm.enable = true;
     dconf.enable = true;
     seahorse.enable = true;
+    steam = {
+      enable = true;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+    };
     git = {
       enable = true;
       package = pkgs.gitFull;

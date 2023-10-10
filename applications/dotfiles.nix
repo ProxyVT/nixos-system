@@ -40,6 +40,8 @@
   
   programs = {
     home-manager.enable = true;
+    
+    # Mail Thunderbird config
     thunderbird = {
       enable = true;
       profiles.ulad = {
@@ -78,15 +80,20 @@
     # Bash config
     bash.enable = true;
     
-    # Gnome terminal
-    gnome-terminal = {
+    # Mangohud config
+    mangohud = {
       enable = true;
-      profile."060efe23-3ab4-4c71-8a38-dd13f89b400d" = {
-        visibleName = "Ulad";
-        default = true;
-      };
-      themeVariant = "system";
-      showMenubar = true;
+      enableSessionWide = true;
+    };
+    
+    # Wezterm terminal config
+    wezterm = {
+      enable = true;
+      extraConfig = ''
+        return {
+          enable_scroll_bar=true
+        }
+      '';
     };
     
     # Firefox browser
@@ -96,7 +103,6 @@
         id = 0;
         name = "Default";
         settings = {
-          "browser.startup.homepage" = "https://nixos.org";
           "browser.tabs.closeWindowWithLastTab" = false;
           "toolkit.tabbox.switchByScrolling" = true;
           "media.ffmpeg.vaapi.enabled" = true;

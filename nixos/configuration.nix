@@ -112,6 +112,9 @@
   		enable = true;
   		driSupport = true;
   		driSupport32Bit = true;
+  		# For Steam
+  		extraPackages = with pkgs; [mangohud];
+      extraPackages32 = with pkgs; [mangohud];
   	};
   	
   	# Pulseaudio hardware access
@@ -175,7 +178,7 @@
   };      
   
   qt = {
-  	enable = true;
+  	enable = false;
   	platformTheme = "kde";
   };
   

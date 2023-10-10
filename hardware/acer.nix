@@ -2,10 +2,7 @@
 
 {
 
-  services.xserver.videoDrivers = [ "intel" ];
-  nixpkgs.config.packageOverrides = pkgs: {
-    vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
-  };
+  services.xserver.videoDrivers = [ "modesetting" ];
   hardware = {
     nvidia = {
       open = false;
