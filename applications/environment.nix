@@ -5,7 +5,21 @@
     overlays = [
       (final: prev: {
         mpv-unwrapped = (prev.mpv-unwrapped.override {
-          ffmpeg_5 = pkgs.ffmpeg_6-full;
+          ffmpeg_5 = (prev.ffmpeg_6-full.override {
+            withCuda = false;
+            withNvdec = false;
+            withNvenc = false;
+          }).overrideAttrs (oldAttrs: rec {
+            pname = "ffmpeg";
+            version = "git";
+              src = prev.fetchgit {
+                url = "https://git.ffmpeg.org/ffmpeg.git";
+                rev = "5ddab49d48343385eadb3a435a5491c476b66ecc";
+                hash = "sha256-TZylnfcdv2hFgj1pCyLA2MWtitUDN5DNJojWqgrsDPA=";
+              };
+            patches = [];
+            postPatch = '''';
+          });
           libplacebo = prev.libplacebo.overrideAttrs (oldAttrs: rec {
             pname = "libplacebo";
             version = "git";

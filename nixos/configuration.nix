@@ -1,4 +1,4 @@
-  { inputs, outputs, lib, config, pkgs, ... }:
+  { inputs, outputs, lib, config, pkgs, nixpkgs, ... }:
   
   {
   imports =
@@ -10,7 +10,7 @@
   boot = {
     supportedFilesystems = [ "ntfs" "bcachefs" ];		# Supported file systems
     kernel.sysctl."net.ipv4.ip_default_ttl" = 65;		# Sync TTL to mobile
-    kernel.sysctl."vm.swappiness" = 5;
+    kernel.sysctl."vm.swappiness" = 3;
     loader = {																				
   	  systemd-boot.enable = true;										# Systemd-boot loader config
   	  timeout = 5;																	# Linux boot section timeout
@@ -22,8 +22,6 @@
   nix.settings = {
   	auto-optimise-store = true;   																															# Store optimization	
   	experimental-features = [ "nix-command" "flakes" ]; 																				# Enable flakes
-  	#registry = lib.mapAttrs (_: value: { flake = value; }) inputs;                             # To make nix3 commands consistent with your flake
-  	#nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;  # This will additionally add your inputs to the system's legacy channels
   };
   
   # Define your hostname.
@@ -113,8 +111,8 @@
   		driSupport = true;
   		driSupport32Bit = true;
   		# For Steam
-  		extraPackages = with pkgs; [mangohud];
-      extraPackages32 = with pkgs; [mangohud];
+  		extraPackages = with pkgs; [ mangohud ];
+      extraPackages32 = with pkgs; [ mangohud ];
   	};
   	
   	# Pulseaudio hardware access

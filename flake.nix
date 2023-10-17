@@ -1,5 +1,5 @@
 {
-  description = "My fist flake config";
+  description = "Personal flake configuration";
   
   inputs = {
   	nixpkgs.url = "github:nixos/nixpkgs/master";
@@ -30,11 +30,11 @@
           ./hardware/acer.nix
 	       home-manager.nixosModules.home-manager
           {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.ulad = import ./applications/dotfiles.nix;
-            # Optionally, use home-manager.extraSpecialArgs to pass
-            # arguments to home.nix
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.ulad = import ./applications/dotfiles.nix;
+            };
           }
 	      ];
       };
@@ -46,11 +46,11 @@
           ./hardware/gtx.nix
 	      home-manager.nixosModules.home-manager
           {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.ulad = import ./applications/dotfiles.nix;
-            # Optionally, use home-manager.extraSpecialArgs to pass
-            # arguments to home.nix
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.ulad = import ./applications/dotfiles.nix;
+            };
           }
 	      ];
       };
@@ -58,17 +58,17 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./nixos/configuration.nix
-	      ./applications/environment.nix
-	      ./hardware/rtx.nix
+          ./applications/environment.nix
+          ./hardware/rtx.nix
 	      home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.ulad = import ./applications/dotfiles.nix;
-              # Optionally, use home-manager.extraSpecialArgs to pass
-              # arguments to home.nix
-            }
-          ];
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.ulad = import ./applications/dotfiles.nix;
+            };
+          }
+        ];
       };
     };
   };
