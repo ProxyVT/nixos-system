@@ -2,7 +2,7 @@
 
 {
 
-  services.xserver.videoDrivers = [ "modesetting" ];
+  services.xserver.videoDrivers = [ "intel" ];
   hardware = {
     nvidia = {
       open = false;

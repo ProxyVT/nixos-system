@@ -5,40 +5,23 @@
     overlays = [
       (final: prev: {
         mpv-unwrapped = (prev.mpv-unwrapped.override {
-          ffmpeg_5 = (prev.ffmpeg_6-full.override {
-            withCuda = false;
-            withNvdec = false;
-            withNvenc = false;
-          }).overrideAttrs (oldAttrs: rec {
-            pname = "ffmpeg";
-            version = "git";
-              src = prev.fetchgit {
-                url = "https://git.ffmpeg.org/ffmpeg.git";
-                rev = "5ddab49d48343385eadb3a435a5491c476b66ecc";
-                hash = "sha256-TZylnfcdv2hFgj1pCyLA2MWtitUDN5DNJojWqgrsDPA=";
-              };
-            patches = [];
-            postPatch = '''';
-          });
           libplacebo = prev.libplacebo.overrideAttrs (oldAttrs: rec {
             pname = "libplacebo";
             version = "git";
-            src = prev.fetchFromGitHub {
-              owner = "haasn";
-              repo = pname;
-              rev = "7ca8418";
-              hash = "sha256-RBDO2Bk46tXIGBBP0eGiM6cDr3zg5GESaLYQqnQD4BY=";
+            src = prev.fetchgit {
+              url = "https://code.videolan.org/videolan/libplacebo.git";
+              rev = "a59333c614c6c9e971abfdeec50bee5355882456";
+              hash = "sha256-QMy0Gyp+/7oLI+g6udLwiHnKsP8SzkhorTDt72oLNyg=";
             };
             buildInputs = oldAttrs.buildInputs ++ [ pkgs.xxHash ];
           });  
         }).overrideAttrs ( oldAttrs: rec {
           pname = "mpv";
           version = "git";
-          src = prev.fetchFromGitHub {
-            owner = "mpv-player";
-            repo = pname;
-            rev = "81dea90";
-            hash = "sha256-ToEM35MyexXlv6vwF0VSZs5LJ4uoOgUn/one0IamVcY=";
+          src = prev.fetchgit {
+            url = "https://github.com/mpv-player/mpv.git";
+            rev = "4de76ce87a545cd86ef493129b4cfeafe10e8e98";
+            hash = "sha256-1VmHAgB8qBv6VUklTpzL1/S39//NgV415N3pA9yQtKY=";
           };
         });
         mpv-git = pkgs.wrapMpv final.mpv-unwrapped {
@@ -115,6 +98,7 @@
     ffmpeg-normalize
     mpv-git
     mousai
+    celluloid
     
     # Office
     libreoffice-qt
