@@ -2,7 +2,8 @@
   description = "Personal flake configuration";
   
   inputs = {
-  	nixpkgs.url = "github:nixos/nixpkgs/master";
+    #  Master branch
+    nixpkgs.url = "github:nixos/nixpkgs/master";
   	home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };

@@ -51,7 +51,7 @@
     
     # Monitor config
     autorandr = {
-      enable = true;
+      enable = false;
       profiles.ulad = {
         fingerprint = {
           eDP1 = "00ffffffffffff0006afec4100000000291701049522137802bbf5945554902723505400000001010101010101010101010101010101ce1d56c050003030080a310058c1100000180000000f0000000000000000000000000020000000fe0041554f0a202020202020202020000000fe004231353658544e30342e31200a00ec";
@@ -162,7 +162,7 @@
     };
     
     chromium = {
-      enable = true;
+      enable = false;
     };
     
     gpg.enable = true;

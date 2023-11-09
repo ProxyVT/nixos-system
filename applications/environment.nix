@@ -10,8 +10,8 @@
             version = "git";
             src = prev.fetchgit {
               url = "https://code.videolan.org/videolan/libplacebo.git";
-              rev = "a59333c614c6c9e971abfdeec50bee5355882456";
-              hash = "sha256-QMy0Gyp+/7oLI+g6udLwiHnKsP8SzkhorTDt72oLNyg=";
+              rev = "c59d487697bae0c9a3e0388a401c2e54b6d82920";
+              hash = "sha256-hBL7sbY8e0/jtU6sUOIDHG0QZs1qdSlkXoxfyJRwnWY=";
             };
             buildInputs = oldAttrs.buildInputs ++ [ pkgs.xxHash ];
           });  
@@ -20,8 +20,8 @@
           version = "git";
           src = prev.fetchgit {
             url = "https://github.com/mpv-player/mpv.git";
-            rev = "4de76ce87a545cd86ef493129b4cfeafe10e8e98";
-            hash = "sha256-1VmHAgB8qBv6VUklTpzL1/S39//NgV415N3pA9yQtKY=";
+            rev = "23de1deaaaace05bb9504567a852ac66e76a1ad1";
+            hash = "sha256-RBCQ8Xgva4P9+8KmiWHY2zRzvRrChUEuPUzBBFu+/cE=";
           };
         });
         mpv-git = pkgs.wrapMpv final.mpv-unwrapped {
@@ -47,9 +47,9 @@
     inter
   ];
   
-  environment.systemPackages = with pkgs; [
+   environment.systemPackages = with pkgs; [
   
-    # Development
+  #   # Development
     super-productivity
     android-studio
     lite-xl
@@ -60,7 +60,7 @@
     nodePackages.gulp
     wineWowPackages.unstableFull
     
-    # Graphics
+  #   # Graphics
     gpick
     krita
     pinta
@@ -68,7 +68,7 @@
     libsForQt5.spectacle
     qimgv
     
-    # Internet
+  #   # Internet
     vivaldi
     vivaldi-ffmpeg-codecs
     you-get
@@ -154,7 +154,6 @@
     libva-utils
     material-icons
     python3Full
-    python-qt
     glxinfo
     vulkan-tools
     wayland-utils
@@ -182,7 +181,7 @@
     xfce.xfdashboard
     xfce.xfwm4
     xfce.xfwm4-themes
-  ];
+   ];
 
   programs = {
     adb.enable = true;
