@@ -2,7 +2,7 @@
 
 {
 
-  services.xserver.videoDrivers = [ "intel" ];
+  services.xserver.videoDrivers = [ "nvidia" ];
   hardware = {
     nvidia = {
       open = false;
@@ -11,6 +11,7 @@
       powerManagement.enable = true;
       package = config.boot.kernelPackages.nvidiaPackages.latest; 
       prime = {
+        reverseSync.enable = true;
         sync.enable = false;
         offload = {
           enable = false;

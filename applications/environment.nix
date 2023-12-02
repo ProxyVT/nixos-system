@@ -1,4 +1,4 @@
-{ inputs, outputs, lib, config, pkgs, fetchFromGitHub,... }:
+{ inputs, outputs, lib, config, pkgs, fetchFromGitHub, buildLua,... }:
 
 { 
   nixpkgs = {
@@ -10,8 +10,8 @@
             version = "git";
             src = prev.fetchgit {
               url = "https://code.videolan.org/videolan/libplacebo.git";
-              rev = "c59d487697bae0c9a3e0388a401c2e54b6d82920";
-              hash = "sha256-hBL7sbY8e0/jtU6sUOIDHG0QZs1qdSlkXoxfyJRwnWY=";
+              rev = "795600a44b03fcd52c055981a403ad60ee5d027a";
+              hash = "sha256-iTVWbfn5SDVxzpuNFNB1zUBtTRFGkzrBgsiRnYTexf8=";
             };
             buildInputs = oldAttrs.buildInputs ++ [ pkgs.xxHash ];
           });  
@@ -20,14 +20,14 @@
           version = "git";
           src = prev.fetchgit {
             url = "https://github.com/mpv-player/mpv.git";
-            rev = "23de1deaaaace05bb9504567a852ac66e76a1ad1";
-            hash = "sha256-RBCQ8Xgva4P9+8KmiWHY2zRzvRrChUEuPUzBBFu+/cE=";
+            rev = "67aa5684379d42ad1e9b8cc66a04d63394e63994";
+            hash = "sha256-hjm7cTa4zeiAzfe4IFU7DHEkHTh0n/iLbjio1oiqJd4=";
           };
         });
         mpv-git = pkgs.wrapMpv final.mpv-unwrapped {
-          scripts = with pkgs; [ 
-            mpvScripts.uosc
-            mpvScripts.thumbfast
+          scripts = with pkgs.mpvScripts; [ 
+            #uosc
+            thumbfast
           ];
         };      
       })
@@ -47,9 +47,9 @@
     inter
   ];
   
-   environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
   
-  #   # Development
+    # Development
     super-productivity
     android-studio
     lite-xl
@@ -66,9 +66,9 @@
     pinta
     blanket
     libsForQt5.spectacle
-    qimgv
+    (callPackage ./uosc.nix { })
     
-  #   # Internet
+    # Internet
     vivaldi
     vivaldi-ffmpeg-codecs
     you-get
@@ -98,7 +98,6 @@
     ffmpeg-normalize
     mpv-git
     mousai
-    celluloid
     
     # Office
     libreoffice-qt
@@ -181,13 +180,28 @@
     xfce.xfdashboard
     xfce.xfwm4
     xfce.xfwm4-themes
-   ];
+  ];
 
   programs = {
     adb.enable = true;
     npm.enable = true;
     dconf.enable = true;
     seahorse.enable = true;
+    ssh = {
+      knownHosts = {
+        nixbuild = {
+          hostNames = [ "eu.nixbuild.net" ];
+          publicKey = "sh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII7V1q5kKup+eSTkqpcsb7qqoKcb8V9foiZGF6dn4qqE";
+        };
+      };
+      extraConfig = ''
+        Host eu.nixbuild.net
+          PubkeyAcceptedKeyTypes ssh-ed25519
+          ServerAliveInterval 60
+          IPQoS throughput
+          IdentityFile /home/ulad/my-nixbuild-key
+      '';
+    };
     steam = {
       enable = true;
       remotePlay.openFirewall = true;
@@ -207,7 +221,6 @@
       ];
     };
     gnome-disks.enable = true;
-    pantheon-tweaks.enable = false;
     mtr.enable = true;
     gnupg.agent = {
       enable = true;

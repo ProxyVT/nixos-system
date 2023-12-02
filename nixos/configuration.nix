@@ -9,6 +9,7 @@
   # System boot sections
   boot = {
     supportedFilesystems = [ "ntfs" "bcachefs" ];		# Supported file systems
+    kernelPackages = pkgs.linuxPackages_testing;
     kernel.sysctl."net.ipv4.ip_default_ttl" = 65;		# Sync TTL to mobile
     kernel.sysctl."vm.swappiness" = 3;
     loader = {																				
@@ -19,9 +20,19 @@
   };
   
   # Nix configuration
-  nix.settings = {
-  	auto-optimise-store = true;   																															# Store optimization	
-  	experimental-features = [ "nix-command" "flakes" ]; 																				# Enable flakes
+  nix = {
+    distributedBuilds = true;
+    buildMachines = [
+      { hostName = "eu.nixbuild.net";
+        system = "x86_64-linux";
+        maxJobs = 100;
+        supportedFeatures = [ "benchmark" "big-parallel" ];
+      }
+    ];
+    settings = {
+      auto-optimise-store = true;   																															# Store optimization	
+      experimental-features = [ "nix-command" "flakes" ];                                         # Enable flakes
+    };  																				
   };
   
   # Define your hostname.
@@ -176,8 +187,9 @@
   };      
   
   qt = {
-  	enable = false;
-  	platformTheme = "kde";
+  	enable = true;
+  	platformTheme = "lxqt";
+  	style = "adwaita";
   };
   
   system.stateVersion = "23.05";

@@ -162,15 +162,11 @@
     };
     
     chromium = {
-      enable = false;
+      enable = true;
     };
     
     gpg.enable = true;
-    
-    # SSH config
-    ssh = {
-      enable = false;
-    };
+
   };
   
   # Nicely reload system units when changing configs
