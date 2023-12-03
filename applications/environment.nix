@@ -66,7 +66,7 @@
     pinta
     blanket
     libsForQt5.spectacle
-    (callPackage ./uosc.nix { })
+    (callPackage ./default.nix { })
     
     # Internet
     vivaldi
