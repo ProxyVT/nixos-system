@@ -1,8 +1,9 @@
-{ lib
-, fetchFromGitHub
-, makeFontsConf
-, buildLua
-, buildGoModule
+{ pkgs ? import <nixpkgs> { system = builtins.currentSystem; }
+, lib ? pkgs.lib
+, fetchFromGitHub ? pkgs.fetchFromGitHub
+, makeFontsConf ? pkgs.makeFontsConf
+, buildLua ? pkgs.buildLua
+, buildGoModule ? pkgs.buildGoModule
 }:
 
 buildLua (finalAttrs: {

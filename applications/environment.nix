@@ -1,4 +1,4 @@
-{ inputs, outputs, lib, config, pkgs, fetchFromGitHub, buildLua,... }:
+{ inputs, outputs, lib, config, pkgs, fetchFromGitHub, ... }:
 
 { 
   nixpkgs = {
@@ -20,8 +20,8 @@
           version = "git";
           src = prev.fetchgit {
             url = "https://github.com/mpv-player/mpv.git";
-            rev = "67aa5684379d42ad1e9b8cc66a04d63394e63994";
-            hash = "sha256-hjm7cTa4zeiAzfe4IFU7DHEkHTh0n/iLbjio1oiqJd4=";
+            rev = "f886eb5678d0ed7eea196e577e04525248963f28";
+            hash = "sha256-nMXo1mp1hL2Zu4xkSUb0Sfa9/KLm3u29K7XLYtzy8Oo=";
           };
         });
         mpv-git = pkgs.wrapMpv final.mpv-unwrapped {
@@ -66,7 +66,6 @@
     pinta
     blanket
     libsForQt5.spectacle
-    (callPackage ./default.nix { })
     
     # Internet
     vivaldi
@@ -111,7 +110,7 @@
     compsize
     psmisc
     lm_sensors
-    ffmpeg_6-full
+    ffmpeg
     fastfetch
     tuifimanager
     python39Packages.secretstorage

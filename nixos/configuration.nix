@@ -8,9 +8,9 @@
   
   # System boot sections
   boot = {
-    supportedFilesystems = [ "ntfs" "bcachefs" ];		# Supported file systems
+    supportedFilesystems = [ ];		                  # Supported file systems
     kernelPackages = pkgs.linuxPackages_testing;
-    kernel.sysctl."net.ipv4.ip_default_ttl" = 65;		# Sync TTL to mobile
+    kernel.sysctl."net.ipv4.ip_default_ttl" = 65;   # Sync TTL to mobile
     kernel.sysctl."vm.swappiness" = 3;
     loader = {																				
   	  systemd-boot.enable = true;										# Systemd-boot loader config
@@ -30,8 +30,8 @@
       }
     ];
     settings = {
-      auto-optimise-store = true;   																															# Store optimization	
-      experimental-features = [ "nix-command" "flakes" ];                                         # Enable flakes
+      auto-optimise-store = true;   													# Store optimization	
+      experimental-features = [ "nix-command" "flakes" ];     # Enable flakes
     };  																				
   };
   
