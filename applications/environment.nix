@@ -4,14 +4,24 @@
   nixpkgs = {
     overlays = [
       (final: prev: {
+        uosc-git = prev.mpvScripts.uosc.overrideAttrs (oldAttrs: rec {
+          pname = "uosc";
+          version = "git";
+          src = prev.fetchgit {
+            url = "https://github.com/tomasklaen/uosc.git";
+            rev = "b36cefed888c1cd2d4e0b667cc177d781c2af987";
+            hash = "sha256-TmB5xGxe9gMyUefBbJr98rsg/F+0XfZR9GcK6p1chG8=";
+          };
+          patches = [];
+        });
         mpv-unwrapped = (prev.mpv-unwrapped.override {
           libplacebo = prev.libplacebo.overrideAttrs (oldAttrs: rec {
             pname = "libplacebo";
             version = "git";
             src = prev.fetchgit {
               url = "https://code.videolan.org/videolan/libplacebo.git";
-              rev = "795600a44b03fcd52c055981a403ad60ee5d027a";
-              hash = "sha256-iTVWbfn5SDVxzpuNFNB1zUBtTRFGkzrBgsiRnYTexf8=";
+              rev = "52314e0e435fbcb731e326815d4091ed0ba27475";
+              hash = "sha256-p0bxJxyIYrmU+ypdjbXU7vREZjiwjR7oyjqkhBWu4uA=";
             };
             buildInputs = oldAttrs.buildInputs ++ [ pkgs.xxHash ];
           });  
@@ -20,14 +30,14 @@
           version = "git";
           src = prev.fetchgit {
             url = "https://github.com/mpv-player/mpv.git";
-            rev = "f886eb5678d0ed7eea196e577e04525248963f28";
-            hash = "sha256-nMXo1mp1hL2Zu4xkSUb0Sfa9/KLm3u29K7XLYtzy8Oo=";
+            rev = "443c2487d7dd1039e297abad6398135b3c463018";
+            hash = "sha256-sIVAeE5hasCHEDeQqcg2vIaRneApHJ4jqI7pZmr83Fc=";
           };
         });
         mpv-git = pkgs.wrapMpv final.mpv-unwrapped {
-          scripts = with pkgs.mpvScripts; [ 
-            #uosc
-            thumbfast
+          scripts = with pkgs; [ 
+            uosc-git
+            mpvScripts.thumbfast
           ];
         };      
       })

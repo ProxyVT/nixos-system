@@ -57,19 +57,17 @@
   };
   
   # Global services configuration
-  services = {
-    # Environment configuration	  
-    xserver = {
-    enable = true;
-    # Dekstop Manager
-    desktopManager = {
+  services = {   
+    xserver = {               # Environment configuration	  
+      enable = true;  
+      desktopManager = {      # Dekstop Manager
   		  plasma5 = {
   		    enable = false;
   		  };
   		  xfce.enable = true;
-    };	
+      };	
     # Display Manager
-    displayManager = {
+      displayManager = {
   		  sddm = {
   		    enable = false;
   		    autoNumlock = true;
@@ -80,18 +78,15 @@
   		      enable = false;
   		    };
   		  };		
-    };
-    
-    # Language sesttings
-    layout = "us,ru";
-    xkbOptions = "grp:alt_shift_toggle";
-  				  
-    # Touchpad  & mouse config
-    libinput = {
+      };
+      # Language sesttings
+      layout = "us,ru";
+        xkbOptions = "grp:alt_shift_toggle";  
+      # Touchpad  & mouse config
+      libinput = {
       enable = true;
-    };
-  };
-          
+      };
+    };         
     # Sound services configuration
     pipewire = {
     enable = true;                        # Pipewire support
