@@ -9,8 +9,8 @@
           version = "git";
           src = prev.fetchgit {
             url = "https://github.com/tomasklaen/uosc.git";
-            rev = "b36cefed888c1cd2d4e0b667cc177d781c2af987";
-            hash = "sha256-TmB5xGxe9gMyUefBbJr98rsg/F+0XfZR9GcK6p1chG8=";
+            rev = "6fa34c31d0a5290dee83282205768d15111df7d8";
+            hash = "sha256-qxyNZHmH33bKRp4heFSC+RtvSApIfbVFt4otfS351nE=";
           };
           patches = [];
         });
@@ -20,8 +20,8 @@
             version = "git";
             src = prev.fetchgit {
               url = "https://code.videolan.org/videolan/libplacebo.git";
-              rev = "52314e0e435fbcb731e326815d4091ed0ba27475";
-              hash = "sha256-p0bxJxyIYrmU+ypdjbXU7vREZjiwjR7oyjqkhBWu4uA=";
+              rev = "311a59507f6a0465aaac9b783af65bf349755360";
+              hash = "sha256-rwaufc4LfcX190ulHv0NPuER/D7//SwoLrSN4kKteqk=";
             };
             buildInputs = oldAttrs.buildInputs ++ [ pkgs.xxHash ];
           });  
@@ -30,9 +30,10 @@
           version = "git";
           src = prev.fetchgit {
             url = "https://github.com/mpv-player/mpv.git";
-            rev = "443c2487d7dd1039e297abad6398135b3c463018";
-            hash = "sha256-sIVAeE5hasCHEDeQqcg2vIaRneApHJ4jqI7pZmr83Fc=";
+            rev = "474e213f528c5c9c72faabb83f75e441a212d591";
+            hash = "sha256-OTgnCcqIHuBqKTktbsFunrDYS5mwMEKZ7Ont7U2UgpE=";
           };
+          patches = [];
         });
         mpv-git = pkgs.wrapMpv final.mpv-unwrapped {
           scripts = with pkgs; [ 
@@ -61,21 +62,21 @@
   
     # Development
     super-productivity
-    android-studio
-    lite-xl
-    lapce
+    #android-studio
     eclipses.eclipse-java
     github-desktop
     nodejs
     nodePackages.gulp
     wineWowPackages.unstableFull
     
-  #   # Graphics
+    # Graphics
     gpick
     krita
     pinta
     blanket
     libsForQt5.spectacle
+    nomacs
+    digikam
     
     # Internet
     vivaldi
@@ -87,8 +88,6 @@
     tdesktop
     motrix
     streamlink
-    deluge
-    ktorrent
     ariang
     
     # Server & security
@@ -96,10 +95,12 @@
     john
     putty
     protonvpn-gui
+    ddrescue
+    ddrescueview
     
     # Multimedia
     audacity
-    handbrake
+    #handbrake
     libsForQt5.kdenlive
     mkvtoolnix
     mediainfo-gui
@@ -137,8 +138,6 @@
     # System apps
     libsForQt5.ark
     libsForQt5.dolphin
-    pantheon.appcenter
-    far2l
     psensor
     qdirstat
     qrcp
@@ -149,6 +148,8 @@
     yarn
     pavucontrol
     darkman
+    localsend
+    grsync
     
     # System components
     papirus-icon-theme
@@ -167,29 +168,27 @@
     wayland-utils
     xorg.xdpyinfo
     xorg.xinit
-    
-    # Xfce applets
-    xfce.catfish
-    xfce.gigolo
-    xfce.orage
-    xfce.xfburn
-    xfce.xfce4-appfinder
-    xfce.xfce4-clipman-plugin
-    xfce.xfce4-cpugraph-plugin
-    xfce.xfce4-dict
-    xfce.xfce4-fsguard-plugin
-    xfce.xfce4-genmon-plugin
-    xfce.xfce4-netload-plugin
-    xfce.xfce4-panel
-    xfce.xfce4-pulseaudio-plugin
-    xfce.xfce4-systemload-plugin
-    xfce.xfce4-weather-plugin
-    xfce.xfce4-whiskermenu-plugin
-    xfce.xfce4-xkb-plugin
-    xfce.xfdashboard
-    xfce.xfwm4
-    xfce.xfwm4-themes
   ];
+
+  services = {
+    mullvad-vpn.enable = true; 	            # Mullvad VPN support
+    flatpak.enable = false; 		            # Flatpak support
+    cinnamon.apps.enable = true;            # Cinnamon apps
+    gnome.gnome-keyring.enable = true;      # Gnome keyring support
+    transmission = {                        # Transmission torrent service
+      enable = true;
+      package = pkgs.transmission_4-gtk;
+      settings = {
+        umask = 0;
+      };     
+    };
+    resilio = {
+      enable = false;
+      enableWebUI = true;
+      httpListenPort = 8888;
+      httpListenAddr = "0.0.0.0";
+    };
+  };
 
   programs = {
     adb.enable = true;

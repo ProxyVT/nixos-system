@@ -33,7 +33,6 @@
   #accounts.email.ulad.thunderbird.enable = true;
   
   services = {
-    syncthing.enable = true;
     easyeffects.enable = true;
     gpg-agent.enable = true;
   };
@@ -72,7 +71,7 @@
     btop = {
       enable = true;
       settings = {
-        update_ms = 1000;
+        update_ms = 1500;
         proc_sorting = "memory";
       };  
     };
@@ -82,8 +81,8 @@
     
     # Mangohud config
     mangohud = {
-      enable = true;
-      enableSessionWide = true;
+      enable = false;
+      enableSessionWide = false;
       settingsPerApplication = {
         mpv = {
           no_display = true;
@@ -93,7 +92,7 @@
     
     # Wezterm terminal config
     wezterm = {
-      enable = true;
+      enable = false;
       extraConfig = ''
         return {
           enable_scroll_bar=true
@@ -123,6 +122,12 @@
     
     # Java config
     java.enable = true;
+
+    # Vscode config
+    vscode = {
+      enable = true;
+      package = pkgs.vscodium-fhs;
+    };
     
     # nnn config
     nnn.enable = true;

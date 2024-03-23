@@ -9,9 +9,9 @@
   # System boot sections
   boot = {
     supportedFilesystems = [ ];		                  # Supported file systems
-    kernelPackages = pkgs.linuxPackages_testing;
+    kernelPackages = pkgs.linuxPackages_zen;
     kernel.sysctl."net.ipv4.ip_default_ttl" = 65;   # Sync TTL to mobile
-    kernel.sysctl."vm.swappiness" = 3;
+    kernel.sysctl."vm.swappiness" = 1;
     loader = {																				
   	  systemd-boot.enable = true;										# Systemd-boot loader config
   	  timeout = 5;																	# Linux boot section timeout
@@ -58,49 +58,38 @@
   
   # Global services configuration
   services = {   
-    xserver = {               # Environment configuration	  
+    xserver = {                         # Environment configuration	  
       enable = true;  
-      desktopManager = {      # Dekstop Manager
-  		  plasma5 = {
-  		    enable = false;
-  		  };
-  		  xfce.enable = true;
+      desktopManager = {                # Dekstop Manager
+        cinnamon.enable = true;
       };	
     # Display Manager
       displayManager = {
-  		  sddm = {
-  		    enable = false;
-  		    autoNumlock = true;
-  		  };
+        defaultSession = "cinnamon";
   		  lightdm = {
   		    enable = true;
-  		    greeters.slick = {
-  		      enable = false;
-  		    };
   		  };		
       };
       # Language sesttings
-      layout = "us,ru";
-        xkbOptions = "grp:alt_shift_toggle";  
+      xkb = {
+        layout = "us,ru";
+        options = "grp:alt_shift_toggle"; 
+      };
       # Touchpad  & mouse config
       libinput = {
-      enable = true;
+        enable = true;
       };
     };         
     # Sound services configuration
     pipewire = {
-    enable = true;                        # Pipewire support
-    alsa = {                              # Alsa support
+      enable = true;                        # Pipewire support
+    alsa = {                                # Alsa support
   		enable = true;
   		support32Bit = true;
     };
-    pulse.enable = true;		              # PulseAudio support
+    pulse.enable = true;		                # PulseAudio support
     };
-    
-    printing.enable = true; 		          # Printing services
-    mullvad-vpn.enable = true; 	          # MullvadVPN support
-    flatpak.enable = true; 		            # Flatpak support
-    gnome.gnome-keyring.enable = true;    # Gnome keyring support
+    printing.enable = true; 		            # Printing services
   };
   
   # XDG desktop integration
@@ -117,15 +106,15 @@
   		driSupport = true;
   		driSupport32Bit = true;
   		# For Steam
-  		extraPackages = with pkgs; [ mangohud ];
-      extraPackages32 = with pkgs; [ mangohud ];
+  		#extraPackages = with pkgs; [ mangohud ];
+      #extraPackages32 = with pkgs; [ mangohud ];
   	};
   	
   	# Pulseaudio hardware access
   	pulseaudio.enable = false;
   	
   	# Razer mouse notification
-  	openrazer.enable = false;
+  	openrazer.enable = true;
   	
   	# Bluetooth support
   	bluetooth = {
@@ -165,26 +154,27 @@
     users.ulad = {
       isNormalUser = true;
       description = "Ulad";
-        extraGroups = [ 
-          "wheel"
-          "users" 
-          "adbusers"
-          "networkmanager"
-          "video"
-          "audio"
-          "aria2"
-          "openrazer"
-          "plugdev"
-          "transmission"
-        ];
+      group = "users";
+      extraGroups = [ 
+        "wheel"
+        "adbusers"
+        "networkmanager"
+        "video"
+        "audio"
+        "aria2"
+        "openrazer"
+        "plugdev"
+        "transmission"
+        "rslsync"
+      ];
       password = " ";
     };
   };      
   
   qt = {
   	enable = true;
-  	platformTheme = "lxqt";
-  	style = "adwaita";
+  	platformTheme = "qt5ct";
+  	style = "kvantum";
   };
   
   system.stateVersion = "23.05";

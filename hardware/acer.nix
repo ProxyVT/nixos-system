@@ -9,13 +9,11 @@
       modesetting.enable = true;
       nvidiaSettings = true;
       powerManagement.enable = true;
-      package = config.boot.kernelPackages.nvidiaPackages.latest; 
+      package = config.boot.kernelPackages.nvidiaPackages.stable; 
       prime = {
-        reverseSync.enable = true;
-        sync.enable = false;
         offload = {
-          enable = false;
-			    enableOffloadCmd = false;
+          enable = true;
+			    enableOffloadCmd = true;
 		    };
         nvidiaBusId = "PCI:4:0:0";
         intelBusId = "PCI:0:2:0";
