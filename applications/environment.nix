@@ -1,4 +1,4 @@
-{ inputs, outputs, lib, config, pkgs, fetchFromGitHub, ... }:
+{ inputs, outputs, lib, config, pkgs, ... }:
 
 { 
   nixpkgs = {
@@ -30,8 +30,8 @@
           version = "git";
           src = prev.fetchgit {
             url = "https://github.com/mpv-player/mpv.git";
-            rev = "474e213f528c5c9c72faabb83f75e441a212d591";
-            hash = "sha256-OTgnCcqIHuBqKTktbsFunrDYS5mwMEKZ7Ont7U2UgpE=";
+            rev = "2af3a6e294e829191dfa0c41396ecd6384d405d9";
+            hash = "sha256-y4v4I88a9KRgrvuWJBGM8Q3lG1WUXrUW0O7qTCrk9nk=";
           };
           patches = [];
         });
@@ -62,7 +62,7 @@
   
     # Development
     super-productivity
-    #android-studio
+    android-studio
     eclipses.eclipse-java
     github-desktop
     nodejs
@@ -89,6 +89,8 @@
     motrix
     streamlink
     ariang
+    media-downloader
+    tartube-yt-dlp
     
     # Server & security
     keepassxc
@@ -100,7 +102,7 @@
     
     # Multimedia
     audacity
-    #handbrake
+    handbrake
     libsForQt5.kdenlive
     mkvtoolnix
     mediainfo-gui

@@ -165,6 +165,7 @@
         "openrazer"
         "plugdev"
         "transmission"
+        "storage"
         "rslsync"
       ];
       password = " ";
@@ -177,6 +178,19 @@
   	style = "kvantum";
   };
   
+#  system.replaceRuntimeDependencies = [({
+#      original = pkgs.xz;
+#      replacement = pkgs.xz.overrideAttrs (finalAttrs: prevAttrs: {
+#        version = "5.2.5";
+#          src = pkgs.fetchurl {
+#            url = with finalAttrs;
+#            "mirror://sourceforge/lzmautils/xz-${version}.tar.bz2";
+#            #hash = "sha256-E+NALjAbYBj2px7w5Jf3FMbRHiFK6C2rFWuBwqZKyyU=";
+#            hash = "sha256-URf5MJALNBSTgn1jqpEP9eAR4LmUGXw7ccCKICKKQt8=";
+#          };
+#      });
+#  })];
+
   system.stateVersion = "23.05";
   }
   

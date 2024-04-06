@@ -4,8 +4,7 @@
   inputs = {
     #  Master branch
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
-    nixpkgs-staging.url = "github:nixos/nixpkgs/staging";
-    nixpkgs-master.url = "github:nixos/nixpkgs/master";
+    nixpkgs-staging-next.url = "github:nixos/nixpkgs/staging-next";
   	home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
