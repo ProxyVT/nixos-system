@@ -3,8 +3,8 @@
 {
   imports = 
   [
-    ./mpv.nix
-    ./uosc.nix
+    ./overlays/mpv.nix
+    ./overlays/uosc.nix
   ];
 
   nixpkgs = {

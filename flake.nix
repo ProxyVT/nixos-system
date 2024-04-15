@@ -32,7 +32,6 @@
 	        ./nixos/configuration.nix
 	        ./applications/environment.nix
           ./hardware/acer.nix
-          ./overlays/default.nix
 	       home-manager.nixosModules.home-manager
           {
             home-manager = {
