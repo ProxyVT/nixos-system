@@ -22,15 +22,10 @@
     { device = "/dev/disk/by-uuid/020D-782E";
       fsType = "vfat";
     };
-  
-  fileSystems."/run/media/ulad/Media" =
-    { device = "/dev/disk/by-uuid/FDA2-B798";
-      fsType = "exfat";
-    };
 
-  swapDevices = [ {
-    device = "/dev/disk/by-uuid/c76e7f7b-b621-45e7-b3be-e4a2fb30bc1f";
-  } ];
+#  swapDevices = [ {
+#    device = "/dev/disk/by-uuid/c76e7f7b-b621-45e7-b3be-e4a2fb30bc1f";
+#  } ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

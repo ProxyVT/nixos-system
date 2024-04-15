@@ -17,11 +17,14 @@
   	  timeout = 5;																	# Linux boot section timeout
   	  efi.canTouchEfiVariables = true;
     };
+    tmp = {
+      useTmpfs = true;
+    };
   };
   
   # Nix configuration
   nix = {
-    distributedBuilds = true;
+    distributedBuilds = false;
     buildMachines = [
       { hostName = "eu.nixbuild.net";
         system = "x86_64-linux";
@@ -90,6 +93,7 @@
     pulse.enable = true;		                # PulseAudio support
     };
     printing.enable = true; 		            # Printing services
+    logrotate.checkConfig = false;
   };
   
   # XDG desktop integration
@@ -165,6 +169,7 @@
         "openrazer"
         "plugdev"
         "transmission"
+        "storage"
         "rslsync"
       ];
       password = " ";
@@ -172,9 +177,7 @@
   };      
   
   qt = {
-  	enable = true;
-  	platformTheme = "qt5ct";
-  	style = "kvantum";
+  	enable = false;
   };
   
   system.stateVersion = "23.05";

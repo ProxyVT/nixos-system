@@ -77,7 +77,10 @@
     };
     
     # Bash config
-    bash.enable = true;
+    bash = {
+      enable = true;
+      bashrcExtra = "cd ./nixos-system/";
+    };
     
     # Mangohud config
     mangohud = {
@@ -127,6 +130,7 @@
     vscode = {
       enable = true;
       package = pkgs.vscodium-fhs;
+      enableUpdateCheck = false;
     };
     
     # nnn config
@@ -171,7 +175,6 @@
     };
     
     gpg.enable = true;
-
   };
   
   # Nicely reload system units when changing configs
