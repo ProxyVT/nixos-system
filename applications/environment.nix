@@ -5,6 +5,7 @@
   [
     ./overlays/mpv.nix
     ./overlays/uosc.nix
+    ./overlays/xz.nix
   ];
 
   nixpkgs = {
@@ -30,6 +31,8 @@
     eclipses.eclipse-java
     github-desktop
     nodejs
+    cudatext
+    lite-xl
     nodePackages.gulp
     wineWowPackages.unstableFull
     
@@ -100,6 +103,7 @@
     ttop
     ddcutil
     brightnessctl
+    nurl
     
     # System apps
     libsForQt5.ark

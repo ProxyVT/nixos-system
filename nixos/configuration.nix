@@ -66,9 +66,8 @@
       desktopManager = {                # Dekstop Manager
         cinnamon.enable = true;
       };	
-    # Display Manager
+      # Display Manager
       displayManager = {
-        defaultSession = "cinnamon";
   		  lightdm = {
   		    enable = true;
   		  };		
@@ -82,7 +81,17 @@
       libinput = {
         enable = true;
       };
-    };         
+    };
+
+    desktopManager = {
+      plasma6.enable = false;
+    };
+
+    displayManager = {
+      defaultSession = "cinnamon";
+    };
+    
+
     # Sound services configuration
     pipewire = {
       enable = true;                        # Pipewire support
@@ -175,10 +184,6 @@
       password = " ";
     };
   };      
-  
-  qt = {
-  	enable = false;
-  };
   
   system.stateVersion = "23.05";
   }
