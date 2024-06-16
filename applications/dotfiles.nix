@@ -57,11 +57,11 @@
           HDMI1 = "00ffffffffffff0026cd5b615d010000321e010380351e782a82b5a4554fa0260e5054bfcf00814081809500714f81c0b30001010101023a801871382d40582c45000f282100001eb37d806a703817402c2035000f282100001e000000fd0030901eb422000a202020202020000000fc00504c32343730480a2020202020019002032ff14e010304131f120211900e0f1d1e3f230907078301000065030c0010006d1a000002013090e60000000000b37d806a703817402c2035000f282100001e000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000085";
         };
         config = {
-          eDP1.enable = false;
+          eDP1.enable = true;
           HDMI1 = {
             enable = true;
             primary = true;
-            rate = "120.00";
+            rate = "60.00";
           };
         };
       };
@@ -71,7 +71,7 @@
     btop = {
       enable = true;
       settings = {
-        update_ms = 1500;
+        update_ms = 1000;
         proc_sorting = "memory";
       };  
     };
@@ -95,7 +95,7 @@
     
     # Wezterm terminal config
     wezterm = {
-      enable = false;
+      enable = true;
       extraConfig = ''
         return {
           enable_scroll_bar=true
@@ -112,8 +112,6 @@
         settings = {
           "browser.tabs.closeWindowWithLastTab" = false;
           "toolkit.tabbox.switchByScrolling" = true;
-          "media.ffmpeg.vaapi.enabled" = true;
-          "gfx.webrender.all" = true;
         };
       };
     };
@@ -132,9 +130,6 @@
       package = pkgs.vscodium-fhs;
       enableUpdateCheck = false;
     };
-    
-    # nnn config
-    nnn.enable = true;
     
     # Aria2c config
     aria2 = {
@@ -183,4 +178,3 @@
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "23.05";
 }
- 
