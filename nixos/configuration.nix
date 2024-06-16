@@ -2,26 +2,34 @@
   
   {
   imports =
-  [ # Include the results of the hardware scan.							
+  [ 			
     ./hardware-configuration.nix
   ];
   
   # System boot sections
   boot = {
-    supportedFilesystems = [ ];		                  # Supported file systems
-    kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = pkgs.linuxPackages_6_9;
     kernel.sysctl."net.ipv4.ip_default_ttl" = 65;   # Sync TTL to mobile
-    kernel.sysctl."vm.swappiness" = 1;
+    kernel.sysctl."vm.swappiness" = 180;
     loader = {																				
-  	  systemd-boot.enable = true;										# Systemd-boot loader config
-  	  timeout = 5;																	# Linux boot section timeout
+  	  systemd-boot = {
+        enable = true;										          # Systemd-boot loader config
+        sortKey = "machine-id";                     # Sort specialisation generation
+      };
+  	  timeout = 10;																	# Linux boot section timeout
   	  efi.canTouchEfiVariables = true;
     };
+  };
+
+  zramSwap = {
+    enable = true;                                  # Zram support
+    memoryPercent = 100;
+    algorithm = "lz4";
   };
   
   # Nix configuration
   nix = {
-    distributedBuilds = true;
+    distributedBuilds = false;
     buildMachines = [
       { hostName = "eu.nixbuild.net";
         system = "x86_64-linux";
@@ -34,13 +42,18 @@
       experimental-features = [ "nix-command" "flakes" ];     # Enable flakes
     };  																				
   };
+
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      nvidia.acceptLicense = true;
+    };
+  };
   
   # Define your hostname.
   networking = {
     hostName = "nixos-ulad";
     networkmanager.enable = true;
-    dhcpcd.wait = "background";
-    dhcpcd.extraConfig = "noarp";
   };
   
   # Set your time zone.
@@ -52,7 +65,7 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
-  	font = "JetBrains Mono";
+    earlySetup = true;                  # workaround for https://github.com/NixOS/nixpkgs/issues/257904
   	keyMap = "us";
   };
   
@@ -62,10 +75,10 @@
       enable = true;  
       desktopManager = {                # Dekstop Manager
         cinnamon.enable = true;
+        gnome.enable = false;
       };	
-    # Display Manager
+      # Display Manager
       displayManager = {
-        defaultSession = "cinnamon";
   		  lightdm = {
   		    enable = true;
   		  };		
@@ -74,12 +87,17 @@
       xkb = {
         layout = "us,ru";
         options = "grp:alt_shift_toggle"; 
-      };
-      # Touchpad  & mouse config
-      libinput = {
-        enable = true;
-      };
-    };         
+      };  
+    };
+
+    libinput = {                        # Touchpad  & mouse config
+      enable = true;
+    };
+
+    desktopManager = {
+      plasma6.enable = false;
+    };
+
     # Sound services configuration
     pipewire = {
       enable = true;                        # Pipewire support
@@ -90,6 +108,9 @@
     pulse.enable = true;		                # PulseAudio support
     };
     printing.enable = true; 		            # Printing services
+    #logrotate.checkConfig = false;
+    #timesyncd.enable = false;
+    journald.extraConfig = "SystemMaxUse=100M";
   };
   
   # XDG desktop integration
@@ -114,7 +135,9 @@
   	pulseaudio.enable = false;
   	
   	# Razer mouse notification
-  	openrazer.enable = true;
+  	openrazer = {
+      enable = true;
+    };
   	
   	# Bluetooth support
   	bluetooth = {
@@ -151,46 +174,32 @@
     mutableUsers = false;
           
     # Current user
-    users.ulad = {
-      isNormalUser = true;
-      description = "Ulad";
-      group = "users";
-      extraGroups = [ 
-        "wheel"
-        "adbusers"
-        "networkmanager"
-        "video"
-        "audio"
-        "aria2"
-        "openrazer"
-        "plugdev"
-        "transmission"
-        "storage"
-        "rslsync"
-      ];
-      password = " ";
+    users = {
+      ulad = {
+        isNormalUser = true;
+        description = "Ulad";
+        group = "users";
+          extraGroups = [ 
+            "wheel"
+            "adbusers"
+            "networkmanager"
+            "video"
+            "audio"
+            "aria2"
+            "openrazer"
+            "plugdev"
+            "transmission"
+            "storage"
+            "rslsync"
+          ];
+        password = " ";
+      };
     };
   };      
   
-  qt = {
-  	enable = true;
-  	platformTheme = "qt5ct";
-  	style = "kvantum";
+  system = {
+    stateVersion = "23.05";
   };
+}
   
-#  system.replaceRuntimeDependencies = [({
-#      original = pkgs.xz;
-#      replacement = pkgs.xz.overrideAttrs (finalAttrs: prevAttrs: {
-#        version = "5.2.5";
-#          src = pkgs.fetchurl {
-#            url = with finalAttrs;
-#            "mirror://sourceforge/lzmautils/xz-${version}.tar.bz2";
-#            #hash = "sha256-E+NALjAbYBj2px7w5Jf3FMbRHiFK6C2rFWuBwqZKyyU=";
-#            hash = "sha256-URf5MJALNBSTgn1jqpEP9eAR4LmUGXw7ccCKICKKQt8=";
-#          };
-#      });
-#  })];
 
-  system.stateVersion = "23.05";
-  }
-  
