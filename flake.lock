@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1712093955,
-        "narHash": "sha256-94I0sXz6fiVBvUAk2tg6t3UpM5rOImj4JTSTNFbg64s=",
+        "lastModified": 1718526747,
+        "narHash": "sha256-sKrD/utGvmtQALvuDj4j0CT3AJXP1idOAq2p+27TpeE=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "80546b220e95a575c66c213af1b09fe255299438",
+        "rev": "0a7ffb28e5df5844d0e8039c9833d7075cdee792",
         "type": "github"
       },
       "original": {
@@ -20,13 +20,29 @@
         "type": "github"
       }
     },
-    "nixpkgs": {
+    "master": {
       "locked": {
-        "lastModified": 1712132741,
-        "narHash": "sha256-44ZLixE1FGUmz01/G/1ZMfJG8P+i8y2SkOVRia0xRkk=",
+        "lastModified": 1718547502,
+        "narHash": "sha256-kHkUHzCWHVoV/mRXd7zrDl8g7IiUpdvi1rWeVpEBH6c=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "7781caa09d74b971a059a0240a03c5dd68acf3e5",
+        "rev": "54447de453a3d2d9a12cdf047fd0df4a6f52cf87",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "master",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1718455246,
+        "narHash": "sha256-NIDyvx6YZgH37CcNYgvp3MRqSo6+JJQPQFsIdRD6NmU=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "edc78633afd58a774b25902d6ff7644aa52fbc2e",
         "type": "github"
       },
       "original": {
@@ -36,30 +52,15 @@
         "type": "github"
       }
     },
-    "nixpkgs-staging-next": {
-      "locked": {
-        "lastModified": 1712145681,
-        "narHash": "sha256-p40EpZDQXCuNy+qNFM5cWXRa8GAL2bVT+0svJdQ+elU=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "e74231f370d6f5927533e8ba6b23767039c49c19",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "staging-next",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs",
-        "nixpkgs-staging-next": "nixpkgs-staging-next"
+        "master": "master",
+        "nixpkgs": "nixpkgs"
       }
     }
   },
   "root": "root",
   "version": 7
 }
+
