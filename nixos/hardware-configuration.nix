@@ -26,13 +26,7 @@
   };
 
   fileSystems."/" =
-    { device = "none";
-      fsType = "tmpfs";
-      options = [ "defaults" "size=25%" "mode=755" ];
-    };
-
-  fileSystems."/nix" =
-    { device = "/dev/disk/by-partlabel/nix";
+    { device = "/dev/disk/by-partlabel/nixos";
       fsType = "f2fs";
     };
 
