@@ -26,12 +26,18 @@
   };
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/c7845cbf-102e-452f-bb6d-925a879114f1";
-      fsType = "ext4";
+    { device = "none";
+      fsType = "tmpfs";
+      options = [ "defaults" "size=25%" "mode=755" ];
+    };
+
+  fileSystems."/nix" =
+    { device = "/dev/disk/by-partname/nix";
+      fsType = "f2fs";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/4F26-5DBD";
+    { device = "/dev/disk/by-partname/boot";
       fsType = "vfat";
     };
 
