@@ -32,12 +32,12 @@
     };
 
   fileSystems."/nix" =
-    { device = "/dev/disk/by-partname/nix";
+    { device = "/dev/disk/by-partlabel/nix";
       fsType = "f2fs";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-partname/boot";
+    { device = "/dev/disk/by-partlabel/boot";
       fsType = "vfat";
     };
 
