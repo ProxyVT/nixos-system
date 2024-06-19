@@ -6,6 +6,7 @@
     master.url = "github:nixos/nixpkgs/master";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    impermanence.url = "github:nix-community/impermanence";
   };
   
   outputs = { 
@@ -27,9 +28,10 @@
       ulad = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs outputs; };
         modules = [
-	        ./nixos/configuration.nix
-	        ./applications/environment.nix
-	       home-manager.nixosModules.home-manager
+	  ./nixos/configuration.nix
+	  ./applications/environment.nix
+	  home-manager.nixosModules.home-manager
+	  impermanence.nixosModules.impermanence
           {
             home-manager = {
               useGlobalPkgs = true;
@@ -37,7 +39,7 @@
               users.ulad = import ./applications/dotfiles.nix;
             };
           }
-	];
+        ];
       };
     };
   };
