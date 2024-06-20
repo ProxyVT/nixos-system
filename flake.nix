@@ -4,15 +4,16 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
     master.url = "github:nixos/nixpkgs/master";
+    impermanence.url = "github:nix-community/impermanence";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    impermanence.url = "github:nix-community/impermanence";
   };
   
   outputs = { 
     self, 
     nixpkgs, 
-    home-manager, 
+    home-manager,
+    impermanence,
     ... 
   } @inputs: let
     inherit (self) outputs;
