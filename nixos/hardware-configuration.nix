@@ -24,16 +24,22 @@
     extraModulePackages = [ ];
     bcache.enable = true;
   };
+  
+  fileSystems."/" = { 
+    device = "none";
+    fsType = "tmpfs";
+    options = [ "defaults" "size=50%" "mode=755" ];
+  };
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-partlabel/nixos";
-      fsType = "f2fs";
-    };
+  fileSystems."/nix" = { 
+    device = "/dev/disk/by-partlabel/nixos";
+    fsType = "f2fs";
+  };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-partlabel/boot";
-      fsType = "vfat";
-    };
+  fileSystems."/boot" = { 
+    device = "/dev/disk/by-partlabel/boot";
+    fsType = "vfat";
+  };
 
   specialisation = {
     umka.configuration = {
