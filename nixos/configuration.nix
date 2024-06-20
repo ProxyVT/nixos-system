@@ -189,7 +189,7 @@
             "storage"
             "rslsync"
           ];
-        password = " ";
+        initialPassword = " ";
       };
     };
   };      
