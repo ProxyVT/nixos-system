@@ -36,6 +36,12 @@
     fsType = "f2fs";
   };
 
+  fileSystems."/persistent" = {
+    device = "/dev/disk/by-partlabel/nixos";
+    neededForBoot = true;
+    fsType = "f2fs";
+  };
+
   fileSystems."/boot" = { 
     device = "/dev/disk/by-partlabel/boot";
     fsType = "vfat";
