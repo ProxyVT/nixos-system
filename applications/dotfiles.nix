@@ -27,7 +27,7 @@
   # TODO: Set your username
   home = {
     username = "ulad";
-    homeDirectory = "/nix/persistent/home/ulad";
+    homeDirectory = "/home/ulad";
   };
   
   #accounts.email.ulad.thunderbird.enable = true;
