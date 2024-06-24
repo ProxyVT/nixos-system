@@ -194,7 +194,7 @@
     };
   };      
 
-  environment.persistence."/persistent" = {
+  environment.persistence."/nix/persistent" = {
     hideMounts = true;
     directories = [
       "/var/log"
