@@ -32,7 +32,7 @@
   };
 
   fileSystems."/nix" = { 
-    device = "/dev/disk/by-partlabel/nixos";
+    device = "/dev/disk/by-partlabel/nix";
     fsType = "f2fs";
   };
 
