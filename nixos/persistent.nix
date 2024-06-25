@@ -1,3 +1,6 @@
+{ inputs, outputs, lib, config, pkgs, nixpkgs, ... }:
+  
+
 {
   environment.persistence."/persistent" = {
     enable = true;  # NB: Defaults to true, not needed
