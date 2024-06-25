@@ -4,6 +4,7 @@
   imports =
   [ 			
     ./hardware.nix
+		./persistent.nix
   ];
   
   # System boot sections
