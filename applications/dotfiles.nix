@@ -25,30 +25,6 @@
   home = {
     username = "ulad";
     homeDirectory = "/home/ulad";
-    persistence."/persistent/home/ulad" = {
-      directories = [
-        "Downloads"
-        "Music"
-        "Pictures"
-        "Documents"
-        "Videos"
-        "VirtualBox VMs"
-        ".gnupg"
-        ".ssh"
-        ".nixops"
-        ".config"
-        ".local/share/keyrings"
-        ".local/share/direnv"
-        {
-          directory = ".local/share/Steam";
-          method = "symlink";
-        }
-      ];
-      files = [
-        ".screenrc"
-      ];
-      allowOther = true;
-    };
   };
   
   services = {
