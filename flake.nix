@@ -5,8 +5,10 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
     master.url = "github:nixos/nixpkgs/master";
     impermanence.url = "github:nix-community/impermanence";
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   
   outputs = { 
@@ -25,24 +27,28 @@
       # pass to it, with each system as an argument
       forAllSystems = nixpkgs.lib.genAttrs systems;
   in {
+    impermanence = [
+      nixosModules.impermanence
+      home-manager.impermanence
+    ];
+    home-manager = [
+      nixosModules.home-manager
+    ];
     nixosConfigurations = {
       ulad = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs outputs; };
         modules = [
-	        ./nixos/configuration.nix
+          ./nixos/configuration.nix
           ./nixos/persistence.nix
-	        ./applications/environment.nix
-          home-manager = {
-            nixosModules.home-manager
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            users.ulad = import ./applications/dotfiles.nix;  
-          };
-          impermanence = {
-            nixosModules.impermanence
-            home-manager.impermanence
-          };
+          ./applications/environment.nix
+          impermanence
+          home-manager 
         ];
+        home-manager = {           
+          useGlobalPkgs = true;
+          useUserPackages = true;
+          users.ulad = import ./applications/dotfiles.nix;  
+        };
       };
     };
   };
