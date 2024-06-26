@@ -30,12 +30,6 @@
     options = [ "defaults" "size=50%" "mode=755" ];
   };
 
-  fileSystems."/persistent" = { 
-    device = "/dev/disk/by-partlabel/nix";
-    neededForBoot = true;
-    fsType = "f2fs";
-  };
-
   fileSystems."/nix" = { 
     device = "/dev/disk/by-partlabel/nix";
     fsType = "f2fs";
