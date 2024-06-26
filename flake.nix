@@ -27,13 +27,6 @@
       # pass to it, with each system as an argument
       forAllSystems = nixpkgs.lib.genAttrs systems;
   in {
-    impermanence = [
-      nixosModules.impermanence
-      home-manager.impermanence
-    ];
-    home-manager = [
-      nixosModules.home-manager
-    ];
     nixosConfigurations = {
       ulad = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs outputs; };
@@ -41,8 +34,8 @@
           ./nixos/configuration.nix
           ./nixos/persistence.nix
           ./applications/environment.nix
-          impermanence
-          home-manager 
+          impermanence.nixosModules.impermanence
+          impermanence.home-manager.impermanence 
         ];
         home-manager = {           
           useGlobalPkgs = true;
