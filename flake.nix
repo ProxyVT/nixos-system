@@ -36,7 +36,7 @@
           ./applications/environment.nix
           home-manager.nixosModules.home-manager
           impermanence.nixosModules.impermanence
-          impermanence.home-manager.impermanence 
+          impermanence.nixosModules.home-manager.impermanence 
           {
             home-manager = {           
               useGlobalPkgs = true;
