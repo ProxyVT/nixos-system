@@ -33,6 +33,7 @@
   fileSystems."/nix" = { 
     device = "/dev/disk/by-partlabel/nix";
     fsType = "f2fs";
+    neededForBoot = true;
   };
 
   fileSystems."/boot" = { 
