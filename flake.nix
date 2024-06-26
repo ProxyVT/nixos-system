@@ -34,16 +34,17 @@
           ./nixos/configuration.nix
           ./nixos/persistence.nix
           ./applications/environment.nix
+          home-manager.nixosModules.home-manager
           impermanence.nixosModules.impermanence
           impermanence.home-manager.impermanence 
+          {
+            home-manager = {           
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.ulad = import ./applications/dotfiles.nix;  
+            };
+          }
         ];
-        {
-          home-manager = {           
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            users.ulad = import ./applications/dotfiles.nix;  
-          };
-        }
       };
     };
   };
