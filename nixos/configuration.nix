@@ -173,6 +173,7 @@
     # Current user
     users = {
       ulad = {
+        home = "/nix/home/ulad";
         isNormalUser = true;
         description = "Ulad";
         group = "users";
