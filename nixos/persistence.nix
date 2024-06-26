@@ -1,7 +1,7 @@
 { inputs, outputs, lib, config, ... }:
   
 {
-  environment.persistence."/persistent" = {
+  environment.persistence."/nix" = {
     hideMounts = true;
     directories = [
       "/var/log"
