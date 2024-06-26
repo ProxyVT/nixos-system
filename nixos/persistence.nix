@@ -16,6 +16,7 @@
       { file = "/var/keys/secret_file"; parentDirectory = { mode = "u=rwx,g=,o="; }; }
     ];
     users.ulad = {
+      home = "/nix/home/ulad";
       directories = [
         "Downloads"
         "Music"
