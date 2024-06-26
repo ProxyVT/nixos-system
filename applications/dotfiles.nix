@@ -25,7 +25,6 @@
 
   home = {
     username = "ulad";
-    homeDirectory = lib.mkForce "/nix/home/ulad";
   };
   
   services = {
