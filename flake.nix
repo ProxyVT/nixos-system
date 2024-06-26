@@ -37,11 +37,13 @@
           impermanence.nixosModules.impermanence
           impermanence.home-manager.impermanence 
         ];
-        home-manager = {           
-          useGlobalPkgs = true;
-          useUserPackages = true;
-          users.ulad = import ./applications/dotfiles.nix;  
-        };
+        {
+          home-manager = {           
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.ulad = import ./applications/dotfiles.nix;  
+          };
+        }
       };
     };
   };
