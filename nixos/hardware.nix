@@ -22,13 +22,18 @@
     };
     kernelModules = [ "kvm-intel" "kvm-amd" ];
     extraModulePackages = [ ];
-    bcache.enable = true;
   };
   
   fileSystems."/" = { 
     device = "none";
     fsType = "tmpfs";
     options = [ "defaults" "size=50%" "mode=755" ];
+  };
+
+  fileSystems."/persistent" = { 
+    device = "/dev/disk/by-partlabel/nix";
+    neededForBoot = true;
+    fsType = "f2fs";
   };
 
   fileSystems."/nix" = { 

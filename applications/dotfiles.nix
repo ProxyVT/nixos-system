@@ -6,6 +6,7 @@
   imports = [
     # If you want to use modules your own flake exports (from modules/home-manager):
     # outputs.homeManagerModules.example
+    #outputs.impermanence.nixosModules.home-manager.impermanence
 
     # Or modules exported from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModules.default
@@ -24,7 +25,7 @@
 
   home = {
     username = "ulad";
-    homeDirectory = "/home/ulad";
+    homeDirectory = lib.mkForce "/persistent/home/ulad";
   };
   
   services = {
@@ -147,9 +148,6 @@
     
     gpg.enable = true;
   };
-  
-  # Nicely reload system units when changing configs
-  systemd.user.startServices = "sd-switch";
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "24.05";
