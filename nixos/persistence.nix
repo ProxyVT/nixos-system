@@ -26,9 +26,8 @@
         ".gnupg"
         ".ssh"
         ".nixops"
-        ".local/share/keyrings"
-        ".local/share/direnv"
-        ".local/share/Steam"
+        ".config"
+        ".local"
       ];
       files = [
         ".screenrc"
