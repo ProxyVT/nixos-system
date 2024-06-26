@@ -29,17 +29,19 @@
       ulad = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs outputs; };
         modules = [
-	  ./nixos/configuration.nix
-	  ./applications/environment.nix
-	  home-manager.nixosModules.home-manager
-	  impermanence.nixosModules.impermanence
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.ulad = import ./applications/dotfiles.nix;
-            };
-          }
+	        ./nixos/configuration.nix
+          ./nixos/persistence.nix
+	        ./applications/environment.nix
+          home-manager = {
+            nixosModules.home-manager
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.ulad = import ./applications/dotfiles.nix;  
+          };
+          impermanence = {
+            nixosModules.impermanence
+            home-manager.impermanence
+          };
         ];
       };
     };
