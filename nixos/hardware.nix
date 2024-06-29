@@ -27,13 +27,18 @@
   fileSystems."/" = { 
     device = "none";
     fsType = "tmpfs";
-    options = [ "defaults" "size=50%" "mode=755" ];
+    options = [ "defaults" "size=25%" "mode=755" ];
+  }; 
+
+  fileSystems."/persist" = { 
+    device = "/dev/disk/by-partlabel/nix";
+    fsType = "f2fs";
+    neededForBoot = true;
   };
 
   fileSystems."/nix" = { 
     device = "/dev/disk/by-partlabel/nix";
     fsType = "f2fs";
-    neededForBoot = true;
   };
 
   fileSystems."/boot" = { 
@@ -51,6 +56,22 @@
       };
     };
   };
+
+  nixpkgs.config.packageOverrides = pkgs: {
+    intel-vaapi-driver = pkgs.intel-vaapi-driver.override { enableHybridCodec = true; };
+  };
+  
+  hardware.nvidiaOptimus.disable = true;
+
+  hardware.opengl = { # hardware.graphics on unstable
+    enable = true;
+    extraPackages = with pkgs; [
+      intel-media-driver # LIBVA_DRIVER_NAME=iHD
+      intel-vaapi-driver # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
+      libvdpau-va-gl
+    ];
+  };
+  environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; }; # Force intel-media-driver
 
   networking.useDHCP = lib.mkDefault true;
 

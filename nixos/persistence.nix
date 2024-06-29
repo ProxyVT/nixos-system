@@ -1,7 +1,7 @@
 { inputs, outputs, lib, config, ... }:
   
 {
-  environment.persistence."/nix" = {
+  environment.persistence."/persist" = {
     hideMounts = true;
     directories = [
       "/var/log"
@@ -28,9 +28,14 @@
         ".nixops"
         ".config"
         ".local"
+        ".mozilla"
+        ".thunderbird"
       ];
       files = [
         ".screenrc"
+        ".bashrc"
+        ".bash_profile"
+        ".bash_history"
       ];
     };
   };
