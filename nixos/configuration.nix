@@ -13,32 +13,25 @@
     kernel.sysctl."vm.swappiness" = 180;
     loader = {																				
   	  systemd-boot = {
-        enable = true;										          # Systemd-boot loader config
+        enable = true;								# Systemd-boot loader config
         sortKey = "machine-id";                     # Sort specialisation generation
       };
-  	  timeout = 10;																	# Linux boot section timeout
+  	  timeout = 10;									# Linux boot section timeout
   	  efi.canTouchEfiVariables = true;
     };
   };
 
   zramSwap = {
     enable = true;                                  # Zram support
-    memoryPercent = 100;
+    memoryPercent = 50;
     algorithm = "lz4";
   };
   
   # Nix configuration
   nix = {
-    distributedBuilds = false;
-    buildMachines = [
-      {  hostName = "eu.nixbuild.net";
-         system = "x86_64-linux";
-         maxJobs = 100;
-         supportedFeatures = [ "benchmark" "big-parallel" ];
-      }
-    ];
+    channel.enable = false;
     settings = {
-      auto-optimise-store = true;   													# Store optimization	
+      auto-optimise-store = true;   						  # Store optimization	
       experimental-features = [ "nix-command" "flakes" ];     # Enable flakes
     };  																				
   };
@@ -100,10 +93,9 @@
 
     # Sound services configuration
     pipewire = {
-      enable = true;                        # Pipewire support
-    alsa = {                                # Alsa support
+      enable = true;                            # Pipewire support
+    alsa = {                                    # Alsa support
   		enable = true;
-  		support32Bit = true;
     };
     pulse.enable = true;		                # PulseAudio support
     };
@@ -119,13 +111,11 @@
   hardware = {
   
   	# Opengl & Vulkan support
-  	opengl = {
+  	graphics = {
   		enable = true;
-  		driSupport = true;
-  		driSupport32Bit = true;
   		# For Steam
-  		#extraPackages = with pkgs; [ mangohud ];
-      #extraPackages32 = with pkgs; [ mangohud ];
+  		extraPackages = with pkgs; [ mangohud ];
+        extraPackages32 = with pkgs; [ mangohud ];
   	};
   	
   	# Pulseaudio hardware access
@@ -147,11 +137,7 @@
     # i2c devices support
     i2c.enable = true;	
   };
-  
-  sound = {
-    enable = true;                # Enable sound.
-    mediaKeys.enable = true;      # Enable keyboard mediakeys
-  };
+
   security = {
   	rtkit.enable = true;
   	polkit.enable = true;

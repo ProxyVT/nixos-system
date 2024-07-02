@@ -23,6 +23,7 @@
         "Documents"
         "Videos"
         "VirtualBox VMs"
+        "nixos-system"
         ".gnupg"
         ".ssh"
         ".nixops"
@@ -33,8 +34,6 @@
       ];
       files = [
         ".screenrc"
-        ".bashrc"
-        ".bash_profile"
         ".bash_history"
       ];
     };
