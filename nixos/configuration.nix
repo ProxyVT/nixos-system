@@ -13,10 +13,10 @@
     kernel.sysctl."vm.swappiness" = 180;
     loader = {																				
   	  systemd-boot = {
-        enable = true;										          # Systemd-boot loader config
+        enable = true;								# Systemd-boot loader config
         sortKey = "machine-id";                     # Sort specialisation generation
       };
-  	  timeout = 10;																	# Linux boot section timeout
+  	  timeout = 10;									# Linux boot section timeout
   	  efi.canTouchEfiVariables = true;
     };
   };
@@ -38,7 +38,7 @@
       }
     ];
     settings = {
-      auto-optimise-store = true;   													# Store optimization	
+      auto-optimise-store = true;   						  # Store optimization	
       experimental-features = [ "nix-command" "flakes" ];     # Enable flakes
     };  																				
   };
@@ -100,10 +100,9 @@
 
     # Sound services configuration
     pipewire = {
-      enable = true;                        # Pipewire support
-    alsa = {                                # Alsa support
-  		enable = true;
-  		support32Bit = true;
+      enable = true;                            # Pipewire support
+    alsa = {                                    # Alsa support
+  		enable = false;
     };
     pulse.enable = true;		                # PulseAudio support
     };
@@ -119,13 +118,11 @@
   hardware = {
   
   	# Opengl & Vulkan support
-  	opengl = {
+  	graphics = {
   		enable = true;
-  		driSupport = true;
-  		driSupport32Bit = true;
   		# For Steam
-  		#extraPackages = with pkgs; [ mangohud ];
-      #extraPackages32 = with pkgs; [ mangohud ];
+  		extraPackages = with pkgs; [ mangohud ];
+        extraPackages32 = with pkgs; [ mangohud ];
   	};
   	
   	# Pulseaudio hardware access
