@@ -28,6 +28,7 @@
     nodePackages.gulp
     nodePackages.pnpm
     wineWowPackages.unstableFull
+    nixpkgs-review
     
     # Graphics
     gpick
