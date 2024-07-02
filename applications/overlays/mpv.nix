@@ -9,8 +9,8 @@
             version = "git";
             src = prev.fetchgit {
               url = "https://code.videolan.org/videolan/libplacebo.git";
-              rev = "1fd3c7bde7b943fe8985c893310b5269a09b46c5";
-              hash = "sha256-lkpSyHYRG5uz9A90Yp5FAN1KP6llTfBjopVPZkNAYqs=";
+              rev = "bc9de9c793722a0182b15ffda2e6a8d479c774a2";
+              hash = "sha256-8f6DJenDWirUZpz36x0YigelFHm+qEiImw3W2EM3DEE=";
             };
             #buildInputs = oldAttrs.buildInputs ++ [ pkgs.xxHash ];
           });
@@ -20,10 +20,9 @@
           version = "git";
           src = prev.fetchgit {
             url = "https://github.com/mpv-player/mpv.git";
-            rev = "68a1a3879ca5b65ecd1f7b63b09b615f968d807a";
-            hash = "sha256-jbo+1uwAHYZRhvkkfcU1XE7hs7rPeeCEK+ceH4YK7zA=";
+            rev = "ab0a50874bccbf1e11cc15346e87c78ef50acae3";
+            hash = "sha256-qskeLGfgxU/0VjM61PBpAqEGdx7BwxI4l1WPu3zhDdU=";
           };
-          patches = [];
         });     
       })
     ];

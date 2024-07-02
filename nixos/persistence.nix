@@ -23,7 +23,6 @@
         "Documents"
         "Videos"
         "VirtualBox VMs"
-        "nixos-system"
         ".gnupg"
         ".ssh"
         ".nixops"
