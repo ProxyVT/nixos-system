@@ -55,7 +55,10 @@
     # Bash config
     bash = {
       enable = true;
-      bashrcExtra = "cd ./nixos-system/";
+      bashrcExtra = "
+        cd ./nixos-system/
+        alias sudo=doas";
+      historyControl = [ "erasedups" ];
     };
     
     # Mangohud config

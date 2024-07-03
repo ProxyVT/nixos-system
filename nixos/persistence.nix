@@ -35,6 +35,7 @@
       files = [
         ".screenrc"
         ".bash_history"
+        ".gitconfig"
       ];
     };
   };

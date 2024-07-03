@@ -14,7 +14,7 @@
     loader = {																				
   	  systemd-boot = {
         enable = true;								# Systemd-boot loader config
-        sortKey = "machine-id";                     # Sort specialisation generation
+        sortKey = "machine-id";       # Sort specialisation generation
       };
   	  timeout = 10;									# Linux boot section timeout
   	  efi.canTouchEfiVariables = true;
@@ -93,8 +93,8 @@
 
     # Sound services configuration
     pipewire = {
-      enable = true;                            # Pipewire support
-    alsa = {                                    # Alsa support
+      enable = true;                        # Pipewire support
+    alsa = {                                # Alsa support
   		enable = true;
     };
     pulse.enable = true;		                # PulseAudio support
@@ -141,9 +141,9 @@
   security = {
   	rtkit.enable = true;
   	polkit.enable = true;
-  	sudo.enable = true;
+  	sudo.enable = false;
   	doas = {
-  	  enable = false;
+  	  enable = true;
   	  extraRules = [{
         users = [ "ulad" ];
         keepEnv = true;
