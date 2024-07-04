@@ -42,6 +42,7 @@
     you-get
     browsh
     firefox
+    vivaldi
     tdesktop
     motrix
     ariang
