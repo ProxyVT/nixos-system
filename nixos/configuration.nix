@@ -9,20 +9,20 @@
   # System boot sections
   boot = {
     kernelPackages = pkgs.linuxPackages_6_9;
-    kernel.sysctl."net.ipv4.ip_default_ttl" = 65;   # Sync TTL to mobile
+    kernel.sysctl."net.ipv4.ip_default_ttl" = 65;       # Sync TTL to mobile
     kernel.sysctl."vm.swappiness" = 180;
     loader = {																				
   	  systemd-boot = {
-        enable = true;								# Systemd-boot loader config
-        sortKey = "machine-id";       # Sort specialisation generation
+        enable = true;                                  # Systemd-boot loader config
+        sortKey = "machine-id";                         # Sort specialisation generation
       };
-  	  timeout = 10;									# Linux boot section timeout
+  	  timeout = 10;                                     # Linux boot section timeout
   	  efi.canTouchEfiVariables = true;
     };
   };
 
-  zramSwap = {
-    enable = true;                                  # Zram support
+  zramSwap = {                                          # Zram support
+    enable = true;
     memoryPercent = 50;
     algorithm = "lz4";
   };
@@ -32,8 +32,11 @@
     package = pkgs.nixVersions.latest;
     channel.enable = false;
     settings = {
-      auto-optimise-store = true;   						  # Store optimization	
-      experimental-features = [ "nix-command" "flakes" ];     # Enable flakes
+      auto-optimise-store = true;                       # Store optimization	
+      experimental-features = [                         # Enable flakes
+         "nix-command" 
+         "flakes" 
+      ];   
     };  																				
   };
 
@@ -59,15 +62,15 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
-    earlySetup = true;                  # workaround for https://github.com/NixOS/nixpkgs/issues/257904
+    earlySetup = true;                                  # workaround for https://github.com/NixOS/nixpkgs/issues/257904
   	keyMap = "us";
   };
   
   # Global services configuration
   services = {   
-    xserver = {                         # Environment configuration	  
+    xserver = {                                         # Environment configuration	  
       enable = true;  
-      desktopManager = {                # Dekstop Manager
+      desktopManager = {                                # Dekstop Manager
         cinnamon.enable = true;
         gnome.enable = false;
       };	
@@ -84,7 +87,7 @@
       };  
     };
 
-    libinput = {                        # Touchpad  & mouse config
+    libinput = {                                        # Touchpad  & mouse config
       enable = true;
     };
 
@@ -94,13 +97,13 @@
 
     # Sound services configuration
     pipewire = {
-      enable = true;                        # Pipewire support
-    alsa = {                                # Alsa support
+      enable = true;                                    # Pipewire support
+    alsa = {                                            # Alsa support
   		enable = true;
     };
-    pulse.enable = true;		                # PulseAudio support
+    pulse.enable = true;                                # PulseAudio support
     };
-    printing.enable = true; 		            # Printing services
+    printing.enable = true;                             # Printing services
   };
   
   # XDG desktop integration
@@ -114,9 +117,6 @@
   	# Opengl & Vulkan support
   	graphics = {
   		enable = true;
-  		# For Steam
-  		extraPackages = with pkgs; [ mangohud ];
-        extraPackages32 = with pkgs; [ mangohud ];
   	};
   	
   	# Pulseaudio hardware access
