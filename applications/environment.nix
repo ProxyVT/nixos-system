@@ -120,7 +120,7 @@
     luna-icons
     libva-utils
     material-icons
-    python311
+    python313
     glxinfo
     vulkan-tools
     wayland-utils
