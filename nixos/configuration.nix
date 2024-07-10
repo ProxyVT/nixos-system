@@ -35,7 +35,9 @@
       auto-optimise-store = true;                       # Store optimization	
       experimental-features = [                         # Enable flakes
          "nix-command" 
-         "flakes" 
+         "flakes"
+         "auto-allocate-uids"
+         "configurable-impure-env"
       ];   
     };  																				
   };
