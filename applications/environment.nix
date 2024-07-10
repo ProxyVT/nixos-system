@@ -138,8 +138,8 @@
     cinnamon.apps.enable = true;            # Cinnamon apps
     gnome.gnome-keyring.enable = true;      # Gnome keyring support
     transmission = {                        # Transmission torrent service
-      enable = true;
-      package = pkgs.transmission_4-gtk;
+      enable = false;
+      package = pkgs.transmission_4-qt6;
       settings = {
         umask = 0;
       };     
