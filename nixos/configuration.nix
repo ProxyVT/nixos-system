@@ -29,7 +29,7 @@
   
   # Nix configuration
   nix = {
-    package = pkgs.nix_2_20;
+    package = pkgs.nixVersions.nix_2_20;
     channel.enable = false;
     settings = {
       auto-optimise-store = true;                       # Store optimization	
