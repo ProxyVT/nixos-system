@@ -52,7 +52,7 @@
     keepassxc
     ddrescue
     ddrescueview
-    electrum
+    #electrum
     
     # Multimedia
     handbrake
