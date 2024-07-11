@@ -140,7 +140,7 @@
     gnome.gnome-keyring.enable = true;      # Gnome keyring support
     transmission = {                        # Transmission torrent service
       enable = true;
-      package = inputs.nixpkgs-master.legacyPackages.${pkgs.system}.transmission_4-gtk;
+      package = pkgs.transmission_4-gtk;
       settings = {
         umask = 0;
       };     
