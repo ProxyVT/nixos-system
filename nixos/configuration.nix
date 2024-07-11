@@ -36,8 +36,8 @@
       experimental-features = [                         # Enable flakes
          "nix-command" 
          "flakes"
-         #"auto-allocate-uids"
-         #"configurable-impure-env"
+         "auto-allocate-uids"
+         "configurable-impure-env"
       ];   
     };  																				
   };
