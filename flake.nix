@@ -25,7 +25,7 @@
       forAllSystems = nixpkgs.lib.genAttrs systems;
   in {
     nixosConfigurations = {
-      ulad = nixpkgs.lib.nixosSystem {
+      nixos-ulad = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs outputs; };
         modules = [
           ./nixos/configuration.nix
