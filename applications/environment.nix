@@ -29,6 +29,7 @@
     nodePackages.pnpm
     wineWowPackages.unstableFull
     nixpkgs-review
+    zed-editor
     
     # Graphics
     gpick
