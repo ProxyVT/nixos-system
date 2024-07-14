@@ -4,8 +4,6 @@
   imports = 
   [
     ./overlays/mpv.nix
-    ./overlays/uosc.nix
-    ./overlays/xz.nix
   ];
   
   fonts.packages = with pkgs; [
