@@ -35,7 +35,6 @@
     pinta
     blanket
     libsForQt5.spectacle
-    digikam
     
     # Internet
     you-get
