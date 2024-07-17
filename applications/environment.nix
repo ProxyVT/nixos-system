@@ -51,7 +51,7 @@
     keepassxc
     ddrescue
     ddrescueview
-    #electrum
+    electrum
     
     # Multimedia
     handbrake
@@ -76,7 +76,7 @@
     ffmpeg
     fastfetch
     tuifimanager
-    #python39Packages.secretstorage
+    python39Packages.secretstorage
     s-tui
     xsensors
     ventoy-bin
