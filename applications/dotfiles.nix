@@ -91,6 +91,7 @@
         settings = {
           "browser.tabs.closeWindowWithLastTab" = false;
           "toolkit.tabbox.switchByScrolling" = true;
+          "browser.cache.check_doc_frequency" = 2;
         };
       };
     };
