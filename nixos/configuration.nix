@@ -10,7 +10,7 @@
   boot = {
     kernelPackages = pkgs.linuxPackages_6_9;
     kernel.sysctl."net.ipv4.ip_default_ttl" = 65;       # Sync TTL to mobile
-    kernel.sysctl."vm.swappiness" = 180;
+    kernel.sysctl."vm.swappiness" = 0;
     loader = {																				
   	  systemd-boot = {
         enable = true;                                  # Systemd-boot loader config
@@ -24,6 +24,7 @@
   zramSwap = {                                          # Zram support
     enable = true;
     memoryPercent = 100;
+    algorithm = "lz4";
   };
   
   # Nix configuration
@@ -31,13 +32,12 @@
     package = pkgs.nixVersions.latest;
     channel.enable = false;
     settings = {
-      max-jobs = 64;
+      max-jobs = 1;
       auto-optimise-store = true;                       # Store optimization	
       experimental-features = [                         # Enable flakes
          "nix-command" 
          "flakes"
          "auto-allocate-uids"
-         "configurable-impure-env"
       ];   
     };  																				
   };
