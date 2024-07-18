@@ -31,6 +31,7 @@
     package = pkgs.nixVersions.latest;
     channel.enable = false;
     settings = {
+      max-jobs = 64;
       auto-optimise-store = true;                       # Store optimization	
       experimental-features = [                         # Enable flakes
          "nix-command" 
