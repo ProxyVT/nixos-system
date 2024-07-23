@@ -47,6 +47,11 @@
   };
 
   specialisation = {
+    acer.configuration = {
+      system.nixos.tags = [ "acer" ];
+      hardware.nvidiaOptimus.disable = true;
+      services.xserver.videoDrivers = [ "intel" ];
+    };
     umka.configuration = {
       system.nixos.tags = [ "umka" ];
       services.xserver.videoDrivers = [ "nvidia" ];
@@ -60,8 +65,6 @@
   nixpkgs.config.packageOverrides = pkgs: {
     intel-vaapi-driver = pkgs.intel-vaapi-driver.override { enableHybridCodec = true; };
   };
-  
-  hardware.nvidiaOptimus.disable = true;
 
   hardware.graphics = { # hardware.graphics on unstable
     extraPackages = with pkgs; [
@@ -71,11 +74,8 @@
     ];
   };
   environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; }; # Force intel-media-driver
-
   networking.useDHCP = lib.mkDefault true;
-
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-
   hardware.cpu = {
     intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
     amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
