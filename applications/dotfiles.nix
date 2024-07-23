@@ -99,6 +99,9 @@
     # yt-dlp config
     yt-dlp = {
       enable = true;
+      settings = {
+        downloader = "aria2c";
+      };
     };
     
     # Java config
