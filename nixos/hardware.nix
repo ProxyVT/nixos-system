@@ -46,22 +46,6 @@
     fsType = "vfat";
   };
 
-  specialisation = {
-    acer.configuration = {
-      system.nixos.tags = [ "acer" ];
-      hardware.nvidiaOptimus.disable = true;
-      services.xserver.videoDrivers = [ "intel" ];
-    };
-    umka.configuration = {
-      system.nixos.tags = [ "umka" ];
-      services.xserver.videoDrivers = [ "nvidia" ];
-      hardware.nvidia = {
-        modesetting.enable = true;
-        package = config.boot.kernelPackages.nvidiaPackages.legacy_470;
-      };
-    };
-  };
-
   nixpkgs.config.packageOverrides = pkgs: {
     intel-vaapi-driver = pkgs.intel-vaapi-driver.override { enableHybridCodec = true; };
   };
