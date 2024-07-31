@@ -45,21 +45,11 @@
     device = "/dev/disk/by-partlabel/boot";
     fsType = "vfat";
   };
-
-  nixpkgs.config.packageOverrides = pkgs: {
-    intel-vaapi-driver = pkgs.intel-vaapi-driver.override { enableHybridCodec = true; };
-  };
-
-  hardware.graphics = { # hardware.graphics on unstable
-    extraPackages = with pkgs; [
-      intel-media-driver # LIBVA_DRIVER_NAME=iHD
-      intel-vaapi-driver # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
-      libvdpau-va-gl
-    ];
-  };
-  environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; }; # Force intel-media-driver
+  
   networking.useDHCP = lib.mkDefault true;
+
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+
   hardware.cpu = {
     intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
     amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
