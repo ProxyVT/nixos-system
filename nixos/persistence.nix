@@ -1,6 +1,5 @@
-{ inputs, outputs, lib, config, ... }:
+{ inputs, outputs, lib, config, ... }: {
   
-{
   environment.persistence."/persist" = {
     hideMounts = true;
     directories = [

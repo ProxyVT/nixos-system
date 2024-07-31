@@ -1,6 +1,5 @@
-  { inputs, outputs, lib, config, pkgs, nixpkgs, ... }:
+  { inputs, outputs, lib, config, pkgs, nixpkgs, ... }: {
   
-  {
   imports =
   [ 			
     ./hardware.nix

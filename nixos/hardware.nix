@@ -1,6 +1,5 @@
-{ config, lib, pkgs, modulesPath, ... }:
+{ config, lib, pkgs, modulesPath, ... }: {
 
-{
   imports =
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
@@ -45,7 +44,7 @@
     device = "/dev/disk/by-partlabel/boot";
     fsType = "vfat";
   };
-  
+
   networking.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
