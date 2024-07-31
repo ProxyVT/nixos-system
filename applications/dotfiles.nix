@@ -28,7 +28,7 @@
   };
   
   services = {
-    easyeffects.enable = true;
+    easyeffects.enable = false;
     gpg-agent.enable = true;
   };
   
