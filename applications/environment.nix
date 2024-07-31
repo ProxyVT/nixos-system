@@ -1,11 +1,11 @@
 { inputs, outputs, lib, config, pkgs, ... }:
 
 {
-  imports = 
+  imports =
   [
     ./overlays/mpv.nix
   ];
-  
+
   fonts.packages = with pkgs; [
     liberation_ttf
     open-sans
@@ -14,9 +14,9 @@
     ibm-plex
     inter
   ];
-  
+
   environment.systemPackages = with pkgs; [
-  
+
     # Development
     super-productivity
     github-desktop
@@ -27,15 +27,15 @@
     nodePackages.pnpm
     wineWowPackages.unstableFull
     nixpkgs-review
-    #zed-editor
-    
+    zed-editor
+
     # Graphics
     gpick
     krita
     pinta
     blanket
     libsForQt5.spectacle
-    
+
     # Internet
     you-get
     browsh
@@ -45,13 +45,13 @@
     motrix
     ariang
     media-downloader
-    
+
     # Server & security
     keepassxc
     ddrescue
     ddrescueview
     electrum
-    
+
     # Multimedia
     handbrake
     mkvtoolnix
@@ -59,10 +59,10 @@
     qmplay2
     mpv-git
     mousai
-    
+
     # Office
     libreoffice-qt
-    
+
     # CLI
     appimage-run
     vrrtest
@@ -89,7 +89,7 @@
     nix-tree
     fio
     ffmpeg-normalize
-    
+
     # System apps
     psensor
     qdirstat
@@ -105,7 +105,7 @@
     grsync
     nix-prefetch-git
     nix-prefetch-scripts
-    
+
     # System components
     papirus-icon-theme
     polkit
@@ -140,7 +140,7 @@
       package = pkgs.transmission_4-gtk;
       settings = {
         umask = 0;
-      };     
+      };
     };
     resilio = {
       enable = false;
