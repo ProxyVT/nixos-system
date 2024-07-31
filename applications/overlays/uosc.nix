@@ -1,5 +1,5 @@
   { inputs, outputs, lib, config, pkgs, ... }: {
-  
+
   nixpkgs = {
     overlays = [
       (final: prev: {
@@ -8,11 +8,11 @@
           version = "git";
           src = prev.fetchgit {
             url = "https://github.com/tomasklaen/uosc.git";
-            rev = "9fa7220da45815855df6c6d62adf82ee7d9df5e3";
-            hash = "sha256-MUR/zBdAM2j8eYdv9Z943BhxcicUvZAxRhCJJeGUNns=";
+            rev = "fe0d394435ad562176ae850175ebd5a083f0a6c2";
+            hash = "sha256-jC//6o0FDudaY90A9Y92Abb1ZDmKsnvwLwtTM3a9t34=";
           };
           patches = [];
-        });     
+        });
       })
     ];
   };

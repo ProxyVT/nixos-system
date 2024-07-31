@@ -1,9 +1,9 @@
 { inputs, outputs, lib, config, pkgs, ... }: {
-  
+
   imports = [
     ./uosc.nix
   ];
-  
+
   nixpkgs = {
     overlays = [
       (final: prev: {
@@ -13,18 +13,18 @@
             version = "git";
             src = prev.fetchgit {
               url = "https://github.com/haasn/libplacebo.git";
-              rev = "1fd3c7bde7b943fe8985c893310b5269a09b46c5";
-              hash = "sha256-lkpSyHYRG5uz9A90Yp5FAN1KP6llTfBjopVPZkNAYqs=";
+              rev = "82bf46ae8b4cacd2523f994da292e4d12312c026";
+              hash = "sha256-gT/yqpIYoC0ohCp3mxma+pOKRqJDhq/7jr2U/+dY878=";
             };
           });
-          ffmpeg = prev.ffmpeg_7-full;  
+          ffmpeg = prev.ffmpeg_7-full;
         }).overrideAttrs ( oldAttrs: rec {
           pname = "mpv";
           version = "git";
           src = prev.fetchgit {
             url = "https://github.com/mpv-player/mpv.git";
-            rev = "e509ec0aaffce74e520702e16e3e21ea0f168940";
-            hash = "sha256-QTHQA+EjeKyWJ6oNcI56V6DUEmlw3bFbKLLzltcYPlc=";
+            rev = "06470899dfd73069ee439ebe71b5c132de8fe54d";
+            hash = "sha256-Q89hPC4K8Ink9jNOW7LJSglJ7aZNZmGICLCiWj32r6I=";
           };
           patches = [];
         });
@@ -33,7 +33,7 @@
             uosc-git
             mpvScripts.thumbfast
           ];
-        }; 
+        };
       })
     ];
   };
