@@ -26,15 +26,15 @@
   home = {
     username = "ulad";
   };
-  
+
   services = {
     easyeffects.enable = false;
     gpg-agent.enable = true;
   };
-  
+
   programs = {
     home-manager.enable = true;
-    
+
     # Mail Thunderbird config
     thunderbird = {
       enable = true;
@@ -42,16 +42,16 @@
         isDefault = true;
       };
     };
-    
+
     # Btop config
     btop = {
       enable = true;
       settings = {
         update_ms = 1000;
         proc_sorting = "memory";
-      };  
+      };
     };
-    
+
     # Bash config
     bash = {
       enable = true;
@@ -60,7 +60,7 @@
         alias sudo=doas";
       historyControl = [ "erasedups" ];
     };
-    
+
     # Mangohud config
     mangohud = {
       enable = false;
@@ -71,7 +71,7 @@
         };
       };
     };
-    
+
     # Wezterm terminal config
     wezterm = {
       enable = true;
@@ -81,7 +81,7 @@
         }
       '';
     };
-    
+
     # Firefox browser
     firefox = {
       enable = true;
@@ -95,7 +95,7 @@
         };
       };
     };
-    
+
     # yt-dlp config
     yt-dlp = {
       enable = true;
@@ -103,17 +103,10 @@
         downloader = "aria2c";
       };
     };
-    
+
     # Java config
     java.enable = true;
 
-    # Vscode config
-    vscode = {
-      enable = true;
-      package = pkgs.vscodium-fhs;
-      enableUpdateCheck = false;
-    };
-    
     # Aria2c config
     aria2 = {
       enable = true;
@@ -122,7 +115,7 @@
         rpc-listen-all = true;
         rpc-allow-origin-all = true;
         rpc-secret = "september";
-        disk-cache = "64M"; 
+        disk-cache = "64M";
         force-save = true;
         continue = true;
         pause-metadata = true;
@@ -130,7 +123,7 @@
         input-file = "/home/ulad/.config/aria2/aria2.session";
         auto-save-interval = 10;
         save-session-interval = 10;
-        allow-overwrite = true; 
+        allow-overwrite = true;
         file-allocation = "none";
         bt-enable-lpd = true;
         bt-save-metadata = true;
@@ -139,19 +132,19 @@
         bt-detach-seed-only = true;
         bt-max-peers = 128;
         conditional-get = true;
-        max-concurrent-downloads = 10; 
+        max-concurrent-downloads = 10;
         enable-dht6 = true;
-        dht-listen-port = "50101-50109"; 
+        dht-listen-port = "50101-50109";
         seed-ratio = 0;
         follow-torrent = "mem";
         min-split-size = "1M";
       };
     };
-    
+
     chromium = {
       enable = true;
     };
-    
+
     gpg.enable = true;
   };
 
