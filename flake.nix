@@ -25,12 +25,33 @@
       forAllSystems = nixpkgs.lib.genAttrs systems;
   in {
     nixosConfigurations = {
-      nixos-ulad = nixpkgs.lib.nixosSystem {
+      acer = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs outputs; };
         modules = [
           ./nixos/configuration.nix
           ./nixos/persistence.nix
           ./applications/environment.nix
+          ./hardware/acer.nix
+          home-manager.nixosModules.home-manager
+          impermanence.nixosModules.impermanence          
+          {
+            home-manager = {           
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.ulad.imports = [
+                ./applications/dotfiles.nix
+              ];      
+            };
+          }
+        ];
+      };
+      umka = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs outputs; };
+        modules = [
+          ./nixos/configuration.nix
+          ./nixos/persistence.nix
+          ./applications/environment.nix
+          ./hardware/umka.nix
           home-manager.nixosModules.home-manager
           impermanence.nixosModules.impermanence          
           {
