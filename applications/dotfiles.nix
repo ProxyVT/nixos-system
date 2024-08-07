@@ -89,8 +89,11 @@
         id = 0;
         name = "Default";
         settings = {
-          "browser.tabs.closeWindowWithLastTab" = false;
+          "sidebar.verticalTabs" = true;
+          "sidebar.revamp" = true;
           "toolkit.tabbox.switchByScrolling" = true;
+          "browser.tabs.hoverPreview.enabled" = true;
+          "browser.tabs.closeWindowWithLastTab" = false;
           "browser.cache.check_doc_frequency" = 2;
         };
       };
