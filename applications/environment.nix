@@ -39,12 +39,12 @@
     # Internet
     you-get
     browsh
-    firefox
-    vivaldi
-    tdesktop
+    vivaldi   
     motrix
     ariang
     media-downloader
+    element-desktop
+    telegram-desktop
 
     # Server & security
     keepassxc
