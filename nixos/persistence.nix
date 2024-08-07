@@ -31,6 +31,7 @@
         ".local"
         ".mozilla"
         ".thunderbird"
+        ".cache/thumbnails"
       ];
       files = [
         ".screenrc"
