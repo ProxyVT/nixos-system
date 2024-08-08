@@ -56,7 +56,7 @@
     bash = {
       enable = true;
       bashrcExtra = "
-        cd ./nixos-system/
+        #cd ./nixos-system/
         alias sudo=doas";
       historyControl = [ "erasedups" ];
     };
@@ -74,7 +74,7 @@
 
     # Wezterm terminal config
     wezterm = {
-      enable = true;
+      enable = false;
       extraConfig = ''
         return {
           enable_scroll_bar=true
@@ -94,6 +94,7 @@
           "toolkit.tabbox.switchByScrolling" = true;
           "browser.tabs.hoverPreview.enabled" = true;
           "browser.tabs.closeWindowWithLastTab" = false;
+          "browser.translations.automaticallyPopup" = false;
           "browser.cache.check_doc_frequency" = 2;
         };
       };
