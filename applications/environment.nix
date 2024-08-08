@@ -39,7 +39,7 @@
     # Internet
     you-get
     browsh
-    vivaldi   
+    vivaldi
     motrix
     ariang
     media-downloader
@@ -126,6 +126,8 @@
     xorg.xinit
     libimobiledevice
     ifuse
+    gst_all_1.gst-libav
+    gst_all_1.gst-plugins-ugly
   ];
 
   services = {
