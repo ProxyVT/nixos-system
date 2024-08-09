@@ -23,8 +23,8 @@
           version = "git";
           src = prev.fetchgit {
             url = "https://github.com/mpv-player/mpv.git";
-            rev = "06470899dfd73069ee439ebe71b5c132de8fe54d";
-            hash = "sha256-Q89hPC4K8Ink9jNOW7LJSglJ7aZNZmGICLCiWj32r6I=";
+            rev = "70fad1daa6d49609d680f62b575239c2c4ac9352";
+            hash = "sha256-D5lti3jRN/iMZV9wZ/B/bK1MAbgex6p38aPvLORVNNk=";
           };
           patches = [];
         });
