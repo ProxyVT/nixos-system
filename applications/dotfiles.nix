@@ -91,8 +91,8 @@
         settings = {
           "sidebar.verticalTabs" = true;
           "sidebar.revamp" = true;
-          "toolkit.tabbox.switchByScrolling" = true;
-          "browser.tabs.hoverPreview.enabled" = true;
+          "toolkit.tabbox.switchByScrolling" = false;
+          "browser.tabs.hoverPreview.enabled" = false;
           "browser.tabs.closeWindowWithLastTab" = false;
           "browser.translations.automaticallyPopup" = false;
           "browser.cache.check_doc_frequency" = 2;
