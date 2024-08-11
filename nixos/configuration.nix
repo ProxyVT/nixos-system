@@ -115,11 +115,6 @@
   # Global hardware configuration
   hardware = {
 
-  	# Opengl & Vulkan support
-  	graphics = {
-  		enable = true;
-  	};
-
   	# Pulseaudio hardware access
   	pulseaudio.enable = false;
 
