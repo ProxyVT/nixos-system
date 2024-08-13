@@ -28,7 +28,7 @@
 
   # Nix configuration
   nix = {
-    package = pkgs.nixVersions.latest;
+    package = pkgs.lix;
     channel.enable = false;
     settings = {
       max-jobs = 1;
