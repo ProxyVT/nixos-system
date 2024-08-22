@@ -4,6 +4,7 @@
   imports =
   [
     ./overlays/mpv.nix
+    ./overlays/zed-editor.nix
   ];
 
   fonts.packages = with pkgs; [
@@ -27,7 +28,7 @@
     nodePackages.pnpm
     wineWowPackages.unstableFull
     nixpkgs-review
-    zed-editor
+    zed-git
 
     # Graphics
     gpick
