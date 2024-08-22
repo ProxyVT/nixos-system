@@ -9,7 +9,7 @@
   boot = {
     kernelPackages = pkgs.linuxPackages_6_9;
     kernel.sysctl."net.ipv4.ip_default_ttl" = 65;       # Sync TTL to mobile
-    kernel.sysctl."vm.swappiness" = 100;
+    kernel.sysctl."vm.swappiness" = 200;
     loader = {
   	  systemd-boot = {
         enable = true;                                  # Systemd-boot loader config
