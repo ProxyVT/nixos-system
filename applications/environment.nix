@@ -188,7 +188,7 @@
           name = "ProxyVT";
           email = "tikit.us@outlook.com";
         };
-        safe.directory = "/home/ulad/nixos-system";
+        safe.directory = "/home/ulad/nixos-system/.git";
       };
     };
     gamemode.enable = true;
