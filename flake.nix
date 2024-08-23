@@ -24,6 +24,7 @@
       systems = [ "x86_64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
   in {
+    overlays = import ./applications/overlays { inherit inputs; };
     nixosConfigurations = {
       acer = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs outputs; };
