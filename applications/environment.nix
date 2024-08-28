@@ -28,6 +28,7 @@
     wineWowPackages.unstableFull
     nixpkgs-review
     unstable.zed-editor
+    warp-terminal
 
     # Graphics
     gpick
@@ -78,7 +79,7 @@
     python39Packages.secretstorage
     s-tui
     xsensors
-    ventoy-bin
+    ventoy-full
     bluetooth_battery
     scrcpy
     speedtest-cli
@@ -102,6 +103,7 @@
     pavucontrol
     darkman
     localsend
+    #warp
     grsync
     nix-prefetch-git
     nix-prefetch-scripts
