@@ -2,6 +2,7 @@
 
   imports = [
     ./home-manager/default.nix
+    ./environment.nix
   ];
 
 }
