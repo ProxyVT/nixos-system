@@ -31,17 +31,14 @@
         modules = [
           ./nixos/configuration.nix
           ./nixos/persistence.nix
-          ./applications/environment.nix
+          ./applications/default.nix
           ./hardware/acer.nix
           home-manager.nixosModules.home-manager
           impermanence.nixosModules.impermanence          
           {
             home-manager = {           
               useGlobalPkgs = true;
-              useUserPackages = true;
-              users.ulad.imports = [
-                ./applications/dotfiles.nix
-              ];      
+              useUserPackages = true;     
             };
           }
         ];
