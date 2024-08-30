@@ -1,6 +1,6 @@
 { lib, config, pkgs, ... }: {
 
-  firefox = {
+  programs.firefox = {
     enable = true;
     profiles.default = {
       id = 0;
