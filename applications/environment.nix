@@ -70,7 +70,6 @@
     bastet
     bottom
     broot
-    #compsize
     psmisc
     lm_sensors
     ffmpeg
