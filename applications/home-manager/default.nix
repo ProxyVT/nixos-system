@@ -18,10 +18,6 @@
     };
   };
 
-  home = {
-    username = "ulad";
-  };
-
   services = {
     easyeffects.enable = false;
     gpg-agent.enable = true;
@@ -35,4 +31,5 @@
   };
 
   home.stateVersion = "24.05";
+
 }

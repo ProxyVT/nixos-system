@@ -1,6 +1,6 @@
 {
   description = "Personal flake configuration";
-  
+
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
@@ -10,15 +10,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  
-  outputs = { 
-    self, 
+
+  outputs = {
+    self,
     nixpkgs,
-    nixpkgs-master, 
+    nixpkgs-master,
     home-manager,
     impermanence,
-    ... 
-  } @ inputs: 
+    ...
+  } @ inputs:
   let
     inherit (self) outputs;
       systems = [ "x86_64-linux" ];
@@ -31,14 +31,15 @@
         modules = [
           ./nixos/configuration.nix
           ./nixos/persistence.nix
-          ./applications/default.nix
           ./hardware/acer.nix
+          ./applications/system-manager/default.nix
           home-manager.nixosModules.home-manager
-          impermanence.nixosModules.impermanence          
+          impermanence.nixosModules.impermanence
           {
-            home-manager = {           
+            home-manager = {
               useGlobalPkgs = true;
-              useUserPackages = true;     
+              useUserPackages = true;
+              users.ulad = import ./applications/home-manager/default.nix;
             };
           }
         ];
@@ -48,14 +49,15 @@
         modules = [
           ./nixos/configuration.nix
           ./nixos/persistence.nix
-          ./applications/default.nix
           ./hardware/umka.nix
+          ./applications/system-manager/default.nix
           home-manager.nixosModules.home-manager
-          impermanence.nixosModules.impermanence          
+          impermanence.nixosModules.impermanence
           {
-            home-manager = {           
+            home-manager = {
               useGlobalPkgs = true;
-              useUserPackages = true;      
+              useUserPackages = true;
+              users.ulad = import ./applications/home-manager/default.nix;
             };
           }
         ];
