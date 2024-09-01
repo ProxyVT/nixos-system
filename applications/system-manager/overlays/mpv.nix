@@ -14,7 +14,7 @@
             src = prev.fetchgit {
               url = "https://github.com/haasn/libplacebo.git";
               rev = "efb89342b0c19b9773226624651839686172e88b";
-              hash = "sha256-Q9EiAT/7ePvNcF7rZyBUzYvfUFdmLnQWj5vH7+L6ciI=";
+              hash = "sha256-qFD+12dfusY7VVwJDVCtlYjg+duEdeEKWBuTEpBF7O4=";
             };
           });
           ffmpeg = prev.ffmpeg_7-full;
