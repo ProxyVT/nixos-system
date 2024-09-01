@@ -1,6 +1,6 @@
 { lib, config, pkgs, ... }: {
 
-services.ssh = {
+programs.ssh = {
   knownHosts = {
     nixbuild = {
       hostNames = [ "eu.nixbuild.net" ];

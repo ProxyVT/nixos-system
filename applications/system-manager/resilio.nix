@@ -1,6 +1,6 @@
 { lib, config, pkgs, ... }: {
 
-    resilio = {
+    services.resilio = {
       enable = false;
       enableWebUI = true;
       httpListenPort = 8888;
