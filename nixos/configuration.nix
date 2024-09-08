@@ -46,7 +46,7 @@
       allowUnfree = true;
       nvidia.acceptLicense = true;
     };
-    overlays = [ outputs.overlays.unstable-packages ];
+    overlays = [ outputs.overlays.packages ];
   };
 
   # Define your hostname.
