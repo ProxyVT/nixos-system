@@ -42,6 +42,7 @@
     pinta
     blanket
     libsForQt5.spectacle
+    redshift
 
     # Internet
     you-get
