@@ -8,7 +8,7 @@ programs.git = {
       name = "ProxyVT";
       email = "tikit.us@outlook.com";
     };
-    safe.directory = "/home/ulad/nixos-system/.git";
+    safe.directory = "/home/ulad/*";
   };
 };
 
