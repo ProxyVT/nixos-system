@@ -23,5 +23,12 @@
       system = final.system;
       config.allowUnfree = true;
     };
+    local = import inputs.nixpkgs-local {
+      system = final.system;
+      config = {
+        allowUnfree = true;
+        nvidia.acceptLicense = true;
+      };
+    };
   };
 }
