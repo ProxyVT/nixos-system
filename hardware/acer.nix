@@ -1,6 +1,6 @@
 { config, lib, pkgs, modulesPath, ... }: {
 
-  services.xserver.videoDrivers = [ "intel" ];
+  services.xserver.videoDrivers = [ "modesetting" ];
 
   hardware = {
     nvidiaOptimus.disable = true;
@@ -21,6 +21,5 @@
       ];
     };
   };
-
 
 }
