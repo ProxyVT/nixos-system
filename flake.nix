@@ -5,6 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/master";
+    nixpkgs-local.url = "git+file:/home/ulad/Documents/GitHub/nixpkgs";
     impermanence.url = "github:nix-community/impermanence";
     home-manager = {
       url = "github:nix-community/home-manager/master";
@@ -17,6 +18,7 @@
     nixpkgs,
     nixpkgs-stable,
     nixpkgs-unstable,
+    nixpkgs-local,
     home-manager,
     impermanence,
     ...
@@ -25,7 +27,6 @@
     inherit (self) outputs;
       systems = [ "x86_64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
-      config.allowUnfree = true;
   in {
     overlays = import ./applications/system-manager/overlays { inherit inputs; };
     nixosConfigurations = {
