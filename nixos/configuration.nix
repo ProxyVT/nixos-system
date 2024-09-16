@@ -31,7 +31,7 @@
     package = pkgs.lix;
     channel.enable = false;
     settings = {
-      max-jobs = 0;
+      max-jobs = "auto";
       auto-optimise-store = true;                       # Store optimization
       experimental-features = [                         # Enable flakes
          "nix-command"
