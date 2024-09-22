@@ -3,9 +3,9 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05-small";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/master";
-    nixpkgs-local.url = "git+file:/home/ulad/Documents/GitHub/nixpkgs";
+    nixpkgs-local.url = "path:/home/ulad/Documents/GitHub/nixpkgs";
     impermanence.url = "github:nix-community/impermanence";
     home-manager = {
       url = "github:nix-community/home-manager/master";
