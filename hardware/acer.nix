@@ -1,14 +1,15 @@
 { config, lib, pkgs, modulesPath, ... }: {
 
-  services.xserver.videoDrivers = [ "modesetting" ];
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware = {
-    nvidiaOptimus.disable = true;
+    nvidiaOptimus.disable = false;
     nvidia = {
-      modesetting.enable = false;
-      nvidiaSettings = false;
+      open = false;
+      modesetting.enable = true;
+      package = config.boot.kernelPackages.nvidiaPackages.beta;
       prime = {
-        reverseSync.enable = false;
+        reverseSync.enable = true;
         nvidiaBusId = "PCI:4:0:0";
         intelBusId = "PCI:0:2:0";
       };
