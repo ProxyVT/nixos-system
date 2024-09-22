@@ -33,8 +33,8 @@
     nodePackages.pnpm
     wineWowPackages.unstableFull
     nixpkgs-review
-    unstable.zed-editor
-    warp-terminal
+    zed-editor
+    unstable.warp-terminal
 
     # Graphics
     gpick
@@ -98,7 +98,7 @@
     ffmpeg-normalize
 
     # System apps
-    psensor
+    stable.psensor
     qdirstat
     qrcp
     testdisk-qt
