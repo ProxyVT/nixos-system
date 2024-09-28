@@ -8,8 +8,8 @@
           version = "git";
           src = prev.fetchgit {
             url = "https://github.com/tomasklaen/uosc.git";
-            rev = "0f48df315304efd1caf26215526d96660d113dcb";
-            hash = "sha256-Ic7XdWqLT7kHdLPRtKGbH26JklMNPBdlTl7sbJSdugc=";
+            rev = "e184cfec5ec5a31c4c68ecc856bac39ad2660e5d";
+            hash = "sha256-j5whB0NDdcpnclilpqZywISCpPwHmYiPHUkyo5jb9Yg=";
           };
           patches = [];
         });
