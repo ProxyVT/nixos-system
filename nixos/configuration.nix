@@ -45,6 +45,7 @@
     config = {
       allowUnfree = true;
       nvidia.acceptLicense = true;
+      allowUnsupportedSystem = true;
     };
     overlays = [ outputs.overlays.packages ];
   };
