@@ -68,6 +68,10 @@
     mpv-git
     mousai
 
+    # Games
+    pcsx2-bin
+    pcsx2
+
     # Office
     libreoffice-qt
 
