@@ -19,7 +19,7 @@
   };
 
   services = {
-    easyeffects.enable = false;
+    easyeffects.enable = true;
     gpg-agent.enable = true;
   };
 
