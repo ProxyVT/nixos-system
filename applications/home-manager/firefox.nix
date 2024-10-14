@@ -13,7 +13,6 @@
         "browser.tabs.hoverPreview.enabled" = false;
         "browser.tabs.closeWindowWithLastTab" = false;
         "browser.translations.automaticallyPopup" = false;
-        "browser.cache.check_doc_frequency" = 2;
       };
     };
   };
