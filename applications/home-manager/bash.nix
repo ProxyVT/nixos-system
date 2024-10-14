@@ -2,9 +2,9 @@
 
   programs.bash = {
     enable = true;
-    historyControl = [ "erasedups" ];
     bashrcExtra = "
-      alias sudo=doas";
+      alias sudo=doas
+    ";
   };
 
 }
