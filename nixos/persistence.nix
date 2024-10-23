@@ -32,6 +32,7 @@
         ".mozilla"
         ".thunderbird"
         ".cache/thumbnails"
+        ".cache/aria2"
       ];
       files = [
         ".screenrc"
