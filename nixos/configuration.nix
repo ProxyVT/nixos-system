@@ -98,9 +98,7 @@
     # Sound services configuration
     pipewire = {
       enable = true;                                    # Pipewire support
-    alsa = {                                            # Alsa support
-  		enable = true;
-    };
+    alsa.enable = true;                                 # Alsa support
     pulse.enable = true;                                # PulseAudio support
     };
     printing.enable = true;                             # Printing services
