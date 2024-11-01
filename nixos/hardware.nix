@@ -1,4 +1,4 @@
-{ config, lib, pkgs, modulesPath, ... }: {
+{ config, lib, modulesPath, ... }: {
 
   imports =
     [ (modulesPath + "/installer/scan/not-detected.nix")
@@ -6,41 +6,41 @@
 
   boot = {
     initrd = {
-      availableKernelModules = [ 
+      availableKernelModules = [
         "xhci_pci"
-        "ehci_pci" 
-        "ahci" 
-        "usbhid" 
-        "usb_storage" 
-        "uas" 
-        "sd_mod" 
-        "rtsx_usb_sdmmc" 
-        "nvme" 
+        "ehci_pci"
+        "ahci"
+        "usbhid"
+        "usb_storage"
+        "uas"
+        "sd_mod"
+        "rtsx_usb_sdmmc"
+        "nvme"
         ];
       kernelModules = [ ];
     };
     kernelModules = [ "kvm-intel" "kvm-amd" ];
     extraModulePackages = [ ];
   };
-  
-  fileSystems."/" = { 
+
+  fileSystems."/" = {
     device = "none";
     fsType = "tmpfs";
     options = [ "defaults" "size=100%" "mode=755" ];
-  }; 
+  };
 
-  fileSystems."/persist" = { 
+  fileSystems."/persist" = {
     device = "/dev/disk/by-partlabel/nix";
     fsType = "f2fs";
     neededForBoot = true;
   };
 
-  fileSystems."/nix" = { 
+  fileSystems."/nix" = {
     device = "/dev/disk/by-partlabel/nix";
     fsType = "f2fs";
   };
 
-  fileSystems."/boot" = { 
+  fileSystems."/boot" = {
     device = "/dev/disk/by-partlabel/boot";
     fsType = "vfat";
   };
