@@ -1,4 +1,4 @@
-  { inputs, outputs, lib, config, pkgs, nixpkgs, ... }: {
+  { outputs, pkgs, ... }: {
 
   imports =
   [
@@ -73,12 +73,7 @@
       desktopManager = {                                # Dekstop Manager
         cinnamon.enable = true;
         gnome.enable = false;
-      };
-      # Display Manager
-      displayManager = {
-  		  lightdm = {
-  		    enable = true;
-  		  };
+        xfce.enable = false;
       };
       # Language sesttings
       xkb = {
@@ -91,15 +86,11 @@
       enable = true;
     };
 
-    desktopManager = {
-      plasma6.enable = false;
-    };
-
     # Sound services configuration
     pipewire = {
-      enable = true;                                    # Pipewire support
-    alsa.enable = true;                                 # Alsa support
-    pulse.enable = true;                                # PulseAudio support
+      enable = true;                                      # Pipewire support
+      alsa.enable = true;                                 # Alsa support
+      pulse.enable = true;                                # PulseAudio support
     };
     printing.enable = true;                             # Printing services
   };
