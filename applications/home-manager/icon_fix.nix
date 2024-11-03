@@ -1,4 +1,4 @@
-{ lib, config, pkgs, ... }: {
+{ lib, config, ... }: {
 
 home.activation.copyDesktopFiles = lib.hm.dag.entryAfter ["installPackages"] ''
     if [ "$XDG_CURRENT_DESKTOP" = "GNOME" ]; then

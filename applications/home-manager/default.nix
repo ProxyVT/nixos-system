@@ -1,4 +1,4 @@
-{ inputs, outputs, lib, config, pkgs, ... }: {
+{ ... }: {
 
   imports = [
     ./aria2.nix
