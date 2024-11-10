@@ -2,7 +2,7 @@
 
   programs.firefox = {
     enable = true;
-    package = pkgs.stable.firefox;
+    package = pkgs.release.firefox;
     profiles.default = {
       id = 0;
       name = "Default";
