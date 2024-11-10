@@ -2,9 +2,9 @@
   description = "Personal flake configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/master";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-release.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs-master.url = "github:nixos/nixpkgs/master";
     nixpkgs-local.url = "path:/home/ulad/Documents/GitHub/nixpkgs";
     impermanence.url = "github:nix-community/impermanence";
     home-manager = {
@@ -16,8 +16,8 @@
   outputs = {
     self,
     nixpkgs,
-    nixpkgs-stable,
-    nixpkgs-unstable,
+    nixpkgs-release,
+    nixpkgs-master,
     nixpkgs-local,
     home-manager,
     impermanence,
