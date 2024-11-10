@@ -1,4 +1,4 @@
-{ lib, config, pkgs, ... }: {
+{ pkgs, ... }: {
 
   services.transmission = {
     enable = true;

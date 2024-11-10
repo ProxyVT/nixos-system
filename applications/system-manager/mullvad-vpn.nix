@@ -1,4 +1,4 @@
-{ lib, config, pkgs, ... }: {
+{ pkgs, ... }: {
 
   services.mullvad-vpn = {
     enable = true; 	                      # Mullvad VPN support
