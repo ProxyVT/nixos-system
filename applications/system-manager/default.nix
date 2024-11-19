@@ -1,4 +1,4 @@
-{ inputs, outputs, lib, config, pkgs, ... }: {
+{ pkgs, ... }: {
 
   imports = [
     ./overlays/mpv.nix
@@ -27,14 +27,15 @@
     super-productivity
     github-desktop
     nodejs
-    cudatext
+    cudatext-gtk
+    lapce
     lite-xl
     nodePackages.gulp
     nodePackages.pnpm
     wineWowPackages.unstableFull
     nixpkgs-review
     zed-editor
-    unstable.warp-terminal
+    master.warp-terminal
 
     # Graphics
     gpick
@@ -58,18 +59,19 @@
     keepassxc
     ddrescue
     ddrescueview
-    electrum
+    release.electrum
 
     # Multimedia
+    audacity
     handbrake
     mkvtoolnix
     mediainfo-gui
     qmplay2
     mpv-git
     mousai
+    subtitleedit
 
     # Games
-    pcsx2-bin
     pcsx2
 
     # Office
@@ -86,7 +88,7 @@
     ffmpeg
     fastfetch
     tuifimanager
-    python39Packages.secretstorage
+    python312Packages.secretstorage
     s-tui
     xsensors
     ventoy-full
@@ -100,9 +102,10 @@
     nix-tree
     fio
     ffmpeg-normalize
+    toybox
 
     # System apps
-    stable.psensor
+    release.psensor
     qdirstat
     qrcp
     testdisk-qt
@@ -118,6 +121,7 @@
     nix-prefetch-scripts
 
     # System components
+    nixd
     papirus-icon-theme
     polkit
     plasma-hud
@@ -126,7 +130,7 @@
     unixtools.quota
     polkit
     papirus-maia-icon-theme
-    luna-icons
+    release.luna-icons
     libva-utils
     material-icons
     python3Full
@@ -139,6 +143,8 @@
     ifuse
     gst_all_1.gst-libav
     gst_all_1.gst-plugins-ugly
+    gcc
+    cmake
   ];
 
   services = {
