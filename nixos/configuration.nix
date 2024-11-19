@@ -31,7 +31,8 @@
     package = pkgs.lix;
     channel.enable = false;
     settings = {
-      substituters = [ "https://aseipp-nix-cache.global.ssl.fastly.net" ];
+      substituters = [ "https://nix-community.cachix.org" ];
+      trusted-public-keys = [ "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=" ];
       max-jobs = "auto";
       auto-optimise-store = true;                       # Store optimization
       experimental-features = [                         # Enable flakes
