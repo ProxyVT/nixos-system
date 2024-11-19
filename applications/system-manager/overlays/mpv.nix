@@ -17,7 +17,7 @@
               hash = "sha256-d7PoHcfUYS7HYxW4CJ9b0bxIdUuP6GF19/8nCYFMgxM=";
             };
           });
-          ffmpeg = prev.ffmpeg_7-full;
+          ffmpeg = prev.ffmpeg-full;
         }).overrideAttrs ( oldAttrs: rec {
           pname = "mpv";
           version = "git";
