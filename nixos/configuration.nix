@@ -22,8 +22,8 @@
 
   zramSwap = {                                          # Zram support
     enable = true;
-    memoryPercent = 50;
-    algorithm = "zstd";
+    memoryPercent = 100;
+    algorithm = "lz4";
   };
 
   # Nix configuration
