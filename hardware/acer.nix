@@ -1,4 +1,4 @@
-{ config, lib, pkgs, modulesPath, ... }: {
+{ config, pkgs, ... }: {
 
   services.xserver.videoDrivers = [ "nvidia" ];
 
@@ -7,7 +7,7 @@
     nvidia = {
       open = false;
       modesetting.enable = true;
-      package = config.boot.kernelPackages.nvidiaPackages.beta;
+      package = config.boot.kernelPackages.nvidiaPackages.legacy_535;
       prime = {
         reverseSync.enable = true;
         nvidiaBusId = "PCI:4:0:0";
