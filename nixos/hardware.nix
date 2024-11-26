@@ -19,6 +19,7 @@
         ];
       kernelModules = [ ];
     };
+    supportedFilesystems = [ "bcachefs" ];
     kernelModules = [ "kvm-intel" "kvm-amd" ];
     extraModulePackages = [ ];
   };
