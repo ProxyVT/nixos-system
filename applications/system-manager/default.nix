@@ -50,6 +50,7 @@
     browsh
     vivaldi
     motrix
+    persepolis
     ariang
     media-downloader
     element-desktop
