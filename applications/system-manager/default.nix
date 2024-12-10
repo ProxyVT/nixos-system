@@ -116,7 +116,6 @@
     yarn
     pavucontrol
     darkman
-    localsend
     grsync
     nix-prefetch-git
     nix-prefetch-scripts
@@ -162,6 +161,8 @@
     gnome-disks.enable = true;
     partition-manager.enable = true;
     mtr.enable = true;
+    localsend.enable = true;
+    openvpn3.enable = true;
   };
 
 }
