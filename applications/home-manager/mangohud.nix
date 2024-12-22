@@ -2,11 +2,14 @@
 
   programs.mangohud = {
     enable = true;
-    enableSessionWide = false;
+    enableSessionWide = true;
     settingsPerApplication = {
       mpv = {
         no_display = true;
       };
+    };
+    settings = {
+      full = true;
     };
   };
 
