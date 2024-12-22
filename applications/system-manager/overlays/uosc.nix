@@ -8,8 +8,13 @@
           version = "git";
           src = prev.fetchgit {
             url = "https://github.com/tomasklaen/uosc.git";
-            rev = "86c4ae0da01e211f8b4c5f18bd325c2766bf033a";
-            hash = "sha256-L4npHny45w/PU7Tzz8GjmFnEGobfDVxEYOqO5YUFdBU=";
+            rev = "7ad2ee495e74bf01990e2f709c1b5853fa02482d";
+            hash = "sha256-yPRNnRG/je8k9I5jt+g6cCBp8T2R7aiqPWBJjR2SX9k=";
+          };
+          tools = prev.buildGoModule {
+            pname = "uosc-bin";
+            inherit version src;
+            vendorHash = "sha256-oRXChHeVQj6nXvKOVV125sM8wD33Dxxv0r/S7sl6SxQ=";
           };
           patches = [];
         });
