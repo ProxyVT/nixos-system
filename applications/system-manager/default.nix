@@ -36,6 +36,8 @@
     nixpkgs-review
     zed-editor
     master.warp-terminal
+    master.waveterm
+    master.windterm
 
     # Graphics
     gpick
@@ -50,7 +52,7 @@
     browsh
     vivaldi
     motrix
-    persepolis
+    master.persepolis
     ariang
     media-downloader
     element-desktop
@@ -74,9 +76,12 @@
 
     # Games
     pcsx2
+    heroic
+    libstrangle
 
     # Office
     libreoffice-qt
+    simple-scan
 
     # CLI
     appimage-run
@@ -145,6 +150,8 @@
     gst_all_1.gst-plugins-ugly
     gcc
     cmake
+    vkbasalt
+    vkbasalt-cli
   ];
 
   services = {
