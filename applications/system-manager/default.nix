@@ -124,6 +124,7 @@
     grsync
     nix-prefetch-git
     nix-prefetch-scripts
+    mission-center
 
     # System components
     nixd
@@ -150,12 +151,12 @@
     gst_all_1.gst-plugins-ugly
     gcc
     cmake
-    vkbasalt
-    vkbasalt-cli
+    xfce.tumbler
+    xfce.xfce4-xkb-plugin
   ];
 
   services = {
-    cinnamon.apps.enable = true;            # Cinnamon apps
+    cinnamon.apps.enable = false;           # Cinnamon apps
     gnome.gnome-keyring.enable = true;      # Gnome keyring support
   };
 
