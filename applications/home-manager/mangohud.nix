@@ -5,6 +5,7 @@
     enableSessionWide = true;
     settingsPerApplication = {
       mpv = {
+        full = true;
         no_display = true;
       };
     };
