@@ -71,9 +71,7 @@
     xserver = {                                         # Environment configuration
       enable = true;
       desktopManager = {                                # Dekstop Manager
-        cinnamon.enable = true;
-        gnome.enable = false;
-        xfce.enable = false;
+        xfce.enable = true;
       };
       # Language sesttings
       xkb = {
