@@ -5,7 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-release.url = "github:nixos/nixpkgs/nixos-24.05";
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
-    nixpkgs-local.url = "path:/home/ulad/Documents/GitHub/nixpkgs";
+    nixpkgs-local.url = "github:Kiskae/nixpkgs/nvidia/legacy_kernel_6_12";
     impermanence.url = "github:nix-community/impermanence";
     home-manager = {
       url = "github:nix-community/home-manager";
