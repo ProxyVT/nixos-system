@@ -31,7 +31,8 @@
         ".mozilla"
         ".thunderbird"
         ".cache/thumbnails"
-        ".cache/aria2"
+        ".cache/nix"
+        ".cache/fontconfig"
       ];
       files = [
         ".screenrc"
