@@ -39,7 +39,7 @@
       }
     ];
     settings = {
-      max-jobs = "auto";
+      max-jobs = 100;
       substituters = lib.mkForce [
         "https://nixos-cache-proxy.cofob.dev"
         "ssh://eu.nixbuild.net"
