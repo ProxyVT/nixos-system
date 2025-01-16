@@ -7,7 +7,7 @@
 
   # System boot sections
   boot = {
-    kernelPackages = pkgs.master.linuxPackages_6_12;
+    kernelPackages = pkgs.local.linuxPackages_6_12;
     kernel.sysctl."net.ipv4.ip_default_ttl" = 65;       # Sync TTL to mobile
     kernel.sysctl."vm.swappiness" = 200;
     loader = {
