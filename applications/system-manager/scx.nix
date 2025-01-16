@@ -1,7 +1,7 @@
 { ... }: {
 
   services.scx = {
-    enable = false;
+    enable = true;
     scheduler = "scx_lavd";
   };
 
