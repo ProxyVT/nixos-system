@@ -1,4 +1,4 @@
-  { outputs, pkgs, ... }: {
+  { outputs, pkgs, lib, ... }: {
 
   imports =
   [
@@ -31,6 +31,9 @@
     channel.enable = false;
     settings = {
       max-jobs = "auto";
+      substituters = lib.mkForce [
+        "https://nixos-cache-proxy.cofob.dev"
+      ];
       auto-optimise-store = true;                       # Store optimization
       experimental-features = [                         # Enable flakes
          "nix-command"
