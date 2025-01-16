@@ -29,10 +29,23 @@
   nix = {
     package = pkgs.lix;
     channel.enable = false;
+    distributedBuilds = true;
+    buildMachines = [
+      { 
+        hostName = "eu.nixbuild.net";
+        system = "x86_64-linux";
+        maxJobs = 100;
+        supportedFeatures = [ "benchmark" "big-parallel" ];
+      }
+    ];
     settings = {
       max-jobs = "auto";
       substituters = lib.mkForce [
         "https://nixos-cache-proxy.cofob.dev"
+        "ssh://eu.nixbuild.net"
+      ];
+      trusted-public-keys = [
+        "nixbuild.net/3IOSBM-1:02cVSSXiBt+nt1gjM/5tUkY1p9r+oPn7/me9Vh9EfSE="
       ];
       auto-optimise-store = true;                       # Store optimization
       experimental-features = [                         # Enable flakes
