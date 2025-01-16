@@ -9,7 +9,7 @@
   boot = {
     kernelPackages = pkgs.local.linuxPackages_6_12;
     kernel.sysctl."net.ipv4.ip_default_ttl" = 65;       # Sync TTL to mobile
-    kernel.sysctl."vm.swappiness" = 200;
+    kernel.sysctl."vm.swappiness" = 1;
     loader = {
   	  systemd-boot = {
         enable = true;                                  # Systemd-boot loader config
@@ -161,7 +161,7 @@
             "storage"
             "rslsync"
           ];
-        initialPassword = " ";
+        hashedPassword = "$y$j9T$saJvjo68.BgDGPQjA9WDN.$h9979vNxQrblxIxudoFl1qb8twwAMEM4uEbVJ0qCY19";
       };
     };
   };
