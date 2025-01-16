@@ -57,7 +57,10 @@
   };
 
   # Set your time zone.
-  time.timeZone = "Europe/Minsk";
+  time = {
+    hardwareClockInLocalTime = true;
+    timeZone = "Europe/Minsk";
+  };
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
