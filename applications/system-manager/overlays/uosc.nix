@@ -1,4 +1,5 @@
-  { ... }: {
+{ ... }:
+{
 
   nixpkgs = {
     overlays = [
@@ -8,15 +9,15 @@
           version = "git";
           src = prev.fetchgit {
             url = "https://github.com/tomasklaen/uosc.git";
-            rev = "7ad2ee495e74bf01990e2f709c1b5853fa02482d";
-            hash = "sha256-yPRNnRG/je8k9I5jt+g6cCBp8T2R7aiqPWBJjR2SX9k=";
+            rev = "69ea3a262ffdbc9ff45270f2270a15fdb34e2d16";
+            hash = "sha256-gfphv7phuHIfh6BmCkRtVMCw53BvHOrXpWdIDkZp5V8=";
           };
           tools = prev.buildGoModule {
             pname = "uosc-bin";
             inherit version src;
             vendorHash = "sha256-oRXChHeVQj6nXvKOVV125sM8wD33Dxxv0r/S7sl6SxQ=";
           };
-          patches = [];
+          patches = [ ];
         });
       })
     ];
