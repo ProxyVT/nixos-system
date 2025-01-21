@@ -2,7 +2,7 @@
 
   programs.thunderbird = {
     enable = true;
-    package = pkgs.release.thunderbird;
+    package = pkgs.thunderbird;
     profiles.ulad = {
       isDefault = true;
     };
