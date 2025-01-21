@@ -33,6 +33,7 @@
         ".cache/thumbnails"
         ".cache/nix"
         ".cache/fontconfig"
+        ".wine"
       ];
       files = [
         ".screenrc"
