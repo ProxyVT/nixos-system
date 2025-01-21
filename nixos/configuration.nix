@@ -89,7 +89,7 @@
     xserver = {                                         # Environment configuration
       enable = true;
       desktopManager = {                                # Dekstop Manager
-        xfce.enable = true;
+        cinnamon.enable = true;
       };
       # Language sesttings
       xkb = {
