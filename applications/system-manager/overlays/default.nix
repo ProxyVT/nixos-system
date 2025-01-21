@@ -15,7 +15,7 @@
   # When applied, the unstable nixpkgs set (declared in the flake inputs) will
   # be accessible through 'pkgs.unstable'
   packages = final: _prev: {
-    release = import inputs.nixpkgs-release {
+    legacy = import inputs.nixpkgs-legacy {
       system = final.system;
       config = {
         allowUnfree = true;
@@ -23,14 +23,15 @@
       };
       allowUnfree = true;
     };
-    master = import inputs.nixpkgs-master {
+    edge = import inputs.nixpkgs-edge {
       system = final.system;
       config = {
         allowUnfree = true;
         nvidia.acceptLicense = true;
+        allowUnsupportedSystem = true;
       };
     };
-    local = import inputs.nixpkgs-local {
+    testing = import inputs.nixpkgs-testing {
       system = final.system;
       config = {
         allowUnfree = true;

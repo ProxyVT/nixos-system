@@ -3,9 +3,9 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-release.url = "github:nixos/nixpkgs/nixos-24.05";
-    nixpkgs-master.url = "github:nixos/nixpkgs/master";
-    nixpkgs-local.url = "github:Kiskae/nixpkgs/nvidia/legacy_kernel_6_12";
+    nixpkgs-legacy.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs-edge.url = "github:nixos/nixpkgs/master";
+    nixpkgs-testing.follows = "nixpkgs";
     impermanence.url = "github:nix-community/impermanence";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -16,11 +16,11 @@
   outputs = {
     self,
     nixpkgs,
-    nixpkgs-release,
-    nixpkgs-master,
-    nixpkgs-local,
-    home-manager,
+    nixpkgs-legacy,
+    nixpkgs-edge,
+    nixpkgs-testing,
     impermanence,
+    home-manager,
     ...
   } @ inputs:
   let
