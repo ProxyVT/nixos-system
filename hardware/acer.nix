@@ -6,7 +6,7 @@
     nvidiaOptimus.disable = false;
     nvidia = {
       modesetting.enable = true;
-      package = config.boot.kernelPackages.nvidiaPackages.legacy_535;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
       prime = {
         reverseSync.enable = true;
         nvidiaBusId = "PCI:4:0:0";
