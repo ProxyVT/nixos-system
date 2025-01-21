@@ -39,6 +39,7 @@
       }
     ];
     settings = {
+      builders-use-substitutes = true;
       substituters = lib.mkForce [
         "https://nixos-cache-proxy.cofob.dev"
         "ssh://eu.nixbuild.net"
