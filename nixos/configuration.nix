@@ -117,9 +117,6 @@ xdg.portal = {
 # Global hardware configuration
 hardware = {
 
-  # Pulseaudio hardware access
-  pulseaudio.enable = false;
-
   # Razer mouse notification
   openrazer = {
     enable = true;
