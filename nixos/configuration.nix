@@ -39,6 +39,7 @@
       }
     ];
     settings = {
+      max-jobs = 8;
       builders-use-substitutes = true;
       substituters = lib.mkForce [
         "https://nixos-cache-proxy.cofob.dev"
