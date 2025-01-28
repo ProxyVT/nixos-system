@@ -42,10 +42,6 @@
       builders-use-substitutes = true;
       substituters = lib.mkForce [
         "https://nixos-cache-proxy.cofob.dev"
-        "ssh://eu.nixbuild.net"
-      ];
-      trusted-public-keys = [
-        "nixbuild.net/3IOSBM-1:02cVSSXiBt+nt1gjM/5tUkY1p9r+oPn7/me9Vh9EfSE="
       ];
       auto-optimise-store = true;                       # Store optimization
       experimental-features = [                         # Enable flakes
