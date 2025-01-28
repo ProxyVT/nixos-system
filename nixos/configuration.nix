@@ -8,8 +8,10 @@
   # System boot sections
   boot = {
     kernelPackages = pkgs.linuxPackages_6_12;
-    kernel.sysctl."net.ipv4.ip_default_ttl" = 65;       # Sync TTL to mobile
-    kernel.sysctl."vm.swappiness" = 1;
+    kernel.sysctl = {
+      "net.ipv4.ip_default_ttl" = 65;       # Sync TTL to mobile
+      "vm.swappiness" = 1;
+    };
     loader = {
   	  systemd-boot = {
         enable = true;                                  # Systemd-boot loader config
