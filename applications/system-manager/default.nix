@@ -7,6 +7,7 @@
     ./gnupg.agent.nix
     ./mullvad-vpn.nix
     ./resilio.nix
+    ./scx.nix
     ./ssh.nix
     ./steam.nix
     ./transmission.nix
@@ -39,6 +40,7 @@
       waveterm
       windterm
       ghostty
+      vscode-fhs
 
       # Graphics
       edge.gpick
@@ -56,7 +58,8 @@
       ariang
       media-downloader
       element-desktop
-      telegram-desktop
+      edge.telegram-desktop
+      tor
 
       # Server & security
       keepassxc
@@ -156,6 +159,7 @@
       gst_all_1.gst-plugins-ugly
       gcc
       cmake
+      ffmpegthumbnailer
     ] 
     ++ 
     (with pkgsCross; [
