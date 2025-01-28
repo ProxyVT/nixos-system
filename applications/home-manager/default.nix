@@ -9,6 +9,7 @@
     ./thunderbird.nix
     ./wezterm.nix
     ./yt-dlp.nix
+    ./icon_fix.nix
   ];
 
   nixpkgs = {
