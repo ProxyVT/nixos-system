@@ -31,25 +31,21 @@ nix = {
   package = pkgs.lix;
   channel.enable = false;
   distributedBuilds = true;
-  buildMachines = [
-    { 
-      hostName = "eu.nixbuild.net";
-      system = "x86_64-linux";
-      maxJobs = 100;
-      supportedFeatures = [ "benchmark" "big-parallel" ];
-    }
-  ];
+  buildMachines = [{ 
+    hostName = "eu.nixbuild.net";
+    system = "x86_64-linux";
+    maxJobs = 100;
+    supportedFeatures = [ "benchmark" "big-parallel" ];
+  }];
   settings = {
     max-jobs = 8;
     builders-use-substitutes = true;
-    substituters = lib.mkForce [
-      "https://nixos-cache-proxy.cofob.dev"
-    ];
-    auto-optimise-store = true;                       # Store optimization
-    experimental-features = [                         # Enable flakes
-        "nix-command"
-        "flakes"
-        "auto-allocate-uids"
+    substituters = lib.mkForce [ "https://nixos-cache-proxy.cofob.dev" ];
+    auto-optimise-store = true;                      
+    experimental-features = [                        
+      "nix-command"
+      "flakes"
+      "auto-allocate-uids"
     ];
   };
 };
@@ -116,21 +112,9 @@ xdg.portal = {
 
 # Global hardware configuration
 hardware = {
-
-  # Razer mouse notification
-  openrazer = {
-    enable = true;
-  };
-
-  # Bluetooth support
-  bluetooth = {
-    enable = true;
-  };
-
-  # Brightness control
+  openrazer.enable = true;
+  bluetooth.enable = true;
   acpilight.enable = true;
-
-  # i2c devices support
   i2c.enable = true;
 };
 
