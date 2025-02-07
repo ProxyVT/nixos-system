@@ -1,8 +1,6 @@
 { lib, pkgs, ... }: {
 
-imports = [
-  ./uosc.nix
-];
+imports = [ ./uosc.nix ];
 
 nixpkgs = {
   overlays = [
