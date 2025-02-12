@@ -21,8 +21,8 @@ nixpkgs = {
         version = "git";
         src = prev.fetchgit {
           url = "https://github.com/mpv-player/mpv.git";
-          rev = "1dd0e49f83d5ca469ed803fd35782d61fcdd9bfb";
-          hash = "sha256-fNg6Y0demvEi+aj8OKNfrXqY8RSLALLkPRBCBSHxk1A=";
+          rev = "17db9bdc505f984174eb38ac5648549bfd665756";
+          hash = "sha256-ogQ+SdaFeAgjGxK8XDQI6xbqIiNCVkIkWkr85RTaPIE=";
         };
         patches = [];
         postPatch = lib.concatStringsSep "\n" [
