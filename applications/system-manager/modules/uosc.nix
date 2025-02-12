@@ -8,8 +8,8 @@ nixpkgs = {
         version = "git";
         src = prev.fetchgit {
           url = "https://github.com/tomasklaen/uosc.git";
-          rev = "69ea3a262ffdbc9ff45270f2270a15fdb34e2d16";
-          hash = "sha256-gfphv7phuHIfh6BmCkRtVMCw53BvHOrXpWdIDkZp5V8=";
+          rev = "370588a9676817df0585eacb5b8ac7ecda3c9007";
+          hash = "sha256-NveOFs56NycLZq2+BTdv9GIwgVQxtFm3ZKdbHGkW6sY=";
         };
         tools = prev.buildGoModule {
           pname = "uosc-bin";
