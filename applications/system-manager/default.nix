@@ -1,16 +1,6 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
 
-imports = [
-  ./overlays/mpv.nix
-  ./git.nix
-  ./gnupg.agent.nix
-  ./mullvad-vpn.nix
-  ./resilio.nix
-  ./scx.nix
-  ./ssh.nix
-  ./steam.nix
-  ./transmission.nix
-];
+imports = (lib.filesystem.listFilesRecursive ./modules);
 
 fonts.packages = with pkgs; [
   liberation_ttf

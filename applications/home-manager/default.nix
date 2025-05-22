@@ -1,16 +1,4 @@
-{ ... }: {
-
-imports = [
-  ./aria2.nix
-  ./bash.nix
-  ./btop.nix
-  ./firefox.nix
-  ./mangohud.nix
-  ./thunderbird.nix
-  ./wezterm.nix
-  ./yt-dlp.nix
-  ./icon_fix.nix
-];
+{ lib, ... }: {
 
 nixpkgs = {
   config = {
@@ -18,6 +6,7 @@ nixpkgs = {
     allowUnfreePredicate = (_: true);     # Workaround for https://github.com/nix-community/home-manager/issues/2942
   };
 };
+imports = (lib.filesystem.listFilesRecursive ./modules);
 
 services = {
   easyeffects.enable = true;
