@@ -4,8 +4,11 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-legacy.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs-release.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs-edge.url = "github:nixos/nixpkgs/master";
     nixpkgs-testing.follows = "nixpkgs";
+    nixpkgs-betterbird.url = "github:nixos/nixpkgs/f24617855643c0e041a83f7f8acffeda1d71f184";
+    nixpkgs-skype.url = "github:nixos/nixpkgs/7f345442bd1c23a44324598349b0f9a0b6f9718d";
     impermanence.url = "github:nix-community/impermanence";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -17,12 +20,16 @@
     self,
     nixpkgs,
     nixpkgs-legacy,
+    nixpkgs-release,
     nixpkgs-edge,
     nixpkgs-testing,
+    nixpkgs-betterbird,
+    nixpkgs-skype,
     impermanence,
     home-manager,
     ...
   } @ inputs:
+
   let
     inherit (self) outputs;
       systems = [ "x86_64-linux" ];
