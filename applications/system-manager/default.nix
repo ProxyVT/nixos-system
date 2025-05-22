@@ -161,6 +161,7 @@ services = {
   cinnamon.apps.enable = false;           # Cinnamon apps
   gnome.gnome-keyring.enable = true;      # Gnome keyring support
   usbmuxd.enable = true;                  # Usbmuxd support
+  blueman.enable = true;
 };
 
 programs = {
