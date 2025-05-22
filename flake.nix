@@ -73,6 +73,12 @@
           }
         ];
       };
+      exampleIso = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs outputs; };
+        modules = [
+          ./iso/configuration.nix
+        ];
+      };
     };
   };
 }
