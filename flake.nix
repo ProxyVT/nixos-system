@@ -40,17 +40,16 @@
       acer = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs outputs; };
         modules = [
-          ./nixos/configuration.nix
-          ./nixos/persistence.nix
+          ./nixos
+          ./applications/system-manager
           ./hardware/acer.nix
-          ./applications/system-manager/default.nix
           home-manager.nixosModules.home-manager
           impermanence.nixosModules.impermanence
           {
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.ulad = import ./applications/home-manager/default.nix;
+              users.ulad = import ./applications/home-manager;
             };
           }
         ];
@@ -58,17 +57,16 @@
       umka = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs outputs; };
         modules = [
-          ./nixos/configuration.nix
-          ./nixos/persistence.nix
+          ./nixos
+          ./applications/system-manager
           ./hardware/umka.nix
-          ./applications/system-manager/default.nix
           home-manager.nixosModules.home-manager
           impermanence.nixosModules.impermanence
           {
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.ulad = import ./applications/home-manager/default.nix;
+              users.ulad = import ./applications/home-manager;
             };
           }
         ];
