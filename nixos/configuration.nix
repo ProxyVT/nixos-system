@@ -1,9 +1,5 @@
 { outputs, pkgs, lib, ... }: {
 
-imports = [
-  ./hardware.nix
-];
-
 # System boot sections
 boot = {
   kernelPackages = pkgs.linuxPackages_6_12;
