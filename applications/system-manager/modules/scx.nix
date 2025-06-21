@@ -1,8 +1,9 @@
-{ ... }: {
+{ ... }:
+{
 
-services.scx = {
-  enable = true;
-  scheduler = "scx_flash"; 
-};
+  services.scx = {
+    enable = true;
+    scheduler = "scx_flash";
+  };
 
 }
