@@ -1,53 +1,40 @@
-{ lib, pkgs, ... }: {
+{ lib, pkgs, ... }:
+{
 
-imports = [ ./uosc.nix ];
-
-nixpkgs = {
-  overlays = [
-    (final: prev: {
-      mpv-unwrapped = (prev.mpv-unwrapped.override {
-        libplacebo = prev.libplacebo.overrideAttrs (oldAttrs: rec {
-          pname = "libplacebo";
-          version = "git";
-          src = prev.fetchgit {
-            url = "https://github.com/haasn/libplacebo.git";
-            rev = "056b852018db04aa2ebc0982e27713afcea8106b";
-            hash = "sha256-FESy3Bi967H43MG1472HYKaiNwOk6GnmXKCyT25SIFs=";
-          };
-        });
-        ffmpeg = prev.ffmpeg-full;
-      }).overrideAttrs ( oldAttrs: rec {
-        pname = "mpv";
-        version = "git";
-        src = prev.fetchgit {
-          url = "https://github.com/mpv-player/mpv.git";
-          rev = "17db9bdc505f984174eb38ac5648549bfd665756";
-          hash = "sha256-ogQ+SdaFeAgjGxK8XDQI6xbqIiNCVkIkWkr85RTaPIE=";
+  nixpkgs = {
+    overlays = [
+      (final: prev: {
+        mpv-unwrapped =
+          (prev.mpv-unwrapped.override {
+            libplacebo = prev.libplacebo.overrideAttrs (oldAttrs: rec {
+              pname = "libplacebo";
+              version = "git";
+              src = prev.fetchgit {
+                url = "https://github.com/haasn/libplacebo.git";
+                rev = "00a1009a78434bbc43a1efc54f5915dd466706a4";
+                hash = "sha256-GAhGWt0eto+9jPpO4mG0rn3/9fcuGph9OdXANwzaZOc=";
+              };
+            });
+            ffmpeg = prev.ffmpeg-full;
+          }).overrideAttrs
+            (oldAttrs: rec {
+              pname = "mpv";
+              version = "git";
+              src = prev.fetchgit {
+                url = "https://github.com/mpv-player/mpv.git";
+                rev = "18defc8530caf7694b132a501e9c34476d4cef80";
+                hash = "sha256-QHsdzy6xGD4UF5HB5O6e1donMzwF6fp5M0W+UjI+wnc=";
+              };
+              patches = [ ];
+            });
+        mpv-git = final.mpv.override {
+          scripts = with pkgs.mpvScripts; [
+            uosc
+            thumbfast
+          ];
         };
-        patches = [];
-        postPatch = lib.concatStringsSep "\n" [
-          ''
-          substituteInPlace meson.build \
-            --replace-fail "conf_data.set_quoted('CONFIGURATION', meson.build_options())" \
-                          "conf_data.set_quoted('CONFIGURATION', '<ommited>')"
-          ''
-          ''
-          pushd TOOLS
-          mv mpv_identify.sh mpv_identify
-          patchShebangs *.py *.sh
-          mv mpv_identify mpv_identify.sh
-          popd
-          ''
-        ];
-      });
-      mpv-git = final.mpv.override {
-        scripts = with pkgs; [
-          uosc-git
-          mpvScripts.thumbfast
-        ];
-      };
-    })
-  ];
-};
+      })
+    ];
+  };
 
 }
