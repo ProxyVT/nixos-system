@@ -1,0 +1,84 @@
+diff --git a/src/DownloadHandler.cc b/src/DownloadHandler.cc
+index a1b2c3d..d8e3f9a 100644
+--- a/src/DownloadHandler.cc
++++ b/src/DownloadHandler.cc
+@@ -45,6 +45,7 @@ DownloadHandler::DownloadHandler(const std::shared_ptr<Option>& option)
+     : option_(option),
+       controlFile_(""),
+       downloadResult_(""),
++      tempSessionDir_(""),
+       segmentMan_(nullptr) {}
+ 
+ void DownloadHandler::preDownloadProcessing() {
+@@ -123,6 +124,10 @@ void DownloadHandler::preDownloadProcessing() {
+     }
+   }
+ 
++  if (!tempSessionDir_.empty()) {
++    controlFile_ = tempSessionDir_ + "/" + File(controlFile_).getBasename();
++  }
++
+   try {
+     if (option_->getAsBool(PREF_SPLIT)) {
+       segmentMan_ = make_unique<SegmentMan>(
+diff --git a/src/DownloadHandler.h b/src/DownloadHandler.h
+index 5e4a8e2..7c1d0e4 100644
+--- a/src/DownloadHandler.h
++++ b/src/DownloadHandler.h
+@@ -80,6 +80,7 @@ private:
+   std::unique_ptr<SegmentMan> segmentMan_;
+   std::string controlFile_;
+   std::string downloadResult_;
++  std::string tempSessionDir_;
+ 
+   void createRequestGroupForUriList();
+   void createRequestGroupForMetalink();
+diff --git a/src/OptionHandlerFactory.cc b/src/OptionHandlerFactory.cc
+index 1e2c3f1..9d4e8b2 100644
+--- a/src/OptionHandlerFactory.cc
++++ b/src/OptionHandlerFactory.cc
+@@ -102,6 +102,12 @@ std::vector<OptionHandler*> OptionHandlerFactory::createOptionHandlers()
+             "The file allocation method. Possible values: 'none', 'prealloc', 'trunc', 'falloc'"),
+         OptionHandler::ARG_REQUIRED);
+ 
++    OptionHandler* tempSessionDirOpt = new OptionHandler(
++        PREF_TEMP_SESSION_DIR,
++        TEXT_TEMP_SESSION_DIR,
++        "Specify directory to store .aria2 control files",
++        OptionHandler::ARG_REQUIRED);
++
+     OptionHandler* noFileAllocationLimitationOpt = new OptionHandler(
+         PREF_NO_FILE_ALLOCATION_LIMIT,
+         TEXT_NO_FILE_ALLOCATION_LIMIT,
+@@ -456,6 +462,7 @@ std::vector<OptionHandler*> OptionHandlerFactory::createOptionHandlers()
+     handlers.push_back(checksumOpt);
+     handlers.push_back(continueOpt);
+     handlers.push_back(fileAllocationOpt);
++    handlers.push_back(tempSessionDirOpt);
+     handlers.push_back(noFileAllocationLimitationOpt);
+     handlers.push_back(diskCacheOpt);
+     handlers.push_back(directIOOpt);
+diff --git a/src/prefs.cc b/src/prefs.cc
+index 9d0e8a7..a3b5a9e 100644
+--- a/src/prefs.cc
++++ b/src/prefs.cc
+@@ -160,6 +160,7 @@ PrefPtr PREF_SELECT_FILE = makePref("select-file");
+ PrefPtr PREF_SHOW_CONSOLE_READOUT = makePref("show-console-readout");
+ PrefPtr PREF_SOCKET_RECV_BUFFER_SIZE = makePref("socket-recv-buffer-size");
+ PrefPtr PREF_SPLIT = makePref("split");
++PrefPtr PREF_TEMP_SESSION_DIR = makePref("temp-session-dir");
+ PrefPtr PREF_STDERR = makePref("stderr");
+ PrefPtr PREF_STOP = makePref("stop");
+ PrefPtr PREF_STOP_WITH_PROCESS = makePref("stop-with-process");
+diff --git a/src/prefs.h b/src/prefs.h
+index 4c8f3e5..0b1f5a5 100644
+--- a/src/prefs.h
++++ b/src/prefs.h
+@@ -153,6 +153,7 @@ extern PrefPtr PREF_SELECT_FILE;
+ extern PrefPtr PREF_SHOW_CONSOLE_READOUT;
+ extern PrefPtr PREF_SOCKET_RECV_BUFFER_SIZE;
+ extern PrefPtr PREF_SPLIT;
++extern PrefPtr PREF_TEMP_SESSION_DIR;
+ extern PrefPtr PREF_STDERR;
+ extern PrefPtr PREF_STOP;
+ extern PrefPtr PREF_STOP_WITH_PROCESS;
