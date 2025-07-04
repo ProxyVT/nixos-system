@@ -2,9 +2,9 @@
   description = "Personal flake configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-legacy.url = "github:nixos/nixpkgs/nixos-24.05";
-    nixpkgs-release.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
+    nixpkgs-legacy.url = "https://channels.nixos.org/nixos-24.05/nixexprs.tar.xz";
+    nixpkgs-release.url = "https://channels.nixos.org/nixos-24.11/nixexprs.tar.xz";
     nixpkgs-edge.url = "github:nixos/nixpkgs/master";
     nixpkgs-testing.follows = "nixpkgs";
     nixpkgs-betterbird.url = "github:nixos/nixpkgs/f24617855643c0e041a83f7f8acffeda1d71f184";
