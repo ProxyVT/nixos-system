@@ -32,8 +32,8 @@
 
   let
     inherit (self) outputs;
-      systems = [ "x86_64-linux" ];
-      forAllSystems = nixpkgs.lib.genAttrs systems;
+    system = [ "x86_64-linux" ];
+    forAllSystems = nixpkgs.lib.genAttrs system;
   in {
     overlays = import ./applications/system-manager/overlays { inherit inputs; };
     nixosConfigurations = {
