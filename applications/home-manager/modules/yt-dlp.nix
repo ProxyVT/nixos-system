@@ -7,6 +7,7 @@
     settings = {
       downloader = "aria2c";
       merge-output-format = "mkv";
+      mtime = true;
     };
   };
 
