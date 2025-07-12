@@ -25,13 +25,13 @@
       bt-detach-seed-only = true;
       bt-max-peers = 80;
       conditional-get = true;
-      max-concurrent-downloads = 10;
       enable-dht6 = false;
       disable-ipv6 = true;
       dht-listen-port = "50000-50100";
       seed-ratio = 0;
       follow-torrent = "mem";
-      min-split-size = "1M";
+      max-concurrent-downloads = 8;
+      split = 8;
     };
   };
 }
