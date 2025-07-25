@@ -1,4 +1,3 @@
-{ ... }: {
 
 programs.firefox = {
   enable = true;
@@ -17,3 +16,5 @@ programs.firefox = {
 };
 
 }
+{ pkgs, ... }: {
+  package = pkgs.release.firefox;
