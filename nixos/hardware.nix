@@ -1,58 +1,75 @@
-{ config, lib, modulesPath, ... }: {
+{
+  config,
+  lib,
+  modulesPath,
+  ...
+}:
+{
 
-imports =
-  [ (modulesPath + "/installer/scan/not-detected.nix")
+  imports = [
+    (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-boot = {
-  initrd = {
-    availableKernelModules = [
-      "xhci_pci"
-      "ehci_pci"
-      "ahci"
-      "usbhid"
-      "usb_storage"
-      "uas"
-      "sd_mod"
-      "rtsx_usb_sdmmc"
-      "nvme"
+  boot = {
+    initrd = {
+      availableKernelModules = [
+        "xhci_pci"
+        "ehci_pci"
+        "ahci"
+        "usbhid"
+        "usb_storage"
+        "uas"
+        "sd_mod"
+        "rtsx_usb_sdmmc"
+        "nvme"
       ];
-    kernelModules = [ ];
+      kernelModules = [ ];
+    };
+    supportedFilesystems = [ "bcachefs" ];
+    kernelModules = [
+      "kvm-intel"
+      "kvm-amd"
+    ];
+    extraModulePackages = [ ];
   };
-  supportedFilesystems = [ "bcachefs" ];
-  kernelModules = [ "kvm-intel" "kvm-amd" ];
-  extraModulePackages = [ ];
-};
 
-fileSystems."/" = {
-  device = "none";
-  fsType = "tmpfs";
-  options = [ "defaults" "size=100%" "mode=755" ];
-};
+  fileSystems."/" = {
+    device = "none";
+    fsType = "tmpfs";
+    options = [
+      "defaults"
+      "size=200%"
+      "mode=755"
+    ];
+  };
 
-fileSystems."/persist" = {
-  device = "/dev/disk/by-partlabel/nix";
-  fsType = "f2fs";
-  neededForBoot = true;
-};
+  fileSystems."/persist" = {
+    device = "/dev/disk/by-partlabel/nix";
+    fsType = "f2fs";
+    neededForBoot = true;
+  };
 
-fileSystems."/nix" = {
-  device = "/dev/disk/by-partlabel/nix";
-  fsType = "f2fs";
-};
+  fileSystems."/nix" = {
+    device = "/dev/disk/by-partlabel/nix";
+    fsType = "f2fs";
+  };
 
-fileSystems."/boot" = {
-  device = "/dev/disk/by-partlabel/boot";
-  fsType = "vfat";
-};
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-partlabel/boot";
+    fsType = "vfat";
+  };
 
-networking.useDHCP = lib.mkDefault true;
+  #swapDevices = [ {
+  #  device = "/var/lib/swapfile";
+  #  priority = 10;
+  #} ];
 
-nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  networking.useDHCP = lib.mkDefault true;
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
-hardware.cpu = {
-  intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-  amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-};
+  hardware.cpu = {
+    intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+    amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  };
 
 }

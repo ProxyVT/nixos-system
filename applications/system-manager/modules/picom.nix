@@ -1,14 +1,14 @@
-{ ... }: {
+{ ... }:
+{
 
-services.picom = {
-  enable = true;
-  vSync = true;
-  backend = "egl";
-  extraArgs = [
-    "--unredir-if-possible"
-    "--corner-radius=5"
-    "--realtime"
-  ];
-};
+  services.picom = {
+    enable = true;
+    vSync = true;
+    backend = "egl";
+    settings = {
+      unredir-if-possible = true;
+      corner-radius = 0;
+    };
+  };
 
 }
