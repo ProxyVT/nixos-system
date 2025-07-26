@@ -10,6 +10,7 @@
     nixpkgs-betterbird.url = "github:nixos/nixpkgs/f24617855643c0e041a83f7f8acffeda1d71f184";
     nixpkgs-skype.url = "github:nixos/nixpkgs/7f345442bd1c23a44324598349b0f9a0b6f9718d";
     impermanence.url = "github:nix-community/impermanence";
+    chaotic.url = "github:chaotic-aur/nyx/nyxpkgs-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -27,6 +28,7 @@
       nixpkgs-betterbird,
       nixpkgs-skype,
       impermanence,
+      chaotic,
       home-manager,
       ...
     }@inputs:
@@ -37,6 +39,7 @@
     {
       overlays = import ./applications/system-manager/overlays { inherit inputs; };
       nixosConfigurations = {
+            chaotic.nixosModules.default
         acer = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           modules = [
@@ -45,6 +48,7 @@
             ./hardware/acer.nix
             home-manager.nixosModules.home-manager
             impermanence.nixosModules.impermanence
+            chaotic.nixosModules.default
             {
               home-manager = {
                 useGlobalPkgs = true;
@@ -62,6 +66,7 @@
             ./hardware/umka.nix
             home-manager.nixosModules.home-manager
             impermanence.nixosModules.impermanence
+            chaotic.nixosModules.default
             {
               home-manager = {
                 useGlobalPkgs = true;
