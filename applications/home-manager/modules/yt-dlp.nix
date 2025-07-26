@@ -3,7 +3,7 @@
 
   programs.yt-dlp = {
     enable = true;
-    package = pkgs.edge.yt-dlp;
+    package = pkgs.yt-dlp_git;
     settings = {
       downloader = "aria2c";
       merge-output-format = "mkv";
