@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ pkgs, ... }:
 {
 
   nixpkgs = {
@@ -6,7 +6,7 @@
       (final: prev: {
         mpv-unwrapped =
           (prev.mpv-unwrapped.override {
-            libplacebo = prev.libplacebo.overrideAttrs (oldAttrs: rec {
+            libplacebo = prev.libplacebo.overrideAttrs (oldAttrs: {
               pname = "libplacebo";
               version = "git";
               src = prev.fetchgit {
@@ -17,7 +17,7 @@
             });
             ffmpeg = prev.ffmpeg-full;
           }).overrideAttrs
-            (oldAttrs: rec {
+            (oldAttrs: {
               pname = "mpv";
               version = "git";
               src = prev.fetchgit {
