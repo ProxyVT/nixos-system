@@ -2,7 +2,7 @@
 
 services.mullvad-vpn = {
   enable = true; 	                      # Mullvad VPN support
-  package = pkgs.mullvad-vpn;
+  package = pkgs.edge.mullvad-vpn;
 };
 
 }
