@@ -39,7 +39,23 @@
     {
       overlays = import ./applications/system-manager/overlays { inherit inputs; };
       nixosConfigurations = {
+        nixos = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+            ./nixos
+            ./applications/system-manager
+            home-manager.nixosModules.home-manager
+            impermanence.nixosModules.impermanence
             chaotic.nixosModules.default
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.ulad = import ./applications/home-manager;
+              };
+            }
+          ];
+        };
         acer = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           modules = [
