@@ -133,7 +133,6 @@ environment = {
     unixtools.quota
     polkit
     papirus-maia-icon-theme
-    legacy.luna-icons
     libva-utils
     material-icons
     python3Full

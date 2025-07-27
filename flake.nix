@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
-    nixpkgs-legacy.url = "https://channels.nixos.org/nixos-24.05/nixexprs.tar.xz";
     nixpkgs-release.url = "https://channels.nixos.org/nixos-24.11/nixexprs.tar.xz";
     nixpkgs-edge.url = "github:nixos/nixpkgs/master";
     nixpkgs-testing.follows = "nixpkgs";
@@ -21,7 +20,6 @@
     {
       self,
       nixpkgs,
-      nixpkgs-legacy,
       nixpkgs-release,
       nixpkgs-edge,
       nixpkgs-testing,
