@@ -7,7 +7,7 @@
 {
   # System boot sections
   boot = {
-    kernelPackages = pkgs.edge.linuxPackages_6_12;
+    kernelPackages = pkgs.linuxPackages_6_12;
     kernelParams = [
       "zswap.enabled=1"
       "zswap.compressor=zstd"

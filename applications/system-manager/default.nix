@@ -26,7 +26,7 @@
       wineWowPackages.unstableFull
       nixpkgs-review
       zed-editor_git
-      edge.waveterm
+      waveterm
       windterm
       ghostty
       vscode-fhs
@@ -43,7 +43,7 @@
       browsh
       vivaldi
       motrix
-      edge.persepolis
+      persepolis
       ariang
       media-downloader
       element-desktop
@@ -51,8 +51,8 @@
       tor
       skype.skypeforlinux
       release.skypeexport
-      edge.epiphany
-      edge.kdePackages.ktorrent
+      epiphany
+      ktorrent
       betterdiscord-installer
       discord
 
@@ -65,7 +65,7 @@
       sshuttle
 
       # Multimedia
-      edge.audacity
+      audacity
       handbrake
       mkvtoolnix
       mediainfo-gui
@@ -130,13 +130,13 @@
       pavucontrol
       darkman
       grsync
-      edge.rsync
+      rsync
       nix-prefetch
       nix-prefetch-git
       nix-prefetch-scripts
       mission-center
       nemo-with-extensions
-      edge.peazip
+      peazip
       picom
       gsmartcontrol
 
