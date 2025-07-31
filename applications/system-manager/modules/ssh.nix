@@ -1,7 +1,7 @@
 { ... }: {
 
 programs.ssh = {
-  startAgent = true;
+  startAgent = false;
   knownHosts = {
     nixbuild = {
       hostNames = [ "eu.nixbuild.net" ];
