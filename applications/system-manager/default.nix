@@ -52,7 +52,7 @@
       skype.skypeforlinux
       release.skypeexport
       epiphany
-      ktorrent
+      kdePackages.ktorrent
       betterdiscord-installer
       discord
 
@@ -117,6 +117,7 @@
       nixos-generators
       inxi
       iwmenu
+      msedit
 
       # System apps
       resources
@@ -142,14 +143,12 @@
 
       # System components
       nixd
-      papirus-icon-theme
       polkit
       plasma-hud
       exfat
       rar
       unixtools.quota
       polkit
-      papirus-maia-icon-theme
       libva-utils
       material-icons
       python3Full
@@ -166,11 +165,13 @@
       cmake
       ffmpegthumbnailer
       xfce.xfce4-xkb-plugin
+      testing.xfce.xfce4-alsa-plugin
       gvfs
       xfce.thunar
       xfce.thunar-volman
       stilo-themes
       package-version-server
+      firefoxpwa
     ];
   };
 
