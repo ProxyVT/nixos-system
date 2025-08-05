@@ -142,7 +142,7 @@
     polkit.enable = true;
     sudo.enable = false;
     doas = {
-      enable = true;
+      enable = false;
       extraRules = [
         {
           users = [ "ulad" ];
