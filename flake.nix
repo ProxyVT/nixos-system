@@ -5,7 +5,7 @@
     nixpkgs.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.xz";
     nixpkgs-release.url = "https://channels.nixos.org/nixos-25.05/nixexprs.tar.xz";
     nixpkgs-edge.url = "github:nixos/nixpkgs/master";
-    nixpkgs-testing.url = "github:ProxyVT/nixpkgs/xfce4-alsa-plugin";
+    nixpkgs-testing.url = "github:ProxyVT/nixpkgs/testing";
     nixpkgs-betterbird.url = "github:nixos/nixpkgs/f24617855643c0e041a83f7f8acffeda1d71f184";
     nixpkgs-skype.url = "github:nixos/nixpkgs/7f345442bd1c23a44324598349b0f9a0b6f9718d";
     impermanence.url = "github:nix-community/impermanence";
