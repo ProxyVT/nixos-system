@@ -192,6 +192,5 @@
 
   system = {
     stateVersion = "24.11";
-    rebuild.enableNg = false;
   };
 }
