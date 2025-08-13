@@ -69,7 +69,7 @@
       handbrake
       mkvtoolnix
       mediainfo-gui
-      qmplay2-qt5
+      testing.qmplay2
       mpv-git
       mousai
       subtitleedit
@@ -118,6 +118,10 @@
       inxi
       iwmenu
       msedit
+      nix-output-monitor
+      lixPackageSets.latest.nix-fast-build
+      delta
+      glow
 
       # System apps
       resources
@@ -165,13 +169,14 @@
       cmake
       ffmpegthumbnailer
       xfce.xfce4-xkb-plugin
-      testing.xfce.xfce4-alsa-plugin
+      xfce.xfce4-alsa-plugin
       gvfs
       xfce.thunar
       xfce.thunar-volman
       stilo-themes
       package-version-server
       firefoxpwa
+      kdePackages.kde-gtk-config
     ];
   };
 
