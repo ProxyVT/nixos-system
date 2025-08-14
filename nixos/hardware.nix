@@ -59,10 +59,12 @@
     fsType = "vfat";
   };
 
-  #swapDevices = [ {
-  #  device = "/var/lib/swapfile";
-  #  priority = 10;
-  #} ];
+  swapDevices = [
+    {
+      device = "/persist/var/lib/swapfile";
+      priority = 10;
+    }
+  ];
 
   networking.useDHCP = lib.mkDefault true;
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";

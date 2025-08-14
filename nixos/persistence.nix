@@ -23,7 +23,6 @@
     ];
 
     files = [
-      "/var/lib/swapfile"
       {
         file = "/var/keys/secret_file";
         parentDirectory = {
