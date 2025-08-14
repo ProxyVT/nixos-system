@@ -24,6 +24,7 @@
         "nvme"
       ];
       kernelModules = [ ];
+      systemd.enable = true;
     };
     supportedFilesystems = [ "bcachefs" ];
     kernelModules = [
