@@ -9,7 +9,7 @@
       open = false;
       modesetting.enable = true;
       powerManagement.enable = true;
-      package = config.boot.kernelPackages.nvidiaPackages.latest;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
       prime = {
         reverseSync.enable = true;
         nvidiaBusId = "PCI:4:0:0";
