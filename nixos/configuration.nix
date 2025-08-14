@@ -14,10 +14,19 @@
       "zswap.zpool=zsmalloc"
       "zswap.max_pool_percent=25"
     ];
-    kernel.sysctl = {
-      "net.ipv4.ip_default_ttl" = 65; # Sync TTL to mobile
-      "vm.swappiness" = 100;
+    kernel = {
+      sysctl = {
+        "vm.swappiness" = 100;
+      };
+      sysfs = {
+        module.zswap.parameters = {
+          enabled = 1;
+          compressor = "zstd";
+          zpool = "z3fold";
+        };
+      };
     };
+
     loader = {
       systemd-boot = {
         enable = true; # Systemd-boot loader config
@@ -27,8 +36,7 @@
     };
   };
   zramSwap = {
-    # Zram support
-    enable = true;
+    enable = false;
     memoryPercent = 25;
     priority = 100;
   };
