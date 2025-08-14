@@ -16,6 +16,7 @@
     ];
     kernel = {
       sysctl = {
+        "net.ipv4.ip_default_ttl" = 128;
         "vm.swappiness" = 100;
       };
       sysfs = {
