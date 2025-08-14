@@ -11,8 +11,8 @@
               version = "git";
               src = prev.fetchgit {
                 url = "https://github.com/haasn/libplacebo.git";
-                rev = "2ffcfffa855c9bc8cbad0f64f5f4b9ac67e9a497";
-                hash = "sha256-79QTIkeWAiLqk/qdtZsyGUUhhUYU3jE6CdvEl2TbQNk=";
+                rev = "430d4921a2a89824dce3eecf7364f6a96f1e2d2e";
+                hash = "sha256-yRiSjBlkSNJtVT2Fq+pMICk9vrQWnspdU7cJfmoiEXU=";
               };
             });
             ffmpeg = prev.ffmpeg-full;
@@ -22,8 +22,8 @@
               version = "git";
               src = prev.fetchgit {
                 url = "https://github.com/mpv-player/mpv.git";
-                rev = "b47fd2842a295fca9d7681a7a85a8371faad0c47";
-                hash = "sha256-h6Sl6nHw2Xmlv71gtnp/zGZ2xXSkeK9ksuw3/v7GK1c=";
+                rev = "3132ad62a38b1177e97182fce83271ebe96cff96";
+                hash = "sha256-8GQ7rlkU1ziHKRqYl5aFsz/TJi066/lmOI7wvxbTRRk=";
               };
               patches = [ ];
             });
