@@ -122,6 +122,8 @@
       lixPackageSets.latest.nix-fast-build
       delta
       glow
+      autorestic
+      restic
 
       # System apps
       resources
@@ -144,6 +146,7 @@
       peazip
       picom
       gsmartcontrol
+      freefilesync
 
       # System components
       nixd
