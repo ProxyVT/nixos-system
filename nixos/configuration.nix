@@ -150,16 +150,6 @@
     rtkit.enable = true;
     polkit.enable = true;
     sudo.enable = false;
-    doas = {
-      enable = false;
-      extraRules = [
-        {
-          users = [ "ulad" ];
-          keepEnv = true;
-          persist = true;
-        }
-      ];
-    };
   };
 
   users = {
