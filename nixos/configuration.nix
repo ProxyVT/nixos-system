@@ -109,7 +109,6 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_GB.UTF-8";
   console = {
-    earlySetup = true; # workaround for https://github.com/NixOS/nixpkgs/issues/257904
     keyMap = "us";
   };
 
