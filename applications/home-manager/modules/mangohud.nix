@@ -1,8 +1,8 @@
-{ ... }:
+{ pkgs, ... }:
 {
-
   programs.mangohud = {
     enable = true;
+    package = pkgs.mangohud_git;
     settingsPerApplication = {
       mpv = {
         full = true;
@@ -19,5 +19,4 @@
       fps_sampling_period = 1000;
     };
   };
-
 }
