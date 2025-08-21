@@ -9,18 +9,14 @@
     overlays = [
       (final: prev: {
         nh-git = prev.nh.overrideAttrs (oldAttrs: rec {
-          pname = "nh";
-          version = "git";
-          src = prev.fetchgit {
-            url = "https://github.com/nix-community/nh.git";
-            rev = "ec34a659652d98c225e2a97d100830365d7551c3";
-            hash = "sha256-+MuFPjyJl3JbNVs3Xq9dATJEbEOvwF4LMUNMmmzO7mU=";
+          version = "4.2.0-beta2";
+          src = oldAttrs.src.override {
+            hash = "sha256-IPwAGaR9LO4LasxIFPqOTmIfliDsnzWVgzsaIekzRG4=";
           };
           cargoDeps = final.rustPlatform.fetchCargoVendor {
             inherit src;
-            hash = "sha256-qqmcx0FyQN1YL1narJKKUk/svhow1mJdWr+uo3CdzA0=";
+            hash = "sha256-NVtf1TmPcXD9TcMK8zgfO8obn0rGdqdiiG+I4nuXR0I=";
           };
-          env.NH_REV = src.rev;
         });
       })
     ];
