@@ -29,7 +29,7 @@
       waveterm
       windterm
       ghostty
-      vscode-fhs
+      kiro
 
       # Graphics
       gpick
