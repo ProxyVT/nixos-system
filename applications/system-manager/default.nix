@@ -181,6 +181,7 @@
       firefoxpwa
       kdePackages.kde-gtk-config
       run0-sudo-shim
+      npins
     ];
   };
 
