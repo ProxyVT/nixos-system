@@ -23,6 +23,20 @@
         "type": "github"
       }
     },
+    "flake-compat": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1751685974,
+        "narHash": "sha256-NKw96t+BgHIYzHUjkTK95FqYRVKB8DHpVhefWSz/kTw=",
+        "rev": "549f2762aebeff29a2e5ece7a7dc0f955281a1d1",
+        "type": "tarball",
+        "url": "https://git.lix.systems/api/v1/repos/lix-project/flake-compat/archive/549f2762aebeff29a2e5ece7a7dc0f955281a1d1.tar.gz?rev=549f2762aebeff29a2e5ece7a7dc0f955281a1d1"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://git.lix.systems/lix-project/flake-compat/archive/main.tar.gz"
+      }
+    },
     "flake-schemas": {
       "locked": {
         "lastModified": 1721999734,
@@ -83,11 +97,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1755569926,
-        "narHash": "sha256-s7D28zPHlFWVZ7dDxm0L1o5+t423rMJUfgCMGUeyYSk=",
+        "lastModified": 1755755322,
+        "narHash": "sha256-spCxkNihCk3uT3LUrUwzdEAjLA/E0EtEgF3KVI05nlM=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "c613ac14f5600033bf84ae75c315d5ce24a0229b",
+        "rev": "282b4c98de97da6667cb03de4f427371734bc39c",
         "type": "github"
       },
       "original": {
@@ -211,11 +225,11 @@
     },
     "nixpkgs-edge": {
       "locked": {
-        "lastModified": 1755592955,
-        "narHash": "sha256-ozWHxtf0iUNxmNsq1pceElE26KzSJw1WwGzSGx5ec+w=",
+        "lastModified": 1755762572,
+        "narHash": "sha256-6cDMXF+TpKUR8sDbYlP3NQzNJS5EKemMqpqw96lnm1w=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "34596c05e5ce4790d54398d9bac8613b42baf563",
+        "rev": "939188a7ef2c3e29d0a0c1f575dbe8f52f5da062",
         "type": "github"
       },
       "original": {
@@ -227,11 +241,11 @@
     },
     "nixpkgs-release": {
       "locked": {
-        "lastModified": 1755520719,
-        "narHash": "sha256-b0hyPJjMF8LXHzyXKlu3vPAV27fNpnBayYN6tgDUtqE=",
-        "rev": "48f4c982de68d966421d2b6f1ddbeb6227cc5ceb",
+        "lastModified": 1755634171,
+        "narHash": "sha256-2XPrgWWiSckF1K6H9x6XG7u1Tfc6N9WrR08X8HrQKic=",
+        "rev": "a58390ab6f1aa810eb8e0f0fc74230e7cc06de03",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/25.05/nixos-25.05.808437.48f4c982de68/nixexprs.tar.xz?rev=48f4c982de68d966421d2b6f1ddbeb6227cc5ceb"
+        "url": "https://releases.nixos.org/nixos/25.05/nixos-25.05.808472.a58390ab6f1a/nixexprs.tar.xz?rev=a58390ab6f1aa810eb8e0f0fc74230e7cc06de03"
       },
       "original": {
         "type": "tarball",
@@ -273,10 +287,10 @@
     "nixpkgs_2": {
       "locked": {
         "lastModified": 315532800,
-        "narHash": "sha256-moy1MfcGj+Pd+lU3PHYQUJq9OP0Evv9me8MjtmHlnRM=",
-        "rev": "32f313e49e42f715491e1ea7b306a87c16fe0388",
+        "narHash": "sha256-AFDVHqB5ybpQDUkirq/eZkGaSrIYb/ihbLO3wkJbdCA=",
+        "rev": "8f29d98022148c866e3843c2e3106e8d27b1a44d",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixpkgs/nixpkgs-25.11pre844992.32f313e49e42/nixexprs.tar.xz?rev=32f313e49e42f715491e1ea7b306a87c16fe0388"
+        "url": "https://releases.nixos.org/nixpkgs/nixpkgs-25.11pre846798.8f29d9802214/nixexprs.tar.xz?rev=8f29d98022148c866e3843c2e3106e8d27b1a44d"
       },
       "original": {
         "type": "tarball",
@@ -286,6 +300,7 @@
     "root": {
       "inputs": {
         "chaotic": "chaotic",
+        "flake-compat": "flake-compat",
         "home-manager": "home-manager_2",
         "impermanence": "impermanence",
         "nixpkgs": "nixpkgs_2",
