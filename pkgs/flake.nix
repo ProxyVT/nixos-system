@@ -2,7 +2,7 @@
   description = "Basic flake for packages testing";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/master";
   };
 
   outputs =
@@ -14,7 +14,7 @@
     {
       packages.x86_64-linux = {
         xfce4-alsa-plugin = pkgs.xfce.callPackage ./xfce4-alsa-plugin/default.nix { };
+        qmplay2 = pkgs.callPackage ./qmplay2/package.nix { };
       };
-
     };
 }
