@@ -36,7 +36,7 @@
       krita
       pinta
       blanket
-      libsForQt5.spectacle
+      kdePackages.spectacle
 
       # Internet
       you-get
@@ -181,17 +181,13 @@
       firefoxpwa
       kdePackages.kde-gtk-config
       run0-sudo-shim
+      bluez-alsa
     ];
   };
 
   services = {
-    cinnamon.apps.enable = false; # Cinnamon apps
-    gnome.gnome-keyring.enable = true; # Gnome keyring support
-    usbmuxd.enable = true; # Usbmuxd support
-    quake3-server = {
-      enable = false;
-      baseq3 = "/home/ulad/.wine/drive_c/GOG Games/Quake III/baseq3";
-    };
+    gnome.gnome-keyring.enable = true;
+    usbmuxd.enable = true;
     gvfs.enable = true;
     blueman.enable = true;
     gpm.enable = true;
