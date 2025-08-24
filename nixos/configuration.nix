@@ -130,6 +130,14 @@
     libinput.enable = true;
     printing.enable = true;
     resolved.enable = true;
+    pipewire = {
+      alsa = {
+        enable = true;
+        support32Bit = true;
+      };
+      jack.enable = false;
+      pulse.enable = false;
+    };
   };
 
   # XDG desktop integration
