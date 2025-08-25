@@ -15,9 +15,9 @@
       };
       sysfs = {
         module.zswap.parameters = {
-          enabled = 1;
-          compressor = "zstd";
-          zpool = "z3fold";
+          enabled = true;
+          max_pool_percent = 25;
+          shrinker_enabled = true;
         };
       };
     };
