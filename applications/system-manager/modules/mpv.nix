@@ -6,27 +6,31 @@
       (final: prev: {
         mpv-unwrapped =
           (prev.mpv-unwrapped.override {
-            libplacebo = prev.libplacebo.overrideAttrs (oldAttrs: {
+            libplacebo = prev.libplacebo.overrideAttrs rec {
               pname = "libplacebo";
-              version = "git";
-              src = prev.fetchgit {
-                url = "https://github.com/haasn/libplacebo.git";
-                rev = "430d4921a2a89824dce3eecf7364f6a96f1e2d2e";
-                hash = "sha256-yRiSjBlkSNJtVT2Fq+pMICk9vrQWnspdU7cJfmoiEXU=";
-              };
-            });
-            ffmpeg = prev.ffmpeg-full;
-          }).overrideAttrs
-            (oldAttrs: {
-              pname = "mpv";
-              version = "git";
-              src = prev.fetchgit {
-                url = "https://github.com/mpv-player/mpv.git";
-                rev = "3132ad62a38b1177e97182fce83271ebe96cff96";
-                hash = "sha256-8GQ7rlkU1ziHKRqYl5aFsz/TJi066/lmOI7wvxbTRRk=";
+              version = "a68b9680e42208350f141822714c3d969369ef95";
+              src = prev.fetchFromGitLab {
+                domain = "code.videolan.org";
+                owner = "videolan";
+                repo = "libplacebo";
+                rev = version;
+                hash = "sha256-JswtjDHZDfKTdsNgSmO9E1O7oF0VJRFlnhOZ1rdOnEc=";
               };
               patches = [ ];
-            });
+            };
+            ffmpeg = prev.ffmpeg-full;
+          }).overrideAttrs
+            rec {
+              pname = "mpv";
+              version = "9f153e2a20174147130a31387d022f62ddd94cf0";
+              src = prev.fetchFromGitHub {
+                owner = "mpv-player";
+                repo = "mpv";
+                rev = version;
+                hash = "sha256-rlkAFsAzRQ3JNu+qLwfhA63Dr+843baR8glL+jsW2yk=";
+              };
+              patches = [ ];
+            };
         mpv-git = final.mpv.override {
           scripts = with pkgs.mpvScripts; [
             uosc
