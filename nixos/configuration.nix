@@ -53,6 +53,7 @@
       }
     ];
     settings = {
+      auto-allocate-uids = true;
       trusted-users = [ "@wheel" ];
       tarball-ttl = 0;
       builders-use-substitutes = true;
