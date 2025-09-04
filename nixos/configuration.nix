@@ -11,12 +11,12 @@
     kernel = {
       sysctl = {
         "net.ipv4.ip_default_ttl" = 128;
-        "vm.swappiness" = 100;
+        "vm.swappiness" = 25;
       };
       sysfs = {
         module.zswap.parameters = {
           enabled = true;
-          max_pool_percent = 25;
+          max_pool_percent = 50;
           shrinker_enabled = true;
         };
       };
