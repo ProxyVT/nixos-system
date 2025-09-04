@@ -23,6 +23,7 @@
         qmplay2 = pkgs.callPackage ./qmplay2/package.nix { };
         vivaldi = pkgs.callPackage ./vivaldi/package.nix { };
         ffmpeg-progress-yield = pkgs.python3Packages.callPackage ./ffmpeg-progress-yield/default.nix { };
+        ariang = pkgs.callPackage ./ariang/package.nix { };
       };
     };
 }
