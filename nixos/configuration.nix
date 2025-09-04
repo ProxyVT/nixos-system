@@ -175,14 +175,6 @@
     };
   };
 
-  systemd.user.tmpfiles.rules = [
-    "d /persist/home/ulad/.local/share/Trash 0755 ulad users -"
-  ];
-
-  environment.sessionVariables = {
-    XDG_DATA_HOME = "/persist/home/ulad/.local/share";
-  };
-
   system = {
     stateVersion = "24.11";
   };
