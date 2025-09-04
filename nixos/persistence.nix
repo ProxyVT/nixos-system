@@ -52,6 +52,7 @@
         ".cache/nix"
         ".cache/fontconfig"
         ".wine"
+        ".wind"
       ];
       files = [
         ".screenrc"
