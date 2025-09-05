@@ -8,13 +8,13 @@
           (prev.mpv-unwrapped.override {
             libplacebo = prev.libplacebo.overrideAttrs rec {
               pname = "libplacebo";
-              version = "a68b9680e42208350f141822714c3d969369ef95";
+              version = "515da9548ad734d923c7d0988398053f87b454d5";
               src = prev.fetchFromGitLab {
                 domain = "code.videolan.org";
                 owner = "videolan";
                 repo = "libplacebo";
                 rev = version;
-                hash = "sha256-JswtjDHZDfKTdsNgSmO9E1O7oF0VJRFlnhOZ1rdOnEc=";
+                hash = "sha256-BVHN2c3z2+Tx7CI+RhALLfubDSz0p4V3wrug+N2RJcs=";
               };
               patches = [ ];
             };
@@ -22,12 +22,12 @@
           }).overrideAttrs
             rec {
               pname = "mpv";
-              version = "9f153e2a20174147130a31387d022f62ddd94cf0";
+              version = "b9ceaf243dff844456d4ed37c188ffe6b9495ce7";
               src = prev.fetchFromGitHub {
                 owner = "mpv-player";
                 repo = "mpv";
                 rev = version;
-                hash = "sha256-rlkAFsAzRQ3JNu+qLwfhA63Dr+843baR8glL+jsW2yk=";
+                hash = "sha256-/c4PjpXMn6zbaU0OOSBejG2SXuMRIZdz2+sf1ctIf4U=";
               };
               patches = [ ];
             };
