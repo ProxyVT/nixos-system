@@ -18,7 +18,7 @@
               };
               patches = [ ];
             };
-            ffmpeg = prev.ffmpeg-full;
+            ffmpeg = prev.ffmpeg_8-full;
           }).overrideAttrs
             rec {
               pname = "mpv";
