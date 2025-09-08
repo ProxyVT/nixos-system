@@ -4,206 +4,207 @@
   imports = (lib.filesystem.listFilesRecursive ./modules);
 
   fonts.packages = with pkgs; [
+    ibm-plex
+    inter
+    jetbrains-mono
     liberation_ttf
     open-sans
     roboto
-    jetbrains-mono
-    ibm-plex
-    inter
   ];
 
   environment = {
     systemPackages = with pkgs; [
 
       # Development
-      super-productivity
-      github-desktop
-      nodejs
       cudatext-gtk
+      ghostty
+      github-desktop
+      kiro
       lite-xl
+      nixpkgs-review
+      nodejs
       nodePackages.gulp
       nodePackages.pnpm
-      wineWowPackages.unstableFull
-      nixpkgs-review
-      zed-editor_git
+      super-productivity
       waveterm
       windterm
-      ghostty
-      kiro
+      wineWowPackages.unstableFull
+      zed-editor_git
 
       # Graphics
+      blanket
       gpick
+      kdePackages.spectacle
       krita
       pinta
-      blanket
-      kdePackages.spectacle
 
       # Internet
-      you-get
+      betterdiscord-installer
       browsh
-      vivaldi
-      motrix
-      persepolis
-      ariang
-      media-downloader
+      discord
       element-desktop
-      telegram-desktop_git
-      tor
-      skype.skypeforlinux
-      release.skypeexport
       epiphany
       kdePackages.ktorrent
-      betterdiscord-installer
-      discord
+      media-downloader
+      motrix
+      persepolis
+      release.skypeexport
+      skype.skypeforlinux
+      telegram-desktop_git
+      testing.ariang
+      testing.vivaldi
+      tor
+      you-get
 
       # Server & security
-      keepassxc
       ddrescue
       ddrescueview
       electrum
-      tradingview
+      keepassxc
       sshuttle
+      tradingview
+      yandex-cloud
+      yandex-disk
 
       # Multimedia
       audacity
       handbrake
-      mkvtoolnix
       mediainfo-gui
-      testing.qmplay2
-      mpv-git
+      mkvtoolnix
       mousai
+      mpv-git
+      qmplay2
       subtitleedit
 
       # Games
-      pcsx2
       libstrangle
       lutris
+      pcsx2
 
       # Office
+      foliate
       libreoffice-qt
       simple-scan
-      foliate
 
       # CLI
       appimage-run
-      vrrtest
+      autorestic
       bastet
-      bottom
-      broot
-      psmisc
-      lm_sensors
-      ffmpeg-full
-      fastfetch
-      tuifimanager
-      python312Packages.secretstorage
-      s-tui
-      xsensors
-      #ventoy-full
       bluetooth_battery
-      scrcpy
-      speedtest-cli
-      ttop
-      ddcutil
+      bottom
       brightnessctl
-      nurl
-      nix-tree
-      fio
+      broot
+      ddcutil
+      delta
+      fastfetch
+      ffmpeg_8-full
       ffmpeg-normalize
-      toybox
-      nixfmt-rfc-style
-      nil
+      fio
       gh
-      trash-cli
-      nixos-generators
+      glow
       inxi
       iwmenu
-      msedit
-      nix-output-monitor
       lixPackageSets.latest.nix-fast-build
-      delta
-      glow
-      autorestic
+      lm_sensors
+      msedit
+      nil
+      nix-output-monitor
+      nix-tree
+      nixfmt-rfc-style
+      nixos-generators
+      nurl
+      psmisc
+      python312Packages.secretstorage
       restic
+      sbctl
+      s-tui
+      scrcpy
+      speedtest-cli
+      toybox
+      trash-cli
+      ttop
+      tuifimanager
+      vrrtest
+      xsensors
 
       # System apps
-      resources
+      darkman
+      freefilesync
+      grsync
+      gsmartcontrol
+      mission-center
       monitorets
+      nemo-with-extensions
+      nix-prefetch
+      nix-prefetch-git
+      nix-prefetch-scripts
+      pavucontrol
+      peazip
+      picom
       qdirstat
       qrcp
+      resources
+      rsync
       testdisk-qt
       xclip
       xournalpp
       yarn
-      pavucontrol
-      darkman
-      grsync
-      rsync
-      nix-prefetch
-      nix-prefetch-git
-      nix-prefetch-scripts
-      mission-center
-      nemo-with-extensions
-      peazip
-      picom
-      gsmartcontrol
-      freefilesync
 
       # System components
-      nixd
-      polkit
-      plasma-hud
+      bluez-alsa
+      cmake
       exfat
-      rar
-      unixtools.quota
-      polkit
-      libva-utils
-      material-icons
-      python3Full
+      ffmpegthumbnailer
+      firefoxpwa
+      gcc
       glxinfo
-      vulkan-tools
-      wayland-utils
-      xorg.xdpyinfo
-      xorg.xinit
-      libimobiledevice
-      ifuse
       gst_all_1.gst-libav
       gst_all_1.gst-plugins-ugly
-      gcc
-      cmake
-      ffmpegthumbnailer
-      xfce.xfce4-xkb-plugin
-      xfce.xfce4-alsa-plugin
       gvfs
+      ifuse
+      kdePackages.kde-gtk-config
+      libimobiledevice
+      libva-utils
+      material-icons
+      nixd
+      package-version-server
+      plasma-hud
+      polkit
+      polkit
+      python3Full
+      rar
+      run0-sudo-shim
+      stilo-themes
+      unixtools.quota
+      vulkan-tools
+      wayland-utils
       xfce.thunar
       xfce.thunar-volman
-      stilo-themes
-      package-version-server
-      firefoxpwa
-      kdePackages.kde-gtk-config
-      run0-sudo-shim
-      bluez-alsa
+      xfce.xfce4-alsa-plugin
+      xfce.xfce4-xkb-plugin
+      xorg.xdpyinfo
+      xorg.xinit
     ];
   };
 
   services = {
-    gnome.gnome-keyring.enable = true;
-    usbmuxd.enable = true;
-    gvfs.enable = true;
     blueman.enable = true;
+    gnome.gnome-keyring.enable = true;
     gpm.enable = true;
+    gvfs.enable = true;
+    usbmuxd.enable = true;
   };
 
   programs = {
     adb.enable = true;
-    npm.enable = true;
     dconf.enable = true;
-    seahorse.enable = true;
     gamemode.enable = true;
     gnome-disks.enable = true;
-    partition-manager.enable = true;
-    mtr.enable = true;
     localsend.enable = true;
+    mtr.enable = true;
+    npm.enable = true;
     openvpn3.enable = true;
+    partition-manager.enable = true;
     system-config-printer.enable = true;
   };
 
