@@ -43,71 +43,44 @@
 
     let
       inherit (self) outputs;
+      defaultModules = [
+        ./nixos
+        ./applications/system-manager
+        home-manager.nixosModules.home-manager
+        impermanence.nixosModules.impermanence
+        chaotic.nixosModules.default
+        run0-sudo-shim.nixosModules.default
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.ulad = import ./applications/home-manager;
+          };
+        }
+      ];
     in
     {
       overlays = import ./applications/system-manager/overlays { inherit inputs; };
       nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
-          modules = [
-            ./nixos
-            ./applications/system-manager
-            home-manager.nixosModules.home-manager
-            impermanence.nixosModules.impermanence
-            chaotic.nixosModules.default
-            run0-sudo-shim.nixosModules.default
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                users.ulad = import ./applications/home-manager;
-              };
-            }
-          ];
+          modules = defaultModules;
         };
         acer = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
-          modules = [
-            ./nixos
-            ./applications/system-manager
-            ./hardware/acer.nix
-            home-manager.nixosModules.home-manager
-            impermanence.nixosModules.impermanence
-            chaotic.nixosModules.default
-            run0-sudo-shim.nixosModules.default
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                users.ulad = import ./applications/home-manager;
-              };
-            }
-          ];
+          modules = defaultModules ++ [ ./hardware/acer.nix ];
         };
         umka = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
-          modules = [
-            ./nixos
-            ./applications/system-manager
-            ./hardware/umka.nix
-            home-manager.nixosModules.home-manager
-            impermanence.nixosModules.impermanence
-            chaotic.nixosModules.default
-            run0-sudo-shim.nixosModules.default
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                users.ulad = import ./applications/home-manager;
-              };
-            }
-          ];
+          modules = defaultModules ++ [ ./hardware/umka.nix ];
+        };
+        nvidia = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = defaultModules ++ [ ./hardware/nvidia.nix ];
         };
         exampleIso = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
-          modules = [
-            ./iso/configuration.nix
-          ];
+          modules = [ ./iso/configuration.nix ];
         };
       };
     };
