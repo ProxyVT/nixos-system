@@ -36,7 +36,6 @@
       nixpkgs-skype,
       impermanence,
       chaotic,
-      run0-sudo-shim,
       home-manager,
       ...
     }@inputs:
@@ -49,7 +48,6 @@
         home-manager.nixosModules.home-manager
         impermanence.nixosModules.impermanence
         chaotic.nixosModules.default
-        run0-sudo-shim.nixosModules.default
         {
           home-manager = {
             useGlobalPkgs = true;

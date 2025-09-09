@@ -173,7 +173,6 @@
       polkit
       python3Full
       rar
-      run0-sudo-shim
       stilo-themes
       unixtools.quota
       vulkan-tools
