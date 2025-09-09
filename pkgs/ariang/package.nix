@@ -1,11 +1,11 @@
 {
   lib,
-  makeDesktopItem,
   fetchFromGitHub,
   buildNpmPackage,
   copyDesktopItems,
   imagemagick,
   xdg-utils,
+  makeDesktopItem,
   nix-update-script,
 }:
 
@@ -35,7 +35,7 @@ buildNpmPackage rec {
     mkdir -p $out/share
     cp -r dist $out/share/${pname}
 
-    for size in 16 24 36 48; do
+    for size in 16 24 36 48 72 144; do
       mkdir -p $out/share/icons/hicolor/''${size}x''${size}/apps
       magick $out/share/${pname}/tileicon.png -resize ''${size}x''${size} \
         $out/share/icons/hicolor/''${size}x''${size}/apps/${pname}.png
