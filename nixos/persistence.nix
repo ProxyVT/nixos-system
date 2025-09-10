@@ -9,7 +9,6 @@
       "/var/lib/bluetooth"
       "/var/lib/nixos"
       "/var/lib/systemd/coredump"
-      "/var/lib/transmission"
       "/var/lib/resilio-sync"
       "/var/lib/iwd"
       "/etc/NetworkManager/system-connections"
