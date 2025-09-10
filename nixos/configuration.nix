@@ -21,10 +21,15 @@
         };
       };
     };
-
     loader = {
+      limine = {
+        enable = true;
+        secureBoot.enable = true;
+        panicOnChecksumMismatch = true;
+        efiInstallAsRemovable = true;
+      };
       systemd-boot = {
-        enable = true; # Systemd-boot loader config
+        enable = false;
       };
       timeout = 10; # Linux boot section timeout
       efi.canTouchEfiVariables = true;

@@ -11,6 +11,7 @@
       "/var/lib/systemd/coredump"
       "/var/lib/resilio-sync"
       "/var/lib/iwd"
+      "/var/lib/sbctl"
       "/etc/NetworkManager/system-connections"
       "/etc/mullvad-vpn"
       {
