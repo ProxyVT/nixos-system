@@ -170,7 +170,6 @@
           "aria2"
           "openrazer"
           "plugdev"
-          "transmission"
           "storage"
           "rslsync"
           "i2c"
