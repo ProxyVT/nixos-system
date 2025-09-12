@@ -10,10 +10,6 @@
     nixpkgs-skype.url = "github:nixos/nixpkgs/7f345442bd1c23a44324598349b0f9a0b6f9718d";
     impermanence.url = "github:nix-community/impermanence";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-    run0-sudo-shim = {
-      url = "github:lordgrimmauld/run0-sudo-shim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
