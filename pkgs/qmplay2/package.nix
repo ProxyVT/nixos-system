@@ -14,10 +14,13 @@
   libcdio,
   libpulseaudio,
   libsidplayfp,
+  libsysprof-capture,
   libva,
   libxcb,
   ninja,
+  pipewire,
   pkg-config,
+  rubberband,
   qt5,
   qt6,
   taglib,
@@ -70,6 +73,9 @@ stdenv.mkDerivation (finalAttrs: {
     libsidplayfp
     libva
     libxcb
+    pipewire
+    libsysprof-capture
+    rubberband
     taglib
     vulkan-headers-qmplay2
     vulkan-tools
