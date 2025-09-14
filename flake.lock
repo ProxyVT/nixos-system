@@ -268,11 +268,11 @@
     },
     "nixpkgs-testing": {
       "locked": {
-        "lastModified": 1757531954,
-        "narHash": "sha256-nf8/XpKe9Xh/uYdjBTxbMn/Fy/HiBYcK/Jev8Lj7YMc=",
+        "lastModified": 1757761140,
+        "narHash": "sha256-l7coo73SF0mBl7cUqHqXaaB4Sjj6B1y6a8+bLWKmJQU=",
         "owner": "ProxyVT",
         "repo": "nixpkgs",
-        "rev": "43b0c143fc09463a7bfc79ce8998583a341592bc",
+        "rev": "f3373c0fb8cfd52b27b93d0dfd821c1d38d76668",
         "type": "github"
       },
       "original": {
