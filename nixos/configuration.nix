@@ -1,4 +1,5 @@
 {
+  inputs,
   outputs,
   pkgs,
   ...
@@ -76,7 +77,10 @@
       allowUnfree = true;
       nvidia.acceptLicense = true;
     };
-    overlays = [ outputs.overlays.packages ];
+    overlays = [
+      inputs.nix-vscode-extensions.overlays.default
+      outputs.overlays.packages
+    ];
   };
 
   # Define your hostname.
