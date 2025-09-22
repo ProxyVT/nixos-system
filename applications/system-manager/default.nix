@@ -192,6 +192,7 @@
     gpm.enable = true;
     gvfs.enable = true;
     usbmuxd.enable = true;
+    flatpak.enable = true;
   };
 
   programs = {
