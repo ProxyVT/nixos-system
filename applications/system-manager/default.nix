@@ -17,9 +17,7 @@
 
       # Development
       cudatext-gtk
-      ghostty
       github-desktop
-      kiro
       lite-xl
       nixpkgs-review
       nodejs
@@ -51,8 +49,7 @@
       release.skypeexport
       skype.skypeforlinux
       telegram-desktop_git
-      testing.ariang
-      testing.vivaldi
+      ariang
       tor
       you-get
 
@@ -65,6 +62,7 @@
       tradingview
       yandex-cloud
       yandex-disk
+      flood
 
       # Multimedia
       audacity
@@ -73,7 +71,7 @@
       mkvtoolnix
       mousai
       mpv-git
-      qmplay2
+      testing.qmplay2
       subtitleedit
 
       # Games
@@ -94,6 +92,7 @@
       bottom
       brightnessctl
       broot
+      coreutils-full
       ddcutil
       delta
       fastfetch
@@ -104,23 +103,22 @@
       glow
       inxi
       iwmenu
-      lixPackageSets.latest.nix-fast-build
       lm_sensors
       msedit
       nil
       nix-output-monitor
       nix-tree
-      nixfmt-rfc-style
+      nixfmt
       nixos-generators
       nurl
       psmisc
-      python312Packages.secretstorage
+      python313Packages.secretstorage
       restic
       sbctl
       s-tui
       scrcpy
       speedtest-cli
-      toybox
+      superfile
       trash-cli
       ttop
       tuifimanager
@@ -171,7 +169,7 @@
       plasma-hud
       polkit
       polkit
-      python3Full
+      python3
       rar
       stilo-themes
       unixtools.quota
@@ -183,6 +181,7 @@
       xfce.xfce4-xkb-plugin
       xorg.xdpyinfo
       xorg.xinit
+      vivaldi-ffmpeg-codecs
     ];
   };
 
