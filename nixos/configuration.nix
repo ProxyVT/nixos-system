@@ -44,7 +44,7 @@
 
   # Nix configuration
   nix = {
-    package = pkgs.lixPackageSets.latest.lix;
+    package = pkgs.nixVersions.latest;
     channel.enable = false;
     distributedBuilds = false;
     buildMachines = [
