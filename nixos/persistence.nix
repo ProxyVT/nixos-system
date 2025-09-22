@@ -1,9 +1,7 @@
 { ... }:
 {
-
   environment.persistence."/persist" = {
     hideMounts = true;
-
     directories = [
       "/var/log"
       "/var/lib/bluetooth"
@@ -20,7 +18,6 @@
         mode = "u=rwx,g=rx,o=";
       }
     ];
-
     files = [
       {
         file = "/var/keys/secret_file";
@@ -29,7 +26,6 @@
         };
       }
     ];
-
     users.ulad = {
       directories = [
         "Downloads"
@@ -58,5 +54,4 @@
       ];
     };
   };
-
 }
