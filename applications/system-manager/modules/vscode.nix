@@ -8,4 +8,11 @@
       bbenoist.nix
     ];
   };
+
+  # Persist cache for saving loging info between reboots
+  environment.persistence."/persist" = {
+    users.ulad.directories = [
+      ".aws"
+    ];
+  };
 }
