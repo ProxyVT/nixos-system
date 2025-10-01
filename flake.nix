@@ -53,7 +53,11 @@
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
-            users.ulad = import ./applications/home-manager;
+            backupFileExtension = ".backup";
+            users.ulad.imports = [
+              ./applications/home-manager
+              impermanence.homeManagerModules.impermanence
+            ];
           };
         }
       ];
