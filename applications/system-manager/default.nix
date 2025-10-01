@@ -71,8 +71,11 @@
       mkvtoolnix
       mousai
       mpv-git
+      qimgv
       testing.qmplay2
       subtitleedit
+      upscayl-ncnn
+      upscayl
 
       # Games
       libstrangle
