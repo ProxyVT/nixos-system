@@ -46,7 +46,6 @@
         ".cache/fontconfig"
         ".wine"
         ".wind"
-        ".kiro"
       ];
       files = [
         ".screenrc"

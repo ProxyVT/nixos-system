@@ -17,9 +17,8 @@
   };
 
   # Persist cache for saving loging info between reboots
-  home.persistence."/persist" = {
-    directories = [
-      ".aws"
-    ];
-  };
+  home.persistence."/persist".directories = [
+    ".aws"
+    ".kiro"
+  ];
 }
