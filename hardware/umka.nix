@@ -1,6 +1,5 @@
 { config, ... }:
 {
-
   services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.nvidia = {
@@ -8,5 +7,4 @@
     powerManagement.enable = true;
     open = false;
   };
-
 }
