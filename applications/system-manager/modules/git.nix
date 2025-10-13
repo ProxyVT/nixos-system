@@ -1,15 +1,15 @@
-{ pkgs, ... }: {
-
-programs.git = {
-  enable = true;
-  package = pkgs.gitFull;
-  config = {
-    user = {
-      name = "ProxyVT";
-      email = "tikit.us@outlook.com";
+{ pkgs, ... }:
+{
+  programs.git = {
+    enable = true;
+    package = pkgs.gitFull;
+    config = {
+      user = {
+        name = "ProxyVT";
+        email = "tikit.us@outlook.com";
+      };
+      safe.directory = "/home/ulad/*";
+      core.fileMode = false;
     };
-    safe.directory = "/home/ulad/*";
   };
-};
-
 }
