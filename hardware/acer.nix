@@ -6,7 +6,6 @@
     nvidiaOptimus.disable = false;
     nvidia = {
       open = false;
-      modesetting.enable = true;
       powerManagement.enable = true;
       package = config.boot.kernelPackages.nvidiaPackages.latest;
       prime = {
