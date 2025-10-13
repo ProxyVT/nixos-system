@@ -7,6 +7,8 @@
     overrideFolders = false;
     settings.options = {
       relaysEnabled = true;
+      urAccepted = 3;
+      order = "smallestFirst";
     };
   };
 
