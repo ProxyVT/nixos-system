@@ -176,6 +176,7 @@
           "plugdev"
           "storage"
           "i2c"
+          "deluge"
         ];
         hashedPassword = "$y$j9T$saJvjo68.BgDGPQjA9WDN.$h9979vNxQrblxIxudoFl1qb8twwAMEM4uEbVJ0qCY19";
       };
