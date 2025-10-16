@@ -1,23 +1,16 @@
-{ pkgs, thunderbirdPackages, ... }:
+{ pkgs, ... }:
+let
+  betterbird = pkgs.bird.betterbird.overrideAttrs (oldAttrs: {
+    thunderbird-unwrapped = pkgs.bird.thunderbirdPackages.thunderbird-128;
+    version = "128.9.0esr";
+  });
+in
 {
-
   programs.thunderbird = {
     enable = true;
-    package = pkgs.bird.betterbird;
+    package = betterbird;
     profiles.ulad = {
       isDefault = true;
     };
   };
-
-  nixpkgs = {
-    overlays = [
-      (final: prev: {
-        pkgs.bird.betterbird = prev.betterbird.overrideAttrs (oldAttrs: {
-          thunderbird-unwrapped = thunderbirdPackages.thunderbird-128;
-          version = "128.9.0esr";
-        });
-      })
-    ];
-  };
-
 }
