@@ -10,8 +10,11 @@
     nixpkgs-skype.url = "github:nixos/nixpkgs/7f345442bd1c23a44324598349b0f9a0b6f9718d";
     impermanence.url = "github:nix-community/impermanence/home-manager-v2";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
+    nix-vscode-extensions = {
+      url = "github:nix-community/nix-vscode-extensions";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -32,10 +35,10 @@
       nixpkgs-testing,
       nixpkgs-betterbird,
       nixpkgs-skype,
-      impermanence,
-      chaotic,
       nix-vscode-extensions,
       nix-flatpak,
+      impermanence,
+      chaotic,
       home-manager,
       ...
     }@inputs:
