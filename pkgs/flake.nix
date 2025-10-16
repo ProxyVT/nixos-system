@@ -30,6 +30,7 @@
           vivaldi = pkgs.callPackage ./vivaldi/package.nix { };
           ffmpeg-progress-yield = pkgs.python3Packages.callPackage ./ffmpeg-progress-yield/default.nix { };
           ariang = pkgs.callPackage ./ariang/package.nix { };
+          lite-xl = pkgs.callPackage ./lite-xl/package.nix { };
         };
       }
     );
