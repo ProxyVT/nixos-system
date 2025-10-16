@@ -1,8 +1,7 @@
-{ ... }: {
-
-programs.gnupg.agent = {
-  enable = true;
-  enableSSHSupport = false;
-};
-
+{ ... }:
+{
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = false;
+  };
 }

@@ -1,6 +1,5 @@
 { ... }:
 {
-
   services.picom = {
     enable = true;
     vSync = true;
@@ -10,5 +9,4 @@
       corner-radius = 0;
     };
   };
-
 }

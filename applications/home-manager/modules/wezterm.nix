@@ -1,12 +1,11 @@
-{ ... }: {
-
-programs.wezterm = {
-  enable = false;
-  extraConfig = ''
-    return {
-      enable_scroll_bar=true
-    }
-  '';
-};
-
+{ ... }:
+{
+  programs.wezterm = {
+    enable = true;
+    extraConfig = ''
+      return {
+        enable_scroll_bar=true
+      }
+    '';
+  };
 }
