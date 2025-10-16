@@ -18,7 +18,8 @@
       # Development
       cudatext-gtk
       github-desktop
-      lite-xl
+      gitnuro
+      edge.lite-xl
       nixpkgs-review
       nodejs
       nodePackages.gulp
@@ -169,6 +170,7 @@
       material-icons
       nixd
       package-version-server
+      pciutils
       plasma-hud
       polkit
       polkit
@@ -195,6 +197,7 @@
     gvfs.enable = true;
     usbmuxd.enable = true;
     flatpak.enable = true;
+    n8n.enable = true;
   };
 
   programs = {
