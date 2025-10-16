@@ -8,8 +8,7 @@
         full = true;
         no_display = true;
         fps_sampling_period = 1000;
-        fps_limit = 0;
-        fps_limit_method = "late";
+        throttling_status = false;
       };
     };
     enableSessionWide = true;
