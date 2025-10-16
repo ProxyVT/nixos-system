@@ -71,7 +71,6 @@
       mediainfo-gui
       mkvtoolnix
       mousai
-      mpv-git
       qimgv
       testing.qmplay2
       subtitleedit
