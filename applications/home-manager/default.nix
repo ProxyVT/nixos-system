@@ -9,6 +9,7 @@
   };
 
   programs = {
+    aria2.enable = true;
     home-manager.enable = true;
     java.enable = true;
     gpg.enable = true;
