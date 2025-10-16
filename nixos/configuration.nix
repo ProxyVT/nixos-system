@@ -44,7 +44,7 @@
 
   # Nix configuration
   nix = {
-    package = pkgs.nixVersions.latest;
+    package = pkgs.nixVersions.git;
     channel.enable = false;
     distributedBuilds = false;
     buildMachines = [
@@ -60,6 +60,7 @@
     ];
     settings = {
       auto-allocate-uids = true;
+      use-cgroups = true;
       trusted-users = [ "@wheel" ];
       tarball-ttl = 0;
       builders-use-substitutes = true;
@@ -68,6 +69,7 @@
         "nix-command"
         "flakes"
         "auto-allocate-uids"
+        "cgroups"
       ];
     };
   };
