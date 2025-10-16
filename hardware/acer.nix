@@ -14,12 +14,5 @@
         intelBusId = "PCI:0:2:0";
       };
     };
-    graphics = {
-      extraPackages = with pkgs; [
-        intel-media-driver
-        intel-ocl
-        intel-vaapi-driver
-      ];
-    };
   };
 }
