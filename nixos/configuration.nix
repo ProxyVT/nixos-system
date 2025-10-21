@@ -138,6 +138,10 @@
     pipewire.enable = true;
   };
 
+  environment.variables = {
+    PULSE_LATENCY_MSEC = "100";
+  };
+
   # XDG desktop integration
   xdg.portal = {
     enable = true;
