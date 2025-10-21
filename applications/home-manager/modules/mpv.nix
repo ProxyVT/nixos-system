@@ -14,6 +14,7 @@ let
         hash = "sha256-m3PDmmfHFhBGUwhBxApqee5bzdMLrqRSA9eZLVZxN1o=";
       };
       ffmpeg = pkgs.ffmpeg_8-full;
+      yt-dlp = pkgs.yt-dlp_git;
       libplacebo = pkgs.libplacebo.overrideAttrs (oldAttrs: {
         patches = [ ];
         version = "git";
