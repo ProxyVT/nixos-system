@@ -1,4 +1,8 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  ...
+}:
 {
 
   imports = (lib.filesystem.listFilesRecursive ./modules);
@@ -19,7 +23,7 @@
       cudatext-gtk
       github-desktop
       gitnuro
-      edge.lite-xl
+      lite-xl
       nixpkgs-review
       nodejs
       nodePackages.gulp
@@ -29,6 +33,7 @@
       windterm
       wineWowPackages.unstableFull
       zed-editor_git
+      tilix
 
       # Graphics
       blanket
@@ -46,11 +51,10 @@
       kdePackages.ktorrent
       media-downloader
       motrix
-      persepolis
       release.skypeexport
       skype.skypeforlinux
       telegram-desktop_git
-      ariang
+      testing.ariang
       tor
       you-get
 
