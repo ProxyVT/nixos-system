@@ -19,11 +19,14 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    xlibre-overlay = {
+      url = "git+https://codeberg.org/takagemacoed/xlibre-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     flake-compat = {
       url = "https://git.lix.systems/lix-project/flake-compat/archive/main.tar.gz";
       flake = false;
     };
-
   };
 
   outputs =
@@ -40,6 +43,7 @@
       impermanence,
       chaotic,
       home-manager,
+      xlibre-overlay,
       ...
     }@inputs:
 
@@ -52,6 +56,9 @@
         impermanence.nixosModules.impermanence
         nix-flatpak.nixosModules.nix-flatpak
         chaotic.nixosModules.default
+        xlibre-overlay.nixosModules.overlay-xlibre-xserver
+        xlibre-overlay.nixosModules.overlay-all-xlibre-drivers
+        xlibre-overlay.nixosModules.nvidia-ignore-ABI
         {
           home-manager = {
             useGlobalPkgs = true;
