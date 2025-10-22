@@ -44,7 +44,6 @@
 
   # Nix configuration
   nix = {
-    package = pkgs.nixVersions.git;
     channel.enable = false;
     distributedBuilds = false;
     buildMachines = [
@@ -59,6 +58,9 @@
       }
     ];
     settings = {
+      eval-cores = 0;
+      lazy-trees = true;
+      lazy-locks = true;
       auto-allocate-uids = true;
       use-cgroups = true;
       trusted-users = [ "@wheel" ];
