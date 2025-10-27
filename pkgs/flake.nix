@@ -32,6 +32,7 @@
           ariang = pkgs.callPackage ./ariang/package.nix { };
           ariang-native = pkgs.callPackage ./ariang-native/package.nix { };
           lite-xl = pkgs.callPackage ./lite-xl/package.nix { };
+          betterbird = pkgs.callPackage ./betterbird/package.nix { };
         };
       }
     );

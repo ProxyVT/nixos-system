@@ -6,7 +6,6 @@
     nixpkgs-release.url = "https://channels.nixos.org/nixos-25.05/nixexprs.tar.xz";
     nixpkgs-edge.url = "github:nixos/nixpkgs/master";
     nixpkgs-testing.url = "github:ProxyVT/nixpkgs/testing";
-    nixpkgs-betterbird.url = "github:nixos/nixpkgs/f24617855643c0e041a83f7f8acffeda1d71f184";
     nixpkgs-skype.url = "github:nixos/nixpkgs/7f345442bd1c23a44324598349b0f9a0b6f9718d";
     impermanence.url = "github:nix-community/impermanence/home-manager-v2";
     determinate.url = "github:DeterminateSystems/determinate";
@@ -33,7 +32,6 @@
       nixpkgs-release,
       nixpkgs-edge,
       nixpkgs-testing,
-      nixpkgs-betterbird,
       nixpkgs-skype,
       nix-vscode-extensions,
       nix-flatpak,

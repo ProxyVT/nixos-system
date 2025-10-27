@@ -19,10 +19,6 @@ in
       system = final.system;
       config = defaultConfig;
     };
-    bird = import inputs.nixpkgs-betterbird {
-      system = final.system;
-      config = defaultConfig;
-    };
     skype = import inputs.nixpkgs-skype {
       system = final.system;
       config = defaultConfig;
