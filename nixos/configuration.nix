@@ -58,20 +58,22 @@
       }
     ];
     settings = {
-      eval-cores = 0;
-      lazy-trees = true;
-      lazy-locks = true;
       auto-allocate-uids = true;
-      use-cgroups = true;
-      trusted-users = [ "@wheel" ];
-      tarball-ttl = 0;
       builders-use-substitutes = true;
+      eval-cores = 0;
+      fsync-store-paths = true;
+      lazy-locks = true;
+      run-diff-hook = true;
       substituters = [ "https://nixos-cache-proxy.cofob.dev" ];
+      tarball-ttl = 0;
+      trusted-users = [ "@wheel" ];
+      use-cgroups = true;
+      warn-dirty = false;
       experimental-features = [
-        "nix-command"
-        "flakes"
         "auto-allocate-uids"
+        "ca-derivations"
         "cgroups"
+        "parallel-eval"
       ];
     };
   };
