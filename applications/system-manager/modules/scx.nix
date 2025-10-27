@@ -2,7 +2,7 @@
 {
   services.scx = {
     enable = true;
-    package = pkgs.scx-full;
+    package = pkgs.scx.full;
     scheduler = "scx_flash";
   };
 }
