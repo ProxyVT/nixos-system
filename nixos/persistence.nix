@@ -8,6 +8,7 @@
       "/var/lib/nixos"
       "/var/lib/iwd"
       "/var/lib/sbctl"
+      "/var/lib/flatpak"
       "/etc/NetworkManager/system-connections"
       "/etc/mullvad-vpn"
       {
