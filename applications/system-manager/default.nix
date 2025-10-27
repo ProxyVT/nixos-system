@@ -61,13 +61,15 @@
       # Server & security
       ddrescue
       ddrescueview
-      electrum
+      #electrum
       keepassxc
       sshuttle
       tradingview
       yandex-cloud
       yandex-disk
       flood
+      kdiskmark
+      qdiskinfo
 
       # Multimedia
       audacity
@@ -137,6 +139,7 @@
       freefilesync
       grsync
       gsmartcontrol
+      krusader
       mission-center
       monitorets
       nemo-with-extensions
@@ -200,6 +203,11 @@
     gvfs.enable = true;
     usbmuxd.enable = true;
     flatpak.enable = true;
+    flatpak.packages = [
+      "eu.betterbird.Betterbird"
+      "com.obsproject.Studio"
+      "im.riot.Riot"
+    ];
     n8n.enable = true;
   };
 
