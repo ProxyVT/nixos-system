@@ -97,6 +97,7 @@
       appimage-run
       autorestic
       bastet
+      bcachefs-tools
       bluetooth_battery
       bottom
       brightnessctl
