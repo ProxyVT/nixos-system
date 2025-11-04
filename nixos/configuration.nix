@@ -172,6 +172,7 @@
     users.ulad.imports = [
       ../applications/home-manager
       inputs.impermanence.homeManagerModules.default
+      inputs.zen-browser.homeModules.default
     ];
   };
 
