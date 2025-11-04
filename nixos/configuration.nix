@@ -146,11 +146,6 @@
     PULSE_LATENCY_MSEC = "100";
   };
 
-  # XDG desktop integration
-  xdg.portal = {
-    enable = true;
-  };
-
   # Global hardware configuration
   hardware = {
     openrazer.enable = false;

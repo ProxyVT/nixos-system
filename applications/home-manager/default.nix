@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 {
   imports = (lib.filesystem.listFilesRecursive ./modules);
 
@@ -13,6 +13,16 @@
     home-manager.enable = true;
     java.enable = true;
     gpg.enable = true;
+  };
+
+  xdg = {
+    enable = true;
+    autostart.enable = true;
+    portal = {
+      enable = true;
+      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+      config.common.default = "*";
+    };
   };
 
   home.stateVersion = "24.11";
