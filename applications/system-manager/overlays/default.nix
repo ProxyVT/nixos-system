@@ -1,28 +1,21 @@
-{ inputs, ... }:
+{ inputs, system, ... }:
 let
-  defaultConfig = {
+  config = {
     allowUnfree = true;
     nvidia.acceptLicense = true;
   };
+  mkChannel =
+    input:
+    import input {
+      inherit config system;
+    };
+  pkgsCustom = {
+    edge = mkChannel inputs.nixpkgs-edge;
+    testing = mkChannel inputs.nixpkgs-testing;
+    release = mkChannel inputs.nixpkgs-release;
+    skype = mkChannel inputs.nixpkgs-skype;
+  };
 in
 {
-  packages = final: _prev: {
-    edge = import inputs.nixpkgs-edge {
-      system = final.system;
-      config = defaultConfig;
-    };
-    testing = import inputs.nixpkgs-testing {
-      system = final.system;
-      config = defaultConfig;
-    };
-    release = import inputs.nixpkgs-release {
-      system = final.system;
-      config = defaultConfig;
-    };
-    skype = import inputs.nixpkgs-skype {
-      system = final.system;
-      config = defaultConfig;
-    };
-  };
-
+  default = final: prev: prev // pkgsCustom;
 }

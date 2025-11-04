@@ -85,7 +85,7 @@
     };
     overlays = [
       inputs.nix-vscode-extensions.overlays.default
-      outputs.overlays.packages
+      outputs.custom-packages.default
     ];
   };
 
@@ -163,6 +163,16 @@
     rtkit.enable = true;
     polkit.enable = true;
     sudo.enable = false;
+  };
+
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    backupFileExtension = ".backup";
+    users.ulad.imports = [
+      ../applications/home-manager
+      inputs.impermanence.homeManagerModules.default
+    ];
   };
 
   users = {
