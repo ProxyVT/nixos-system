@@ -61,9 +61,7 @@
       auto-allocate-uids = true;
       builders-use-substitutes = true;
       eval-cores = 0;
-      fsync-store-paths = true;
       lazy-locks = true;
-      run-diff-hook = true;
       substituters = [ "https://nixos-cache-proxy.cofob.dev" ];
       tarball-ttl = 0;
       trusted-users = [ "@wheel" ];
@@ -73,7 +71,6 @@
         "auto-allocate-uids"
         "ca-derivations"
         "cgroups"
-        "parallel-eval"
       ];
     };
   };
