@@ -11,6 +11,7 @@
       "/var/lib/flatpak"
       "/etc/NetworkManager/system-connections"
       "/etc/mullvad-vpn"
+      "/root/.ssh"
       {
         directory = "/var/lib/colord";
         user = "colord";
