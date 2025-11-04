@@ -14,6 +14,7 @@
     liberation_ttf
     open-sans
     roboto
+    nerd-fonts.bigblue-terminal
   ];
 
   environment = {
@@ -65,8 +66,6 @@
       keepassxc
       sshuttle
       tradingview
-      yandex-cloud
-      yandex-disk
       flood
       kdiskmark
       qdiskinfo
@@ -164,9 +163,7 @@
       cmake
       exfat
       ffmpegthumbnailer
-      firefoxpwa
       gcc
-      glxinfo
       gst_all_1.gst-libav
       gst_all_1.gst-plugins-ugly
       gvfs
@@ -175,6 +172,7 @@
       libimobiledevice
       libva-utils
       material-icons
+      mesa-demos
       nixd
       package-version-server
       pciutils
