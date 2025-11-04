@@ -142,10 +142,6 @@
     pipewire.enable = true;
   };
 
-  environment.variables = {
-    PULSE_LATENCY_MSEC = "100";
-  };
-
   # Global hardware configuration
   hardware = {
     openrazer.enable = false;
