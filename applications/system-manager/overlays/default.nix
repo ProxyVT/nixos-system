@@ -11,9 +11,8 @@ let
     };
   pkgsCustom = {
     edge = mkChannel inputs.nixpkgs-edge;
-    testing = mkChannel inputs.nixpkgs-testing;
     release = mkChannel inputs.nixpkgs-release;
-    skype = mkChannel inputs.nixpkgs-skype;
+    testing = mkChannel inputs.nixpkgs-testing;
   };
 in
 {
