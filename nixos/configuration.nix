@@ -69,8 +69,8 @@
       warn-dirty = false;
       experimental-features = [
         "auto-allocate-uids"
-        "ca-derivations"
         "cgroups"
+        "parallel-eval"
       ];
     };
   };
