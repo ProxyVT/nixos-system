@@ -14,5 +14,13 @@
         intelBusId = "PCI:0:2:0";
       };
     };
+    graphics = {
+      extraPackages = [ pkgs.intel-vaapi-driver ];
+      extraPackages32 = [ pkgs.driversi686Linux.intel-vaapi-driver ];
+    };
+  };
+
+  environment.sessionVariables = {
+    LIBVA_DRIVER_NAME = "i965";
   };
 }

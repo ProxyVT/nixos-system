@@ -145,6 +145,10 @@
     bluetooth.enable = true;
     acpilight.enable = true;
     i2c.enable = true;
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
   };
 
   security = {
