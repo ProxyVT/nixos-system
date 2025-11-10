@@ -46,8 +46,8 @@
     {
       self,
       nixpkgs,
-      nix-flatpak,
       impermanence,
+      nix-flatpak,
       determinate,
       chaotic,
       home-manager,
