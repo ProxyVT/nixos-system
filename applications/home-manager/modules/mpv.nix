@@ -1,34 +1,41 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  lib,
+  ...
+}:
 let
-  mpv = pkgs.mpv.override {
+  mpv-git = pkgs.mpv.override {
     scripts = with pkgs.mpvScripts; [
       uosc
       thumbfast
     ];
-    mpv = pkgs.mpv-unwrapped.overrideAttrs (oldAttrs: {
-      patches = [ ];
-      version = "git";
-      src = pkgs.fetchFromGitHub {
-        inherit (oldAttrs.src) owner repo;
-        rev = "233e89698e69242209645f61472445bffb36fa42";
-        hash = "sha256-m3PDmmfHFhBGUwhBxApqee5bzdMLrqRSA9eZLVZxN1o=";
-      };
-      ffmpeg = pkgs.ffmpeg_8-full;
-      yt-dlp = pkgs.yt-dlp_git;
-      libplacebo = pkgs.libplacebo.overrideAttrs (oldAttrs: {
-        patches = [ ];
-        version = "git";
-        src = oldAttrs.src.override {
-          rev = "9bffcaf2da915aecce18dbf4ecc469649115674a";
-          hash = "sha256-MAvDaKXBOAnhZSoi0oIuVwR+G/mIFlAl3HmLTG5IMpY=";
-        };
-      });
-    });
+    mpv =
+      (pkgs.mpv-unwrapped.override {
+        ffmpeg = pkgs.ffmpeg_8-full;
+        libplacebo = pkgs.libplacebo.overrideAttrs (oldAttrs: {
+          patches = [ ];
+          version = "git";
+          src = oldAttrs.src.override {
+            rev = "06992a53fafc1549843c8b36751e166cfe3a4079";
+            hash = "sha256-CQnE7Olg+YdbU3KfudpZWSEDup06rEiaqA7WPj9Jr/c=";
+          };
+        });
+      }).overrideAttrs
+        (oldAttrs: {
+          mesonFlags = lib.lists.filter (flag: !lib.strings.hasPrefix "-Dsdl2" flag) oldAttrs.mesonFlags;
+          patches = [ ];
+          version = "git";
+          src = pkgs.fetchFromGitHub {
+            inherit (oldAttrs.src) owner repo;
+            rev = "2e5e2938dd3f367b73fb58276208aa616e5d37a0";
+            hash = "sha256-hynMuJmVzoExXfYEztXd1QOAsUt/Po+OLQ6PFykd7xk=";
+          };
+        });
   };
 in
 {
   programs.mpv = {
     enable = true;
-    package = mpv;
+    package = mpv-git;
   };
 }
