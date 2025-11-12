@@ -52,8 +52,6 @@
       kdePackages.ktorrent
       media-downloader
       motrix
-      release.skypeexport
-      skype.skypeforlinux
       telegram-desktop_git
       testing.ariang
       tor

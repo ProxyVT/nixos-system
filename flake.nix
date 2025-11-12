@@ -6,7 +6,6 @@
     nixpkgs-release.url = "https://channels.nixos.org/nixos-25.05/nixexprs.tar.xz";
     nixpkgs-edge.url = "github:nixos/nixpkgs/master";
     nixpkgs-testing.url = "github:ProxyVT/nixpkgs/testing";
-    nixpkgs-skype.url = "github:nixos/nixpkgs/7f345442bd1c23a44324598349b0f9a0b6f9718d";
     impermanence.url = "github:nix-community/impermanence/home-manager-v2";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     nix-vscode-extensions = {
