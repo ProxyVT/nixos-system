@@ -77,7 +77,7 @@
       mkvtoolnix
       mousai
       qimgv
-      testing.qmplay2
+      qmplay2
       subtitleedit
       upscayl-ncnn
       upscayl
