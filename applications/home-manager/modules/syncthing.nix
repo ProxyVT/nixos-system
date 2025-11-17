@@ -1,17 +1,22 @@
 { pkgs, ... }:
 let
-  syncthing = pkgs.syncthing.overrideAttrs (oldAttrs: rec {
-    version = "2.0.10";
-    src = oldAttrs.src.override {
-      tag = "v${version}";
-      hash = "sha256-N0+i5sj/cTPDv6q428b3Y0hsPRxIl96+RIuS1AyeTbc=";
-    };
-  });
+  syncthing-git = pkgs.syncthing.overrideAttrs (
+    finalAttrs: previousAttrs: {
+      version = "2.0.11";
+      src = previousAttrs.src.override {
+        tag = "v${finalAttrs.version}";
+        hash = "sha256-Z2cU+HLWWQeu8fvSRWAcU6hrF2KHgIvsvAPus+9tkHM=";
+      };
+      buildPhase =
+        builtins.replaceStrings [ "v${previousAttrs.version}" ] [ "v${finalAttrs.version}" ]
+          previousAttrs.buildPhase;
+    }
+  );
 in
 {
   services.syncthing = {
     enable = true;
-    package = syncthing;
+    package = syncthing-git;
     overrideDevices = false;
     overrideFolders = false;
     settings.options = {
