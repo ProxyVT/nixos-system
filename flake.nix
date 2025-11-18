@@ -2,12 +2,12 @@
   description = "Personal flake configuration";
 
   inputs = {
-    nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
+    nixpkgs.url = "https://flakehub.com/f/DeterminateSystems/nixpkgs-weekly/*.tar.gz";
     nixpkgs-release.url = "https://channels.nixos.org/nixos-25.05/nixexprs.tar.xz";
     nixpkgs-edge.url = "github:nixos/nixpkgs/master";
     nixpkgs-testing.url = "github:ProxyVT/nixpkgs/testing";
     impermanence.url = "github:nix-community/impermanence/home-manager-v2";
-    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
+    nix-flatpak.url = "https://flakehub.com/f/gmodena/nix-flatpak/0.6.0";
     nix-vscode-extensions = {
       url = "github:nix-community/nix-vscode-extensions";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,9 +25,8 @@
       };
     };
     chaotic = {
-      url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+      url = "https://flakehub.com/f/chaotic-cx/nyx/*.tar.gz";
       inputs = {
-        nixpkgs.follows = "nixpkgs";
         flake-schemas.follows = "";
       };
     };
