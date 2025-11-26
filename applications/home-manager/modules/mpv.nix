@@ -15,10 +15,10 @@ let
         libplacebo = pkgs.libplacebo.overrideAttrs (
           finalAttrs: previousAttrs: {
             patches = [ ];
-            version = "2e5a392b7f1e4c25d5a3f931e253d71ab566757f";
+            version = "06992a53fafc1549843c8b36751e166cfe3a4079";
             src = previousAttrs.src.override {
               rev = finalAttrs.version;
-              hash = "sha256-QpxCv2Gt989fp3Qyw6lszC40hUoxipw+hZq+unfyq3s=";
+              hash = "sha256-CQnE7Olg+YdbU3KfudpZWSEDup06rEiaqA7WPj9Jr/c=";
             };
           }
         );
@@ -27,11 +27,11 @@ let
           finalAttrs: previousAttrs: {
             mesonFlags = lib.lists.filter (flag: !lib.strings.hasPrefix "-Dsdl2" flag) previousAttrs.mesonFlags;
             patches = [ ];
-            version = "2e5e2938dd3f367b73fb58276208aa616e5d37a0";
+            version = "8469605191c1fb3c9ebf84617a4b2e2bada357fa";
             src = pkgs.fetchFromGitHub {
               inherit (previousAttrs.src) owner repo;
               rev = finalAttrs.version;
-              hash = "sha256-hynMuJmVzoExXfYEztXd1QOAsUt/Po+OLQ6PFykd7xk=";
+              hash = "sha256-XRMCJJs1v8NZPlYSJM5p+6P3TYdovO4lTV6YNqVFxEw=";
             };
           }
         );
