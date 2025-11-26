@@ -25,12 +25,10 @@
       github-desktop
       gitnuro
       lite-xl
-      nixpkgs-review
       nodejs
       nodePackages.gulp
       nodePackages.pnpm
       super-productivity
-      waveterm
       windterm
       wineWowPackages.unstableFull
       zed-editor_git
@@ -60,7 +58,7 @@
       # Server & security
       ddrescue
       ddrescueview
-      #electrum
+      electrum
       keepassxc
       sshuttle
       tradingview
@@ -111,8 +109,14 @@
       inxi
       iwmenu
       lm_sensors
+      lshw
       msedit
       nil
+      nixpkgs-lint
+      nixpkgs-vet
+      nixpkgs-reviewFull
+      nixpkgs-track
+      nixpkgs-pytools
       nix-output-monitor
       nix-tree
       nixfmt
@@ -138,6 +142,7 @@
       grsync
       gsmartcontrol
       krusader
+      lshw-gui
       mission-center
       monitorets
       nemo-with-extensions
