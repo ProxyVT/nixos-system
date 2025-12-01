@@ -65,24 +65,32 @@
         impermanence.nixosModules.default
         chaotic.nixosModules.default
         nix-flatpak.nixosModules.nix-flatpak
+      ];
+      xlibreModules = [
         xlibre-overlay.nixosModules.overlay-xlibre-xserver
         xlibre-overlay.nixosModules.overlay-all-xlibre-drivers
         xlibre-overlay.nixosModules.nvidia-ignore-ABI
       ];
       mkNixosConfig =
-        hardwareFile:
+        {
+          hardwareFile,
+          enableXlibre ? true,
+        }:
         nixpkgs.lib.nixosSystem {
           inherit specialArgs;
-          modules = defaultModules ++ [ hardwareFile ];
+          modules = defaultModules ++ nixpkgs.lib.optionals enableXlibre xlibreModules ++ [ hardwareFile ];
         };
     in
     {
       custom-packages = import ./applications/system-manager/overlays { inherit inputs system; };
       nixosConfigurations = {
-        nixos = mkNixosConfig ./hardware/default.nix;
-        acer = mkNixosConfig ./hardware/acer.nix;
-        umka = mkNixosConfig ./hardware/umka.nix;
-        nvidia = mkNixosConfig ./hardware/nvidia.nix;
+        nixos = mkNixosConfig { hardwareFile = ./hardware/default.nix; };
+        acer = mkNixosConfig { hardwareFile = ./hardware/acer.nix; };
+        umka = mkNixosConfig {
+          hardwareFile = ./hardware/umka.nix;
+          enableXlibre = false;
+        };
+        nvidia = mkNixosConfig { hardwareFile = ./hardware/nvidia.nix; };
         exampleIso = nixpkgs.lib.nixosSystem {
           inherit specialArgs;
           modules = [ ./iso/configuration.nix ];
