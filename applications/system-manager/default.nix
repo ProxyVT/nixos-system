@@ -33,6 +33,7 @@
       wineWowPackages.unstableFull
       zed-editor_git
       tilix
+      multios-usb
 
       # Graphics
       blanket

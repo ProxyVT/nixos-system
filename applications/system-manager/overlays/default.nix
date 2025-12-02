@@ -13,6 +13,7 @@ let
     edge = mkChannel inputs.nixpkgs-edge;
     release = mkChannel inputs.nixpkgs-release;
     testing = mkChannel inputs.nixpkgs-testing;
+    multios-usb = inputs.multios-usb.packages.${system}.default;
   };
 in
 {

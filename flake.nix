@@ -38,6 +38,10 @@
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    multios-usb = {
+      url = "github:Mexit/MultiOS-USB";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
