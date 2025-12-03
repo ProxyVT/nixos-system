@@ -37,5 +37,8 @@
     "/var/lib/aria2"
   ];
 
-  users.users.aria2.extraGroups = [ "users" ];
+  users.users.aria2.extraGroups = [
+    "users"
+    "storage"
+  ];
 }

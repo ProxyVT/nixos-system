@@ -212,6 +212,10 @@
       "im.riot.Riot"
     ];
     n8n.enable = true;
+    udisks2 = {
+      enable = true;
+      mountOnMedia = true;
+    };
   };
 
   programs = {

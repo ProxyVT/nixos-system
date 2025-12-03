@@ -6,6 +6,7 @@
     easyeffects.enable = true;
     gpg-agent.enable = true;
     blueman-applet.enable = true;
+    udiskie.enable = true;
   };
 
   programs = {

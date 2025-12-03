@@ -12,5 +12,8 @@
     "/var/lib/deluge"
   ];
 
-  users.users.deluge.extraGroups = [ "users" ];
+  users.users.deluge.extraGroups = [
+    "users"
+    "storage"
+  ];
 }
