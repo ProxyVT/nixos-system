@@ -9,12 +9,12 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1764351487,
-        "narHash": "sha256-7XJcTfz0dPhBd7nfyjcFxT1LIIctJZ2LthiI2Ltd7zY=",
-        "rev": "2031f4a0507d0f7ab3e1aaff4c027a010feee447",
-        "revCount": 2464,
+        "lastModified": 1764596563,
+        "narHash": "sha256-tH3AGDWlAN3ImVuBBCLmqaqD0EbkISiPCHGeMcd430k=",
+        "rev": "0701ee838b0fb34a77b6dd4b35476b4bb09fbca9",
+        "revCount": 2467,
         "type": "tarball",
-        "url": "https://api.flakehub.com/f/pinned/chaotic-cx/nyx/0.1.2464%2Brev-2031f4a0507d0f7ab3e1aaff4c027a010feee447/019acc4a-4166-7ad6-af7e-f716809d4913/source.tar.gz"
+        "url": "https://api.flakehub.com/f/pinned/chaotic-cx/nyx/0.1.2467%2Brev-0701ee838b0fb34a77b6dd4b35476b4bb09fbca9/019ada94-f112-7131-9acf-0e9bc60549d2/source.tar.gz"
       },
       "original": {
         "type": "tarball",
@@ -218,10 +218,10 @@
         ]
       },
       "locked": {
-        "lastModified": 1764544324,
+        "lastModified": 1764636297,
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "e4e25a8c310fa45f2a8339c7972dc43d2845a612",
+        "rev": "ff067cfc619fdf6f82d50344e7d19ff2323f0827",
         "type": "github"
       },
       "original": {
@@ -399,10 +399,10 @@
         ]
       },
       "locked": {
-        "lastModified": 1764555746,
+        "lastModified": 1764640937,
         "owner": "nix-community",
         "repo": "nix-vscode-extensions",
-        "rev": "5ff4631fd35568ed2ea9c4e15ebc213a69c06dba",
+        "rev": "1be45f78dabc137266ae70ee18d7d76615b987ee",
         "type": "github"
       },
       "original": {
@@ -413,11 +413,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1764242076,
-        "narHash": "sha256-sKoIWfnijJ0+9e4wRvIgm/HgE27bzwQxcEmo2J/gNpI=",
+        "lastModified": 1764517877,
+        "narHash": "sha256-pp3uT4hHijIC8JUK5MEqeAWmParJrgBVzHLNfJDZxg4=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "2fad6eac6077f03fe109c4d4eb171cf96791faa4",
+        "rev": "2d293cbfa5a793b4c50d17c05ef9e385b90edf6c",
         "type": "github"
       },
       "original": {
@@ -445,10 +445,10 @@
     },
     "nixpkgs-edge": {
       "locked": {
-        "lastModified": 1764571285,
+        "lastModified": 1764686341,
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "fc2278798b0251ef1a2f47e24eca2fca48581837",
+        "rev": "631b30ef6cb0c40acf76f54ee1b7659019c6471b",
         "type": "github"
       },
       "original": {
@@ -506,11 +506,11 @@
     },
     "nixpkgs-release": {
       "locked": {
-        "lastModified": 1764316264,
-        "narHash": "sha256-UcoE0ISg9Nnzx/2n7VvQl3fRsLg+DcVa/ZGf/DZNHbs=",
-        "rev": "9a7b80b6f82a71ea04270d7ba11b48855681c4b0",
+        "lastModified": 1764560356,
+        "narHash": "sha256-8thP5FOVsrKt4u5RYKYeKqLUOhEfdEN1DJOWGP1z234=",
+        "rev": "6c8f0cca84510cc79e09ea99a299c9bc17d03cb6",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/25.05/nixos-25.05.813221.9a7b80b6f82a/nixexprs.tar.xz"
+        "url": "https://releases.nixos.org/nixos/25.05/nixos-25.05.813260.6c8f0cca8451/nixexprs.tar.xz"
       },
       "original": {
         "type": "tarball",
@@ -564,12 +564,12 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1763934636,
-        "narHash": "sha256-9glbI7f1uU+yzQCq5LwLgdZqx6svOhZWkd4JRY265fc=",
-        "rev": "ee09932cedcef15aaf476f9343d1dea2cb77e261",
-        "revCount": 901289,
+        "lastModified": 1764611609,
+        "narHash": "sha256-yU9BNcP0oadUKupw0UKmO9BKDOVIg9NStdJosEbXf8U=",
+        "rev": "8c29968b3a942f2903f90797f9623737c215737c",
+        "revCount": 905078,
         "type": "tarball",
-        "url": "https://api.flakehub.com/f/pinned/DeterminateSystems/nixpkgs-weekly/0.1.901289%2Brev-ee09932cedcef15aaf476f9343d1dea2cb77e261/019ab984-bb27-75ee-9a56-6d7502da5bed/source.tar.gz"
+        "url": "https://api.flakehub.com/f/pinned/DeterminateSystems/nixpkgs-weekly/0.1.905078%2Brev-8c29968b3a942f2903f90797f9623737c215737c/019add91-3add-7a0d-8a25-9569cbe01efe/source.tar.gz"
       },
       "original": {
         "type": "tarball",
@@ -688,10 +688,10 @@
         ]
       },
       "locked": {
-        "lastModified": 1764534155,
+        "lastModified": 1764598958,
         "owner": "0xc000022070",
         "repo": "zen-browser-flake",
-        "rev": "fb066e133e614c024a470608ff56585c4f707b44",
+        "rev": "8cded25e10b13e2999241f1c73a7d4e5e5d6f69e",
         "type": "github"
       },
       "original": {
