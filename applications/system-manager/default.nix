@@ -204,7 +204,10 @@
     gnome.gnome-keyring.enable = true;
     gpm.enable = true;
     gvfs.enable = true;
-    usbmuxd.enable = true;
+    usbmuxd = {
+      enable = true;
+      package = pkgs.testing.usbmuxd;
+    };
     flatpak.enable = true;
     flatpak.packages = [
       "eu.betterbird.Betterbird"

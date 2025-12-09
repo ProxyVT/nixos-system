@@ -34,6 +34,7 @@
           lite-xl = pkgs.callPackage ./lite-xl/package.nix { };
           betterbird = pkgs.callPackage ./betterbird/package.nix { };
           syncthing = pkgs.callPackage ./syncthing/default.nix { autoSignDarwinBinariesHook = true; };
+          usbmuxd = pkgs.callPackage ./usbmuxd/package.nix { };
         };
       }
     );
