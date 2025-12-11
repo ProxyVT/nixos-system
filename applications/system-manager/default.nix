@@ -31,7 +31,7 @@
       super-productivity
       windterm
       wineWowPackages.unstableFull
-      zed-editor_git
+      zed-editor
       tilix
       multios-usb
 
@@ -51,7 +51,7 @@
       kdePackages.ktorrent
       media-downloader
       motrix
-      telegram-desktop_git
+      telegram-desktop
       testing.ariang
       tor
       you-get

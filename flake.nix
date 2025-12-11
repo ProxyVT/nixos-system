@@ -24,12 +24,6 @@
         determinate-nixd-aarch64-darwin.follows = "";
       };
     };
-    chaotic = {
-      url = "https://flakehub.com/f/chaotic-cx/nyx/*.tar.gz";
-      inputs = {
-        flake-schemas.follows = "";
-      };
-    };
     xlibre-overlay = {
       url = "git+https://codeberg.org/takagemacoed/xlibre-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -51,7 +45,6 @@
       impermanence,
       nix-flatpak,
       determinate,
-      chaotic,
       home-manager,
       xlibre-overlay,
       ...
@@ -67,7 +60,6 @@
         determinate.nixosModules.default
         home-manager.nixosModules.default
         impermanence.nixosModules.default
-        chaotic.nixosModules.default
         nix-flatpak.nixosModules.nix-flatpak
       ];
       xlibreModules = [
