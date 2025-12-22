@@ -228,6 +228,7 @@
     gnome-disks.enable = true;
     localsend.enable = true;
     mtr.enable = true;
+    nix-ld.enable = true;
     npm.enable = true;
     openvpn3.enable = true;
     partition-manager.enable = true;
