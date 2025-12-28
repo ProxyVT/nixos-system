@@ -5,7 +5,7 @@
     nativeMessagingHosts = [ pkgs.firefoxpwa ];
     profiles.default = {
       name = "NixOS Ulad";
-      spacesForce = true;
+      spacesForce = false;
       spaces = {
         "Garbage" = {
           id = "a5eddfe0-5e2e-4009-8374-31dde8d67fdc";
