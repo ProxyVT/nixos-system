@@ -65,7 +65,6 @@
       xlibreModules = [
         xlibre-overlay.nixosModules.overlay-xlibre-xserver
         xlibre-overlay.nixosModules.overlay-all-xlibre-drivers
-        xlibre-overlay.nixosModules.nvidia-ignore-ABI
       ];
       mkNixosConfig =
         {
