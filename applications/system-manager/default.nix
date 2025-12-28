@@ -31,7 +31,6 @@
       super-productivity
       windterm
       wineWowPackages.unstableFull
-      zed-editor
       tilix
       multios-usb
 
