@@ -11,10 +11,10 @@
         ]
       },
       "locked": {
-        "lastModified": 1766177528,
+        "lastModified": 1766549083,
         "owner": "DeterminateSystems",
         "repo": "determinate",
-        "rev": "b159c082f0f9bdefa6c386189a13c5fa0734d8d8",
+        "rev": "ba8999fac986e70f52b4cba15047be7bbb7b6346",
         "type": "github"
       },
       "original": {
@@ -26,13 +26,13 @@
     "determinate-nixd-x86_64-linux": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-J+J4E02XpEl0ZkpzMbUmGCf6S4yk0gYCYmiGzZ058ik=",
+        "narHash": "sha256-y+l05H6GNv/1WcrMztDYem8VBWqjc9gNg4WjeQ1PQxo=",
         "type": "file",
-        "url": "https://install.determinate.systems/determinate-nixd/tag/v3.15.0/x86_64-linux"
+        "url": "https://install.determinate.systems/determinate-nixd/tag/v3.15.1/x86_64-linux"
       },
       "original": {
         "type": "file",
-        "url": "https://install.determinate.systems/determinate-nixd/tag/v3.15.0/x86_64-linux"
+        "url": "https://install.determinate.systems/determinate-nixd/tag/v3.15.1/x86_64-linux"
       }
     },
     "fetchurl-sources": {
@@ -176,10 +176,10 @@
         ]
       },
       "locked": {
-        "lastModified": 1766387499,
+        "lastModified": 1766682973,
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "527ad07e6625302b648ed3b28c34b62a79bd103e",
+        "rev": "91cdb0e2d574c64fae80d221f4bf09d5592e9ec2",
         "type": "github"
       },
       "original": {
@@ -279,12 +279,12 @@
         "nixpkgs-regression": "nixpkgs-regression"
       },
       "locked": {
-        "lastModified": 1766174426,
-        "narHash": "sha256-0ZofAQZNgg5nfIKsVb7g4It6ufmIyLtfFRPOf+6WRkk=",
-        "rev": "15d6091194b5b90d292e8d6283db77f09c303b1e",
-        "revCount": 24285,
+        "lastModified": 1766546676,
+        "narHash": "sha256-GsC52VFF9Gi2pgP/haQyPdQoF5Qe2myk1tsPcuJZI28=",
+        "rev": "51dacdd248e8071cd0243a8245c8c42ac1f33307",
+        "revCount": 24299,
         "type": "tarball",
-        "url": "https://api.flakehub.com/f/pinned/DeterminateSystems/nix-src/3.15.0/019b3854-cca6-7298-a91c-0fd8551a7270/source.tar.gz"
+        "url": "https://api.flakehub.com/f/pinned/DeterminateSystems/nix-src/3.15.1/019b4e84-d036-75db-b6c6-6bc2e2035c53/source.tar.gz"
       },
       "original": {
         "type": "tarball",
@@ -312,10 +312,10 @@
         ]
       },
       "locked": {
-        "lastModified": 1766369649,
+        "lastModified": 1766714990,
         "owner": "nix-community",
         "repo": "nix-vscode-extensions",
-        "rev": "94058abef65a5f2916f4d9da67d9966039366514",
+        "rev": "90d526878f7b905448c331b143f37065ed509381",
         "type": "github"
       },
       "original": {
@@ -356,10 +356,10 @@
     },
     "nixpkgs-edge": {
       "locked": {
-        "lastModified": 1766403040,
+        "lastModified": 1766762021,
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "3ffc59654f4bbc433cf7202f43360b9d19aed3ea",
+        "rev": "6e8f95f903eeb5cb12563776b473917a582516c4",
         "type": "github"
       },
       "original": {
@@ -417,11 +417,11 @@
     },
     "nixpkgs-release": {
       "locked": {
-        "lastModified": 1766014764,
-        "narHash": "sha256-Uzr9k25GX5AvRfrYo4NB4ZkzELVjIZ46oP2mEi9b2z0=",
-        "rev": "2b0d2b456e4e8452cf1c16d00118d145f31160f9",
+        "lastModified": 1766687554,
+        "narHash": "sha256-FN5Q4TMcgCIsaud+3h+c46+EjU2dSDcKTMkGSGmDEHg=",
+        "rev": "fd0ca39c92fdb4012ed8d60e1683c26fddadd136",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/25.05/nixos-25.05.813672.2b0d2b456e4e/nixexprs.tar.xz"
+        "url": "https://releases.nixos.org/nixos/25.05/nixos-25.05.813768.fd0ca39c92fd/nixexprs.tar.xz"
       },
       "original": {
         "type": "tarball",
@@ -461,12 +461,12 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1765772535,
-        "narHash": "sha256-aq+dQoaPONOSjtFIBnAXseDm9TUhIbe215TPmkfMYww=",
-        "rev": "09b8fda8959d761445f12b55f380d90375a1d6bb",
-        "revCount": 911985,
+        "lastModified": 1766314097,
+        "narHash": "sha256-laJftWbghBehazn/zxVJ8NdENVgjccsWAdAqKXhErrM=",
+        "rev": "306ea70f9eb0fb4e040f8540e2deab32ed7e2055",
+        "revCount": 914780,
         "type": "tarball",
-        "url": "https://api.flakehub.com/f/pinned/DeterminateSystems/nixpkgs-weekly/0.1.911985%2Brev-09b8fda8959d761445f12b55f380d90375a1d6bb/019b25ab-7c11-79e0-a0b0-c94d455b7190/source.tar.gz"
+        "url": "https://api.flakehub.com/f/pinned/DeterminateSystems/nixpkgs-weekly/0.1.914780%2Brev-306ea70f9eb0fb4e040f8540e2deab32ed7e2055/019b49b8-ed0f-724e-bdaf-5fd90cc1c590/source.tar.gz"
       },
       "original": {
         "type": "tarball",
@@ -486,6 +486,7 @@
         "nixpkgs-release": "nixpkgs-release",
         "nixpkgs-testing": "nixpkgs-testing",
         "xlibre-overlay": "xlibre-overlay",
+        "xserver-meson-flags-local": "xserver-meson-flags-local",
         "zen-browser": "zen-browser"
       }
     },
@@ -526,7 +527,9 @@
         ],
         "systems": "systems",
         "xlibre-drivers-overlay-choice": "xlibre-drivers-overlay-choice",
-        "xserver-meson-flags": "xserver-meson-flags"
+        "xserver-meson-flags": [
+          "xserver-meson-flags-local"
+        ]
       },
       "locked": {
         "lastModified": 1766204441,
@@ -541,19 +544,17 @@
         "url": "https://codeberg.org/takagemacoed/xlibre-overlay"
       }
     },
-    "xserver-meson-flags": {
+    "xserver-meson-flags-local": {
       "flake": false,
       "locked": {
-        "path": "./consumer-overridable/xserver-meson-flags.nix",
+        "path": "./xserver-meson-flags.nix",
         "type": "path"
       },
       "original": {
-        "path": "./consumer-overridable/xserver-meson-flags.nix",
+        "path": "./xserver-meson-flags.nix",
         "type": "path"
       },
-      "parent": [
-        "xlibre-overlay"
-      ]
+      "parent": []
     },
     "zen-browser": {
       "inputs": {
@@ -563,10 +564,10 @@
         ]
       },
       "locked": {
-        "lastModified": 1766378463,
+        "lastModified": 1766697593,
         "owner": "0xc000022070",
         "repo": "zen-browser-flake",
-        "rev": "b6b1e625e4aa049b59930611fc20790c0ccbc840",
+        "rev": "98d8f48ba80a4b6e3b56addad850d57132301075",
         "type": "github"
       },
       "original": {
