@@ -27,6 +27,11 @@
     xlibre-overlay = {
       url = "git+https://codeberg.org/takagemacoed/xlibre-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.xserver-meson-flags.follows = "xserver-meson-flags-local";
+    };
+    xserver-meson-flags-local = {
+      url = "./xserver-meson-flags.nix";
+      flake = false;
     };
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
@@ -83,7 +88,7 @@
         acer = mkNixosConfig { hardwareFile = ./hardware/acer.nix; };
         umka = mkNixosConfig {
           hardwareFile = ./hardware/umka.nix;
-          enableXlibre = false;
+          enableXlibre = true;
         };
         nvidia = mkNixosConfig { hardwareFile = ./hardware/nvidia.nix; };
         exampleIso = nixpkgs.lib.nixosSystem {
