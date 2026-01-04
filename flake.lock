@@ -176,10 +176,10 @@
         ]
       },
       "locked": {
-        "lastModified": 1767104570,
+        "lastModified": 1767515539,
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "e4e78a2cbeaddd07ab7238971b16468cc1d14daf",
+        "rev": "12cc14271b250b2b46bf681352da91a8d2efec26",
         "type": "github"
       },
       "original": {
@@ -217,11 +217,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1765682243,
-        "narHash": "sha256-yeCxFV/905Wr91yKt5zrVvK6O2CVXWRMSrxqlAZnLp0=",
+        "lastModified": 1767104570,
+        "narHash": "sha256-GKgwu5//R+cLdKysZjGqvUEEOGXXLdt93sNXeb2M/Lk=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "58bf3ecb2d0bba7bdf363fc8a6c4d49b4d509d03",
+        "rev": "e4e78a2cbeaddd07ab7238971b16468cc1d14daf",
         "type": "github"
       },
       "original": {
@@ -258,10 +258,10 @@
         ]
       },
       "locked": {
-        "lastModified": 1764529902,
+        "lastModified": 1767500032,
         "owner": "Mexit",
         "repo": "MultiOS-USB",
-        "rev": "bb66853d0422e5425a9a94b94663302cf1af7034",
+        "rev": "22eb813525f8cb5234773ba5e7130bfcdf72bebf",
         "type": "github"
       },
       "original": {
@@ -312,10 +312,10 @@
         ]
       },
       "locked": {
-        "lastModified": 1767060686,
+        "lastModified": 1767493793,
         "owner": "nix-community",
         "repo": "nix-vscode-extensions",
-        "rev": "182831a2f3e2c8fd1ffb2ccc08e584824e0eb1b8",
+        "rev": "0f7e75f772be341d8e461162c0bcf0f5b971cb86",
         "type": "github"
       },
       "original": {
@@ -356,10 +356,10 @@
     },
     "nixpkgs-edge": {
       "locked": {
-        "lastModified": 1767129861,
+        "lastModified": 1767520853,
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "5d65a618c663db71662a434a3d5887f2ee7f0a1f",
+        "rev": "82f1d9b73ebf70ad9e141f56a8099e0c854160a5",
         "type": "github"
       },
       "original": {
@@ -532,10 +532,10 @@
         ]
       },
       "locked": {
-        "lastModified": 1767045872,
+        "lastModified": 1767306265,
         "ref": "refs/heads/main",
-        "rev": "4eeec549eab8e58b0301865a0d1840dedb014667",
-        "revCount": 150,
+        "rev": "bec6557e507753c45753fb1d1ffd18502c2429ab",
+        "revCount": 156,
         "type": "git",
         "url": "https://codeberg.org/takagemacoed/xlibre-overlay"
       },
@@ -564,10 +564,10 @@
         ]
       },
       "locked": {
-        "lastModified": 1767119591,
+        "lastModified": 1767502237,
         "owner": "0xc000022070",
         "repo": "zen-browser-flake",
-        "rev": "379639ecac155c03975cd6608a146bb1dc168cf9",
+        "rev": "e3efa5e2b53982f985044062c98426ec75d6695b",
         "type": "github"
       },
       "original": {
