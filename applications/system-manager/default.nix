@@ -188,10 +188,10 @@
       unixtools.quota
       vulkan-tools
       wayland-utils
-      xfce.thunar
-      xfce.thunar-volman
-      xfce.xfce4-alsa-plugin
-      xfce.xfce4-xkb-plugin
+      thunar
+      thunar-volman
+      xfce4-alsa-plugin
+      xfce4-xkb-plugin
       xorg.xdpyinfo
       xorg.xinit
       vivaldi-ffmpeg-codecs
