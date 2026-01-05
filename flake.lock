@@ -176,10 +176,10 @@
         ]
       },
       "locked": {
-        "lastModified": 1767515539,
+        "lastModified": 1767556355,
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "12cc14271b250b2b46bf681352da91a8d2efec26",
+        "rev": "f894bc4ffde179d178d8deb374fcf9855d1a82b7",
         "type": "github"
       },
       "original": {
@@ -236,10 +236,10 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1758373069,
+        "lastModified": 1767548760,
         "owner": "nix-community",
         "repo": "impermanence",
-        "rev": "5274a00212a0437f9f1c1375d4437fc25aa57280",
+        "rev": "f868c97f9e7f62879a97b4ad0e00b64782a845db",
         "type": "github"
       },
       "original": {
@@ -312,10 +312,10 @@
         ]
       },
       "locked": {
-        "lastModified": 1767493793,
+        "lastModified": 1767580149,
         "owner": "nix-community",
         "repo": "nix-vscode-extensions",
-        "rev": "0f7e75f772be341d8e461162c0bcf0f5b971cb86",
+        "rev": "eea9f641dcf127fc8f6e5618759e96e0ddf4c5b2",
         "type": "github"
       },
       "original": {
@@ -356,10 +356,10 @@
     },
     "nixpkgs-edge": {
       "locked": {
-        "lastModified": 1767520853,
+        "lastModified": 1767602469,
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "82f1d9b73ebf70ad9e141f56a8099e0c854160a5",
+        "rev": "9af67fcf0751de2bae81807638a45f19db31d44e",
         "type": "github"
       },
       "original": {
@@ -430,10 +430,10 @@
     },
     "nixpkgs-testing": {
       "locked": {
-        "lastModified": 1764935487,
+        "lastModified": 1767605251,
         "owner": "ProxyVT",
         "repo": "nixpkgs",
-        "rev": "4a97f9779522e77b64bd8805d7c43956411df56f",
+        "rev": "ccf1b1b3467b3e7b685778ebfae2899b8580c1db",
         "type": "github"
       },
       "original": {
@@ -532,10 +532,10 @@
         ]
       },
       "locked": {
-        "lastModified": 1767306265,
+        "lastModified": 1767528462,
         "ref": "refs/heads/main",
-        "rev": "bec6557e507753c45753fb1d1ffd18502c2429ab",
-        "revCount": 156,
+        "rev": "dce7c55d6c7fed80b12252779b52c3873c2ec117",
+        "revCount": 158,
         "type": "git",
         "url": "https://codeberg.org/takagemacoed/xlibre-overlay"
       },
@@ -564,10 +564,10 @@
         ]
       },
       "locked": {
-        "lastModified": 1767502237,
+        "lastModified": 1767568852,
         "owner": "0xc000022070",
         "repo": "zen-browser-flake",
-        "rev": "e3efa5e2b53982f985044062c98426ec75d6695b",
+        "rev": "350c729b261e6f5529460140a5f0943dd4c5e156",
         "type": "github"
       },
       "original": {
