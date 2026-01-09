@@ -9,7 +9,7 @@ let
       uosc
       thumbfast
     ];
-    mpv =
+    mpv-unwrapped =
       (pkgs.mpv-unwrapped.override {
         ffmpeg = pkgs.ffmpeg_8-full;
         libplacebo = pkgs.libplacebo.overrideAttrs (
@@ -24,7 +24,6 @@ let
       }).overrideAttrs
         (
           finalAttrs: previousAttrs: {
-            mesonFlags = lib.lists.filter (flag: !lib.strings.hasPrefix "-Dsdl2" flag) previousAttrs.mesonFlags;
             patches = [ ];
             version = "0.41.0";
             src = pkgs.fetchFromGitHub {
