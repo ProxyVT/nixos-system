@@ -28,7 +28,7 @@
       nodejs
       nodePackages.gulp
       nodePackages.pnpm
-      super-productivity
+      edge.super-productivity
       windterm
       wineWowPackages.unstableFull
       tilix
