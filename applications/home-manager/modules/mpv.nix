@@ -16,8 +16,8 @@ let
           finalAttrs: previousAttrs: {
             patches = [ ];
             src = previousAttrs.src.override {
-              rev = "bc90ef94944a3dcaab324b86d3e3769ad1d8698b";
-              hash = "sha256-D+2MhG8NyAPUgt5w8CLlirT/kLuUtUT8dN4r5SccBoY=";
+              rev = "a01b6ebf72b56f8fd73c0c027bec49985ffa3d0a";
+              hash = "sha256-y6wDbmOqLInThXPGefAT+bd1oYdNnhnYHG+QNGqKj10=";
             };
           }
         );
@@ -29,8 +29,8 @@ let
             version = "0.41.0";
             src = pkgs.fetchFromGitHub {
               inherit (previousAttrs.src) owner repo;
-              rev = "c0d989c83913fb9c990d961c44da4816b8d2de18";
-              hash = "sha256-Gl6UxE9XbFqCjPaz3uLRpSNQF4eZ9wTre0sd4d7HW5g=";
+              rev = "85bf9f4ff46cd45686cfe2fd22f49828877db5cb";
+              hash = "sha256-HsEr/lrdiqk2FmBSHdZm3+obQA2Cf/z2USiv7jlbSpg=";
             };
           }
         );
