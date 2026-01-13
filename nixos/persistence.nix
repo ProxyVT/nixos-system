@@ -1,6 +1,7 @@
 { ... }:
 {
   environment.persistence."/persist" = {
+    allowTrash = true;
     hideMounts = true;
     directories = [
       "/var/log"
