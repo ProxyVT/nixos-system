@@ -21,6 +21,7 @@
     systemPackages = with pkgs; [
 
       # Development
+      android-tools
       cudatext-gtk
       github-desktop
       gitnuro
@@ -221,7 +222,6 @@
   };
 
   programs = {
-    adb.enable = true;
     dconf.enable = true;
     gamemode.enable = true;
     gnome-disks.enable = true;
