@@ -160,6 +160,7 @@
   environment.shellAliases = {
     sudo = "run0";
     nix-gc = "run0 nix-collect-garbage -d ; nix-collect-garbage -d";
+    nix-upd = "nix flake update ; nix flake archive";
     boot = "run0 nixos-rebuild boot --flake";
     switch = "run0 nixos-rebuild switch --flake";
     build = "nixos-rebuild build --flake";
