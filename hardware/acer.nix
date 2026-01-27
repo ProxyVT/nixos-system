@@ -1,4 +1,8 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  ...
+}:
 {
   services.xserver.videoDrivers = [ "nvidia" ];
 
@@ -9,7 +13,7 @@
       powerManagement.enable = true;
       package = config.boot.kernelPackages.nvidiaPackages.latest;
       prime = {
-        reverseSync.enable = true;
+        sync.enable = true;
         nvidiaBusId = "PCI:4:0:0";
         intelBusId = "PCI:0:2:0";
       };
