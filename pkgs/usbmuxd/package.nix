@@ -10,13 +10,13 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "usbmuxd";
-  version = "1.1.1+date=2025-09-15";
+  version = "1.1.1+date=2025-12-06";
 
   src = fetchFromGitHub {
     owner = "libimobiledevice";
     repo = "usbmuxd";
-    rev = "2efa75a0a9ca73f2a5b6ec71e5ae6cb43cdab580";
-    hash = "sha256-8Dx8yN/vatD1lp3mzUUSKyx2/plv3geJhz3oQRhl7UM=";
+    rev = "3ded00c9985a5108cfc7591a309f9a23d57a8cba";
+    hash = "sha256-0ZxEdU6LAUT0XfRk/PnRGl+r2ofttpffI8MiQljukVA=";
   };
 
   nativeBuildInputs = [
