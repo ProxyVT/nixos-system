@@ -62,6 +62,7 @@
       builders-use-substitutes = true;
       eval-cores = 0;
       lazy-locks = true;
+      max-jobs = 1;
       substituters = [ "https://nixos-cache-proxy.cofob.dev" ];
       tarball-ttl = 0;
       trusted-users = [ "@wheel" ];
