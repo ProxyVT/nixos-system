@@ -2,10 +2,10 @@
 let
   syncthing-git = pkgs.syncthing.overrideAttrs (
     finalAttrs: previousAttrs: {
-      version = "2.0.13";
+      version = "2.0.14-rc.2";
       src = previousAttrs.src.override {
         tag = "v${finalAttrs.version}";
-        hash = "sha256-yQZ4pPvGZdD8Ff34Ku0NCCd7kMXcFCCa35L/XYcvn6E=";
+        hash = "sha256-EXoBmPL+uaigjY/ZygE8d4fqul2PUHv8hMW3uTAltNQ=";
       };
       vendorHash = "sha256-+1bR83mAG00kbKZuaNnfqsUiKgXdoA/y7q6zpx3z1cE=";
       buildPhase =
