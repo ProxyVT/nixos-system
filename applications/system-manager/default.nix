@@ -29,7 +29,7 @@
       nodejs
       nodePackages.gulp
       nodePackages.pnpm
-      edge.super-productivity
+      testing.super-productivity
       windterm
       wineWowPackages.unstableFull
       tilix
@@ -69,6 +69,7 @@
 
       # Multimedia
       audacity
+      digikam
       handbrake
       mediainfo-gui
       mkvtoolnix
@@ -98,6 +99,7 @@
       bottom
       brightnessctl
       broot
+      cariddi
       coreutils-full
       ddcutil
       delta
@@ -131,6 +133,7 @@
       scrcpy
       speedtest-cli
       superfile
+      system-manager
       trash-cli
       ttop
       tuifimanager
@@ -152,7 +155,6 @@
       nix-prefetch-scripts
       pavucontrol
       peazip
-      picom
       qdirstat
       qrcp
       resources
