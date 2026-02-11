@@ -158,6 +158,8 @@
     sudo.enable = false;
   };
 
+  virtualisation.docker.enable = true;
+
   environment.shellAliases = {
     sudo = "run0";
     nix-gc = "run0 nix-collect-garbage -d ; nix-collect-garbage -d";
