@@ -2,7 +2,7 @@
   description = "Personal flake configuration";
 
   inputs = {
-    nixpkgs.url = "https://flakehub.com/f/DeterminateSystems/nixpkgs-weekly/*.tar.gz";
+    nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1";
     nixpkgs-release.url = "https://channels.nixos.org/nixos-25.11/nixexprs.tar.xz";
     nixpkgs-edge.url = "github:nixos/nixpkgs/master";
     nixpkgs-testing.url = "github:ProxyVT/nixpkgs/testing";
@@ -12,17 +12,13 @@
       url = "github:nix-community/nix-vscode-extensions";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    determinate = {
+      url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-    determinate = {
-      url = "github:DeterminateSystems/determinate";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        determinate-nixd-aarch64-linux.follows = "";
-        determinate-nixd-aarch64-darwin.follows = "";
-      };
     };
     xlibre-overlay = {
       url = "git+https://codeberg.org/takagemacoed/xlibre-overlay";
