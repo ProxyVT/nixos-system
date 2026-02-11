@@ -210,17 +210,6 @@
       enable = true;
       package = pkgs.testing.usbmuxd;
     };
-    flatpak.enable = true;
-    flatpak.packages = [
-      "eu.betterbird.Betterbird"
-      "com.obsproject.Studio"
-      "im.riot.Riot"
-    ];
-    n8n.enable = true;
-    udisks2 = {
-      enable = true;
-      mountOnMedia = true;
-    };
   };
 
   programs = {
