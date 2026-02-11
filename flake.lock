@@ -6,7 +6,9 @@
         "determinate-nixd-aarch64-linux": "determinate-nixd-aarch64-linux",
         "determinate-nixd-x86_64-linux": "determinate-nixd-x86_64-linux",
         "nix": "nix",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": [
+          "nixpkgs"
+        ]
       },
       "locked": {
         "lastModified": 1768964099,
@@ -198,10 +200,10 @@
         ]
       },
       "locked": {
-        "lastModified": 1770164260,
+        "lastModified": 1770779995,
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "4fda26500b4539e0a1e3afba9f0e1616bdad4f85",
+        "rev": "b3f43db171474132528be57610bfa5fb3b766879",
         "type": "github"
       },
       "original": {
@@ -255,7 +257,7 @@
     "impermanence": {
       "inputs": {
         "home-manager": "home-manager_2",
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": "nixpkgs_2"
       },
       "locked": {
         "lastModified": 1769548169,
@@ -328,19 +330,18 @@
     },
     "nix-nh": {
       "inputs": {
-        "nixpkgs": "nixpkgs_4"
+        "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1770459068,
+        "lastModified": 1770730378,
         "owner": "nix-community",
         "repo": "nh",
-        "rev": "347c71b43705a2efcc6e4ebb94e14894bb5d3147",
+        "rev": "108a0cf91a3b66c3a4dfe625877063edf3a1fd84",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
         "repo": "nh",
-        "rev": "347c71b43705a2efcc6e4ebb94e14894bb5d3147",
         "type": "github"
       }
     },
@@ -351,10 +352,10 @@
         ]
       },
       "locked": {
-        "lastModified": 1770172829,
+        "lastModified": 1770778600,
         "owner": "nix-community",
         "repo": "nix-vscode-extensions",
-        "rev": "8239c1145f39fe88dd1f2ed3db17b2e6e30beb2b",
+        "rev": "fccfa780f00c7fc2359088f5d79671fa1f1b91b4",
         "type": "github"
       },
       "original": {
@@ -395,10 +396,10 @@
     },
     "nixpkgs-edge": {
       "locked": {
-        "lastModified": 1770733294,
+        "lastModified": 1770796152,
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "3c081431d7e573bc071a069efcea23e66b150db4",
+        "rev": "5bc0e6a8a2fd3878d77a9083f3f0a76d0614ef39",
         "type": "github"
       },
       "original": {
@@ -484,20 +485,6 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1768783163,
-        "narHash": "sha256-tLj4KcRDLakrlpvboTJDKsrp6z2XLwyQ4Zmo+w8KsY4=",
-        "rev": "bde09022887110deb780067364a0818e89258968",
-        "revCount": 930106,
-        "type": "tarball",
-        "url": "https://api.flakehub.com/f/pinned/DeterminateSystems/nixpkgs-weekly/0.1.930106%2Brev-bde09022887110deb780067364a0818e89258968/019bd9ed-5f0b-7074-afb0-8bb5e13a7598/source.tar.gz"
-      },
-      "original": {
-        "type": "tarball",
-        "url": "https://flakehub.com/f/DeterminateSystems/nixpkgs-weekly/0.1"
-      }
-    },
-    "nixpkgs_3": {
-      "locked": {
         "lastModified": 1768564909,
         "narHash": "sha256-Kell/SpJYVkHWMvnhqJz/8DqQg2b6PguxVWOuadbHCc=",
         "owner": "nixos",
@@ -512,7 +499,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_4": {
+    "nixpkgs_3": {
       "locked": {
         "lastModified": 1769318308,
         "narHash": "sha256-Mjx6p96Pkefks3+aA+72lu1xVehb6mv2yTUUqmSet6Q=",
@@ -528,7 +515,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_5": {
+    "nixpkgs_4": {
       "locked": {
         "lastModified": 1770562336,
         "narHash": "sha256-ub1gpAONMFsT/GU2hV6ZWJjur8rJ6kKxdm9IlCT0j84=",
@@ -551,7 +538,7 @@
         "nix-flatpak": "nix-flatpak",
         "nix-nh": "nix-nh",
         "nix-vscode-extensions": "nix-vscode-extensions",
-        "nixpkgs": "nixpkgs_5",
+        "nixpkgs": "nixpkgs_4",
         "nixpkgs-edge": "nixpkgs-edge",
         "nixpkgs-release": "nixpkgs-release",
         "nixpkgs-testing": "nixpkgs-testing",
@@ -602,15 +589,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1769626671,
-        "ref": "dev-for-26.05",
-        "rev": "e9f091e8ceb69b4952dc355099f28ef31c794e2c",
-        "revCount": 115,
+        "lastModified": 1770741400,
+        "ref": "dev",
+        "rev": "576b8653a11d7661bd9594f81cfa9225859adc61",
+        "revCount": 109,
         "type": "git",
         "url": "https://codeberg.org/takagemacoed/xlibre-overlay"
       },
       "original": {
-        "ref": "dev-for-26.05",
+        "ref": "dev",
         "type": "git",
         "url": "https://codeberg.org/takagemacoed/xlibre-overlay"
       }
