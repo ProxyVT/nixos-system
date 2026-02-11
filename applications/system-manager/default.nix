@@ -29,9 +29,9 @@
       nodejs
       nodePackages.gulp
       nodePackages.pnpm
-      testing.super-productivity
+      super-productivity
       windterm
-      wineWowPackages.unstableFull
+      wineWow64Packages.unstableFull
       tilix
       multios-usb
 
@@ -109,6 +109,7 @@
       fio
       gh
       glow
+      grok-cli
       inxi
       iwmenu
       lm_sensors
@@ -126,7 +127,7 @@
       nixos-generators
       nurl
       psmisc
-      python313Packages.secretstorage
+      python314Packages.secretstorage
       restic
       sbctl
       s-tui
