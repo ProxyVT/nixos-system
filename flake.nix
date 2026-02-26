@@ -21,7 +21,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     xlibre-overlay = {
-      url = "git+https://codeberg.org/takagemacoed/xlibre-overlay";
+      url = "git+https://codeberg.org/takagemacoed/xlibre-overlay?ref=dev";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.xserver-meson-flags.follows = "xserver-meson-flags-local";
     };
