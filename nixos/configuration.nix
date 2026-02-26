@@ -2,6 +2,7 @@
   inputs,
   outputs,
   pkgs,
+  lib,
   ...
 }:
 
@@ -160,7 +161,7 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    backupFileExtension = ".backup";
+    backupFileExtension = lib.mkForce ".backup";
     users.ulad.imports = [
       ../applications/home-manager
       inputs.zen-browser.homeModules.default
