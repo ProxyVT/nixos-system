@@ -13,7 +13,7 @@
     kernel = {
       sysctl = {
         "net.ipv4.ip_default_ttl" = 128;
-        "vm.swappiness" = 25;
+        "vm.swappiness" = 5;
       };
       sysfs = {
         module.zswap.parameters = {
