@@ -32,6 +32,7 @@
     ];
     extraModulePackages = [ ];
     supportedFilesystems = [
+      "apfs"
       "bcachefs"
     ];
   };
