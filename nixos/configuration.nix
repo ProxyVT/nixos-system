@@ -16,10 +16,13 @@
         "vm.swappiness" = 5;
       };
       sysfs = {
-        module.zswap.parameters = {
-          enabled = true;
-          max_pool_percent = 50;
-          shrinker_enabled = true;
+        module = {
+          usbcore.parameters.autosuspend = -1;
+          zswap.parameters = {
+            enabled = true;
+            max_pool_percent = 50;
+            shrinker_enabled = true;
+          };
         };
       };
     };
