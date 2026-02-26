@@ -10,7 +10,7 @@
   fonts.packages = with pkgs; [
     ibm-plex
     inter
-    jetbrains-mono
+    edge.jetbrains-mono
     liberation_ttf
     open-sans
     roboto
@@ -27,7 +27,6 @@
       gitnuro
       lite-xl
       nodejs
-      nodePackages.gulp
       nodePackages.pnpm
       super-productivity
       windterm
@@ -39,7 +38,7 @@
       blanket
       gpick
       kdePackages.spectacle
-      krita
+      release.krita
       pinta
 
       # Internet
@@ -59,11 +58,10 @@
       # Server & security
       ddrescue
       ddrescueview
-      electrum
+      release.electrum
       keepassxc
       sshuttle
       tradingview
-      flood
       kdiskmark
       qdiskinfo
 
@@ -184,7 +182,6 @@
       package-version-server
       pciutils
       plasma-hud
-      polkit
       polkit
       python3
       rar
