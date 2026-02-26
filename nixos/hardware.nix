@@ -31,6 +31,9 @@
       "kvm-amd"
     ];
     extraModulePackages = [ ];
+    supportedFilesystems = [
+      "bcachefs"
+    ];
   };
 
   fileSystems."/" = {

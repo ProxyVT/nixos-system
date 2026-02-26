@@ -9,7 +9,7 @@
 {
   # System boot sections
   boot = {
-    kernelPackages = pkgs.linuxPackages_6_12;
+    kernelPackages = pkgs.linuxPackages_6_18;
     kernel = {
       sysctl = {
         "net.ipv4.ip_default_ttl" = 128;
