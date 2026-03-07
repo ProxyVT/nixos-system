@@ -69,6 +69,7 @@
       audacity
       digikam
       handbrake
+      kdePackages.kdenlive
       mediainfo-gui
       mkvtoolnix
       mousai
@@ -110,6 +111,7 @@
       grok-cli
       inxi
       iwmenu
+      linux-wifi-hotspot
       lm_sensors
       lshw
       msedit
@@ -179,6 +181,7 @@
       material-icons
       mesa-demos
       nixd
+      onboard
       package-version-server
       pciutils
       plasma-hud
@@ -193,8 +196,8 @@
       thunar-volman
       xfce4-alsa-plugin
       xfce4-xkb-plugin
-      xorg.xdpyinfo
-      xorg.xinit
+      xdpyinfo
+      xinit
       vivaldi-ffmpeg-codecs
     ];
   };
