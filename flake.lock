@@ -200,10 +200,10 @@
         ]
       },
       "locked": {
-        "lastModified": 1772845525,
+        "lastModified": 1772985285,
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "27b93804fbef1544cb07718d3f0a451f4c4cd6c0",
+        "rev": "5be5d8245cbc7bc0c09fbb5f38f23f223c543f85",
         "type": "github"
       },
       "original": {
@@ -333,10 +333,10 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1772291235,
+        "lastModified": 1772994053,
         "owner": "nix-community",
         "repo": "nh",
-        "rev": "dd403573ee5ea0aa3de36e2a73ea60b86a478daf",
+        "rev": "9c9f2826ec624033c5ce1343a3780201ba31842a",
         "type": "github"
       },
       "original": {
@@ -352,10 +352,10 @@
         ]
       },
       "locked": {
-        "lastModified": 1772850876,
+        "lastModified": 1773024435,
         "owner": "nix-community",
         "repo": "nix-vscode-extensions",
-        "rev": "22f084d4c280dfc8a9d764f7b85af38e5d69c3dc",
+        "rev": "1b704b075169f68bd81f6ddcb1dd1a2286069386",
         "type": "github"
       },
       "original": {
@@ -396,10 +396,10 @@
     },
     "nixpkgs-edge": {
       "locked": {
-        "lastModified": 1772895724,
+        "lastModified": 1773036558,
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "05a293da4d2983134d3ad4651d8ddb261f56891f",
+        "rev": "69ab65de159c7a8786cf683f2405c88860b1c799",
         "type": "github"
       },
       "original": {
@@ -622,10 +622,10 @@
         ]
       },
       "locked": {
-        "lastModified": 1772858378,
+        "lastModified": 1772945022,
         "owner": "0xc000022070",
         "repo": "zen-browser-flake",
-        "rev": "42e1e9a1cb5b507789a51193113d56f8f1bb08d9",
+        "rev": "3a6a5ca7fb48cc8fd8183386506a06579d1d79dc",
         "type": "github"
       },
       "original": {
