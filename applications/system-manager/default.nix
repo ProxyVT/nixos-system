@@ -48,7 +48,6 @@
       element-desktop
       epiphany
       kdePackages.ktorrent
-      media-downloader
       motrix
       telegram-desktop
       testing.ariang
@@ -73,6 +72,7 @@
       mediainfo-gui
       mkvtoolnix
       mousai
+      pear-desktop
       qimgv
       qmplay2
       subtitleedit
@@ -109,6 +109,7 @@
       gh
       glow
       grok-cli
+      hdparm
       inxi
       iwmenu
       linux-wifi-hotspot
@@ -132,12 +133,16 @@
       sbctl
       s-tui
       scrcpy
+      sdparm
+      sg3_utils
+      smartmontools
       speedtest-cli
       superfile
       system-manager
       trash-cli
       ttop
       tuifimanager
+      usbutils
       vrrtest
       xsensors
 
@@ -150,7 +155,6 @@
       lshw-gui
       mission-center
       monitorets
-      nemo-with-extensions
       nix-prefetch
       nix-prefetch-git
       nix-prefetch-scripts
@@ -192,8 +196,6 @@
       unixtools.quota
       vulkan-tools
       wayland-utils
-      thunar
-      thunar-volman
       xfce4-alsa-plugin
       xfce4-xkb-plugin
       xdpyinfo
@@ -224,6 +226,7 @@
     openvpn3.enable = true;
     partition-manager.enable = true;
     system-config-printer.enable = true;
+    thunar.enable = true;
   };
 
   xdg = {
