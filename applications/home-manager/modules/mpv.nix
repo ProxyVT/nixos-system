@@ -3,6 +3,15 @@
   ...
 }:
 let
+  uosc = pkgs.mpvScripts.uosc.overrideAttrs (
+    finalAttrs: previousAttrs: {
+      version = "2026-02-24";
+      src = previousAttrs.src.override {
+        rev = "99510d50b89e3724b6115d9ef06731e97a50b7cf";
+        hash = "sha256-f1gMGZxITWh9ycbme0mYQtu3qwNa2DJ1Fh0ANL2jfrQ=";
+      };
+    }
+  );
   mpv-git = pkgs.mpv.override {
     scripts = with pkgs.mpvScripts; [
       uosc
