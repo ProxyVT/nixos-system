@@ -22,11 +22,11 @@ let
         ffmpeg = pkgs.ffmpeg_8-full;
         libplacebo = pkgs.libplacebo.overrideAttrs (
           finalAttrs: previousAttrs: {
-            version = "2026-03-13";
+            version = "2026-03-29";
             patches = [ ];
             src = previousAttrs.src.override {
-              rev = "33b5dfada6a84692912e4d41f673f895df79479e";
-              hash = "sha256-6hHjnBhLgarXJudqxcE9qJMcBjrhStiJMocX1eDuZt4=";
+              rev = "54e527552fa74467bcc7692e6985d35540861d19";
+              hash = "sha256-5Kop4K45ohsJUkEgRRlSU5XTXZExotXpk3KfXQw1WYE=";
             };
           }
         );
@@ -35,11 +35,11 @@ let
           finalAttrs: previousAttrs: {
             nativeInstallCheckInputs = [ ];
             patches = [ ];
-            version = "2026-03-17";
+            version = "2026-03-31";
             src = pkgs.fetchFromGitHub {
               inherit (previousAttrs.src) owner repo;
-              rev = "ad9374d03eff4c5018cb6d66815f2223585ca21b";
-              hash = "sha256-3fyqG3YkfRnSgxSUx7spqJtsvYgaqvTFCm5pCh4KVLU=";
+              rev = "d79c4ad1e33301552e23c9bb98ec3c6c9a4324b9";
+              hash = "sha256-tFLN14p1VS3DJNkpj4hOLhExo82IwC1ojNrO7eAWjjQ=";
             };
           }
         );
