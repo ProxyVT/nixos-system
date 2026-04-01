@@ -144,6 +144,7 @@
       tuifimanager
       usbutils
       vrrtest
+      witr
       xsensors
 
       # System apps
