@@ -35,11 +35,11 @@ let
           finalAttrs: previousAttrs: {
             nativeInstallCheckInputs = [ ];
             patches = [ ];
-            version = "2026-03-31";
+            version = "2026-04-12";
             src = pkgs.fetchFromGitHub {
               inherit (previousAttrs.src) owner repo;
-              rev = "d79c4ad1e33301552e23c9bb98ec3c6c9a4324b9";
-              hash = "sha256-tFLN14p1VS3DJNkpj4hOLhExo82IwC1ojNrO7eAWjjQ=";
+              rev = "da4789c2ddce92713347ecf1b5912fceb812ea39";
+              hash = "sha256-GRmRMHdjT+v+yso7qGZOxTBJ8588ZY/BjBAxqVi/zlU=";
             };
           }
         );
