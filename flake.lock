@@ -200,10 +200,10 @@
         ]
       },
       "locked": {
-        "lastModified": 1778805320,
+        "lastModified": 1778839998,
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "9846abe15e7d0d36b8acbd4d05f2b87461744c92",
+        "rev": "3e707f5f93d7be40fd3e4182ed977446bdf2e2c3",
         "type": "github"
       },
       "original": {
@@ -241,11 +241,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1776184304,
-        "narHash": "sha256-No6QGBmIv5ChiwKCcbkxjdEQ/RO2ZS1gD7SFy6EZ7rc=",
+        "lastModified": 1777594677,
+        "narHash": "sha256-h90sHwoRJLRvaTpZroTvU2JRHDFj0czUafM8eqLe1RI=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "3c7524c68348ef79ce48308e0978611a050089b2",
+        "rev": "899c08a15beae5da51a5cecd6b2b994777a948da",
         "type": "github"
       },
       "original": {
@@ -379,10 +379,10 @@
     },
     "nixpkgs-edge": {
       "locked": {
-        "lastModified": 1778830158,
+        "lastModified": 1778839678,
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "97d5c158d417750b86edaf2c6ca6c5d7344762e3",
+        "rev": "3f3001c30537feefd238bb5805633cb2220859e8",
         "type": "github"
       },
       "original": {
@@ -484,12 +484,12 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1776877367,
-        "narHash": "sha256-EHq1/OX139R1RvBzOJ0aMRT3xnWyqtHBRUBuO1gFzjI=",
-        "rev": "0726a0ecb6d4e08f6adced58726b95db924cef57",
-        "revCount": 985613,
+        "lastModified": 1778443072,
+        "narHash": "sha256-zi7/fsqM/kFdNuED//4WOCUtezGtKKqRNORjMvfwjnA=",
+        "rev": "da5ad661ba4e5ef59ba743f0d112cbc30e474f32",
+        "revCount": 995699,
         "type": "tarball",
-        "url": "https://api.flakehub.com/f/pinned/NixOS/nixpkgs/0.1.985613%2Brev-0726a0ecb6d4e08f6adced58726b95db924cef57/019dc33e-a3ef-7cf1-936a-cf64d10f6c63/source.tar.gz"
+        "url": "https://api.flakehub.com/f/pinned/NixOS/nixpkgs/0.1.995699%2Brev-da5ad661ba4e5ef59ba743f0d112cbc30e474f32/019e1cce-50fe-7f80-9c18-f129a8d93b7c/source.tar.gz"
       },
       "original": {
         "type": "tarball",
@@ -555,10 +555,10 @@
         ]
       },
       "locked": {
-        "lastModified": 1776838323,
+        "lastModified": 1777652367,
         "ref": "dev",
-        "rev": "fe5459de74fb7ef3bcf695e6ff3907dbceb9deb6",
-        "revCount": 113,
+        "rev": "4a2853fa1fda403b295cfa9da01093b4e31af8b1",
+        "revCount": 114,
         "type": "git",
         "url": "https://codeberg.org/takagemacoed/xlibre-overlay"
       },
@@ -588,10 +588,10 @@
         ]
       },
       "locked": {
-        "lastModified": 1777138694,
+        "lastModified": 1778799443,
         "owner": "0xc000022070",
         "repo": "zen-browser-flake",
-        "rev": "5ceb2bfc5671bfca6b1b363669309d6871043d66",
+        "rev": "2a400947d9b911ab6b3073de7d6bb43f04cc0479",
         "type": "github"
       },
       "original": {
