@@ -5,10 +5,10 @@
 let
   uosc = pkgs.mpvScripts.uosc.overrideAttrs (
     finalAttrs: previousAttrs: {
-      version = "2026-02-24";
+      version = "2026-04-18";
       src = previousAttrs.src.override {
-        rev = "99510d50b89e3724b6115d9ef06731e97a50b7cf";
-        hash = "sha256-f1gMGZxITWh9ycbme0mYQtu3qwNa2DJ1Fh0ANL2jfrQ=";
+        rev = "95dd6085643f009e8bdb4976fce32a0afc489511";
+        hash = "sha256-fh/s5r5mOXcyl0cbBRpQ9C8e7CA0rxnHRD80ix1BqDk=";
       };
     }
   );
