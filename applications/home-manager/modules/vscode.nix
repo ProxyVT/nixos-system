@@ -1,8 +1,7 @@
 { pkgs, ... }:
 {
-  programs.vscode = {
+  programs.kiro = {
     enable = true;
-    package = pkgs.kiro;
     profiles.default = {
       userSettings = {
         "kiroAgent.enableTabAutocomplete" = true;
