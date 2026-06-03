@@ -5,10 +5,10 @@
 let
   uosc = pkgs.mpvScripts.uosc.overrideAttrs (
     finalAttrs: previousAttrs: {
-      version = "2026-04-18";
+      version = "2026-05-23";
       src = previousAttrs.src.override {
-        rev = "95dd6085643f009e8bdb4976fce32a0afc489511";
-        hash = "sha256-fh/s5r5mOXcyl0cbBRpQ9C8e7CA0rxnHRD80ix1BqDk=";
+        rev = "41040532f840b8089ae1bedba906071959347771";
+        hash = "sha256-DG/c7dCaMbwjcno5XCnL2O63dXQ/U/TZPR7ECYrJJfg=";
       };
     }
   );
@@ -22,13 +22,13 @@ let
         ffmpeg = pkgs.ffmpeg_8-full;
         libplacebo = pkgs.libplacebo.overrideAttrs (
           finalAttrs: previousAttrs: {
-            version = "2026-05-22";
+            version = "2026-06-01";
             patches = [ ];
             src = pkgs.fetchFromGitLab {
               inherit (previousAttrs.src) owner repo;
               domain = "code.videolan.org";
-              rev = "051cc36fd6e3ca06d64f848b6a38f708f98a2a91";
-              hash = "sha256-iJPCOzPGOSzM/XCZYOTtzPCpYmECDkAOgtWG9BeZ0Lc=";
+              rev = "50db5d92f1931c9e4b4daeb4e37e8ffae3a3930b";
+              hash = "sha256-9+Ef0QVsGY70NB0Z9GmFJDvQwkWNm6q3jSv2yWZ4E4s=";
             };
           }
         );
@@ -37,11 +37,11 @@ let
           finalAttrs: previousAttrs: {
             nativeInstallCheckInputs = [ ];
             patches = [ ];
-            version = "2026-05-22";
+            version = "2026-06-01";
             src = pkgs.fetchFromGitHub {
               inherit (previousAttrs.src) owner repo;
-              rev = "9e06c3248a67a14717909db4a02709bc22fe559e";
-              hash = "sha256-ISG5kZBmaQ1RzmQpFN+FxM6Dvty4dnbr78siJvkgBIc=";
+              rev = "f5d4d9b029affa4d5b7eb13b28d91a96e6a92280";
+              hash = "sha256-NdQX+/M/d01TGAUfhBbGUpBw6I+abmK3zQxZB5OgtnU=";
             };
           }
         );
