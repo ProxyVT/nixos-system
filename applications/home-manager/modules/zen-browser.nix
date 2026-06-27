@@ -2,7 +2,6 @@
 {
   programs.zen-browser = {
     enable = true;
-    nativeMessagingHosts = [ pkgs.firefoxpwa ];
     profiles.default = {
       name = "NixOS Ulad";
       spacesForce = false;
@@ -24,8 +23,4 @@
       };
     };
   };
-
-  home.persistence."/persist".directories = [
-    ".zen"
-  ];
 }
