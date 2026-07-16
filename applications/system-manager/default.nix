@@ -27,7 +27,7 @@
       gitnuro
       lite-xl
       nodejs
-      nodePackages.pnpm
+      pnpm
       super-productivity
       windterm
       wineWow64Packages.unstableFull
@@ -48,7 +48,7 @@
       element-desktop
       epiphany
       kdePackages.ktorrent
-      motrix
+      motrix-next
       telegram-desktop
       testing.ariang
       tor
@@ -67,7 +67,7 @@
       # Multimedia
       audacity
       digikam
-      handbrake
+      testing.handbrake
       kdePackages.kdenlive
       mediainfo-gui
       mkvtoolnix
@@ -128,6 +128,7 @@
       nixos-generators
       nurl
       psmisc
+      python314Packages.huggingface-hub
       python314Packages.secretstorage
       restic
       sbctl
@@ -156,11 +157,12 @@
       lshw-gui
       mission-center
       monitorets
+      neohtop
       nix-prefetch
       nix-prefetch-git
       nix-prefetch-scripts
       pavucontrol
-      peazip
+      testing.peazip
       qdirstat
       qrcp
       resources
@@ -210,10 +212,7 @@
     gnome.gnome-keyring.enable = true;
     gpm.enable = true;
     gvfs.enable = true;
-    usbmuxd = {
-      enable = true;
-      package = pkgs.testing.usbmuxd;
-    };
+    usbmuxd.enable = true;
   };
 
   programs = {
@@ -228,6 +227,7 @@
     partition-manager.enable = true;
     system-config-printer.enable = true;
     thunar.enable = true;
+    firejail.enable = true;
   };
 
   xdg = {
