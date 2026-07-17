@@ -1,5 +1,6 @@
 {
   pkgs,
+  lib,
   ...
 }:
 let
@@ -22,13 +23,13 @@ let
         ffmpeg = pkgs.ffmpeg_8-full;
         libplacebo = pkgs.libplacebo.overrideAttrs (
           finalAttrs: previousAttrs: {
-            version = "2026-06-10";
+            version = "2026-07-08";
             patches = [ ];
             src = pkgs.fetchFromGitLab {
               inherit (previousAttrs.src) owner repo;
               domain = "code.videolan.org";
-              rev = "2d0979fb54e025e904c7372666fffbf5dae40f66";
-              hash = "sha256-vy0sZj49/z+h9jn+8RIpMtDq5YB4Ks5bLihCMRQGw58=";
+              rev = "a7a18af88ff0a17c04840dcb3246047bb6b46df3";
+              hash = "sha256-cA8+APhpu3m38z5hs2EhsNlLb/xHAy/Tcxi5loFS6j0=";
             };
           }
         );
@@ -36,11 +37,25 @@ let
         (
           finalAttrs: previousAttrs: {
             nativeInstallCheckInputs = [ ];
-            version = "2026-06-04";
+            outputs = [
+              "out"
+              "man"
+              "doc"
+            ];
+            postPatch = lib.concatStringsSep "\n" [
+              ''
+                pushd TOOLS
+                mv mpv_identify.sh mpv_identify
+                patchShebangs *.py *.sh
+                mv mpv_identify mpv_identify.sh
+                popd
+              ''
+            ];
+            version = "2026-07-14";
             src = pkgs.fetchFromGitHub {
               inherit (previousAttrs.src) owner repo;
-              rev = "4013a3c9b6f6b3b4d2d8f971e91c2e1eab3f8184";
-              hash = "sha256-hXegoyTeD4szr9yTLqqZlOKEO8sr7ChNRcfT1MkTW+A=";
+              rev = "94335ab87ab225ca3e36e0faeac831639d3e1d4e";
+              hash = "sha256-UggUsEiO0xEGNy63iEb+qt/lYNce8TvRFj86riSekh8=";
             };
           }
         );
