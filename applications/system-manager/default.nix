@@ -10,7 +10,7 @@
   fonts.packages = with pkgs; [
     ibm-plex
     inter
-    edge.jetbrains-mono
+    jetbrains-mono
     liberation_ttf
     open-sans
     roboto
@@ -38,7 +38,7 @@
       blanket
       gpick
       kdePackages.spectacle
-      release.krita
+      krita
       pinta
 
       # Internet
@@ -57,7 +57,7 @@
       # Server & security
       ddrescue
       ddrescueview
-      release.electrum
+      electrum
       keepassxc
       sshuttle
       tradingview
@@ -110,6 +110,7 @@
       glow
       grok-cli
       hdparm
+      hydra-check
       inxi
       iwmenu
       linux-wifi-hotspot
@@ -142,7 +143,7 @@
       system-manager
       trash-cli
       ttop
-      tuifimanager
+      release.tuifimanager
       usbutils
       vrrtest
       witr
