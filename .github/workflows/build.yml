@@ -1,0 +1,26 @@
+name: Build NixOS and Push to Cachix
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch: # Позволяет запускать вручную
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: cachix/install-nix-action@v25
+        with:
+          nix_path: nixpkgs=channel:nixos-unstable
+
+      - uses: cachix/cachix-action@v14
+        with:
+          name: proxyvt # Замени на имя своего кэша
+          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+
+      - name: Build and push system
+        run: |
+          # Замени 'my-host' на имя твоей конфигурации во flake.nix
+          cachix watch-exec proxyvt -- nix build .#nixosConfigurations.steam.config.system.build.toplevel
