@@ -601,7 +601,6 @@
         "picom": "picom",
         "steam-deck-overlay": "steam-deck-overlay",
         "xlibre-overlay": "xlibre-overlay",
-        "xserver-meson-flags-local": "xserver-meson-flags-local",
         "zen-browser": "zen-browser"
       }
     },
@@ -677,18 +676,6 @@
         "type": "git",
         "url": "https://codeberg.org/takagemacoed/xlibre-overlay"
       }
-    },
-    "xserver-meson-flags-local": {
-      "flake": false,
-      "locked": {
-        "path": "./xserver-meson-flags.nix",
-        "type": "path"
-      },
-      "original": {
-        "path": "./xserver-meson-flags.nix",
-        "type": "path"
-      },
-      "parent": []
     },
     "zen-browser": {
       "inputs": {
