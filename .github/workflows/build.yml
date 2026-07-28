@@ -3,13 +3,32 @@ name: Build NixOS and Push to Cachix
 on:
   push:
     branches: [ main, master ]
-  workflow_dispatch: # Позволяет запускать вручную
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false # Если один хост упадет, остальные продолжат собираться
+      matrix:
+        # Список твоих хостов из flake.nix (кроме exampleIso)
+        host: [ acer, nixos, nvidia, steam, umka ]
+
     steps:
       - uses: actions/checkout@v4
+
+      # Критически важный шаг для Nix! Удаляет ненужный софт (Android SDK, .NET, Haskell)
+      # с серверов GitHub, освобождая до 30-40 ГБ места для твоего /nix/store.
+      - name: Free Disk Space (Ubuntu)
+        uses: jlumbroso/free-disk-space@main
+        with:
+          tool-cache: false
+          android: true
+          dotnet: true
+          haskell: true
+          large-packages: true
+          docker-images: true
+          swap-storage: true
 
       - uses: cachix/install-nix-action@v25
         with:
@@ -17,10 +36,9 @@ jobs:
 
       - uses: cachix/cachix-action@v14
         with:
-          name: proxyvt # Замени на имя своего кэша
+          name: proxyvt
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
 
-      - name: Build and push system
+      - name: Build and push ${{ matrix.host }}
         run: |
-          # Замени 'my-host' на имя твоей конфигурации во flake.nix
-          cachix watch-exec proxyvt -- nix build .#nixosConfigurations.steam.config.system.build.toplevel
+          cachix watch-exec proxyvt -- nix build .#nixosConfigurations.${{ matrix.host }}.config.system.build.toplevel
