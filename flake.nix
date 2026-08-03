@@ -21,13 +21,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     xlibre-overlay = {
-      url = "git+https://codeberg.org/takagemacoed/xlibre-overlay?ref=dev";
+      url = "git+https://codeberg.org/takagemacoed/xlibre-overlay?ref=dev-26.11";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.xserver-meson-flags.follows = "xserver-meson-flags-local";
-    };
-    xserver-meson-flags-local = {
-      url = "./xserver-meson-flags.nix";
-      flake = false;
     };
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
@@ -77,11 +72,10 @@
       mkNixosConfig =
         {
           hardwareFile,
-          enableXlibre ? true,
         }:
         nixpkgs.lib.nixosSystem {
           inherit specialArgs;
-          modules = defaultModules ++ nixpkgs.lib.optionals enableXlibre xlibreModules ++ [ hardwareFile ];
+          modules = defaultModules ++ [ hardwareFile ];
         };
     in
     {
@@ -90,10 +84,7 @@
       nixosConfigurations = {
         nixos = mkNixosConfig { hardwareFile = ./hardware/default.nix; };
         acer = mkNixosConfig { hardwareFile = ./hardware/acer.nix; };
-        umka = mkNixosConfig {
-          hardwareFile = ./hardware/umka.nix;
-          enableXlibre = true;
-        };
+        umka = mkNixosConfig { hardwareFile = ./hardware/umka.nix; };
         nvidia = mkNixosConfig { hardwareFile = ./hardware/nvidia.nix; };
         exampleIso = nixpkgs.lib.nixosSystem {
           inherit specialArgs;
