@@ -56,12 +56,12 @@
         "nixpkgs-regression": "nixpkgs-regression"
       },
       "locked": {
-        "lastModified": 1784591579,
-        "narHash": "sha256-Ri/OBH1gg42wgC02OuFKBZu68niiRkHyBphK0pxJLfQ=",
-        "rev": "979cc556a2d619079b9f8618226e679d58f0901a",
-        "revCount": 26280,
+        "lastModified": 1785428605,
+        "narHash": "sha256-wfaiSRLM1wDb4MV+NEzbyheK9Y03/oe56NR2I84UF7E=",
+        "rev": "0ff46631f69584c9f76792cae595ea253bd482c3",
+        "revCount": 26288,
         "type": "tarball",
-        "url": "https://api.flakehub.com/f/pinned/DeterminateSystems/nix-src/3.21.8/019f821d-c2c8-79a1-824b-8fa3b0dcdc51/source.tar.gz"
+        "url": "https://api.flakehub.com/f/pinned/DeterminateSystems/nix-src/3.21.9/019fb409-4d6e-7243-8a88-23ceee2520e9/source.tar.gz"
       },
       "original": {
         "type": "tarball",
@@ -535,11 +535,11 @@
     },
     "nixpkgs-testing": {
       "locked": {
-        "lastModified": 1784982040,
-        "narHash": "sha256-gGAPNl47EWLUgK2ycZR+IAoZEj7AK/gqGYembTg4oSc=",
+        "lastModified": 1785677416,
+        "narHash": "sha256-EdHOhk7Y6CdCFmCESLQcG95ueH53vQ/HqhByuGB5vhM=",
         "owner": "ProxyVT",
         "repo": "nixpkgs",
-        "rev": "ac180fdc3c62aefe9cc156dc29f7954bd57db791",
+        "rev": "d94daf4a08f44b10ef0dea4545facf5f527e5221",
         "type": "github"
       },
       "original": {
@@ -663,11 +663,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1784482541,
-        "narHash": "sha256-Ty/hiH/9bQR7HzotwnJpaqfg5xjNXEE+RTNKL/IhRcA=",
+        "lastModified": 1785401351,
+        "narHash": "sha256-zKgkIGnWcbJvjDvYKwiAV4hc3xvJL20jdR/t8LI/D54=",
         "ref": "dev-26.11",
-        "rev": "72e9727d5e3abfffd7f89a59b2a026d302b1376c",
-        "revCount": 234,
+        "rev": "d2150368dddb7bc27dac4ae6d96c09dc12980d70",
+        "revCount": 238,
         "type": "git",
         "url": "https://codeberg.org/takagemacoed/xlibre-overlay"
       },
