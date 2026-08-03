@@ -41,4 +41,4 @@ jobs:
 
       - name: Build and push ${{ matrix.host }}
         run: |
-          cachix watch-exec proxyvt -- nix build --keep-going .#nixosConfigurations.${{ matrix.host }}.config.system.build.toplevel
+          cachix watch-exec proxyvt -- nix build .#nixosConfigurations.${{ matrix.host }}.config.system.build.toplevel --keep-going
