@@ -13,7 +13,7 @@
     kernelPackages = pkgs.linuxPackages_6_18;
     kernel = {
       sysctl = {
-        "net.ipv4.ip_default_ttl" = 128;
+        "net.ipv4.ip_default_ttl" = 65;
         "vm.swappiness" = 5;
       };
       sysfs = {
