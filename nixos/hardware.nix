@@ -45,13 +45,16 @@
   };
 
   fileSystems."/" = {
-    device = "none";
+    device = "tmpfs";
     fsType = "tmpfs";
     options = [
-      "defaults"
+      "noatime"
       "size=100%"
       "mode=755"
     ];
+    neededForBoot = true;
+  };
+
   fileSystems."/nix/var/nix/builds" = {
     device = "tmpfs";
     fsType = "tmpfs";
@@ -67,12 +70,19 @@
   fileSystems."/persist" = {
     device = "/dev/disk/by-partlabel/nix";
     fsType = "f2fs";
+    options = [
+      "relatime"
+    ];
     neededForBoot = true;
   };
 
   fileSystems."/nix" = {
     device = "/dev/disk/by-partlabel/nix";
     fsType = "f2fs";
+    options = [
+      "relatime"
+    ];
+    neededForBoot = true;
   };
 
   fileSystems."/boot" = {
@@ -83,7 +93,6 @@
   swapDevices = [
     {
       device = "/persist/var/lib/swapfile";
-      priority = 10;
     }
   ];
 
@@ -94,5 +103,4 @@
     intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
     amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   };
-
 }
