@@ -14,7 +14,7 @@
     kernel = {
       sysctl = {
         "net.ipv4.ip_default_ttl" = 65;
-        "vm.swappiness" = 5;
+        "vm.swappiness" = 1;
       };
       sysfs = {
         module = {
