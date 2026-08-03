@@ -2,8 +2,8 @@
   description = "Personal flake configuration";
 
   inputs = {
-    nixpkgs-release.url = "https://channels.nixos.org/nixos-25.11/nixexprs.tar.xz";
     nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
+    nixpkgs-release.url = "https://channels.nixos.org/nixos-26.05/nixexprs.tar.xz";
     nixpkgs-edge.url = "github:nixos/nixpkgs/master";
     nixpkgs-testing.url = "github:ProxyVT/nixpkgs/testing";
     impermanence.url = "github:nix-community/impermanence";
