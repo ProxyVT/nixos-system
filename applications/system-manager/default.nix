@@ -91,6 +91,7 @@
 
       # CLI
       appimage-run
+      agenix
       autorestic
       bastet
       bcachefs-tools

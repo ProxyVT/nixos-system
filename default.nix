@@ -1,15 +1,7 @@
 let
-  lockFile = builtins.fromJSON (builtins.readFile ./flake.lock);
-  flake-compat-node = lockFile.nodes.${lockFile.nodes.root.inputs.flake-compat};
-  flake-compat = builtins.fetchTarball {
-    inherit (flake-compat-node.locked) url;
-    sha256 = flake-compat-node.locked.narHash;
-  };
-
-  flake = (
-    import flake-compat {
-      src = ./.;
-    }
-  );
+  ulad = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGulTWx70ryRRxPLUjGW951k5MYVkMY91DZACpnJYF/+ ulad@nixos";
+  system = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKIC4FKvCytVKkrsmOCC3S8BG+ziwK5O04jRyah7qU8s root@nixos";
 in
-flake.defaultNix
+{
+  "default.age".publicKeys = [ ulad system ];
+}

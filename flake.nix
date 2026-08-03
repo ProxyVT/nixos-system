@@ -24,6 +24,10 @@
       url = "git+https://codeberg.org/takagemacoed/xlibre-overlay?ref=dev-26.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -42,6 +46,7 @@
       nix-flatpak,
       home-manager,
       xlibre-overlay,
+      agenix,
       ...
     }@inputs:
 
@@ -66,7 +71,9 @@
       xlibreModules = [
         xlibre-overlay.nixosModules.overlay-xlibre-xserver
         xlibre-overlay.nixosModules.overlay-all-xlibre-drivers
+        agenix.nixosModules.default
       ];
+
       mkNixosConfig =
         {
           hardwareFile,

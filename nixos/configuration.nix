@@ -3,6 +3,7 @@
   outputs,
   pkgs,
   lib,
+  config,
   ...
 }:
 
@@ -67,8 +68,14 @@
       builders-use-substitutes = true;
       eval-cores = 0;
       lazy-locks = true;
-      max-jobs = 1;
-      substituters = [ "https://nixos-cache-proxy.cofob.dev" ];
+      max-substitution-jobs = 8;
+      substituters = [
+        "https://nixos-cache-proxy.cofob.dev"
+        "https://proxyvt.cachix.org"
+      ];
+      trusted-public-keys = [
+        "proxyvt.cachix.org-1:5OgxjpTkZKxSyu/4dJXa10DENZ+s/3K1unAQbCsG2qQ="
+      ];
       tarball-ttl = 0;
       trusted-users = [ "@wheel" ];
       use-cgroups = true;
@@ -88,6 +95,7 @@
     };
     overlays = [
       inputs.nix-vscode-extensions.overlays.default
+      inputs.agenix.overlays.default
       outputs.custom-packages.default
     ];
   };
@@ -197,7 +205,16 @@
           "usbmux"
         ];
         hashedPassword = "$y$j9T$saJvjo68.BgDGPQjA9WDN.$h9979vNxQrblxIxudoFl1qb8twwAMEM4uEbVJ0qCY19";
+        hashedPasswordFile = config.age.secrets.default.path;
       };
+    };
+  };
+
+  age = {
+    identityPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+    secrets.default = {
+      file = ../default.age;
+      owner = "root";
     };
   };
 
