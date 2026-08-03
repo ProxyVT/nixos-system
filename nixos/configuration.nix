@@ -128,8 +128,16 @@
       # Environment configuration
       enable = true;
       desktopManager = {
-        # Dekstop Manager
-        xfce.enable = true;
+        xfce = {
+          enable = true;
+          enableWaylandSession = true;
+        };
+      };
+      displayManager.lightdm.greeters.gtk = {
+        enable = true;
+        extraConfig = ''
+          keyboard=onboard
+        '';
       };
       # Language sesttings
       xkb = {
