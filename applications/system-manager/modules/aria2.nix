@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   services.aria2 = {
     enable = true;
@@ -9,7 +9,7 @@
       rpc-listen-all = false;
       rpc-allow-origin-all = false;
       input-file = "/var/lib/aria2/aria2.session";
-      disk-cache = "256M";
+      disk-cache = "512M";
       force-save = true;
       continue = true;
       pause-metadata = true;
@@ -29,7 +29,9 @@
       dht-listen-port = "50000-50100";
       seed-ratio = 0;
       follow-torrent = "mem";
-      max-concurrent-downloads = 8;
+      split = 8;
+      max-connections-per-server = 8;
+      max-concurrent-downloads = 50;
     };
   };
 
@@ -40,5 +42,15 @@
   users.users.aria2.extraGroups = [
     "users"
     "storage"
+  ];
+
+  nixpkgs.overlays = [
+    (final: prev: {
+      aria2 = pkgs.testing.aria2-next.overrideAttrs (prev: {
+        postFixup = ''
+          ln -s aria2-next $out/bin/aria2c
+        '';
+      });
+    })
   ];
 }
