@@ -20,6 +20,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    steam-deck-overlay = {
+      url = "github:Jovian-Experiments/Jovian-NixOS";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     xlibre-overlay = {
       url = "git+https://codeberg.org/takagemacoed/xlibre-overlay?ref=dev-26.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -45,6 +49,7 @@
       impermanence,
       nix-flatpak,
       home-manager,
+      steam-deck-overlay,
       xlibre-overlay,
       agenix,
       ...
@@ -67,8 +72,7 @@
         home-manager.nixosModules.default
         impermanence.nixosModules.default
         nix-flatpak.nixosModules.nix-flatpak
-      ];
-      xlibreModules = [
+        steam-deck-overlay.nixosModules.default
         xlibre-overlay.nixosModules.overlay-xlibre-xserver
         xlibre-overlay.nixosModules.overlay-all-xlibre-drivers
         agenix.nixosModules.default
@@ -88,6 +92,7 @@
       packages."${system}" = pkgs;
       nixosConfigurations = {
         nixos = mkNixosConfig { hardwareFile = ./hardware/default.nix; };
+        steam = mkNixosConfig { hardwareFile = ./hardware/steam.nix; };
         acer = mkNixosConfig { hardwareFile = ./hardware/acer.nix; };
         umka = mkNixosConfig { hardwareFile = ./hardware/umka.nix; };
         nvidia = mkNixosConfig { hardwareFile = ./hardware/nvidia.nix; };
