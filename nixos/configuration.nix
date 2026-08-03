@@ -30,9 +30,13 @@
     loader = {
       limine = {
         enable = true;
+        package = pkgs.release.limine-full;
         secureBoot.enable = true;
         panicOnChecksumMismatch = true;
         efiInstallAsRemovable = true;
+        additionalFiles = {
+          "efi/memtest86/memtest86.efi" = "${pkgs.release.memtest86-efi}/BOOTX64.efi";
+        };
       };
       systemd-boot = {
         enable = false;
