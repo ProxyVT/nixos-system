@@ -146,6 +146,11 @@
     printing.enable = true;
     resolved.enable = true;
     pipewire.enable = true;
+    sunshine = {
+      enable = true;
+      autoStart = true;
+      openFirewall = true;
+    };
   };
 
   # Global hardware configuration
