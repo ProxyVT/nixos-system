@@ -23,13 +23,13 @@ let
         ffmpeg = pkgs.ffmpeg_8-full;
         libplacebo = pkgs.libplacebo.overrideAttrs (
           finalAttrs: previousAttrs: {
-            version = "2026-07-24";
+            version = "2026-07-30";
             patches = [ ];
             src = pkgs.fetchFromGitLab {
               inherit (previousAttrs.src) owner repo;
               domain = "code.videolan.org";
-              rev = "4c426e466814536def653cb23f1d1c287ea7a7f5";
-              hash = "sha256-2H+Oo6/As1lLPQBYiNRo+tplIfDvoqXyKFGgXDBGR/4=";
+              rev = "4d82c6898551068d4ae6a6b5538efcddc2c7cf64";
+              hash = "sha256-QKOhccWH1dA2SbzE/H155gPIG4y/hmgE8ycnpQ3yHkI=";
             };
           }
         );
@@ -51,11 +51,11 @@ let
                 popd
               ''
             ];
-            version = "2026-07-26";
+            version = "2026-07-31";
             src = pkgs.fetchFromGitHub {
               inherit (previousAttrs.src) owner repo;
-              rev = "390ebe2eac629b6481759374eb28556389e87901";
-              hash = "sha256-Z4U09V5uArmwNxSQhMu6KNnELlMoydo/pwumWSjk3IU=";
+              rev = "1d15686142fd5d53c954aab7526cedab05ef9dc3";
+              hash = "sha256-UBynMtyhzfThSu9f9BnXtGNjv2SkP1bH9+MTOPWqpjU=";
             };
           }
         );
