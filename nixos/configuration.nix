@@ -155,6 +155,8 @@
 
   # Global hardware configuration
   hardware = {
+    enableAllHardware = true;
+    enableAllFirmware = true;
     openrazer.enable = false;
     bluetooth.enable = true;
     acpilight.enable = true;
