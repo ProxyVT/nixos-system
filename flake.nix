@@ -7,7 +7,7 @@
     nixpkgs-edge.url = "github:nixos/nixpkgs/master";
     nixpkgs-testing.url = "github:ProxyVT/nixpkgs/testing";
     impermanence.url = "github:nix-community/impermanence";
-    nix-flatpak.url = "https://flakehub.com/f/gmodena/nix-flatpak/0.6.0";
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
     nix-vscode-extensions = {
       url = "github:nix-community/nix-vscode-extensions";
       inputs.nixpkgs.follows = "nixpkgs";
