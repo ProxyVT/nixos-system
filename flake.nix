@@ -100,10 +100,6 @@
         acer = mkNixosConfig { hardwareFile = ./hardware/acer.nix; };
         umka = mkNixosConfig { hardwareFile = ./hardware/umka.nix; };
         nvidia = mkNixosConfig { hardwareFile = ./hardware/nvidia.nix; };
-        exampleIso = nixpkgs.lib.nixosSystem {
-          inherit specialArgs;
-          modules = [ ./iso/configuration.nix ];
-        };
       };
     };
 }
