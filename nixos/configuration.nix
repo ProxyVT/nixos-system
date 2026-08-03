@@ -18,10 +18,8 @@
       };
       sysfs = {
         module = {
-          usbcore.parameters.autosuspend = -1;
           zswap.parameters = {
             enabled = true;
-            max_pool_percent = 50;
             shrinker_enabled = true;
           };
         };
@@ -44,11 +42,6 @@
       timeout = 10; # Linux boot section timeout
       efi.canTouchEfiVariables = true;
     };
-  };
-  zramSwap = {
-    enable = false;
-    memoryPercent = 25;
-    priority = 100;
   };
 
   # Nix configuration
