@@ -52,6 +52,16 @@
       "size=100%"
       "mode=755"
     ];
+  fileSystems."/nix/var/nix/builds" = {
+    device = "tmpfs";
+    fsType = "tmpfs";
+    options = [
+      "nosuid"
+      "nodev"
+      "noatime"
+      "mode=755"
+      "size=200%"
+    ];
   };
 
   fileSystems."/persist" = {
