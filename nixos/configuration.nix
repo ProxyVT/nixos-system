@@ -157,7 +157,7 @@
   hardware = {
     enableAllHardware = true;
     enableAllFirmware = true;
-    openrazer.enable = false;
+    openrazer.enable = true;
     bluetooth.enable = true;
     acpilight.enable = true;
     i2c.enable = true;
