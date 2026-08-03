@@ -13,7 +13,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     determinate = {
-      url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
+      url = "https://flakehub.com/f/DeterminateSystems/nix-src/*";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
@@ -40,7 +40,6 @@
       nixpkgs,
       impermanence,
       nix-flatpak,
-      determinate,
       home-manager,
       xlibre-overlay,
       ...
@@ -60,7 +59,6 @@
       defaultModules = [
         ./nixos
         ./applications/system-manager
-        determinate.nixosModules.default
         home-manager.nixosModules.default
         impermanence.nixosModules.default
         nix-flatpak.nixosModules.nix-flatpak

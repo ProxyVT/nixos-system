@@ -48,6 +48,7 @@
 
   # Nix configuration
   nix = {
+    package = inputs.determinate.packages.${pkgs.stdenv.hostPlatform.system}.default;
     channel.enable = false;
     distributedBuilds = false;
     buildMachines = [
