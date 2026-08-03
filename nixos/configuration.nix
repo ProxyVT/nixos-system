@@ -39,7 +39,7 @@
       systemd-boot = {
         enable = false;
       };
-      timeout = 10; # Linux boot section timeout
+      timeout = 20;
       efi.canTouchEfiVariables = true;
     };
   };
