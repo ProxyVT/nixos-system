@@ -12,6 +12,7 @@
       "/var/lib/flatpak"
       "/etc/NetworkManager/system-connections"
       "/etc/mullvad-vpn"
+      "/etc/ssh"
       "/root/.ssh"
       {
         directory = "/var/lib/colord";

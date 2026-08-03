@@ -1,15 +1,21 @@
 { pkgs, ... }:
 {
-  programs.git = {
-    enable = true;
-    package = pkgs.gitFull;
-    config = {
-      user = {
-        name = "ProxyVT";
-        email = "tikit.us@outlook.com";
+  programs = {
+    git = {
+      enable = true;
+      package = pkgs.gitFull;
+      lfs = {
+        enable = true;
+        enablePureSSHTransfer = true;
       };
-      safe.directory = "/home/ulad/*";
-      core.fileMode = false;
+      config = {
+        user = {
+          name = "ProxyVT";
+          email = "tikit.us@outlook.com";
+        };
+        safe.directory = [ "/home/ulad/*" ];
+      };
     };
+    git-worktree-switcher.enable = true;
   };
 }
