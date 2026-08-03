@@ -104,7 +104,7 @@
       ddcutil
       delta
       fastfetch
-      ffmpeg_8-full
+      ffmpeg-full
       ffmpeg-normalize
       fio
       gh
@@ -114,6 +114,7 @@
       hydra-check
       inxi
       iwmenu
+      librespeed-cli
       linux-wifi-hotspot
       lm_sensors
       lshw
@@ -139,7 +140,6 @@
       sdparm
       sg3_utils
       smartmontools
-      speedtest-cli
       superfile
       system-manager
       trash-cli
@@ -164,7 +164,7 @@
       nix-prefetch-git
       nix-prefetch-scripts
       pavucontrol
-      testing.peazip
+      peazip
       qdirstat
       qrcp
       resources
@@ -197,7 +197,6 @@
       polkit
       python3
       rar
-      stilo-themes
       unixtools.quota
       vulkan-tools
       wayland-utils
