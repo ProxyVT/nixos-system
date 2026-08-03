@@ -4,13 +4,20 @@
   modulesPath,
   ...
 }:
-{
 
+{
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
   boot = {
+    extraModprobeConfig = ''
+      options usb-storage quirks=0bda:9210:u
+    '';
+    kernelParams = [
+      "usbcore.autosuspend=-1"
+      "usbcore.usb3_lpm=0"
+    ];
     initrd = {
       availableKernelModules = [
         "xhci_pci"
