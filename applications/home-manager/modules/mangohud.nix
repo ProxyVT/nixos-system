@@ -2,6 +2,7 @@
 {
   programs.mangohud = {
     enable = true;
+    package = pkgs.release.mangohud;
     settingsPerApplication = {
       mpv = {
         full = true;
