@@ -190,7 +190,6 @@
     backupFileExtension = lib.mkForce ".backup";
     users.ulad.imports = [
       ../applications/home-manager
-      inputs.zen-browser.homeModules.default
     ];
   };
 
