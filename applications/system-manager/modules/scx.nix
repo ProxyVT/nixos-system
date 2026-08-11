@@ -3,6 +3,6 @@
   services.scx = {
     enable = true;
     package = pkgs.scx.full;
-    scheduler = "scx_flash";
+    scheduler = "scx_bpfland";
   };
 }
