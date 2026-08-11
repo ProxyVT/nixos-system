@@ -15,7 +15,7 @@
       downloader = "aria2c";
       merge-output-format = "mkv";
       mtime = true;
-      downloader-args = "aria2c:\"-x 8 -s 8 -k 1M\"";
+      extractor-args = "youtube:player-client=visionos";
     };
   };
 }
