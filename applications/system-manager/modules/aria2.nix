@@ -21,7 +21,7 @@
       bt-load-saved-metadata = true;
       bt-remove-unselected-file = true;
       bt-detach-seed-only = true;
-      bt-max-peers = 80;
+      bt-max-peers = 0;
       conditional-get = true;
       disable-ipv6 = true;
       dht-listen-port = "50000-50100";
