@@ -3,16 +3,13 @@
 
   inputs = {
     nixpkgs.url = "https://channels.nixos.org/nixos-unstable-small/nixexprs.tar.xz";
+    determinate.url = "https://flakehub.com/f/DeterminateSystems/nix-src/*";
     nixpkgs-testing.url = "github:ProxyVT/nixpkgs/testing";
     multiverse.url = "github:fzakaria/nixpkgs-multiverse";
     impermanence.url = "github:nix-community/impermanence";
     nix-flatpak.url = "github:gmodena/nix-flatpak";
     nix-vscode-extensions = {
       url = "github:nix-community/nix-vscode-extensions";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    determinate = {
-      url = "https://flakehub.com/f/DeterminateSystems/nix-src/*";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
