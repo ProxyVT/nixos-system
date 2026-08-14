@@ -27,8 +27,7 @@
       dht-listen-port = "50000-50100";
       seed-ratio = 0;
       follow-torrent = "mem";
-      split = 8;
-      max-connections-per-server = 8;
+      max-connections-per-server = 25;
       max-concurrent-downloads = 50;
       optimize-concurrent-downloads = true;
     };
