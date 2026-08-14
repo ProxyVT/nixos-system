@@ -71,6 +71,7 @@
         steam-deck-overlay.nixosModules.default
         xlibre-overlay.nixosModules.overlay-xlibre-xserver
         xlibre-overlay.nixosModules.overlay-all-xlibre-drivers
+        xlibre-overlay.nixosModules.overlay-xpra
         agenix.nixosModules.default
       ];
 
