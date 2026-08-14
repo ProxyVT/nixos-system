@@ -39,6 +39,10 @@
       url = "github:nix-community/nh";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    picom = {
+      url = "github:yshui/picom";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

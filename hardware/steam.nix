@@ -1,4 +1,4 @@
-{ inputs, lib, pkgs, ... }:
+{ inputs, lib, pkgs, system, ... }:
 {
   nixpkgs.overlays = [ inputs.steam-deck-overlay.overlays.default ];
   jovian = {
@@ -17,4 +17,9 @@
     hardware.has.amd.gpu = true;
   };
   boot.kernelPackages = lib.mkForce pkgs.linuxPackages_jovian;
+  services.picom = {
+    enable = true;
+    package = inputs.picom.packages.${system}.default;
+    backend = "egl";
+  };
 }
