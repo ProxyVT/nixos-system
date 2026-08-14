@@ -3,6 +3,7 @@
   outputs,
   pkgs,
   lib,
+  system,
   config,
   ...
 }:
@@ -46,7 +47,7 @@
 
   # Nix configuration
   nix = {
-    package = inputs.determinate.packages.${pkgs.stdenv.hostPlatform.system}.default;
+    package = inputs.determinate.packages.${system}.default;
     channel.enable = false;
     distributedBuilds = false;
     buildMachines = [
@@ -64,8 +65,7 @@
       auto-allocate-uids = true;
       builders-use-substitutes = true;
       eval-cores = 0;
-      lazy-locks = true;
-      max-substitution-jobs = 8;
+      lazy-trees = true;
       substituters = [
         "https://nixos-cache-proxy.cofob.dev"
         "https://proxyvt.cachix.org"
@@ -78,6 +78,7 @@
       use-cgroups = true;
       warn-dirty = false;
       experimental-features = [
+        "flakes"
         "auto-allocate-uids"
         "cgroups"
         "parallel-eval"
