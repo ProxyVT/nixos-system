@@ -20,7 +20,7 @@ let
     ];
     mpv-unwrapped =
       (pkgs.mpv-unwrapped.override {
-        ffmpeg = pkgs.ffmpeg_8-full;
+        ffmpeg = pkgs.ffmpeg-full;
         libplacebo = pkgs.libplacebo.overrideAttrs (
           finalAttrs: previousAttrs: {
             version = "2026-07-30";
