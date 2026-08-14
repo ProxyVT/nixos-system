@@ -28,12 +28,12 @@
     loader = {
       limine = {
         enable = true;
-        package = pkgs.release.limine-full;
+        package = (pkgs.mv.at "26.05").limine-full;
         secureBoot.enable = true;
         panicOnChecksumMismatch = true;
         efiInstallAsRemovable = true;
         additionalFiles = {
-          "efi/memtest86/memtest86.efi" = "${pkgs.release.memtest86-efi}/BOOTX64.efi";
+          "efi/memtest86/memtest86.efi" = "${(pkgs.mv.at "26.05").memtest86-efi}/BOOTX64.efi";
         };
       };
       systemd-boot = {
@@ -94,6 +94,12 @@
       inputs.nix-vscode-extensions.overlays.default
       inputs.agenix.overlays.default
       outputs.custom-packages.default
+      (final: prev: {
+        mv = inputs.multiverse.lib.mkMultiverse {
+          inherit system;
+          config.allowUnfree = true;
+        };
+      })
     ];
   };
 

@@ -3,9 +3,8 @@
 
   inputs = {
     nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
-    nixpkgs-release.url = "https://channels.nixos.org/nixos-26.05/nixexprs.tar.xz";
-    nixpkgs-edge.url = "github:nixos/nixpkgs/master";
     nixpkgs-testing.url = "github:ProxyVT/nixpkgs/testing";
+    multiverse.url = "github:fzakaria/nixpkgs-multiverse";
     impermanence.url = "github:nix-community/impermanence";
     nix-flatpak.url = "github:gmodena/nix-flatpak";
     nix-vscode-extensions = {

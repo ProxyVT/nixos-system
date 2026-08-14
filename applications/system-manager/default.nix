@@ -67,7 +67,7 @@
       # Multimedia
       audacity
       digikam
-      testing.handbrake
+      handbrake
       kdePackages.kdenlive
       mediainfo-gui
       mkvtoolnix
@@ -144,7 +144,7 @@
       system-manager
       trash-cli
       ttop
-      release.tuifimanager
+      mv.versions.tuifimanager."5.2.5"
       usbutils
       vrrtest
       witr
