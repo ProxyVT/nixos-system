@@ -59,13 +59,6 @@
       inherit (self) outputs;
       system = "x86_64-linux";
       specialArgs = { inherit inputs outputs system; };
-      pkgs = import nixpkgs {
-        inherit system;
-        config = {
-          allowUnfree = true;
-          nvidia.acceptLicense = true;
-        };
-      };
       defaultModules = [
         ./nixos
         ./applications/system-manager
@@ -89,7 +82,6 @@
     in
     {
       custom-packages = import ./applications/system-manager/overlays { inherit inputs system; };
-      packages."${system}" = pkgs;
       nixosConfigurations = {
         nixos = mkNixosConfig { hardwareFile = ./hardware/default.nix; };
         steam = mkNixosConfig { hardwareFile = ./hardware/steam.nix; };
