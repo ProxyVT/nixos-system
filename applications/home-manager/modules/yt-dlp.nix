@@ -8,7 +8,7 @@
         owner = "bashonly";
         repo = "yt-dlp";
         rev = "sabr";
-        hash = "sha256-I4ctJgjZiuzsOtdySOibGlZDJ5opg2o8ADIcfnc30Io=";
+        hash = "sha256-m39e5sb7QCMfezq11M0LwR4irPVvbXxQNNavHdALodw=";
       };
     });
     settings = {
