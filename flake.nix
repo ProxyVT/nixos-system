@@ -2,10 +2,11 @@
   description = "Personal flake configuration";
 
   inputs = {
-    nixpkgs.url = "https://channels.nixos.org/nixos-unstable-small/nixexprs.tar.xz";
     determinate.url = "https://flakehub.com/f/DeterminateSystems/nix-src/*";
+    nixpkgs.url = "https://channels.nixos.org/nixos-unstable-small/nixexprs.tar.xz";
     nixpkgs-testing.url = "github:ProxyVT/nixpkgs/testing";
     multiverse.url = "github:fzakaria/nixpkgs-multiverse";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     impermanence.url = "github:nix-community/impermanence";
     nix-flatpak.url = "github:gmodena/nix-flatpak";
     nix-vscode-extensions = {
@@ -14,10 +15,6 @@
     };
     home-manager = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    steam-deck-overlay = {
-      url = "github:Jovian-Experiments/Jovian-NixOS";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     xlibre-overlay = {
@@ -46,10 +43,10 @@
     {
       self,
       nixpkgs,
+      chaotic,
       impermanence,
       nix-flatpak,
       home-manager,
-      steam-deck-overlay,
       xlibre-overlay,
       agenix,
       ...
@@ -57,15 +54,17 @@
 
     let
       inherit (self) outputs;
+      inherit (chaotic.vendored) jovian;
       system = "x86_64-linux";
       specialArgs = { inherit inputs outputs system; };
       defaultModules = [
         ./nixos
         ./applications/system-manager
         home-manager.nixosModules.default
+        chaotic.nixosModules.default
+        jovian.nixosModules.default
         impermanence.nixosModules.default
         nix-flatpak.nixosModules.nix-flatpak
-        steam-deck-overlay.nixosModules.default
         xlibre-overlay.nixosModules.overlay-xlibre-xserver
         xlibre-overlay.nixosModules.overlay-all-xlibre-drivers
         xlibre-overlay.nixosModules.overlay-xpra
