@@ -6,10 +6,10 @@
 let
   uosc = pkgs.mpvScripts.uosc.overrideAttrs (
     finalAttrs: previousAttrs: {
-      version = "2026-08-03";
+      version = "2026-08-30";
       src = previousAttrs.src.override {
-        rev = "d124c2c930d69446448022851373e00ae592390d";
-        hash = "sha256-5fHihGI2rodEByqTRs3NasmLUBjG3VY9l/YnKDCKSt8=";
+        rev = "12b918fcbcae56ded0e073a965d769bb0c5d900e";
+        hash = "sha256-T1zHFhjU3DHd/CRQGr1XVSo2duj1rjP6JZqAFdaLaPw=";
       };
     }
   );
@@ -20,16 +20,27 @@ let
     ];
     mpv-unwrapped =
       (pkgs.mpv-unwrapped.override {
-        ffmpeg = pkgs.ffmpeg-full;
+        ffmpeg = pkgs.ffmpeg.overrideAttrs (
+          finalAttrs: previousAttrs: {
+            doCheck = false;
+            version = "2026-09-06";
+            src = pkgs.fetchFromGitHub {
+              owner = "FFmpeg";
+              repo = "FFmpeg";
+              rev = "ef533ef3a3ea063eb72edbf510d006684f260f7f";
+              hash = "sha256-QE3RNKGZhWwh7m8zgLnx8q+x1euq1YgbasRdjHoU3b8=";
+            };
+          }
+        );
         libplacebo = pkgs.libplacebo.overrideAttrs (
           finalAttrs: previousAttrs: {
-            version = "2026-08-12";
+            version = "2026-09-03";
             patches = [ ];
             src = pkgs.fetchFromGitLab {
               inherit (previousAttrs.src) owner repo;
               domain = "code.videolan.org";
-              rev = "22ee762e8e0890fc54068beb670310f0edce7263";
-              hash = "sha256-RLGEjMVhPUoBh0OmHKzO8NJTREcYkWdAKA0foX00Bos=";
+              rev = "3330a515d62139259c26239014f286e233bd3a5c";
+              hash = "sha256-PbEDfszLeS/0GAGahZsGq3cdpLHzigkxgHGlzuXggRE=";
             };
           }
         );
@@ -51,11 +62,11 @@ let
                 popd
               ''
             ];
-            version = "2026-08-13";
+            version = "2026-09-03";
             src = pkgs.fetchFromGitHub {
               inherit (previousAttrs.src) owner repo;
-              rev = "7b8915bc1d04c7e1b61184e00c7fbfaab1911e75";
-              hash = "sha256-pY32N/FoUyKIvz9GuJg21AU4CjRAKPhYatQID/1SZrM=";
+              rev = "f5bcfb195412e0ca733eac2e850879cd3b1ded18";
+              hash = "sha256-f+CuOd/SJEXCqDzF/g0rgqMB6Yd6xyUPd2F8iNJrW/o=";
             };
           }
         );
