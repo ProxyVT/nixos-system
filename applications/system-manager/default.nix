@@ -22,9 +22,8 @@
 
       # Development
       android-tools
-      cudatext-gtk
+      cudatext
       github-desktop
-      gitnuro
       lite-xl
       nodejs
       pnpm
