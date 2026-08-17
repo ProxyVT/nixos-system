@@ -16,6 +16,7 @@
       merge-output-format = "mkv";
       mtime = true;
       extractor-args = "youtube:player-client=visionos";
+      embed-chapters = true;
     };
   };
 }
