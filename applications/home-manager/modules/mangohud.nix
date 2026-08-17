@@ -2,7 +2,7 @@
 {
   programs.mangohud = {
     enable = true;
-    package = pkgs.mv.versions.mangohud."0.8.4";
+    package = pkgs.mangohud_git;
     settingsPerApplication = {
       mpv = {
         full = true;

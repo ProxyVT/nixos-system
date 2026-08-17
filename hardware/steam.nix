@@ -1,6 +1,5 @@
 { inputs, lib, pkgs, system, ... }:
 {
-  nixpkgs.overlays = [ inputs.steam-deck-overlay.overlays.default ];
   jovian = {
     devices.steamdeck = {
       enableVendorDrivers = true;
