@@ -15,15 +15,7 @@
     kernel = {
       sysctl = {
         "net.ipv4.ip_default_ttl" = 65;
-        "vm.swappiness" = 1;
-      };
-      sysfs = {
-        module = {
-          zswap.parameters = {
-            enabled = true;
-            shrinker_enabled = true;
-          };
-        };
+        "vm.swappiness" = 100;
       };
     };
     loader = {
@@ -43,6 +35,12 @@
       timeout = 20;
       efi.canTouchEfiVariables = true;
     };
+  };
+
+  zramSwap = {
+    enable = true;
+    memoryPercent = 150;
+    priority = 100;
   };
 
   # Nix configuration
