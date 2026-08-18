@@ -9,16 +9,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
-      fail-fast: false # Если один хост упадет, остальные продолжат собираться
+      fail-fast: false
       matrix:
-        # Список твоих хостов из flake.nix (кроме exampleIso)
         host: [ acer, nixos, nvidia, steam, umka ]
 
     steps:
       - uses: actions/checkout@v4
 
-      # Критически важный шаг для Nix! Удаляет ненужный софт (Android SDK, .NET, Haskell)
-      # с серверов GitHub, освобождая до 30-40 ГБ места для твоего /nix/store.
       - name: Free Disk Space (Ubuntu)
         uses: jlumbroso/free-disk-space@main
         with:
@@ -32,7 +29,7 @@ jobs:
 
       - uses: cachix/install-nix-action@v25
         with:
-          nix_path: nixpkgs=channel:nixos-unstable
+          nix_path: nixpkgs=channel:nixos-unstable-small
 
       - uses: cachix/cachix-action@v14
         with:
