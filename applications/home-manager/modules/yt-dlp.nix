@@ -2,15 +2,7 @@
 {
   programs.yt-dlp = {
     enable = true;
-    package = pkgs.testing.yt-dlp.overrideAttrs (old: {
-      version = "sabr";
-      src = pkgs.fetchFromGitHub {
-        owner = "bashonly";
-        repo = "yt-dlp";
-        rev = "sabr";
-        hash = "sha256-m39e5sb7QCMfezq11M0LwR4irPVvbXxQNNavHdALodw=";
-      };
-    });
+    package = pkgs.yt-dlp_git;
     settings = {
       downloader = "aria2c";
       merge-output-format = "mkv";
