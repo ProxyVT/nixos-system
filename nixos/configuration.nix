@@ -155,6 +155,7 @@
       autoStart = true;
       openFirewall = true;
     };
+    swapspace.enable = true;
   };
 
   # Global hardware configuration
