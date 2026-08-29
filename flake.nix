@@ -60,7 +60,6 @@
         };
     in
     {
-      custom-packages = import ./applications/system-manager/overlays { inherit inputs system; };
       nixosConfigurations = {
         acer = mkNixosConfig { hardwareFile = ./hardware/acer.nix; };
         nixos = mkNixosConfig { hardwareFile = ./hardware/default.nix; };
