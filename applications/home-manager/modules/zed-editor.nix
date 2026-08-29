@@ -3,6 +3,7 @@
   programs.zed-editor = {
     enable = true;
     package = pkgs.zed-editor_git;
+    defaultEditor = true;
     extensions = [
       "git-firefly"
       "html"
