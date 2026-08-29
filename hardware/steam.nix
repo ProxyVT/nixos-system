@@ -20,6 +20,5 @@
     enable = true;
     package = inputs.picom.packages.${system}.default;
     backend = "egl";
-    vSync = true;
   };
 }
