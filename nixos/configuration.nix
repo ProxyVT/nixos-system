@@ -1,6 +1,5 @@
 {
   inputs,
-  outputs,
   pkgs,
   lib,
   system,
@@ -91,12 +90,13 @@
     overlays = [
       inputs.nix-vscode-extensions.overlays.default
       inputs.agenix.overlays.default
-      outputs.custom-packages.default
       (final: prev: {
         mv = inputs.multiverse.lib.mkMultiverse {
           inherit system;
           config.allowUnfree = true;
         };
+        multios-usb = inputs.multios-usb.packages.${system}.default;
+        testing = inputs.nixpkgs-testing.legacyPackages.${system};
       })
     ];
   };
