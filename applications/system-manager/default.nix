@@ -50,6 +50,8 @@
       motrix-next
       telegram-desktop
       testing.ariang
+      testing.ariang-native
+      testing.patrins-cli
       tor
       you-get
 
@@ -74,7 +76,7 @@
       pear-desktop
       qimgv
       qmplay2
-      subtitleedit
+      mv.versions.subtitleedit."4.0.16"
       upscayl-ncnn
       upscayl
 
@@ -143,7 +145,7 @@
       system-manager
       trash-cli
       ttop
-      mv.versions.tuifimanager."5.2.5"
+      (mv.at "2026-07-08-0bb7ec54c848").tuifimanager
       usbutils
       vrrtest
       witr
@@ -228,6 +230,10 @@
     system-config-printer.enable = true;
     thunar.enable = true;
     firejail.enable = true;
+    obs-studio = {
+      enable = true;
+      enableVirtualCamera = true;
+    };
   };
 
   xdg = {
