@@ -2,30 +2,16 @@
   description = "Personal flake configuration";
 
   inputs = {
-    agenix.url = "github:ryantm/agenix";
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-    determinate.url = "https://flakehub.com/f/DeterminateSystems/nix-src/*";
-    home-manager.url = "github:nix-community/home-manager";
-    impermanence.url = "github:nix-community/impermanence";
     multios-usb.url = "github:Mexit/MultiOS-USB";
-    multiverse.url = "github:fzakaria/nixpkgs-multiverse";
-    nh.url = "github:nix-community/nh";
-    nix-flatpak.url = "github:gmodena/nix-flatpak";
-    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     nixpkgs-testing.url = "github:ProxyVT/nixpkgs/testing";
-    nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
     picom.url = "github:yshui/picom";
     xlibre-overlay.url = "git+https://codeberg.org/takagemacoed/xlibre-overlay?ref=dev-26.11";
+    omniflake.url = "github:fzakaria/omniflake";
   };
 
   outputs =
     {
-      agenix,
-      chaotic,
-      home-manager,
-      impermanence,
-      nix-flatpak,
-      nixpkgs,
+      omniflake,
       self,
       xlibre-overlay,
       ...
@@ -33,18 +19,25 @@
 
     let
       inherit (self) outputs;
-      inherit (chaotic.vendored) jovian;
+      inherit (omni.unified.nyx.vendored) jovian;
+      nixpkgs = omni.unified.nixpkgs;
       system = "x86_64-linux";
-      specialArgs = { inherit inputs outputs system; };
+      omni = {
+        flaked = omniflake.flakes;
+        pinned = omniflake.pinned;
+        unified = omniflake.unified;
+      };
+      specialArgs = { inherit inputs outputs system omni; };
       defaultModules = [
         ./nixos
         ./applications/system-manager
-        agenix.nixosModules.default
-        chaotic.nixosModules.default
-        home-manager.nixosModules.default
-        impermanence.nixosModules.default
+        omni.pinned.determinate.nixosModules.default
+        omni.pinned.nyx.nixosModules.default
+        omni.unified.agenix.nixosModules.default
+        omni.unified.home-manager.nixosModules.default
+        omni.unified.impermanence.nixosModules.default
+        omni.unified.nix-flatpak.nixosModules.nix-flatpak
         jovian.nixosModules.default
-        nix-flatpak.nixosModules.nix-flatpak
         xlibre-overlay.nixosModules.overlay-all-xlibre-drivers
         xlibre-overlay.nixosModules.overlay-xlibre-xserver
         xlibre-overlay.nixosModules.overlay-xpra

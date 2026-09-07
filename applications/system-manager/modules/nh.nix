@@ -1,8 +1,8 @@
-{ inputs, pkgs, ... }:
+{ omni, system, ... }:
 {
   programs.nh = {
     enable = true;
-    package = inputs.nh.packages.${pkgs.stdenv.hostPlatform.system}.default;
+    package = omni.unified.nh.packages.${system}.default;
     flake = "/home/ulad/nixos-system";
   };
 

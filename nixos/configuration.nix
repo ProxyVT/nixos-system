@@ -4,6 +4,7 @@
   lib,
   system,
   config,
+  omni,
   ...
 }:
 
@@ -43,7 +44,6 @@
 
   # Nix configuration
   nix = {
-    package = inputs.determinate.packages.${pkgs.stdenv.hostPlatform.system}.default;
     channel.enable = false;
     distributedBuilds = false;
     buildMachines = [
@@ -102,10 +102,11 @@
       nvidia.acceptLicense = true;
     };
     overlays = [
-      inputs.nix-vscode-extensions.overlays.default
-      inputs.agenix.overlays.default
+      omni.unified.nix-output-monitor.overlays.default
+      omni.unified.nix-vscode-extensions.overlays.default
+      omni.unified.agenix.overlays.default
       (final: prev: {
-        mv = inputs.multiverse.lib.mkMultiverse {
+        mv = omni.unified.nixpkgs-multiverse.lib.mkMultiverse {
           inherit system;
           config.allowUnfree = true;
         };
@@ -204,6 +205,7 @@
   };
 
   home-manager = {
+    extraSpecialArgs = { inherit omni system; };
     useGlobalPkgs = true;
     useUserPackages = true;
     backupFileExtension = lib.mkForce ".backup";
