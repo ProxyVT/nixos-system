@@ -2,6 +2,7 @@
   inputs,
   pkgs,
   lib,
+  system,
   config,
   ...
 }:
@@ -47,8 +48,8 @@
     distributedBuilds = false;
     buildMachines = [
       {
+        inherit system;
         hostName = "eu.nixbuild.net";
-        system = "x86_64-linux";
         maxJobs = 100;
         supportedFeatures = [
           "benchmark"
@@ -60,8 +61,8 @@
       auto-allocate-uids = true;
       builders-use-substitutes = true;
       eval-cores = 0;
+      lazy-trees = true;
       lazy-locks = true;
-      max-substitution-jobs = 8;
       substituters = [
         "https://nixos-cache-proxy.cofob.dev"
         "https://proxyvt.cachix.org"
@@ -73,13 +74,23 @@
       trusted-users = [ "@wheel" ];
       use-cgroups = true;
       warn-dirty = false;
+      http3 = true;
+      http-connections = 16;
       experimental-features = [
+        "flakes"
         "auto-allocate-uids"
         "cgroups"
         "parallel-eval"
       ];
     };
   };
+  environment.etc."determinate/config.json".text = ''
+    {
+      "garbageCollector": {
+        "strategy": "disabled"
+      }
+    }
+  '';
 
   nixpkgs = {
     config = {
