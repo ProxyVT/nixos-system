@@ -2,7 +2,7 @@
 {
   services = {
     howdy = {
-      enable = true;
+      enable = false;
       control = "optional";
     };
     linux-enable-ir-emitter.enable = true;
