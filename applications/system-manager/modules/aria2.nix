@@ -13,24 +13,26 @@
       force-save = true;
       continue = true;
       pause-metadata = true;
-      auto-save-interval = 10;
       save-session-interval = 10;
       allow-overwrite = true;
+      no-file-allocation-limit = "64M";
       bt-enable-lpd = true;
-      bt-save-metadata = true;
-      bt-load-saved-metadata = true;
-      bt-remove-unselected-file = true;
-      bt-detach-seed-only = true;
-      bt-max-peers = 0;
-      conditional-get = true;
+      bt-max-peers = 128;
       disable-ipv6 = true;
-      dht-listen-port = "50000-50100";
       seed-ratio = 0;
       follow-torrent = "mem";
-      split = 25;
-      max-connections-per-server = 25;
       max-concurrent-downloads = 50;
       optimize-concurrent-downloads = true;
+      http-accept-gzip = true;
+      remote-time = true;
+      file-allocation = "none";
+      bt-first-last-piece-first = true;
+      bt-port-mapping = true;
+      state-save-interval = 10;
+      detach-share-only = true;
+      listen-port = [
+        { from = 6900; to = 6900; }
+      ];
     };
   };
 
