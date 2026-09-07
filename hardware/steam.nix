@@ -20,5 +20,10 @@
     enable = true;
     package = inputs.picom.packages.${system}.default;
     backend = "egl";
+    vSync = true;
+    settings = {
+      use-ewmh-active-win = true;
+      unredir-if-possible = true;
+    };
   };
 }
