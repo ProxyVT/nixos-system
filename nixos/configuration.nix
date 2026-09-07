@@ -2,6 +2,7 @@
   inputs,
   pkgs,
   lib,
+  system,
   config,
   ...
 }:
@@ -47,8 +48,8 @@
     distributedBuilds = false;
     buildMachines = [
       {
+        inherit system;
         hostName = "eu.nixbuild.net";
-        system = "x86_64-linux";
         maxJobs = 100;
         supportedFeatures = [
           "benchmark"
@@ -60,19 +61,33 @@
       auto-allocate-uids = true;
       builders-use-substitutes = true;
       eval-cores = 0;
+      lazy-trees = true;
       lazy-locks = true;
-      max-substitution-jobs = 8;
       substituters = [
+        "https://cache.flakehub.com"
+        "https://install.determinate.systems"
         "https://nixos-cache-proxy.cofob.dev"
         "https://proxyvt.cachix.org"
       ];
       trusted-public-keys = [
+        "cache.flakehub.com-10:2GqeNlIp6AKp4EF2MVbE1kBOp9iBSyo0UPR9KoR0o1Y="
+        "cache.flakehub.com-3:hJuILl5sVK4iKm86JzgdXW12Y2Hwd5G07qKtHTOcDCM="
+        "cache.flakehub.com-4:Asi8qIv291s0aYLyH6IOnr5Kf6+OF14WVjkE6t3xMio="
+        "cache.flakehub.com-5:zB96CRlL7tiPtzA9/WKyPkp3A2vqxqgdgyTVNGShPDU="
+        "cache.flakehub.com-6:W4EGFwAGgBj3he7c5fNh9NkOXw0PUVaxygCVKeuvaqU="
+        "cache.flakehub.com-7:mvxJ2DZVHn/kRxlIaxYNMuDG1OvMckZu32um1TadOR8="
+        "cache.flakehub.com-8:moO+OVS0mnTjBTcOUh2kYLQEd59ExzyoW1QgQ8XAARQ="
+        "cache.flakehub.com-9:wChaSeTI6TeCuV/Sg2513ZIM9i0qJaYsF+lZCXg0J6o="
+        "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+        "nyx-cache.chaotic.cx:dJxTrgMC3V3cFfyIiBQDQorG6k1LsqurH/srpMSq7qk="
         "proxyvt.cachix.org-1:5OgxjpTkZKxSyu/4dJXa10DENZ+s/3K1unAQbCsG2qQ="
       ];
       tarball-ttl = 0;
       trusted-users = [ "@wheel" ];
       use-cgroups = true;
       warn-dirty = false;
+      http3 = true;
+      http-connections = 16;
       experimental-features = [
         "auto-allocate-uids"
         "cgroups"
