@@ -246,6 +246,9 @@
     };
   };
 
+
+  systemd.enableStrictShellChecks = true;
+
   system = {
     stateVersion = "25.11";
   };
