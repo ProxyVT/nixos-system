@@ -2,12 +2,12 @@
 let
   syncthing-git = pkgs.syncthing.overrideAttrs (
     finalAttrs: previousAttrs: {
-      version = "2.1.3";
+      version = "2.1.5";
       src = previousAttrs.src.override {
         tag = "v${finalAttrs.version}";
-        hash = "sha256-uTjmOAjis2eBm2SnZbyvDDiQXKN8De+DhjNHbFLLbn0=";
+        hash = "sha256-8rrOfX6C96YEbvUh1IZP1V8x4RB99O0mC+y5h8579Vo=";
       };
-      vendorHash = "sha256-ueUf9YEa5z7mG6MofIJ3Xco+PxVPi/85Rdi+1aean6c=";
+      vendorHash = "sha256-YXzTGtALTC9HQTAeZtweS+GONdgyqrHOJdLZt0QhnJM=";
       buildPhase =
         builtins.replaceStrings [ "v${previousAttrs.version}" ] [ "v${finalAttrs.version}" ]
           previousAttrs.buildPhase;
@@ -22,6 +22,12 @@ in
     overrideFolders = false;
     settings.options = {
       urAccepted = 3;
+      copiers = 4;
+      connectionPriorityOrder = [
+        "quic"
+        "tcp"
+        "relay"
+      ];
     };
   };
 
