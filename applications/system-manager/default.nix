@@ -5,7 +5,7 @@
 }:
 {
 
-  imports = (lib.filesystem.listFilesRecursive ./modules);
+  imports = [ ./modules/default.nix ];
 
   fonts.packages = with pkgs; [
     ibm-plex

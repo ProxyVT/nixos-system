@@ -1,6 +1,6 @@
 { lib, pkgs, ... }:
 {
-  imports = (lib.filesystem.listFilesRecursive ./modules);
+  imports = [ ./modules/default.nix ];
 
   services = {
     easyeffects.enable = true;
