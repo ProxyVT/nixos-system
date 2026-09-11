@@ -49,7 +49,6 @@
       kdePackages.ktorrent
       motrix-next
       telegram-desktop
-      testing.ariang
       testing.ariang-native
       testing.patrins-cli
       tor
@@ -145,7 +144,7 @@
       system-manager
       trash-cli
       ttop
-      (mv.at "2026-07-08-0bb7ec54c848").tuifimanager
+      (mv.at "26.05").tuifimanager
       usbutils
       vrrtest
       witr
@@ -198,6 +197,7 @@
       polkit
       python3
       rar
+      (mv.at "26.05").stilo-themes
       unixtools.quota
       vulkan-tools
       wayland-utils
