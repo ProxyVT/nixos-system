@@ -23,12 +23,12 @@ let
         ffmpeg = pkgs.ffmpeg.overrideAttrs (
           finalAttrs: previousAttrs: {
             doCheck = false;
-            version = "2026-09-06";
+            version = "2026-09-11";
             src = pkgs.fetchFromGitHub {
               owner = "FFmpeg";
               repo = "FFmpeg";
-              rev = "ef533ef3a3ea063eb72edbf510d006684f260f7f";
-              hash = "sha256-QE3RNKGZhWwh7m8zgLnx8q+x1euq1YgbasRdjHoU3b8=";
+              rev = "5b614efc7e6134274fa5d05e240736be2dc203cc";
+              hash = "sha256-nooegNH2qgT3y8ATga5bvkldKE71Qyw4FoBM8ZgguqQ=";
             };
           }
         );
@@ -62,11 +62,11 @@ let
                 popd
               ''
             ];
-            version = "2026-09-03";
+            version = "2026-09-11";
             src = pkgs.fetchFromGitHub {
               inherit (previousAttrs.src) owner repo;
-              rev = "f5bcfb195412e0ca733eac2e850879cd3b1ded18";
-              hash = "sha256-f+CuOd/SJEXCqDzF/g0rgqMB6Yd6xyUPd2F8iNJrW/o=";
+              rev = "14f2d48cbc7dda61adb4bd181e107a1f3f76e533";
+              hash = "sha256-3pKNN+cyM7ut22y22FcEhiE+GBoYH5zEhu1duygqsF8=";
             };
           }
         );
