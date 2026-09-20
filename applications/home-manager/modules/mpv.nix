@@ -20,27 +20,15 @@ let
     ];
     mpv-unwrapped =
       (pkgs.mpv-unwrapped.override {
-        ffmpeg = pkgs.ffmpeg.overrideAttrs (
-          finalAttrs: previousAttrs: {
-            doCheck = false;
-            version = "2026-09-11";
-            src = pkgs.fetchFromGitHub {
-              owner = "FFmpeg";
-              repo = "FFmpeg";
-              rev = "5b614efc7e6134274fa5d05e240736be2dc203cc";
-              hash = "sha256-nooegNH2qgT3y8ATga5bvkldKE71Qyw4FoBM8ZgguqQ=";
-            };
-          }
-        );
         libplacebo = pkgs.libplacebo.overrideAttrs (
           finalAttrs: previousAttrs: {
-            version = "2026-09-03";
+            version = "2026-09-18";
             patches = [ ];
             src = pkgs.fetchFromGitLab {
               inherit (previousAttrs.src) owner repo;
               domain = "code.videolan.org";
-              rev = "3330a515d62139259c26239014f286e233bd3a5c";
-              hash = "sha256-PbEDfszLeS/0GAGahZsGq3cdpLHzigkxgHGlzuXggRE=";
+              rev = "e2972fdd09adacd383656738d7d280f0cd84a761";
+              hash = "sha256-7xGBjcYXW4Ucl/W9RTcpe3n5F1CAqMmyGcVrWqoT9ew=";
             };
           }
         );
@@ -62,11 +50,11 @@ let
                 popd
               ''
             ];
-            version = "2026-09-11";
+            version = "2026-09-14";
             src = pkgs.fetchFromGitHub {
               inherit (previousAttrs.src) owner repo;
-              rev = "14f2d48cbc7dda61adb4bd181e107a1f3f76e533";
-              hash = "sha256-3pKNN+cyM7ut22y22FcEhiE+GBoYH5zEhu1duygqsF8=";
+              rev = "0b7ed670f7c353dd3dd4f8ae0fc788a181a15aa6";
+              hash = "sha256-vIV6a17fCTjwgo6ObIUC3fGeWZUAOjFjb0P8F9whbgY=";
             };
           }
         );
