@@ -1,6 +1,5 @@
 {
   pkgs,
-  lib,
   ...
 }:
 {
@@ -75,7 +74,7 @@
       pear-desktop
       qimgv
       qmplay2
-      mv.versions.subtitleedit."4.0.16"
+      mv.latest.subtitleedit
       upscayl-ncnn
       upscayl
 
@@ -109,7 +108,7 @@
       fio
       gh
       glow
-      grok-cli
+      mv.latest.grok-cli
       hdparm
       hydra-check
       inxi
@@ -144,7 +143,7 @@
       system-manager
       trash-cli
       ttop
-      (mv.at "26.05").tuifimanager
+      tuifimanager
       usbutils
       vrrtest
       witr
@@ -197,7 +196,7 @@
       polkit
       python3
       rar
-      (mv.at "26.05").stilo-themes
+      mv.latest.stilo-themes
       unixtools.quota
       vulkan-tools
       wayland-utils
