@@ -1,5 +1,7 @@
 {
   pkgs,
+  extraPkgs,
+  config,
   ...
 }:
 {
@@ -30,7 +32,7 @@
       windterm
       wineWow64Packages.unstableFull
       tilix
-      multios-usb
+      extraPkgs.multios-usb
 
       # Graphics
       blanket
@@ -48,8 +50,8 @@
       kdePackages.ktorrent
       motrix-next
       telegram-desktop
-      testing.ariang-native
-      testing.patrins-cli
+      extraPkgs.testing.ariang-native
+      extraPkgs.testing.patrins-cli
       tor
       you-get
 
@@ -90,7 +92,7 @@
 
       # CLI
       appimage-run
-      agenix
+      extraPkgs.agenix
       autorestic
       bastet
       bcachefs-tools

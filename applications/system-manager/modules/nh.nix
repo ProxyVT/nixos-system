@@ -1,8 +1,8 @@
-{ omni, system, ... }:
+{ extraPkgs, ... }:
 {
   programs.nh = {
     enable = true;
-    package = omni.unified.nh.packages.${system}.default;
+    package = extraPkgs.nh;
     flake = "/home/ulad/nixos-system";
   };
 

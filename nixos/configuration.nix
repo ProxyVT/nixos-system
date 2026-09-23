@@ -1,10 +1,10 @@
 {
-  inputs,
   pkgs,
   lib,
+  extraPkgs,
+  overlaysList,
   system,
   config,
-  omni,
   ...
 }:
 
@@ -101,17 +101,9 @@
       allowUnfree = true;
       nvidia.acceptLicense = true;
     };
-    overlays = [
-      omni.unified.nix-output-monitor.overlays.default
-      omni.unified.nix-vscode-extensions.overlays.default
-      omni.unified.agenix.overlays.default
-      (final: prev: {
-        mv = omni.unified.nixpkgs-multiverse.lib.mkMultiverse {
-          inherit system;
-          config.allowUnfree = true;
-        };
-        multios-usb = inputs.multios-usb.packages.${system}.default;
-        testing = inputs.nixpkgs-testing.legacyPackages.${system};
+    overlays = overlaysList ++ [
+      (_: _:{
+        nix = extraPkgs.nix;
       })
     ];
   };
@@ -205,7 +197,7 @@
   };
 
   home-manager = {
-    extraSpecialArgs = { inherit omni system; };
+    extraSpecialArgs = { inherit extraPkgs; };
     useGlobalPkgs = true;
     useUserPackages = true;
     backupFileExtension = lib.mkForce ".backup";

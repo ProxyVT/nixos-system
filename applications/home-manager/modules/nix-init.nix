@@ -1,8 +1,8 @@
-{ omni, system, ... }:
+{ extraPkgs, ... }:
 {
   programs.nix-init = {
     enable = true;
-    package = omni.unified.nix-init.packages.${system}.default;
+    package = extraPkgs.nix-init;
     settings = {
       maintainers = [ "ProxyVT" ];
     };

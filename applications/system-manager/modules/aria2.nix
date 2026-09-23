@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ extraPkgs, ... }:
 {
   services.aria2 = {
     enable = true;
@@ -47,7 +47,7 @@
 
   nixpkgs.overlays = [
     (final: prev: {
-      aria2 = pkgs.testing.aria2-next.overrideAttrs (prev: {
+      aria2 = extraPkgs.testing.aria2-next.overrideAttrs (prev: {
         postFixup = ''
           ln -s aria2-next $out/bin/aria2c
         '';

@@ -31,8 +31,18 @@
       inherit (self) outputs;
       nixpkgs = omniflake.unified.nixpkgs;
       system = "x86_64-linux";
+      specialArgs = { inherit inputs outputs system extraPkgs overlaysList; };
+      extraPkgs = {
+        agenix = omniflake.unified.agenix.packages.${system}.default;
+        multios-usb = inputs.multios-usb.packages.${system}.default;
+        nh = omniflake.unified.nh.packages.${system}.default;
+        nix = inputs.determinate.packages.${system}.default;
+        nix-init = omniflake.unified.nix-init.packages.${system}.default;
+        testing = inputs.nixpkgs-testing.legacyPackages.${system};
       };
-      specialArgs = { inherit inputs outputs system omni; };
+      overlaysList = [
+        omniflake.unified.nix-vscode-extensions.overlays.default
+      ];
       defaultModules = [
         ./nixos
         ./applications/system-manager
