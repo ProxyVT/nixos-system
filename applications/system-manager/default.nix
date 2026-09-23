@@ -76,7 +76,7 @@
       pear-desktop
       qimgv
       qmplay2
-      mv.latest.subtitleedit
+      (config.multiverse.instance.fast.latest).subtitleedit
       upscayl-ncnn
       upscayl
 
@@ -110,7 +110,7 @@
       fio
       gh
       glow
-      mv.latest.grok-cli
+      (config.multiverse.instance.fast.latest).grok-cli
       hdparm
       hydra-check
       inxi
@@ -198,7 +198,7 @@
       polkit
       python3
       rar
-      mv.latest.stilo-themes
+      (config.multiverse.instance.fast.latest).stilo-themes
       unixtools.quota
       vulkan-tools
       wayland-utils

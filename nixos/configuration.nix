@@ -1,10 +1,10 @@
 {
+  config,
   pkgs,
   lib,
   extraPkgs,
   overlaysList,
   system,
-  config,
   ...
 }:
 
@@ -21,12 +21,12 @@
     loader = {
       limine = {
         enable = true;
-        package = (pkgs.mv.at "26.05").limine-full;
+        package = (config.multiverse.instance.at "26.05").limine-full;
         secureBoot.enable = true;
         panicOnChecksumMismatch = true;
         efiInstallAsRemovable = true;
         additionalFiles = {
-          "efi/memtest86/memtest86.efi" = "${(pkgs.mv.at "26.05").memtest86-efi}/BOOTX64.efi";
+          "efi/memtest86/memtest86.efi" = "${(config.multiverse.instance.at "26.05").memtest86-efi}/BOOTX64.efi";
         };
       };
       systemd-boot = {
@@ -247,6 +247,11 @@
 
 
   systemd.enableStrictShellChecks = true;
+
+  multiverse = {
+    enable = true;
+    config.allowUnfree = true;
+  };
 
   system = {
     stateVersion = "25.11";
