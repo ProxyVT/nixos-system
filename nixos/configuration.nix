@@ -259,6 +259,10 @@
     };
   };
 
+  qt = {
+    enable = true;
+    platformTheme = "kde";
+  };
 
   systemd.enableStrictShellChecks = true;
 
