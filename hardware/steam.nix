@@ -13,7 +13,6 @@
       enableHdmiCecIntegration = true;
       enableDefaultCmdlineConfig = true;
     };
-    hardware.has.amd.gpu = true;
   };
   boot.kernelPackages = lib.mkForce pkgs.linuxPackages_jovian;
   services.picom = {
