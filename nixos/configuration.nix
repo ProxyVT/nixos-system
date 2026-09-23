@@ -114,7 +114,21 @@
     networkmanager = {
       enable = true;
       dns = "systemd-resolved";
-      wifi.powersave = false;
+      wifi = {
+        backend = "iwd";
+        powersave = false;
+      };
+    };
+    wireless.iwd = {
+      settings = {
+        Network = {
+          EnableIPv6 = true;
+          RoutePriorityOffset = 300;
+        };
+        Settings = {
+          AutoConnect = true;
+        };
+      };
     };
   };
 
