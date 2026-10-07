@@ -110,7 +110,7 @@
       fio
       gh
       glow
-      (config.multiverse.instance.fast.latest).grok-cli
+      grok-cli
       hdparm
       hydra-check
       inxi
@@ -141,7 +141,7 @@
       sdparm
       sg3_utils
       smartmontools
-      superfile
+      extraPkgs.testing.superfile
       system-manager
       trash-cli
       ttop
@@ -152,10 +152,12 @@
       xsensors
 
       # System apps
+      extraPkgs.audiocpp
       darkman
       freefilesync
       grsync
       gsmartcontrol
+      hardinfo2
       krusader
       lshw-gui
       mission-center
@@ -228,6 +230,7 @@
     nix-ld.enable = true;
     npm.enable = true;
     openvpn3.enable = true;
+    openvpn3.package = (config.multiverse.instance.fast.latest).openvpn3;
     partition-manager.enable = true;
     system-config-printer.enable = true;
     thunar.enable = true;
