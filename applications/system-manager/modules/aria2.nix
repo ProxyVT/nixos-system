@@ -31,7 +31,7 @@
       state-save-interval = 10;
       detach-share-only = true;
       listen-port = [
-        { from = 6900; to = 6900; }
+        { from = 22222; to = 22222; }
       ];
     };
   };
