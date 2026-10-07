@@ -4,7 +4,7 @@
     enable = true;
     package = pkgs.yt-dlp_git;
     settings = {
-      downloader = "/home/ulad/.local/state/aria2-next/aria2c-wrapper";
+      downloader = "aria2c";
       merge-output-format = "mkv";
       mtime = true;
       extractor-args = "youtube:player-client=visionos";
