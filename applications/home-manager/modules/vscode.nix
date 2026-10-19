@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   programs.kiro = {
-    enable = false;
+    enable = true;
     profiles.default = {
       userSettings = {
         "kiroAgent.enableTabAutocomplete" = true;
