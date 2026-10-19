@@ -6,10 +6,10 @@
 let
   uosc = pkgs.mpvScripts.uosc.overrideAttrs (
     finalAttrs: previousAttrs: {
-      version = "2026-08-30";
+      version = "2026-10-16";
       src = previousAttrs.src.override {
-        rev = "12b918fcbcae56ded0e073a965d769bb0c5d900e";
-        hash = "sha256-T1zHFhjU3DHd/CRQGr1XVSo2duj1rjP6JZqAFdaLaPw=";
+        rev = "074b0869c7d758306d7b29d13f59801b73caaee2";
+        hash = "sha256-ev4nlccqre/dzw6BZ4l6qtSLrBqFdXWAvYsH7bOBb4s=";
       };
     }
   );
@@ -22,13 +22,13 @@ let
       (pkgs.mpv-unwrapped.override {
         libplacebo = pkgs.libplacebo.overrideAttrs (
           finalAttrs: previousAttrs: {
-            version = "2026-09-18";
+            version = "2026-10-18";
             patches = [ ];
             src = pkgs.fetchFromGitLab {
               inherit (previousAttrs.src) owner repo;
               domain = "code.videolan.org";
-              rev = "e2972fdd09adacd383656738d7d280f0cd84a761";
-              hash = "sha256-7xGBjcYXW4Ucl/W9RTcpe3n5F1CAqMmyGcVrWqoT9ew=";
+              rev = "ccb74c6c13b1676e3af368cbe9281bfe649c17c6";
+              hash = "sha256-+6kS4lOXpQsj98zAKdwVYFLwGExEo2uVxohrryfgSX4=";
             };
           }
         );
@@ -50,11 +50,11 @@ let
                 popd
               ''
             ];
-            version = "2026-09-14";
+            version = "2026-10-18";
             src = pkgs.fetchFromGitHub {
               inherit (previousAttrs.src) owner repo;
-              rev = "0b7ed670f7c353dd3dd4f8ae0fc788a181a15aa6";
-              hash = "sha256-vIV6a17fCTjwgo6ObIUC3fGeWZUAOjFjb0P8F9whbgY=";
+              rev = "6a262d11f63733d37e3ee6d5fafcb1be1ef83952";
+              hash = "sha256-XM4W+aPxKe7gt7wSm9hL3UxWD071X9nbuvIjXFVjEq4=";
             };
           }
         );
