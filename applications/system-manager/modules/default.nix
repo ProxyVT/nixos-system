@@ -10,6 +10,8 @@
     ./mullvad-vpn.nix
     ./n8n.nix
     ./nh.nix
+    ./obs-studio.nix
+    ./opentelemetry-collector.nix
     ./scx.nix
     ./ssh.nix
     ./steam.nix
