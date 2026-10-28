@@ -15,7 +15,7 @@
     kernel = {
       sysctl = {
         "net.ipv4.ip_default_ttl" = 65;
-        "vm.swappiness" = 50;
+        "vm.swappiness" = 100;
       };
     };
     loader = {
@@ -40,6 +40,7 @@
   zramSwap = {
     enable = true;
     memoryPercent = 100;
+    priority = 10;
   };
 
   # Nix configuration
