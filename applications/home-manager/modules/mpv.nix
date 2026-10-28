@@ -22,13 +22,11 @@ let
       (pkgs.mpv-unwrapped.override {
         libplacebo = pkgs.libplacebo.overrideAttrs (
           finalAttrs: previousAttrs: {
-            version = "2026-10-18";
-            patches = [ ];
+            version = "7.387.0";
             src = pkgs.fetchFromGitLab {
-              inherit (previousAttrs.src) owner repo;
+              inherit (previousAttrs.src) owner repo tag;
               domain = "code.videolan.org";
-              rev = "ccb74c6c13b1676e3af368cbe9281bfe649c17c6";
-              hash = "sha256-+6kS4lOXpQsj98zAKdwVYFLwGExEo2uVxohrryfgSX4=";
+              hash = "sha256-PYi21y7uAZUsbn9nqn4ZP8QB9iQ9pRvnIKdOtG0WeIw=";
             };
           }
         );
