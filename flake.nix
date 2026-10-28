@@ -49,8 +49,7 @@
         omniflake.pinned.nyx.nixosModules.default
         omniflake.unified.agenix.nixosModules.default
         omniflake.unified.home-manager.nixosModules.default
-        omniflake.unified.impermanence.nixosModules.default
-        omniflake.unified.jovian-nixos.nixosModules.default
+        omniflake.unified.nix-blip-net.nixosModules.default
         omniflake.unified.nix-flatpak.nixosModules.nix-flatpak
         omniflake.unified.nixpkgs-multiverse.nixosModules.default
         xlibre-overlay.nixosModules.overlay-all-xlibre-drivers

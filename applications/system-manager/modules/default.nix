@@ -2,6 +2,7 @@
 {
   imports = [
     ./aria2.nix
+    ./blip.nix
     ./flatpak.nix
     ./git.nix
     ./gnupg.agent.nix
